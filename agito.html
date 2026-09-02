@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Agito Enterprise InsurTech Modernization — Murat Çetin</title>
+  <meta name="description" content="Staff case study on leading the enterprise platform modernization across 14+ products at Agito: replacing 5 years of agency failure with an Ant Design v5 Control System governing a 68-screen foundation."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --fg: #111111;
+      --muted: #55555E;
+      --dim: #767682;
+      --faint: #A6A6B2;
+      --border: #E8E8ED;
+      --hairline: rgba(0, 0, 0, 0.06);
+      --accent: #5D2BC7;
+      --accent-hover: #7E50D4;
+      --accent-tint: rgba(93, 43, 199, 0.08);
+      --media-bg: #F4F4F6;
+      --diagram-bg: #0C0C0E;
+      --diagram-fg: #F4F4F6;
+      
+      --ease-lux: cubic-bezier(0.19, 1, 0.22, 1);
+      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0E;
+        --fg: #F4F4F6;
+        --muted: #9E9EAA;
+        --dim: #71717E;
+        --faint: #44444D;
+        --border: #1E1E24;
+        --hairline: rgba(255, 255, 255, 0.06);
+        --accent: #8E65F1;
+        --accent-hover: #A982F0;
+        --accent-tint: rgba(142, 101, 241, 0.14);
+        --media-bg: #141418;
+        --diagram-bg: #050507;
+        --diagram-fg: #F4F4F6;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; background: var(--bg); color: var(--fg); scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.65;
+      letter-spacing: -0.012em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* PERSISTENT STICKY TOP HEADER */
+    .sticky-top-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      width: 100%;
+      transition: background 0.2s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .sticky-top-header { background: rgba(12, 12, 14, 0.88); }
+    }
+
+    .sticky-nav-inner {
+      max-width: 896px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .sticky-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--fg);
+      font-size: 13.5px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .home-avatar-sm {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+
+    .sticky-chapter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--media-bg);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-family: var(--font-mono);
+      color: var(--fg);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s ease, border-color 0.15s ease;
+      max-width: 380px;
+    }
+
+    .sticky-chapter-pill:hover {
+      border-color: var(--accent);
+      background: var(--accent-tint);
+    }
+
+    .pill-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .pill-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 500;
+    }
+
+    .pill-caret {
+      font-size: 10px;
+      color: var(--dim);
+    }
+
+    .sticky-nav-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .sticky-all-link {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+    .sticky-all-link:hover { color: var(--accent); }
+
+    /* CHAPTER DROPDOWN MENU */
+    .chapter-menu-overlay {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 99;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .chapter-menu-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .chapter-menu-card {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 500px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      padding: 12px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .chapter-menu-header {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 12px 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 6px;
+    }
+
+    .chapter-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--fg);
+      font-size: 13.5px;
+      transition: background 0.12s ease;
+    }
+    .chapter-menu-item:hover {
+      background: var(--media-bg);
+      color: var(--accent);
+    }
+    .chapter-menu-num {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--dim);
+      width: 24px;
+    }
+
+    /* DESKTOP FLOATING LEFT SIDEBAR */
+    .article-sidebar {
+      display: none;
+    }
+
+    @media (min-width: 1340px) {
+      .article-sidebar {
+        display: block;
+        position: fixed;
+        top: 80px;
+        left: calc(50% - 630px);
+        width: 150px;
+        z-index: 40;
+        pointer-events: auto;
+      }
+
+      .article-toc {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+      }
+
+      .toc-link {
+        color: var(--dim);
+        text-decoration: none;
+        padding: 4px 0;
+        transition: color 0.15s ease;
+        display: block;
+        line-height: 1.35;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .toc-link:hover, .toc-link.active {
+        color: var(--accent);
+        font-weight: 500;
+      }
+    }
+
+    /* CONTAINER */
+    .article-wrap {
+      max-width: 672px;
+      margin: 0 auto;
+      padding: 48px 24px 140px;
+      position: relative;
+    }
+
+    /* TYPOGRAPHY */
+    .article-header {
+      margin-bottom: 48px;
+    }
+
+    .article-kicker {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-status-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+
+    h1.article-title {
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+
+    p.article-deck {
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--muted);
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+
+    /* TELEMETRY METRIC STRIP */
+    .telemetry-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding: 16px;
+      background: var(--media-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 600px) {
+      .telemetry-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .telemetry-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .telemetry-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: -0.02em;
+    }
+
+    .telemetry-lbl {
+      font-size: 11px;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* CINEMATIC ACT SECTIONS */
+    .section-block {
+      margin-bottom: 64px;
+    }
+
+    .act-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    h2.section-heading {
+      font-size: 23px;
+      line-height: 1.25;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      margin-bottom: 18px;
+    }
+
+    h3.sub-heading {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-top: 26px;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+
+    p strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    /* CALLOUT MEMO BOXES */
+    .memo-card {
+      background: var(--media-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .memo-card-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* SIDE-BY-SIDE GRID */
+    .side-by-side-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    @media (max-width: 640px) {
+      .side-by-side-grid { grid-template-columns: 1fr; }
+    }
+
+    .compare-card {
+      background: var(--media-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .compare-card.danger { border-top: 3px solid #EF4444; }
+    .compare-card.success { border-top: 3px solid #10B981; }
+
+    .compare-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .compare-list {
+      list-style: none;
+      font-size: 12.5px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .compare-list li {
+      position: relative;
+      padding-left: 16px;
+      line-height: 1.45;
+    }
+
+    .compare-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--dim);
+    }
+
+    /* DATA SPEC TABLES */
+    .data-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin: 20px 0;
+      background: var(--bg);
+    }
+
+    table.spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      text-align: left;
+      font-family: var(--font-mono);
+    }
+
+    table.spec-table th {
+      background: var(--media-bg);
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--dim);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    table.spec-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+    }
+
+    table.spec-table tr:last-child td { border-bottom: none; }
+
+    /* DIAGRAM BOX */
+    .diagram-box {
+      background: var(--diagram-bg);
+      color: var(--diagram-fg);
+      border-radius: 8px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      margin: 24px 0;
+    }
+
+    .diagram-caption {
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      color: var(--dim);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* FLOORPLAN TABS */
+    .floorplan-container {
+      background: var(--media-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 28px 0;
+    }
+
+    .floorplan-tabbar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      overflow-x: auto;
+    }
+
+    .fp-tab-btn {
+      padding: 10px 16px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .fp-tab-btn:hover { color: var(--fg); }
+    .fp-tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      font-weight: 500;
+    }
+
+    .fp-content-panel {
+      display: none;
+      padding: 20px;
+    }
+
+    .fp-content-panel.active { display: block; }
+
+    .fp-wireframe-mock {
+      border: 1px dashed var(--dim);
+      border-radius: 6px;
+      padding: 16px;
+      background: var(--bg);
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    /* FOOTER NAV GRID */
+    .next-nav-grid {
+      border-top: 1px solid var(--border);
+      padding-top: 36px;
+      margin-top: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .next-link {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      gap: 4px;
+    }
+
+    .next-label {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .next-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--fg);
+      transition: color 0.15s ease;
+    }
+
+    .next-link:hover .next-title { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOP HEADER -->
+  <header class="sticky-top-header">
+    <div class="sticky-nav-inner">
+      <a href="index.html" class="sticky-brand">
+        <span class="home-avatar-sm">M</span>
+        <span>Murat Çetin</span>
+      </a>
+
+      <!-- CHAPTER SELECTOR PILL -->
+      <div class="sticky-chapter-pill" id="chapterPill" onclick="toggleChapterMenu()">
+        <span class="pill-tag">Act</span>
+        <span class="pill-title" id="activeChapterTitle">Act I. The 3-Agency Inheritance</span>
+        <span class="pill-caret">▾</span>
+      </div>
+
+      <div class="sticky-nav-right">
+        <a href="index.html" class="sticky-all-link">All Work →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CHAPTER DROPDOWN MODAL -->
+  <div class="chapter-menu-overlay" id="chapterMenuOverlay" onclick="toggleChapterMenu()">
+    <div class="chapter-menu-card" onclick="event.stopPropagation()">
+      <div class="chapter-menu-header">The 5-Act Narrative Arc</div>
+      <a href="#act-01" class="chapter-menu-item" onclick="toggleChapterMenu()"><span class="chapter-menu-num">I</span> Act I: The 3-Agency Inheritance & The Reality Wall</a>
+      <a href="#act-02" class="chapter-menu-item" onclick="toggleChapterMenu()"><span class="chapter-menu-num">II</span> Act II: The Inverted Waterfall & The UX Readiness Gate</a>
+      <a href="#act-03" class="chapter-menu-item" onclick="toggleChapterMenu()"><span class="chapter-menu-num">III</span> Act III: Month 7 Turing Point — Automation Collapse</a>
+      <a href="#act-04" class="chapter-menu-item" onclick="toggleChapterMenu()"><span class="chapter-menu-num">IV</span> Act IV: Multi-Wave Program & Component Topology</a>
+      <a href="#act-05" class="chapter-menu-item" onclick="toggleChapterMenu()"><span class="chapter-menu-num">V</span> Act V: Industrial Architecture & Solo Design Leverage</a>
+    </div>
+  </div>
+
+  <!-- DESKTOP FLOATING LEFT SIDEBAR -->
+  <aside class="article-sidebar">
+    <nav class="article-toc">
+      <a href="#act-01" class="toc-link active">Act I: Inheritance</a>
+      <a href="#act-02" class="toc-link">Act II: The Gate</a>
+      <a href="#act-03" class="toc-link">Act III: Turing Point</a>
+      <a href="#act-04" class="toc-link">Act IV: Topology</a>
+      <a href="#act-05" class="toc-link">Act V: Scale & AI</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <main class="article-wrap">
+
+    <header class="article-header">
+      <div class="article-kicker">
+        <span class="live-status-dot"></span>
+        <span>Flagship Case Study · Enterprise Control Architecture</span>
+      </div>
+      <h1 class="article-title">Agito InsurTech Modernization: Governing 14+ Enterprise Products with an Ant Design v5 Control System</h1>
+      <p class="article-deck">
+        How a sole Design Systems Architect dismantled a 5-year cycle of outsourced agency failures in a 250-engineer insurtech company—establishing a code-enforced Control System to deliver a 68-screen core foundation and absorb a multi-wave enterprise roadmap.
+      </p>
+
+      <!-- METRIC STRIP -->
+      <div class="telemetry-strip">
+        <div class="telemetry-item">
+          <span class="telemetry-val">35%</span>
+          <span class="telemetry-lbl">National Market Share</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-val">14+</span>
+          <span class="telemetry-lbl">Enterprise Products</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-val">68</span>
+          <span class="telemetry-lbl">Baseline Screens (Wave 1)</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-val">0</span>
+          <span class="telemetry-lbl">Custom CSS Overrides</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ACT I -->
+    <section class="section-block" id="act-01">
+      <span class="act-tag">Act I / Context & Friction</span>
+      <h2 class="section-heading">The 3-Agency Inheritance & The Reality Wall</h2>
+      <p>
+        Agito is Turkey’s premier insurtech software vendor, powering the core transactional infrastructure for <strong>35% of the national life, pension, and non-life insurance industry</strong>. When I joined as the company’s <strong>first and sole Lead Design Systems Architect</strong>, the organization had 250 employees—almost exclusively backend database developers, actuarial mathematicians, and corporate account managers—and zero centralized design infrastructure.
+      </p>
+      <p>
+        The executive mandate was immense: Modernize 14+ monolithic products (Policy Administration, Claims, Tahsilat & Collections, Workpool Queues, Global Parameter Definitions, and Document Generation) to compete against modern global platforms.
+      </p>
+      <p>
+        However, beneath the surface lay a five-year trail of expensive wreckage: <strong>Agito had hired three consecutive external design agencies, and all three engagements had collapsed completely.</strong>
+      </p>
+      
+      <div class="memo-card">
+        <div class="memo-card-title">The Agency Failure Diagnosis</div>
+        <p>
+          "External design agencies operated as pure order-takers. They drew subjective, colorful Dribbble-style mockups for isolated Product Owner sprint requests. Because they lacked actuarial domain knowledge and frontend constraints, their deliverables broke down the moment engineering attempted to write reusable production code. Thousands of lines of fragile custom CSS piled up, creating insurmountable technical debt."
+        </p>
+      </div>
+    </section>
+
+    <!-- ACT II -->
+    <section class="section-block" id="act-02">
+      <span class="act-tag">Act II / Cultural Resistance & Governance</span>
+      <h2 class="section-heading">The Inverted Waterfall Mandate & The UX Readiness Gate</h2>
+      <p>
+        During my first 90 days, organizational friction erupted. Leadership, accustomed to legacy agency dynamics, demanded an <strong>inverted waterfall</strong>: <em>"Design the buttons, menus, and visual component library first so the Board can approve them, then we will decide the business logic."</em>
+      </p>
+      <p>
+        Meanwhile, four separate Product Owners were running weekly sprints, submitting ad-hoc screen requests without problem statements or validated actor journeys.
+      </p>
+      <p>
+        I pushed back immediately. Drawing components in a vacuum is the fastest route to design system death. To stop the incoming chaos and establish architectural governance, I instituted the <strong>UX Readiness Gate</strong>.
+      </p>
+
+      <div class="diagram-box">
+        <div style="display: flex; flex-direction: column; gap: 14px; font-family: var(--font-mono); font-size: 13px;">
+          <div style="padding: 12px 16px; background: rgba(255,255,255,0.06); border-left: 3px solid #10B981; border-radius: 4px;">
+            <strong style="color: #10B981;">GATE 1: USER ACTOR & PROBLEM BOUND</strong><br>
+            <span style="color: var(--dim); font-size: 11.5px;">Who is operating this screen (Actuary, Collector, Claims Handler)? What specific friction or error is being solved?</span>
+          </div>
+          <div style="padding: 12px 16px; background: rgba(255,255,255,0.06); border-left: 3px solid #3B82F6; border-radius: 4px;">
+            <strong style="color: #3B82F6;">GATE 2: END-TO-END FLOW BLUEPRINT</strong><br>
+            <span style="color: var(--dim); font-size: 11.5px;">Current vs. target task journey mapped across module boundaries before opening Figma.</span>
+          </div>
+          <div style="padding: 12px 16px; background: rgba(255,255,255,0.06); border-left: 3px solid #8E65F1; border-radius: 4px;">
+            <strong style="color: #8E65F1;">GATE 3: ACTUARIAL BUSINESS INVARIANTS</strong><br>
+            <span style="color: var(--dim); font-size: 11.5px;">Explicit boundary rules: debt distribution algorithms, refund restrictions, and immutable regulatory constraints.</span>
+          </div>
+        </div>
+        <div class="diagram-caption">The Mandatory 3-Tier UX Readiness Gate Enforced Across All Product Squads</div>
+      </div>
+
+      <p>
+        If a feature request lacked these three invariants, it was rejected at the gate. This single governance mechanism eliminated 70% of redundant screen churn before a single pixel was drawn.
+      </p>
+    </section>
+
+    <!-- ACT III -->
+    <section class="section-block" id="act-03">
+      <span class="act-tag">Act III / The Turning Point</span>
+      <h2 class="section-heading">Month 7 Inflection Point: Test Automation Collapse & The Turing Point</h2>
+      <p>
+        The defining crisis arrived in Month 7. When the engineering organization attempted to write Cypress and Selenium automated test suites against screens implemented from legacy agency mockups, the frontend code collapsed.
+      </p>
+      <p>
+        Because the agency's static drawings had forced developers to write bespoke CSS and arbitrary nested DOM wrappers for every single screen, automated selectors broke on every minor build. Sprint delivery ground to a complete standstill.
+      </p>
+      <p>
+        I convened an executive session with the CTO, Engineering Directors, and Product Leadership. On a single slide, I presented the <strong>Side-by-Side Turing Audit</strong>:
+      </p>
+
+      <div class="side-by-side-grid">
+        <div class="compare-card danger">
+          <div class="compare-title">❌ Outsourced Agency Drawings</div>
+          <ul class="compare-list">
+            <li>Arbitrary, non-standard layout geometries</li>
+            <li>Nested conditional modals breaking state machines</li>
+            <li>Requires thousands of lines of bespoke CSS overrides</li>
+            <li>Broke QA test automation; zero predictable DOM selectors</li>
+          </ul>
+        </div>
+        <div class="compare-card success">
+          <div class="compare-title">✓ Ant Design v5 Control Architecture</div>
+          <ul class="compare-list">
+            <li>4 Universal Floorplans (100vh Viewport Fitting)</li>
+            <li>Single-screen modular tables & 2-row grid drawers</li>
+            <li>Zero custom CSS overrides (`agitoTheme` token compiler)</li>
+            <li>Deterministic DOM structure: 100% QA test automation passes</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        The proof was irrefutable. Engineering could not automate tests against drawings, but they could automate flawlessly against deterministic Ant Design v5 floorplans. Executive leadership halted all external agency contracts permanently and committed 100% of engineering resources to my Control Architecture.
+      </p>
+    </section>
+
+    <!-- ACT IV -->
+    <section class="section-block" id="act-04">
+      <span class="act-tag">Act IV / Platform Topology & Governance</span>
+      <h2 class="section-heading">The Multi-Wave Modernization Program & Component Topology</h2>
+      <p>
+        Agito’s transformation was not an isolated redesign of one or two features; it was a <strong>multi-wave platform modernization</strong> spanning 14+ core insurance products.
+      </p>
+      <p>
+        To prove that the Control System could govern this massive ecosystem, we established the <strong>Initial Wave 1 Baseline Inventory (68 Core Production Screens)</strong>:
+      </p>
+
+      <div class="data-table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Modernization Scope</th>
+              <th>Total Screens</th>
+              <th>Completed (Done)</th>
+              <th>In Progress / To-Do</th>
+              <th>Architectural Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Platform Core Infrastructure</strong></td>
+              <td>36 Screens</td>
+              <td>17 Done</td>
+              <td>19 To-Do / Review</td>
+              <td>Banks, Currencies, Parameters, Value Lists, System Messages.</td>
+            </tr>
+            <tr>
+              <td><strong>Core Insurance Products</strong></td>
+              <td>32 Screens</td>
+              <td>23 Done</td>
+              <td>9 To-Do</td>
+              <td>Policy Admin, Claims, Collections, Workpool, Document Engine.</td>
+            </tr>
+            <tr>
+              <td><strong>Wave 1 Foundation Total</strong></td>
+              <td><strong>68 Screens</strong></td>
+              <td><strong>40 Done (59%)</strong></td>
+              <td><strong>28 In Pipeline</strong></td>
+              <td>Foundation to absorb hundreds of upcoming Wave 2+ screens.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Within this 68-screen foundation, we established strict <strong>Component Topology & Modality Standards</strong> to govern how every single form, parameter, and transaction behaves:
+      </p>
+
+      <div class="data-table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Interaction Surface</th>
+              <th>Structural Boundary Rule</th>
+              <th>Production Target & Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Modal (Dialog)</strong></td>
+              <td>Strictly restricted to 1–4 inputs; single atomic action.</td>
+              <td>Quick approvals, state changes, status confirmations. No nested wizards.</td>
+            </tr>
+            <tr>
+              <td><strong>Drawer (2-Row Grid)</strong></td>
+              <td>High-density multi-field parameters (5–12 inputs).</td>
+              <td>Bank/branch definitions, currency rates, payment types without losing ledger context.</td>
+            </tr>
+            <tr>
+              <td><strong>Standard Drawer</strong></td>
+              <td>Deep sequential record configuration.</td>
+              <td>Holiday calendars, system message matrices, complex parameter trees.</td>
+            </tr>
+            <tr>
+              <td><strong>Subpage / Detail View</strong></td>
+              <td>Multi-tab analytical entity inspection.</td>
+              <td>Policy files, claims dossiers, full customer 360 dossiers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="memo-card">
+        <div class="memo-card-title">Architectural Rule: Eliminating Modality Anti-Patterns</div>
+        <p>
+          "A modal dialog is for single-intent confirmation. If an operation requires conditional branching or multi-field data entry, nesting it inside a modal creates severe cognitive friction and DOM validation errors. By replacing modals with 2-Row Grid Drawers and Subpages, we standardized interaction across all 68 initial screens and established an immutable pattern for hundreds of upcoming roadmap modules."
+        </p>
+      </div>
+    </section>
+
+    <!-- ACT V -->
+    <section class="section-block" id="act-05">
+      <span class="act-tag">Act V / Scale & Solo Architect Leverage</span>
+      <h2 class="section-heading">Industrial Architecture & Solo Design Leverage</h2>
+      <p>
+        How does a single Lead Design Systems Architect govern 14+ products, deliver an initial 68-screen foundation, and prepare an enterprise for hundreds of upcoming screens without an agency army?
+      </p>
+      <p>
+        Through <strong>three immutable architectural layers</strong>:
+      </p>
+
+      <h3 class="sub-heading">1. The 4 Universal Floorplans (100vh Viewport Fitting)</h3>
+      <p>
+        I eliminated ad-hoc page layout debates across the company by proving that 100% of insurance enterprise workflows map cleanly into <strong>exactly 4 standardized floorplans</strong>, strictly optimized for 1920x1080 enterprise workstations with <strong>zero page-level vertical scroll</strong>:
+      </p>
+
+      <!-- INTERACTIVE FLOORPLAN TABS -->
+      <div class="floorplan-container">
+        <div class="floorplan-tabbar">
+          <button class="fp-tab-btn active" onclick="switchFloorplan(0)">01. Overview (Dashboard)</button>
+          <button class="fp-tab-btn" onclick="switchFloorplan(1)">02. Standard List (Grid)</button>
+          <button class="fp-tab-btn" onclick="switchFloorplan(2)">03. Object (Detail View)</button>
+          <button class="fp-tab-btn" onclick="switchFloorplan(3)">04. Analytical (Split View)</button>
+        </div>
+
+        <div class="fp-content-panel active" id="fp-0">
+          <div class="fp-wireframe-mock">
+            [ TopBar: Global App Identity + Search + Profile ]<br>
+            [ KPI Band: 4 Operational Metrics (Claims SLA, Open Collections, Active Policies) ]<br>
+            [ Main Body: Workpool Task Queue (Left 60%) | Activity & Notification Stream (Right 40%) ]
+          </div>
+          <p style="font-size: 13px; margin: 0; color: var(--muted);">
+            <strong>Overview Floorplan:</strong> Daily operational hub for insurance handlers. Zero page bounce; internal queue scrolls independently.
+          </p>
+        </div>
+
+        <div class="fp-content-panel" id="fp-1">
+          <div class="fp-wireframe-mock">
+            [ Filter Bar: Multi-field Search + Date Pickers + Status Filters + Action Trigger Buttons ]<br>
+            [ Data Table: 10-18 Columns, Frozen Action Column, Row Selection, Status Badges ]<br>
+            [ Sticky Pagination Bar: Record Counters & Page Switcher ]
+          </div>
+          <p style="font-size: 13px; margin: 0; color: var(--muted);">
+            <strong>List Floorplan:</strong> The enterprise workhorse powering Policy Lists, Claims Ledgers, and Global System Parameters.
+          </p>
+        </div>
+
+        <div class="fp-content-panel" id="fp-2">
+          <div class="fp-wireframe-mock">
+            [ Object Header: Entity Title, Master Key, Status Tag, Primary Lifecycle Actions ]<br>
+            [ Tab Navigation: General Terms | Financial Ledger | Endorsements | Audit Trail ]<br>
+            [ High-Density Form Cards: 2-4 Column Grid with Floating Labels ]
+          </div>
+          <p style="font-size: 13px; margin: 0; color: var(--muted);">
+            <strong>Object Floorplan:</strong> Deep single-record inspection for Underwriting, Endorsements, and Customer 360 views.
+          </p>
+        </div>
+
+        <div class="fp-content-panel" id="fp-3">
+          <div class="fp-wireframe-mock">
+            [ Left Master Queue (35%): Searchable Entity Records with Visual Badges ]<br>
+            [ Right Detail Inspector (65%): Live Actuarial Calculation & Edit Canvas ]
+          </div>
+          <p style="font-size: 13px; margin: 0; color: var(--muted);">
+            <strong>Analytical Split Floorplan:</strong> Designed for rapid claims reconciliation and real-time actuarial adjustments.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="sub-heading">2. The DTCG Token Pipeline & Zero-Override Discipline</h3>
+      <p>
+        The single source of truth for all visual decisions is a pure JSON schema (`core.json`) governed by <strong>Design Tokens Community Group (DTCG) standards</strong>. Using <strong>Style Dictionary</strong>, tokens compile automatically into Ant Design v5 (`agitoTheme`):
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 16px; color: var(--muted); font-size: 14px;">
+        <li><strong>Hard Denial Rules:</strong> Zero raw hex outside `core.json`, zero `!important`, zero gradients, and flat surfaces only.</li>
+        <li><strong>Zero Custom CSS:</strong> Changing a brand or density token in `core.json` instantly re-themes all 14 enterprise products without breaking production code.</li>
+      </ul>
+
+      <h3 class="sub-heading">3. AI Subagent Compilation Pipeline</h3>
+      <p>
+        To eliminate the manual Figma bottleneck when multiple Product Owners demanded simultaneous delivery, I engineered an <strong>AI Subagent Compilation Pipeline</strong>.
+      </p>
+      <p>
+        By feeding actuarial rule sheets and standardized floorplan topologies directly to autonomous AI subagents, we compiled code-ready Ant Design v5 specifications in record time—delivering 8 full platform screens in initial sprints with zero manual handoff friction.
+      </p>
+
+      <div class="memo-card">
+        <div class="memo-card-title">The Transformation Outcome</div>
+        <p>
+          "By replacing five years of outsourced agency failures with an Ant Design v5 Control Architecture, Agito eliminated 100% of custom CSS drift, established an automated testable foundation across 68 core screens, and equipped a single Design Systems Architect to govern 14+ enterprise products across Turkey's regulated financial sector."
+        </p>
+      </div>
+    </section>
+
+    <!-- CROSS-NAVIGATION -->
+    <div class="next-nav-grid">
+      <a href="index.html" class="next-link">
+        <span class="next-label">← Back to Overview</span>
+        <span class="next-title">All Flagship Work</span>
+      </a>
+      <a href="allianz.html" class="next-link" style="text-align: right;">
+        <span class="next-label">Next Case Study →</span>
+        <span class="next-title">Allianz Türkiye Ecosystem (1.5M MAU)</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- INTERACTIVE SCRIPTS -->
+  <script>
+    function toggleChapterMenu() {
+      const overlay = document.getElementById('chapterMenuOverlay');
+      overlay.classList.toggle('active');
+    }
+
+    function switchFloorplan(index) {
+      const tabs = document.querySelectorAll('.fp-tab-btn');
+      const panels = document.querySelectorAll('.fp-content-panel');
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+      panels.forEach((panel, i) => panel.classList.toggle('active', i === index));
+    }
+
+    const sections = document.querySelectorAll('.section-block');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const activePillTitle = document.getElementById('activeChapterTitle');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          const title = entry.target.querySelector('.section-heading')?.innerText || 'Overview';
+          const act = entry.target.querySelector('.act-tag')?.innerText.split('/')[0].trim() || 'Act';
+          
+          if (activePillTitle) {
+            activePillTitle.innerText = act + ': ' + title;
+          }
+
+          tocLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, {
+      rootMargin: '-80px 0px -60% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+</body>
+</html>

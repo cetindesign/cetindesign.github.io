@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Murat Çetin, Designer</title>
+  <meta name="description" content="The website and design portfolio of Murat Çetin."/>
+  <style>
+    *,:before,:after,::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#3b82f680;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
+    *,:before,:after{box-sizing:border-box;border:0 solid #e5e7eb}
+    :before,:after{--tw-content:""}
+    
+    /* GAVIN NELSON SYSTEM TYPOGRAPHY & SCROLLBAR LOCK */
+    html,:host{
+      -webkit-text-size-adjust:100%;
+      tab-size:4;
+      font-feature-settings:normal;
+      font-variation-settings:normal;
+      -webkit-tap-highlight-color:transparent;
+      font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+      line-height:1.5;
+      scrollbar-gutter:stable;
+      overflow-y:scroll;
+    }
+    
+    body{line-height:inherit;margin:0;background-color:#fff;font-size:15px;color:#000}
+    
+    /* GAVIN NELSON 1:1 LINK UNDERLINE PHYSICS */
+    a{
+      text-underline-offset:2px;
+      text-decoration-line:underline;
+      text-decoration-color:#eeeff2;
+      text-decoration-thickness:2px;
+      color:inherit;
+      transition:text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    a:hover{
+      text-decoration-color:#d4d4d8;
+      color:#000;
+    }
+    
+    h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;margin:0}
+    p{line-height:1.65;margin:0}
+    
+    /* GAVIN NELSON LIQUID GLASS (APPLE DISPLAY-P3) */
+    .liquid-glass{
+      background:linear-gradient(#fff 0%,#fafafa 100%);
+      border:1px solid #f4f4f6;
+      border-radius:16px;
+      box-shadow:inset 0 2px 4px #fff,inset 0 -4px 4px #ffffff80,inset 0 -4px 16px #fff,inset 0 4px 10px #6f6f7512,0 4px 14px -10px #35354f66,0 11px 28px -10px #35354f1a;
+      transition:transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), width 0.22s cubic-bezier(0.16, 1, 0.3, 1), height 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease;
+    }
+    @supports (color:color(display-p3 1 1 1)){
+      .liquid-glass{
+        background:linear-gradient(color(display-p3 1 1 1) 0%,color(display-p3 .979 .979 .981) 100%);
+        border-color:color(display-p3 .9554 .9554 .9646);
+        box-shadow:inset 0 2px 4px color(display-p3 1 1 1),inset 0 -4px 4px color(display-p3 1 1 1/.5),inset 0 -4px 16px color(display-p3 1 1 1),inset 0 4px 10px color(display-p3 .4338 .4338 .4566/.07),0 4px 14px -10px color(display-p3 .2085 .2085 .3025/.4),0 11px 28px -10px color(display-p3 .2085 .2085 .3025/.1);
+      }
+    }
+
+    .pointer-events-none{pointer-events:none}
+    .absolute{position:absolute}
+    .relative{position:relative}
+    .inset-0{inset:0}
+    .inset-x-0{left:0;right:0}
+    .-bottom-px{bottom:-1px}
+    .-z-10{z-index:-10}
+    .z-10{z-index:10}
+    .-mx-4{margin-left:-1rem;margin-right:-1rem}
+    .-mt-2{margin-top:-.5rem}
+    .mb-8{margin-bottom:2rem}
+    .block{display:block}
+    .inline-block{display:inline-block}
+    .inline{display:inline}
+    .flex{display:flex}
+    .inline-flex{display:inline-flex}
+    .grid{display:grid}
+    .h-0\.5{height:.125rem}
+    .h-8{height:2rem}
+    .w-8{width:2rem}
+    .w-fit{width:fit-content}
+    .w-full{width:100%}
+    .max-w-2xl{max-width:42rem}
+    .shrink-0{flex-shrink:0}
+    .transform-gpu{transform:translate3d(var(--tw-translate-x,0), var(--tw-translate-y,0), 0)}
+    .cursor-pointer{cursor:pointer}
+    .flex-col{flex-direction:column}
+    .flex-row{flex-direction:row}
+    .flex-wrap{flex-wrap:wrap}
+    .items-center{align-items:center}
+    .justify-start{justify-content:flex-start}
+    .justify-center{justify-content:center}
+    .gap-1{gap:.25rem}
+    .gap-12{gap:3rem}
+    .gap-2{gap:.5rem}
+    .gap-4{gap:1rem}
+    .gap-6{gap:1.5rem}
+    .gap-8{gap:2rem}
+    .gap-x-6{column-gap:1.5rem}
+    .gap-y-2{row-gap:.5rem}
+    .rounded-full{border-radius:9999px}
+    .bg-zinc-150{background-color:rgb(238 239 242)}
+    .bg-zinc-900{background-color:#18181b}
+    .px-4{padding-left:1rem;padding-right:1rem}
+    .px-8{padding-left:2rem;padding-right:2rem}
+    .py-2{padding-top:.5rem;padding-bottom:.5rem}
+    .py-24{padding-top:6rem;padding-bottom:6rem}
+    .pb-1{padding-bottom:.25rem}
+    .pt-4{padding-top:1rem}
+    .pt-2{padding-top:.5rem}
+    .font-medium{font-weight:500}
+    .font-normal{font-weight:400}
+    .text-black{color:#000}
+    .text-zinc-400{color:#a1a1aa}
+    .text-zinc-500{color:#71717a}
+    .text-zinc-600{color:#52525b}
+    .underline{text-decoration-line:underline}
+    .no-underline{text-decoration-line:none}
+    .decoration-zinc-100{text-decoration-color:#eeeff2}
+    .decoration-2{text-decoration-thickness:2px}
+    .underline-offset-2{text-underline-offset:2px}
+    .opacity-90{opacity:.9}
+
+    @media (min-width:768px){
+      .md\:flex{display:flex}
+      .md\:flex-row{flex-direction:row}
+      .md\:justify-center{justify-content:center}
+      .md\:min-w-\[512px\]{min-width:512px}
+      .md\:w-full{width:100%}
+      .md\:max-w-2xl{max-width:42rem}
+      .md\:mx-auto{margin-left:auto;margin-right:auto}
+      .md\:-mx-28{margin-left:-7rem;margin-right:-7rem}
+    }
+
+    .nav-tab-item {
+      font-weight: 500 !important;
+      transition: color 0.15s ease;
+      user-select: none;
+    }
+
+    .tabs-content-stack {
+      display: grid;
+      grid-template-columns: 100%;
+      align-items: start;
+      position: relative;
+      min-height: 420px;
+    }
+
+    .section-tab-pane {
+      grid-area: 1 / 1;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transform: none !important;
+      transition: opacity 0.15s ease-out, visibility 0.15s ease-out;
+    }
+
+    .section-tab-pane.active {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    #tab-sliding-indicator {
+      position: absolute;
+      bottom: -1px;
+      height: 2px;
+      background-color: #18181b;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="__next">
+    <div class="md:flex md:flex-row md:justify-center">
+      <div class="md:min-w-[512px] md:w-full md:max-w-2xl md:mx-auto">
+        <div class="flex flex-col justify-start max-w-2xl px-8 py-24">
+
+          <!-- AVATAR (GAVIN NELSON EXACT: w-8 h-8 rounded-full mb-8) -->
+          <div class="grid w-8 h-8 mb-8 group">
+            <a aria-label="Go to the homepage" href="cetin-design-landing.html" class="block h-8 w-8 rounded-full bg-[#5D2BC7] text-white flex items-center justify-center font-medium text-xs no-underline hover:no-underline">
+              M
+            </a>
+          </div>
+
+          <div class="flex flex-col gap-12 origin-left">
+
+            <!-- TITLE & SUBTITLE (GAVIN NELSON STYLE) -->
+            <div class="flex w-fit transform-gpu flex-col gap-1 will-change-transform">
+              <h1 class="inline font-medium text-black">Murat Çetin</h1>
+              <h2 class="text-zinc-500">
+                <span>Lead Product Designer &amp; Design Systems Architect at </span>
+                <a href="https://agito.com.tr" target="_blank" rel="noopener noreferrer" class="text-black">Agito</a>
+              </h2>
+            </div>
+
+            <div class="flex flex-col gap-12">
+
+              <!-- NAV TABS -->
+              <nav id="nav-tabs-bar" aria-label="Portfolio sections" class="relative flex w-full transform-gpu items-center gap-6 overflow-x-auto pb-1 will-change-transform">
+                <div id="tab-sliding-indicator"></div>
+                <a class="nav-tab-item relative shrink-0 pb-1 text-black no-underline hover:no-underline cursor-pointer" onclick="selectTab('work', this, event)">
+                  Work
+                </a>
+                <a class="nav-tab-item relative shrink-0 pb-1 text-zinc-400 no-underline hover:no-underline cursor-pointer" onclick="selectTab('explorations', this, event)">
+                  Explorations
+                </a>
+                <a class="nav-tab-item relative shrink-0 pb-1 text-zinc-400 no-underline hover:no-underline cursor-pointer" onclick="selectTab('operating', this, event)">
+                  Operating Model
+                </a>
+                <a class="nav-tab-item relative shrink-0 pb-1 text-zinc-400 no-underline hover:no-underline cursor-pointer" onclick="selectTab('about', this, event)">
+                  About
+                </a>
+              </nav>
+
+              <!-- CONTENT STACK -->
+              <div class="tabs-content-stack">
+
+                <!-- TAB 1: WORK -->
+                <div id="pane-work" class="section-tab-pane active">
+                  <div class="relative -mt-2 flex z-10 w-fit shrink-0 cursor-pointer flex-col gap-2 -mx-4" id="project-container-box">
+
+                    <!-- LIQUID GLASS SPOTLIGHT -->
+                    <div class="absolute inset-0 pointer-events-none -z-10" style="perspective:1400px">
+                      <span aria-hidden="true" id="liquid-glass-el" class="absolute overflow-hidden liquid-glass pointer-events-none transform-gpu will-change-transform" style="opacity:0;top:0px;left:0px;width:0px;height:0px;border-radius:16px;">
+                        <div class="absolute inset-0 pointer-events-none rounded-[16px] opacity-90"></div>
+                      </span>
+                    </div>
+
+                    <!-- 01. AGITO -->
+                    <span class="inline w-fit cursor-pointer" onmouseenter="trackLiquid(this)" onmouseleave="untrackLiquid()">
+                      <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="agito.html">
+                        <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
+                          <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Agito Enterprise InsurTech Modernization</span>
+                          <span class="font-normal text-zinc-400 text-xs">2024–Present</span>
+                        </span>
+                      </a>
+                    </span>
+
+                    <!-- 02. ALLIANZ -->
+                    <span class="inline w-fit cursor-pointer" onmouseenter="trackLiquid(this)" onmouseleave="untrackLiquid()">
+                      <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="allianz.html">
+                        <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
+                          <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Allianz Türkiye Ecosystem</span>
+                          <span class="font-normal text-zinc-400 text-xs">2023–2024</span>
+                        </span>
+                      </a>
+                    </span>
+
+                    <!-- 03. THREE INSURANCE -->
+                    <span class="inline w-fit cursor-pointer" onmouseenter="trackLiquid(this)" onmouseleave="untrackLiquid()">
+                      <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="three.html">
+                        <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
+                          <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Three Insurance Underwriting</span>
+                          <span class="font-normal text-zinc-400 text-xs">2022–2023</span>
+                        </span>
+                      </a>
+                    </span>
+
+                    <!-- 04. ELOGO -->
+                    <span class="inline w-fit cursor-pointer" onmouseenter="trackLiquid(this)" onmouseleave="untrackLiquid()">
+                      <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="elogo.html">
+                        <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
+                          <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">eLogo B2B Payment Gateway</span>
+                          <span class="font-normal text-zinc-400 text-xs">2020–2021</span>
+                        </span>
+                      </a>
+                    </span>
+
+                  </div>
+                </div>
+
+                <!-- TAB 2: EXPLORATIONS & ESSAYS -->
+                <div id="pane-explorations" class="section-tab-pane">
+                  <div class="flex flex-col gap-6">
+                    <div class="flex flex-col gap-1">
+                      <a href="explorations/fragility-of-agile.html" class="font-medium text-black hover:underline">01. The Fragility of Agile: Cultural and Linguistic Roots of UX Disintegration ↗</a>
+                      <p class="text-zinc-500 text-sm">How Conway's Law, power distance, and linguistic deference in hierarchical organizations quietly break Agile user experience at enterprise scale.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 6 min read</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <a href="explorations/myth-of-b2c-ification.html" class="font-medium text-black hover:underline">02. The Myth of B2C-ification: Why Consumer-Grade UX Fails Enterprise Complexity ↗</a>
+                      <p class="text-zinc-500 text-sm">Why enterprise core software is a dynamic policy engine, and why information density and zero page scroll are ergonomic features, not bugs.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Feb 2025 · 5 min read</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <a href="explorations/design-systems-vs-tokens.html" class="font-medium text-black hover:underline">03. Design Systems vs. Design Tokens: Architecture Over Aesthetics ↗</a>
+                      <p class="text-zinc-500 text-sm">Why a Figma UI kit is not a design system: DTCG tokens, Style Dictionary pipelines, and deterministic control systems over static component stickers.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 4 min read</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TAB 3: OPERATING MODEL -->
+                <div id="pane-operating" class="section-tab-pane">
+                  <div class="flex flex-col gap-8">
+                    <div class="flex flex-col gap-1">
+                      <span class="font-medium text-black">01. A Design System is a Control System</span>
+                      <p class="text-zinc-500">Its primary job is to make the wrong thing impossible to build. Value is measured in decisions removed from the table, not components delivered in Figma.</p>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <span class="font-medium text-black">02. Zero-Override Discipline in Ant Design</span>
+                      <p class="text-zinc-500">Allowing custom CSS overrides breaks the contract between design and engineering. In complex platforms, all variance is governed through Design Tokens.</p>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <span class="font-medium text-black">03. Manufacturing Tolerances in Software Architecture</span>
+                      <p class="text-zinc-500">Applying physical industrial design principles to regulated enterprise software: strict tolerances, standardized sub-assemblies, and absolute ergonomic clarity.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TAB 4: ABOUT (GAVIN NELSON 1:1 CLEAN CONNECT SECTION) -->
+                <div id="pane-about" class="section-tab-pane">
+                  <div class="flex flex-col gap-8 text-black">
+                    <div class="flex flex-col gap-4 text-zinc-600">
+                      <p>
+                        I'm a Lead Product Designer &amp; Design Systems Architect based in Turkey. I specialize in design systems engineering, design token pipelines, and complex B2B platforms in regulated InsurTech &amp; FinTech environments.
+                      </p>
+                      <p>
+                        Currently, I serve as the sole design authority across 10 core enterprise modules at <a href="https://agito.com.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Agito</a> (powering 35% of the national InsurTech market), leading platform modernization and our Ant Design v5 token compilation pipeline.
+                      </p>
+                      <p>
+                        Previously, I led cross-squad product design strategy for <a href="https://www.allianz.com.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Allianz Türkiye</a> (Allianz’ım ecosystem, 1.5M MAU, $24M+ written premium impact across 5 squads) and architected US multi-tenant underwriting systems for Berkshire Hathaway’s <a href="https://threeinsurance.com" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Three Insurance</a> at <a href="https://radity.com" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Radity</a> in Zurich.
+                      </p>
+                      <p>
+                        I hold a Master of Arts (MA) in Industrial Design from <a href="https://yasar.edu.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Yaşar University</a>, where my research focused on interface usability tolerances and trust dynamics in digital banking systems.
+                      </p>
+                    </div>
+
+                    <!-- GAVIN NELSON CLEAN CONNECT ROW -->
+                    <div class="flex flex-col gap-3 pt-2">
+                      <span class="font-medium text-black">Connect</span>
+                      <div class="flex flex-row flex-wrap items-center gap-x-6 gap-y-3 text-zinc-600 text-[15px]">
+                        <a href="mailto:murcetin1@gmail.com" class="text-zinc-600 hover:text-black">Email</a>
+                        <a href="https://www.linkedin.com/in/cetinmurat1/" target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-black">LinkedIn</a>
+                        <a href="https://cetinmurat.medium.com/" target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-black">Medium</a>
+                        <a href="https://github.com/cetinmurat" target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-black">GitHub</a>
+                        <a href="https://www.behance.net/cetinmurat" target="_blank" rel="noopener noreferrer" class="text-zinc-600 hover:text-black">Behance</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var liquidEl = document.getElementById('liquid-glass-el');
+    var box = document.getElementById('project-container-box');
+    var indicator = document.getElementById('tab-sliding-indicator');
+    var navBar = document.getElementById('nav-tabs-bar');
+
+    function updateIndicator(targetTab) {
+      if (!indicator || !navBar || !targetTab) return;
+      var tabRect = targetTab.getBoundingClientRect();
+      var navRect = navBar.getBoundingClientRect();
+
+      indicator.style.width = tabRect.width + 'px';
+      indicator.style.transform = 'translate3d(' + (tabRect.left - navRect.left) + 'px, 0, 0)';
+    }
+
+    function trackLiquid(item) {
+      if (!liquidEl || !box) return;
+      var itemRect = item.getBoundingClientRect();
+      var boxRect = box.getBoundingClientRect();
+
+      liquidEl.style.opacity = '1';
+      liquidEl.style.width = itemRect.width + 'px';
+      liquidEl.style.height = itemRect.height + 'px';
+      liquidEl.style.transform = 'translate3d(' + (itemRect.left - boxRect.left) + 'px, ' + (itemRect.top - boxRect.top) + 'px, 0)';
+    }
+
+    function untrackLiquid() {
+      if (liquidEl) liquidEl.style.opacity = '0';
+    }
+
+    function selectTab(tabKey, tabElem, evt) {
+      if (evt) evt.preventDefault();
+
+      document.querySelectorAll('.nav-tab-item').forEach(function(el) {
+        el.classList.remove('text-black');
+        el.classList.add('text-zinc-400');
+      });
+
+      if (tabElem) {
+        tabElem.classList.remove('text-zinc-400');
+        tabElem.classList.add('text-black');
+        updateIndicator(tabElem);
+      }
+
+      document.querySelectorAll('.section-tab-pane').forEach(function(pane) {
+        pane.classList.remove('active');
+      });
+
+      var targetPane = document.getElementById('pane-' + tabKey);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+
+      untrackLiquid();
+    }
+
+    function selectTabDirect(tabKey, evt) {
+      if (evt) evt.preventDefault();
+      var tabItems = document.querySelectorAll('.nav-tab-item');
+      var keys = ['work', 'explorations', 'operating', 'about'];
+      var idx = keys.indexOf(tabKey);
+      if (idx !== -1 && tabItems[idx]) {
+        selectTab(tabKey, tabItems[idx], evt);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      var activeTab = document.querySelector('.nav-tab-item.text-black');
+      if (activeTab) {
+        setTimeout(function() { updateIndicator(activeTab); }, 30);
+      }
+    });
+
+    window.addEventListener('resize', function() {
+      var activeTab = document.querySelector('.nav-tab-item.text-black');
+      if (activeTab) updateIndicator(activeTab);
+    });
+  </script>
+
+</body>
+</html>
