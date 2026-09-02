@@ -2,217 +2,165 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>The Fragility of Agile & Conway's Law — Murat Çetin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Fragility of Agile &amp; Conway’s Law — Murat Çetin</title>
   <meta name="description" content="An architectural critique on why Agile methodologies fragment enterprise user experience when transplanted into hierarchical, high-power-distance cultural structures."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #FFFFFF;
-      --fg: #111111;
-      --muted: #55555E;
-      --dim: #767682;
-      --faint: #A6A6B2;
-      --border: #E8E8ED;
-      --hairline: rgba(0, 0, 0, 0.06);
-      --accent: #5D2BC7;
-      --accent-hover: #7E50D4;
-      --accent-tint: rgba(93, 43, 199, 0.08);
-      --media-bg: #F4F4F6;
-      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-mono: 'DM Mono', monospace;
+    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
+    html,:host{
+      -webkit-text-size-adjust:100%;
+      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.6;
+      scrollbar-gutter:stable;
+      overflow-y:scroll;
+      background-color:#fff;
+      color:#18181b;
     }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0C0C0E;
-        --fg: #F4F4F6;
-        --muted: #9E9EAA;
-        --dim: #71717E;
-        --faint: #44444D;
-        --border: #1E1E24;
-        --hairline: rgba(255, 255, 255, 0.06);
-        --accent: #8E65F1;
-        --accent-hover: #A982F0;
-        --accent-tint: rgba(142, 101, 241, 0.14);
-        --media-bg: #141418;
-      }
+    body{ margin:0; font-size:15px; -webkit-font-smoothing:antialiased; }
+    a{
+      text-underline-offset:2px;
+      text-decoration-line:underline;
+      text-decoration-color:#eeeff2;
+      text-decoration-thickness:2px;
+      color:inherit;
+      transition:text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { min-height: 100%; background: var(--bg); color: var(--fg); scroll-behavior: smooth; }
-    body { font-family: var(--font-sans); font-size: 15px; line-height: 1.7; letter-spacing: -0.012em; -webkit-font-smoothing: antialiased; }
-
-    .top-nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      width: 100%;
+    a:hover{ text-decoration-color:#a1a1aa; color:#000; }
+    .wrap{
+      max-width:42rem;
+      margin-left:auto;
+      margin-right:auto;
+      padding-left:1.5rem;
+      padding-right:1.5rem;
+      padding-top:4rem;
+      padding-bottom:8rem;
     }
-    @media (prefers-color-scheme: dark) {
-      .top-nav { background: rgba(12, 12, 14, 0.88); }
+    .top-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding-bottom:1.5rem;
+      border-bottom:1px solid #f4f4f6;
+      margin-bottom:3rem;
+      font-size:13.5px;
     }
-    .nav-inner {
-      max-width: 672px; margin: 0 auto; padding: 12px 24px;
-      display: flex; align-items: center; justify-content: space-between;
+    .nav-back{
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      color:#71717a;
+      text-decoration:none;
+      font-weight:400;
     }
-    .brand-link {
-      display: inline-flex; align-items: center; gap: 8px;
-      text-decoration: none; color: var(--fg); font-size: 13.5px; font-weight: 500;
+    .nav-back:hover{ color:#000; }
+    .meta-tag{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:12px;
+      color:#a1a1aa;
     }
-    .avatar-sm {
-      width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff;
-      display: flex; align-items: center; justify-content: center; font-size: 10.5px; font-weight: 600;
+    h1{
+      font-size:1.75rem;
+      line-height:1.25;
+      font-weight:500;
+      letter-spacing:-0.03em;
+      color:#000;
+      margin-top:0;
+      margin-bottom:1rem;
     }
-    .back-link {
-      text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500;
-      transition: color 0.15s ease;
+    .deck{
+      font-size:15px;
+      line-height:1.65;
+      color:#71717a;
+      margin-bottom:2.5rem;
     }
-    .back-link:hover { color: var(--accent); }
-
-    .article-wrap {
-      max-width: 672px; margin: 0 auto; padding: 56px 24px 140px;
+    h2{
+      font-size:1.15rem;
+      font-weight:500;
+      letter-spacing:-0.02em;
+      color:#000;
+      margin-top:3rem;
+      margin-bottom:0.75rem;
     }
-
-    .essay-kicker {
-      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    p{
+      font-size:15px;
+      line-height:1.65;
+      color:#52525b;
+      margin-top:0;
+      margin-bottom:1.25rem;
     }
-
-    h1.essay-title {
-      font-size: 32px; line-height: 1.2; font-weight: 600; letter-spacing: -0.03em;
-      color: var(--fg); margin-bottom: 16px;
+    p strong{ color:#000; font-weight:500; }
+    blockquote{
+      margin:1.75rem 0;
+      padding-left:1rem;
+      border-left:2px solid #e4e4e7;
+      color:#52525b;
+      font-size:14.5px;
+      line-height:1.6;
     }
-
-    .essay-meta {
-      display: flex; gap: 16px; font-family: var(--font-mono); font-size: 12px;
-      color: var(--dim); margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    .footer-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-top:1px solid #f4f4f6;
+      padding-top:2rem;
+      margin-top:4.5rem;
+      font-size:13.5px;
     }
-
-    p { margin-bottom: 20px; color: var(--muted); font-size: 15px; }
-    p strong { color: var(--fg); font-weight: 600; }
-
-    blockquote {
-      border-left: 3px solid var(--accent);
-      padding: 12px 20px;
-      margin: 28px 0;
-      background: var(--media-bg);
-      border-radius: 0 6px 6px 0;
-      font-size: 15px;
-      color: var(--fg);
-      font-style: italic;
-    }
-
-    h2.sub-title {
-      font-size: 20px; font-weight: 600; color: var(--fg); letter-spacing: -0.02em;
-      margin-top: 36px; margin-bottom: 14px;
-    }
-
-    ul, ol { margin-bottom: 20px; padding-left: 20px; color: var(--muted); font-size: 14.5px; }
-    li { margin-bottom: 8px; }
-
-    .author-card {
-      margin-top: 56px; padding: 24px; background: var(--media-bg);
-      border: 1px solid var(--border); border-radius: 8px;
-      display: flex; align-items: center; gap: 16px;
-    }
-    .author-avatar {
-      width: 48px; height: 48px; border-radius: 50%; background: var(--accent);
-      color: #fff; display: flex; align-items: center; justify-content: center;
-      font-weight: 600; font-size: 18px; flex-shrink: 0;
-    }
-    .author-info h4 { font-size: 14.5px; font-weight: 600; color: var(--fg); margin-bottom: 4px; }
-    .author-info p { font-size: 13px; color: var(--dim); margin: 0; line-height: 1.45; }
+    .footer-prev{ color:#71717a; text-decoration:none; }
+    .footer-prev:hover{ color:#000; }
+    .footer-next{ color:#000; text-decoration:none; font-weight:500; }
+    .footer-next:hover{ text-decoration-color:#000; }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header class="top-nav">
+      <a href="../index.html" class="nav-back">← Murat Çetin</a>
+      <span class="meta-tag">Exploration · Organizational UX</span>
+    </header>
 
-  <header class="top-nav">
-    <div class="nav-inner">
-      <a href="../index.html" class="brand-link">
-        <span class="avatar-sm">M</span>
-        <span>Murat Çetin</span>
-      </a>
-      <a href="../index.html" class="back-link">← All Explorations</a>
-    </div>
-  </header>
-
-  <main class="article-wrap">
-    <div class="essay-kicker">Systems Thinking · Organizational Architecture</div>
-    <h1 class="essay-title">The Fragility of Agile: Cultural and Linguistic Roots of UX Disintegration in Enterprise Contexts</h1>
-    
-    <div class="essay-meta">
-      <span>By Murat Çetin</span>
-      <span>·</span>
-      <span>Published Dec 2024</span>
-      <span>·</span>
-      <span>6 min read</span>
-    </div>
-
-    <p>
-      In modern software engineering, Agile methodology is celebrated for rapid iteration, continuous delivery, and decentralized cross-functional squads. Yet, in complex enterprise environments, Agile frequently results in severe structural fragmentation, inconsistent navigation, and UX disintegration.
+    <h1 id="title">The Fragility of Agile &amp; Conway’s Law in Enterprise UX</h1>
+    <p class="deck">
+      Why Agile methodologies fragment core enterprise software when transplanted into hierarchical corporate cultures, and how strict design system control architectures restore structural integrity.
     </p>
 
+    <h2>The Silicon Valley Myth Transferred</h2>
+    <p>
+      The Agile Manifesto assumed small, autonomous, cross-functional squads working in low-power-distance environments with high psychological safety. In that setting, decentralized squads negotiate interface boundaries naturally through peer collaboration.
+    </p>
+    <p>
+      When this model is imported into high-power-distance enterprise corporations, Conway’s Law manifests immediately: <em>"Organizations design systems that mirror their own communication structures."</em>
+    </p>
+    <p>
+      Without centralized control, each autonomous Product Owner optimizes strictly for their own quarterly OKRs. One squad builds custom filter drawers; another builds modal wizards; a third invents a custom table layout. The software becomes a patchwork of isolated empire-building exercises.
+    </p>
+
+    <h2>The Cost of Local Optimization</h2>
+    <p>
+      When squads optimize locally, the global user experience deteriorates rapidly. In an insurance enterprise platform, an actuary or underwriter moves through five different modules in a single workday:
+    </p>
     <blockquote>
-      “Organizations which design systems are constrained to produce designs which are copies of the communication structures of these organizations.”<br>
-      — Melvin Conway (Conway’s Law, 1968)
-    </blockquote >
+      “Local optimization is global degradation. When five squads invent five distinct table interactions, the end user suffers cognitive fatigue, error rates increase, and the engineering organization drowns in thousands of lines of unmaintainable CSS overrides.”
+    </blockquote>
 
+    <h2>The Design System as a Constitutional Control System</h2>
     <p>
-      Conway’s insight reminds us that a product’s user experience is not determined by its design tools, but by the social and organizational communication structures of the teams building it. When Agile is transplanted into hierarchical enterprise environments, the intersection of cultural power distance, linguistic deference, and sprint-level myopia quietly breaks user experience at scale.
-    </p>
-
-    <h2 class="sub-title">1. Power Distance and the Sprint Myopia Trap</h2>
-    <p>
-      In high power-distance organizations, downward deference and strict hierarchical reporting lines create barriers to horizontal dialogue. A Product Owner (PO) under immense executive delivery pressure inevitably focuses exclusively on the narrow boundaries of their current 2-week sprint.
+      A design system cannot survive as a decorative UI kit or a polite recommendation. In high-power-distance enterprises, it must function as a <strong>control system</strong> that makes the wrong architectural choice impossible to build:
     </p>
     <p>
-      When systemic user experience flaws arise across module boundaries, the standard response is predictable: <em>"We have no time or budget for cross-module alignment in this sprint; ship it and defer."</em>
+      <strong>1. Standard Floorplans:</strong> Pre-approved 100vh layout contracts that prevent squads from inventing arbitrary page geometries.
     </p>
     <p>
-      Over multiple quarters, this creates compounding <strong>UX Debt</strong>: individual features function in isolation, but when assembled together, the platform feels like a disconnected patchwork of disparate tools that forces operators to relearn basic interaction patterns on every screen.
+      <strong>2. ESLint Boundary Rules:</strong> Automated CI/CD gates that reject pull requests attempting to override component tokens or bypass shared theme providers.
+    </p>
+    <p>
+      <strong>3. The UX Readiness Gate:</strong> Forbidding Figma production until business invariants, data schemas, and user problem statements are validated up front.
     </p>
 
-    <h2 class="sub-title">2. High-Context Communication and Indirect Feedback</h2>
-    <p>
-      Agile assumes low-context, explicit, and direct feedback loops. In cultures characterized by high-context communication and relational consensus, constructive technical critique is frequently avoided to preserve interpersonal harmony.
-    </p>
-    <p>
-      Critical design feedback—such as identifying an unusable nested modal or pointing out that an arbitrary layout breaks test automation—is diluted through indirect phrases like <em>"We'll see"</em> or <em>"Let's evaluate it later."</em> Ambiguity replaces mathematical certainty, and subjective mockups slip into production without architectural validation.
-    </p>
-
-    <h2 class="sub-title">3. The Solution: Design Systems as Deterministic Control Systems</h2>
-    <p>
-      How do you defeat organizational fragmentation without waiting for an entire company culture to rewrite itself?
-    </p>
-    <p>
-      <strong>You turn the Design System into a deterministic Control System.</strong>
-    </p>
-    <p>
-      A true design system is not a visual Figma sticker sheet; it is an engineered set of mathematical constraints whose primary job is to <strong>make the wrong thing impossible to build</strong>:
-    </p>
-
-    <ul>
-      <li><strong>Take Decisions Off the Table:</strong> Establish fixed, universal Floorplans that eliminate ad-hoc layout debates.</li>
-      <li><strong>Enforce Invariant Gates:</strong> Require explicit Problem Bounds and Actuarial Rules before screen production begins (The UX Readiness Gate).</li>
-      <li><strong>Code-Backed Token Enforcement:</strong> Connect Design Tokens (DTCG / Style Dictionary) directly into component props with zero custom CSS overrides.</li>
-    </ul>
-
-    <p>
-      When the system mathematically enforces consistency at the compiler level, the fragility of Agile is contained, and the product maintains architectural unity regardless of organizational power dynamics.
-    </p>
-
-    <div class="author-card">
-      <div class="author-avatar">M</div>
-      <div class="author-info">
-        <h4>Murat Çetin</h4>
-        <p>Lead Design Systems Architect at Agito. Writes about enterprise systems architecture, control systems, and human-computer interaction.</p>
-      </div>
+    <div class="footer-nav">
+      <a href="../index.html" class="footer-prev">← All Work</a>
+      <a href="myth-of-b2c-ification.html" class="footer-next">The Myth of B2C-ification →</a>
     </div>
-  </main>
-
+  </div>
 </body>
 </html>

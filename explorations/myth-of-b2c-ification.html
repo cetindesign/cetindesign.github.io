@@ -2,213 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>The Myth of B2C-ification in Enterprise — Murat Çetin</title>
-  <meta name="description" content="Why consumer-grade UX fails complex enterprise software: information density, specialized operator workflows, and policy engines over frivolous minimalism."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Myth of B2C-ification in Enterprise Software — Murat Çetin</title>
+  <meta name="description" content="An essay on why copying consumer consumer interfaces into core enterprise systems fails, and why high-density 100vh layouts are ergonomic necessities."/>
   <style>
-    :root {
-      --bg: #FFFFFF;
-      --fg: #111111;
-      --muted: #55555E;
-      --dim: #767682;
-      --faint: #A6A6B2;
-      --border: #E8E8ED;
-      --hairline: rgba(0, 0, 0, 0.06);
-      --accent: #5D2BC7;
-      --accent-hover: #7E50D4;
-      --accent-tint: rgba(93, 43, 199, 0.08);
-      --media-bg: #F4F4F6;
-      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-mono: 'DM Mono', monospace;
+    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
+    html,:host{
+      -webkit-text-size-adjust:100%;
+      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.6;
+      scrollbar-gutter:stable;
+      overflow-y:scroll;
+      background-color:#fff;
+      color:#18181b;
     }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0C0C0E;
-        --fg: #F4F4F6;
-        --muted: #9E9EAA;
-        --dim: #71717E;
-        --faint: #44444D;
-        --border: #1E1E24;
-        --hairline: rgba(255, 255, 255, 0.06);
-        --accent: #8E65F1;
-        --accent-hover: #A982F0;
-        --accent-tint: rgba(142, 101, 241, 0.14);
-        --media-bg: #141418;
-      }
+    body{ margin:0; font-size:15px; -webkit-font-smoothing:antialiased; }
+    a{
+      text-underline-offset:2px;
+      text-decoration-line:underline;
+      text-decoration-color:#eeeff2;
+      text-decoration-thickness:2px;
+      color:inherit;
+      transition:text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { min-height: 100%; background: var(--bg); color: var(--fg); scroll-behavior: smooth; }
-    body { font-family: var(--font-sans); font-size: 15px; line-height: 1.7; letter-spacing: -0.012em; -webkit-font-smoothing: antialiased; }
-
-    .top-nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      width: 100%;
+    a:hover{ text-decoration-color:#a1a1aa; color:#000; }
+    .wrap{
+      max-width:42rem;
+      margin-left:auto;
+      margin-right:auto;
+      padding-left:1.5rem;
+      padding-right:1.5rem;
+      padding-top:4rem;
+      padding-bottom:8rem;
     }
-    @media (prefers-color-scheme: dark) {
-      .top-nav { background: rgba(12, 12, 14, 0.88); }
+    .top-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding-bottom:1.5rem;
+      border-bottom:1px solid #f4f4f6;
+      margin-bottom:3rem;
+      font-size:13.5px;
     }
-    .nav-inner {
-      max-width: 672px; margin: 0 auto; padding: 12px 24px;
-      display: flex; align-items: center; justify-content: space-between;
+    .nav-back{
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      color:#71717a;
+      text-decoration:none;
+      font-weight:400;
     }
-    .brand-link {
-      display: inline-flex; align-items: center; gap: 8px;
-      text-decoration: none; color: var(--fg); font-size: 13.5px; font-weight: 500;
+    .nav-back:hover{ color:#000; }
+    .meta-tag{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:12px;
+      color:#a1a1aa;
     }
-    .avatar-sm {
-      width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff;
-      display: flex; align-items: center; justify-content: center; font-size: 10.5px; font-weight: 600;
+    h1{
+      font-size:1.75rem;
+      line-height:1.25;
+      font-weight:500;
+      letter-spacing:-0.03em;
+      color:#000;
+      margin-top:0;
+      margin-bottom:1rem;
     }
-    .back-link {
-      text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500;
-      transition: color 0.15s ease;
+    .deck{
+      font-size:15px;
+      line-height:1.65;
+      color:#71717a;
+      margin-bottom:2.5rem;
     }
-    .back-link:hover { color: var(--accent); }
-
-    .article-wrap {
-      max-width: 672px; margin: 0 auto; padding: 56px 24px 140px;
+    h2{
+      font-size:1.15rem;
+      font-weight:500;
+      letter-spacing:-0.02em;
+      color:#000;
+      margin-top:3rem;
+      margin-bottom:0.75rem;
     }
-
-    .essay-kicker {
-      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    p{
+      font-size:15px;
+      line-height:1.65;
+      color:#52525b;
+      margin-top:0;
+      margin-bottom:1.25rem;
     }
-
-    h1.essay-title {
-      font-size: 32px; line-height: 1.2; font-weight: 600; letter-spacing: -0.03em;
-      color: var(--fg); margin-bottom: 16px;
+    p strong{ color:#000; font-weight:500; }
+    blockquote{
+      margin:1.75rem 0;
+      padding-left:1rem;
+      border-left:2px solid #e4e4e7;
+      color:#52525b;
+      font-size:14.5px;
+      line-height:1.6;
     }
-
-    .essay-meta {
-      display: flex; gap: 16px; font-family: var(--font-mono); font-size: 12px;
-      color: var(--dim); margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    .footer-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-top:1px solid #f4f4f6;
+      padding-top:2rem;
+      margin-top:4.5rem;
+      font-size:13.5px;
     }
-
-    p { margin-bottom: 20px; color: var(--muted); font-size: 15px; }
-    p strong { color: var(--fg); font-weight: 600; }
-
-    blockquote {
-      border-left: 3px solid var(--accent);
-      padding: 12px 20px;
-      margin: 28px 0;
-      background: var(--media-bg);
-      border-radius: 0 6px 6px 0;
-      font-size: 15px;
-      color: var(--fg);
-      font-style: italic;
-    }
-
-    h2.sub-title {
-      font-size: 20px; font-weight: 600; color: var(--fg); letter-spacing: -0.02em;
-      margin-top: 36px; margin-bottom: 14px;
-    }
-
-    ul, ol { margin-bottom: 20px; padding-left: 20px; color: var(--muted); font-size: 14.5px; }
-    li { margin-bottom: 8px; }
-
-    .author-card {
-      margin-top: 56px; padding: 24px; background: var(--media-bg);
-      border: 1px solid var(--border); border-radius: 8px;
-      display: flex; align-items: center; gap: 16px;
-    }
-    .author-avatar {
-      width: 48px; height: 48px; border-radius: 50%; background: var(--accent);
-      color: #fff; display: flex; align-items: center; justify-content: center;
-      font-weight: 600; font-size: 18px; flex-shrink: 0;
-    }
-    .author-info h4 { font-size: 14.5px; font-weight: 600; color: var(--fg); margin-bottom: 4px; }
-    .author-info p { font-size: 13px; color: var(--dim); margin: 0; line-height: 1.45; }
+    .footer-prev{ color:#71717a; text-decoration:none; }
+    .footer-prev:hover{ color:#000; }
+    .footer-next{ color:#000; text-decoration:none; font-weight:500; }
+    .footer-next:hover{ text-decoration-color:#000; }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header class="top-nav">
+      <a href="../index.html" class="nav-back">← Murat Çetin</a>
+      <span class="meta-tag">Exploration · Enterprise Ergonomics</span>
+    </header>
 
-  <header class="top-nav">
-    <div class="nav-inner">
-      <a href="../index.html" class="brand-link">
-        <span class="avatar-sm">M</span>
-        <span>Murat Çetin</span>
-      </a>
-      <a href="../index.html" class="back-link">← All Explorations</a>
-    </div>
-  </header>
-
-  <main class="article-wrap">
-    <div class="essay-kicker">Enterprise Product Philosophy · High-Density Design</div>
-    <h1 class="essay-title">The Myth of B2C-ification: Why Consumer-Grade UX Fails Enterprise Complexity</h1>
-    
-    <div class="essay-meta">
-      <span>By Murat Çetin</span>
-      <span>·</span>
-      <span>Published Feb 2025</span>
-      <span>·</span>
-      <span>5 min read</span>
-    </div>
-
-    <p>
-      For the past decade, a seductive narrative has dominated product design conversations: <em>“Make it like Apple.” “Bring Airbnb simplicity to the enterprise.” “Users expect consumer apps at work.”</em>
+    <h1 id="title">The Myth of B2C-ification in Enterprise Core Systems</h1>
+    <p class="deck">
+      Why transplanting consumer whitespace and simplified cards into mission-critical transactional platforms fails, and why high-density 100vh architecture is an operational necessity.
     </p>
 
+    <h2>The Consumer Illusion</h2>
+    <p>
+      Over the past decade, enterprise product teams have repeated a familiar mantra: <em>"Make enterprise software look and feel like Airbnb or Spotify."</em>
+    </p>
+    <p>
+      Designers replace dense data grids with spacious card layouts, insert generous 32px paddings, and hide secondary attributes behind overflow menus. While this aesthetic pleases executive stakeholders during 10-minute slide presentations, it destroys throughput for professional operators.
+    </p>
+
+    <h2>Cognitive Load in Transactional Workflows</h2>
+    <p>
+      Consumer software is designed for casual exploration and low-frequency discovery. Enterprise software—such as insurance policy underwriting, claims processing, and debt reconciliation—is an operational cockpit operated for eight hours daily by skilled professionals.
+    </p>
     <blockquote>
-      “B2C-ification is a comforting illusion. Enterprise software is not a simplified version of consumer software; it is a fundamentally different organism.”
+      “Whitespace in consumer apps signals leisure and simplicity. Whitespace in core enterprise software is operational waste: it pushes critical data below the fold, forces repetitive page scrolling, and degrades cognitive context.”
     </blockquote>
 
+    <h2>Information Density as an Ergonomic Duty</h2>
     <p>
-      On the surface, consumer-grade simplicity sounds humane. But in regulated B2B systems (Insurance Core ERPs, Banking Underwriting, Multi-Tenant Healthcare), blindly "B2C-ifying" interfaces does not eliminate complexity—it merely hides it behind frivolous white space, causing operational latency and catastrophic data errors.
+      True enterprise modern design does not mean diluting information; it means structuring high density with visual clarity:
+    </p>
+    <p>
+      <strong>1. Zero Page-Level Scroll (100vh Viewport Fitting):</strong> Operators must see the global application chrome, contextual filters, and primary data table simultaneously on standard 1920x1080 workstation displays.
+    </p>
+    <p>
+      <strong>2. Modular Side Drawers Over Modals:</strong> Complex parameter edits belong in non-modal side drawers that preserve background table visibility, eliminating disruptive context loss.
+    </p>
+    <p>
+      <strong>3. Keyboard-First Predictability:</strong> High-frequency workflows require deterministic tab indexing, inline cell editing, and immediate error validation rather than decorative animations.
     </p>
 
-    <h2 class="sub-title">1. Dynamic Policy Engines vs. Point Actions</h2>
-    <p>
-      In consumer applications (e.g. food delivery, vacation rental), permissions and state machines are linear: you authenticate, browse, and execute a point transaction.
-    </p>
-    <p>
-      In enterprise core software, an interface is <strong>a dynamic policy engine disguised as visual controls</strong>. Every screen must support:
-    </p>
-    <ul>
-      <li>Granular Role-Based Access Control (RBAC) and departmental audit logs.</li>
-      <li>Multi-entity fiscal and regulatory compliance constraints.</li>
-      <li>Multi-state approval chains and conditional business invariants.</li>
-    </ul>
-    <p>
-      When designers strip out tabular density in favor of oversized cards and decorative illustrations, operators are forced to paginate through 15 separate views to complete a task that previously took 3 keystrokes.
-    </p>
-
-    <h2 class="sub-title">2. High Information Density is a Feature, Not a Bug</h2>
-    <p>
-      Enterprise operators (claims adjusters, underwriters, financial controllers) spend 8 hours a day inside the platform. They are power users whose throughput depends on <strong>visual scanability and keyboard acceleration</strong>.
-    </p>
-    <p>
-      In this context, <strong>information density is ergonomic utility</strong>:
-    </p>
-    <ul>
-      <li><strong>Zero Page Scroll (100vh Viewport Fitting):</strong> The entire workstation is visible in Full HD (1920x1080) without vertical bounce.</li>
-      <li><strong>Inline Data Containers:</strong> Complex actuarial grids, frozen action columns, and instant keyboard shortcuts.</li>
-      <li><strong>2-Row Drawers Over Modals:</strong> Retaining background task context while editing records rather than popping up view-blocking dialogs.</li>
-    </ul>
-
-    <h2 class="sub-title">3. Conclusion: Design for Mastery, Not First-Time Casual Browsing</h2>
-    <p>
-      Consumer UX optimizes for zero onboarding friction for the casual visitor. Enterprise UX must optimize for <strong>long-term operational velocity and cognitive precision for the expert master</strong>.
-    </p>
-    <p>
-      True elegance in enterprise design does not come from pretending complexity does not exist. It comes from building robust, predictable Control Architecture that makes complex work safe, fast, and deterministic.
-    </p>
-
-    <div class="author-card">
-      <div class="author-avatar">M</div>
-      <div class="author-info">
-        <h4>Murat Çetin</h4>
-        <p>Lead Design Systems Architect at Agito. Writes about enterprise systems architecture, control systems, and human-computer interaction.</p>
-      </div>
+    <div class="footer-nav">
+      <a href="fragility-of-agile.html" class="footer-prev">← The Fragility of Agile</a>
+      <a href="design-systems-vs-tokens.html" class="footer-next">Design Systems vs. Tokens →</a>
     </div>
-  </main>
-
+  </div>
 </body>
 </html>
