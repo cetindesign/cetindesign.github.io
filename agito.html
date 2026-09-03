@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agito Enterprise InsurTech Modernization — Murat Çetin</title>
-  <meta name="description" content="Case study on leading enterprise platform modernization across 14+ products at Agito: replacing 5 years of agency failure with an Ant Design v5 Control System governing an initial 68-screen kernel and absorbing a 350+ screen multi-wave roadmap."/>
+  <title>Agito InsurTech Modernization — Murat Çetin</title>
+  <meta name="description" content="Case study on leading in-flight enterprise platform modernization across 14+ products at Agito: dismantling 5 years of agency illusions, fighting backend cultural friction, and building an Ant Design v5 Control System under live sprint pressure."/>
   <style>
     *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
     
@@ -67,9 +67,7 @@
       text-decoration:none;
       font-weight:400;
     }
-    .nav-back:hover{
-      color:#000;
-    }
+    .nav-back:hover{ color:#000; }
 
     .meta-tag{
       font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
@@ -115,10 +113,7 @@
       font-weight:500;
       color:#000;
     }
-    .stat-lbl{
-      font-size:12px;
-      color:#a1a1aa;
-    }
+    .stat-lbl{ font-size:12px; color:#a1a1aa; }
 
     h2{
       font-size:1.15rem;
@@ -145,10 +140,7 @@
       margin-bottom:1.25rem;
     }
 
-    p strong{
-      color:#000;
-      font-weight:500;
-    }
+    p strong{ color:#000; font-weight:500; }
 
     blockquote{
       margin:1.75rem 0;
@@ -269,13 +261,13 @@
     <!-- TOP BREADCRUMB -->
     <header class="top-nav">
       <a href="index.html" class="nav-back">← Murat Çetin</a>
-      <span class="meta-tag">Case Study · Enterprise Platform Architecture</span>
+      <span class="meta-tag">Case Study · In-Flight Enterprise Modernization</span>
     </header>
 
     <!-- TITLE & DECK -->
     <h1 id="title">Agito InsurTech Modernization</h1>
     <p class="deck">
-      How a sole Design Systems Architect dismantled five years of outsourced agency failures at a 250-engineer insurtech company—establishing an Ant Design v5 Control System to govern an initial 68-screen foundation and scale across a 350+ screen multi-wave enterprise roadmap.
+      How a sole Design Systems Architect dismantled five years of outsourced agency illusions at a 250-engineer insurtech company—fighting backend-heavy cultural friction and navigating live sprint deadlines to build an Ant Design v5 Control System while simultaneously delivering a 68-screen foundation.
     </p>
 
     <!-- STAT ROW -->
@@ -289,8 +281,8 @@
         <span class="stat-lbl">Enterprise Products</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">350+</span>
-        <span class="stat-lbl">Multi-Wave Scope</span>
+        <span class="stat-val">40 / 68</span>
+        <span class="stat-lbl">Screens Delivered In-Flight</span>
       </div>
       <div class="stat-item">
         <span class="stat-val">0</span>
@@ -299,125 +291,142 @@
     </div>
 
     <!-- 01. THE INHERITANCE -->
-    <h2>01. The 3-Agency Inheritance</h2>
+    <h2>01. The 3-Agency Inheritance &amp; The Reality Wall</h2>
     <p>
-      Agito powers core transactional operations for <strong>35% of Turkey’s private pension and insurance sector</strong>. When I joined as the company’s first Lead Design Systems Architect, the organization comprised 250 employees—almost entirely backend database developers, actuarial analysts, and account executives—with zero centralized design infrastructure.
+      Agito powers core transactional infrastructure for <strong>35% of Turkey’s private life, pension, and property insurance market</strong>. When I joined as the company’s first and sole Lead Design Systems Architect, the organization had 250 employees—almost exclusively backend Oracle database developers, actuarial mathematicians, and corporate account managers—with zero internal design infrastructure.
     </p>
     <p>
-      Over the preceding five years, Agito had contracted three consecutive external design agencies. All three attempts failed identically:
+      Over the preceding five years, Agito had contracted three consecutive external design agencies. The result was a graveyard of static Figma drawings:
     </p>
     <ul>
-      <li>Agencies produced subjective, Dribbble-style mockups tailored to isolated Product Owner sprint requests.</li>
-      <li>Deliverables lacked token architecture, reusable layout floorplans, or actuarial edge-case awareness.</li>
-      <li>Frontend developers wrote thousands of lines of fragile, screen-specific CSS that collapsed under regulatory workflows.</li>
+      <li>Agencies worked in comfortable agency isolation, producing subjective, Dribbble-style mockups that treated enterprise software like consumer marketing sites.</li>
+      <li>They designed in a vacuum: no component reusability, no data-density awareness, no understanding of Turkish regulatory constraints (KVKK/MASAK/SPK), and zero alignment with frontend engineering.</li>
+      <li>Meanwhile, engineering leadership concluded that <em>"designers just draw pretty pictures that can’t actually be built."</em> Design was minimized into an annoying cosmetic bottleneck.</li>
     </ul>
 
-    <!-- 02. THE READINESS GATE -->
-    <h2>02. The Inverted Waterfall &amp; The UX Readiness Gate</h2>
+    <!-- 02. THE TURNING POINT: DAY 14 AUDIT -->
+    <h2>02. Day 14: The Frontend Code Audit That Broke the Illusion</h2>
     <p>
-      During my initial quarter, leadership pushed for an inverted waterfall: <em>"Design all buttons, menus, and component libraries first so the Board can approve visual polish, then we will wire the business logic."</em>
+      The turning point did not happen in an executive boardroom; it happened on Day 14 at a developer’s workstation.
     </p>
     <p>
-      Simultaneously, four Product Owners submitted ad-hoc sprint requests without validated user journeys or problem statements. To establish governance, I introduced the <strong>UX Readiness Gate</strong>. Production commenced only when three invariants were delivered:
+      I sat down side-by-side with the lead frontend engineer to audit the screen files delivered by the most recent agency. We attempted to map their Figma frames directly into code:
+    </p>
+
+    <div class="clean-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Structural Dimension</th>
+            <th>The Agency Figma Deliverable</th>
+            <th>The Frontend Reality in Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Component Tokens</strong></td>
+            <td>Arbitrary hex colors, bespoke padding (13px, 19px), disconnected fonts</td>
+            <td>Impossible to tokenize; required writing raw custom CSS classes for every single button and table cell</td>
+          </tr>
+          <tr>
+            <td><strong>Responsive Dynamics</strong></td>
+            <td>Fixed 1440px desktop artboards with no responsive rules or scroll constraints</td>
+            <td>Collapsed entirely on standard 1920x1080 enterprise workstations with high data volumes</td>
+          </tr>
+          <tr>
+            <td><strong>Ant Design Alignment</strong></td>
+            <td>Designed custom controls from scratch ignoring Ant Design v5 fundamentals</td>
+            <td>Frontend team had to either fight AntD's virtual DOM or spend weeks rewriting basic inputs</td>
+          </tr>
+          <tr>
+            <td><strong>Actuarial State Machines</strong></td>
+            <td>Drew happy-path cards; ignored 18-column tables, partial allocations, edge errors</td>
+            <td>Failed on first real policy dataset; developers were left to guess error and loading states</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Looking at the audit, the lead engineer said the quiet truth out loud: <em>"We cannot build this. If we try to implement these drawings across 14 products, we will spend the next three years writing throwaway CSS that breaks on every sprint."</em>
+    </p>
+    <p>
+      The agency illusion was shattered. That afternoon, design and frontend formed a direct alliance: we stopped treating design as subjective drawings and started treating it as a <strong>code-governed Control System</strong>.
+    </p>
+
+    <!-- 03. THE PRESSURE COOKER & GOVERNANCE -->
+    <h2>03. The Friction of Governance Under Sprint Pressure</h2>
+    <p>
+      Dismantling agency debt was only half the battle. The harder battle was the daily pressure cooker inside a monolithic engineering company.
+    </p>
+    <p>
+      Product Owners and management, accustomed to agency dynamics, demanded instantaneous output: <em>"Just draw the screens fast so we can show progress to the client."</em> They expected agency-like visual delivery speed, but without an agency team, and without understanding that drawing un-governed screens was exactly how Agito wasted the last five years.
+    </p>
+    <p>
+      I had to fight the <em>"just paint the buttons"</em> engineering mindset while operating under relentless sprint pressure. I had no luxury of taking six quiet months to design a design system in a laboratory.
+    </p>
+    <blockquote>
+      “In a 250-engineer software house, you cannot stop the production line to build a pristine design system. You must build the tracks directly in front of the moving locomotive. The design system had to earn its right to exist on the sprint battlefield every single week.”
+    </blockquote>
+
+    <p>
+      To defend the architecture against ad-hoc churn, I enforced the <strong>UX Readiness Gate</strong>. Before any screen entered Figma, Product Owners were required to lock three invariants:
     </p>
     <ol>
-      <li><strong>User Persona &amp; Problem Bound:</strong> Exactly who is operating the interface (Actuary, Collector, Claims Handler) and what concrete business friction is being resolved.</li>
-      <li><strong>End-to-End Flow Blueprint:</strong> Current versus target journey mapped across module boundaries before creating Figma frames.</li>
-      <li><strong>Actuarial Invariants:</strong> Immutable business rules, distribution logic, and regulatory constraints defined up front.</li>
+      <li><strong>Operational Persona &amp; Intent:</strong> Who sits at this screen for 8 hours (Actuary, Collector, Claims Handler) and what concrete friction is being resolved.</li>
+      <li><strong>End-to-End Task Journey:</strong> Current versus target flow mapped across module boundaries before drawing pixels.</li>
+      <li><strong>Data &amp; Modality Boundary:</strong> Exact field counts and state transitions, determining whether the view requires a 100vh list, a 2-row drawer, or an atomic dialog.</li>
     </ol>
     <p>
-      Requests lacking these invariants were rejected at the gate, eliminating over 70% of speculative screen churn.
+      By speaking the language of engineering contracts rather than visual aesthetics, the gate eliminated over 70% of speculative, half-baked feature requests.
     </p>
 
-    <!-- 03. THE TURNING POINT -->
-    <h2>03. Month 7: Test Automation Breakdown</h2>
+    <!-- 04. 40/68 SCREENS IN-FLIGHT -->
+    <h2>04. In-Flight Engine Replacement: 40/68 Screens &amp; Active Pattern Forging</h2>
     <p>
-      In Month 7, frontend teams attempted to write automated QA test suites against screens implemented from legacy agency files. The code broke down completely. Because agency drawings forced developers to create bespoke DOM hierarchies for each view, automated selectors failed on every minor release.
-    </p>
-    <p>
-      In an executive review with the CTO and Engineering Directors, I presented a side-by-side technical comparison:
+      This program is an active, living enterprise transformation. Across the initial baseline inventory of <strong>68 foundational screens</strong>, exactly <strong>40 screens (59%) have been delivered to production</strong>, with floorplans and reusable patterns being forged in real-time inside live sprints:
     </p>
 
     <div class="clean-table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Metric / Layer</th>
-            <th>Outsourced Agency Deliverables</th>
-            <th>Ant Design v5 Control System</th>
+            <th>Module Category</th>
+            <th>Total Scope</th>
+            <th>Delivered to Code (Done)</th>
+            <th>Active Pipeline</th>
+            <th>Architectural Responsibilities</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Layout Topologies</strong></td>
-            <td>Arbitrary, non-standard layout geometries per screen</td>
-            <td>4 Universal Floorplans (100vh Viewport Fitting)</td>
+            <td><strong>Platform Infrastructure</strong></td>
+            <td>36 Screens</td>
+            <td><strong>17 Delivered</strong></td>
+            <td>19 In Progress</td>
+            <td>Banks, Currencies, System Parameters, Value Lists, Locales, Global Dictionaries.</td>
           </tr>
           <tr>
-            <td><strong>Modality Patterns</strong></td>
-            <td>Nested conditional modals breaking state machines</td>
-            <td>2-Row Grid Drawers &amp; atomic 1–4 input dialogs</td>
+            <td><strong>Core Insurance Products</strong></td>
+            <td>32 Screens</td>
+            <td><strong>23 Delivered</strong></td>
+            <td>9 In Progress</td>
+            <td>Policy Administration, Claims Handlers, Collections Ledgers, Workpool Queues.</td>
           </tr>
           <tr>
-            <td><strong>CSS Discipline</strong></td>
-            <td>Thousands of lines of bespoke overrides</td>
-            <td>Zero custom CSS (`agitoTheme` token compiler)</td>
-          </tr>
-          <tr>
-            <td><strong>QA Automation</strong></td>
-            <td>Fragile DOM; automated selectors fail continuously</td>
-            <td>Deterministic DOM structure; 100% test automation pass rate</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>
-      The technical proof resolved the debate. Leadership terminated external agency contracts and committed 100% of frontend modernization to the internal Control Architecture.
-    </p>
-
-    <!-- 04. THE MULTI-WAVE SCALING HORIZON -->
-    <h2>04. The 68-Screen Kernel &amp; Multi-Wave Scaling Horizon</h2>
-    <p>
-      Agito’s product platform is an expansive enterprise operating system. The <strong>68 foundational screens</strong> documented in the initial tracking inventory represent the stress-tested kernel of a long-term modernization program scaling to <strong>350+ production screens</strong> across 14+ product suites:
-    </p>
-
-    <div class="clean-table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Program Horizon</th>
-            <th>Screen Volume</th>
-            <th>Status / Horizon</th>
-            <th>Domain Modules &amp; Subsystems</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Wave 1: Foundation Kernel</strong></td>
+            <td><strong>Wave 1 Foundation</strong></td>
             <td><strong>68 Screens</strong></td>
-            <td>40 Done (59%) · Active</td>
-            <td>Platform Infrastructure (36 screens: Banks, Currencies, Parameters) + Core Business Lines (32 screens: Policy Admin, Claims, Workpool).</td>
-          </tr>
-          <tr>
-            <td><strong>Wave 2: Enterprise Expansion</strong></td>
-            <td><strong>180+ Screens</strong></td>
-            <td>Next 12–18 Months</td>
-            <td>Reinsurance Treaties, Broker/Agency Distribution Portal, Actuarial Modeling Engines, Fraud Diagnostic, Multi-Entity Group Health.</td>
-          </tr>
-          <tr>
-            <td><strong>Wave 3: Autonomous InsurTech Mesh</strong></td>
-            <td><strong>350+ Screens</strong></td>
-            <td>Target State</td>
-            <td>Straight-Through Processing (STP) Underwriting, Open Insurance API Gateway, Microservice Integration Mesh.</td>
+            <td><strong>40 Delivered (59%)</strong></td>
+            <td><strong>28 In Progress</strong></td>
+            <td>Stress-tested baseline kernel designed to absorb upcoming 350+ screen roadmap.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3>The Zero-Marginal-Cost Architecture</h3>
+    <h3>The Zero-Marginal-Cost Scaling Curve</h3>
     <p>
-      In legacy agency paradigms, adding 300 screens requires hiring dozens of contract designers; cost scales linearly while technical debt compounds exponentially. In Agito’s Control Architecture, the system operates on a <strong>zero-marginal-cost curve</strong>:
+      The goal of forging strict patterns now is to break the linear scaling curve. Once the 68-screen foundation and floorplans are locked, adding the next 300+ roadmap screens requires zero new components:
     </p>
 
     <div class="clean-table-wrap">
@@ -425,49 +434,39 @@
         <thead>
           <tr>
             <th>Dimension</th>
-            <th>Agency Model (Linear Cost, Exponential Debt)</th>
-            <th>Control Architecture (Zero Marginal Cost)</th>
+            <th>Outsourced Agency Model</th>
+            <th>Agito Control Architecture</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>New Screen Delivery</strong></td>
-            <td>2–3 weeks per screen (custom Figma drawing)</td>
-            <td><strong>1–2 hours per screen</strong> (binding schema to existing floorplan)</td>
+            <td><strong>Delivery Speed</strong></td>
+            <td>2–3 weeks per screen (bespoke Figma drawing)</td>
+            <td><strong>1–2 hours per screen</strong> (binding data schema to existing floorplan)</td>
           </tr>
           <tr>
             <td><strong>Component Creation</strong></td>
-            <td>Every new feature invents new UI components</td>
+            <td>Every feature invents new custom UI buttons and cards</td>
             <td><strong>0 new components</strong>; 100% mapped to locked AntD floorplans</td>
           </tr>
           <tr>
-            <td><strong>Engineering Handoff</strong></td>
-            <td>Subjective redlines, ambiguous specs, CSS rework</td>
-            <td>Zero handoff: JSON token schema + deterministic React contracts</td>
+            <td><strong>Engineering Friction</strong></td>
+            <td>Ambiguous specs, conflicting redlines, constant CSS rewrite</td>
+            <td>Zero handoff friction: JSON token schema + deterministic React contracts</td>
           </tr>
           <tr>
-            <td><strong>Single Architect Leverage</strong></td>
-            <td>Requires 10–15 agency designers to maintain pace</td>
-            <td><strong>1 Lead Architect</strong> governs 350+ screens across 14+ products</td>
+            <td><strong>Organizational Leverage</strong></td>
+            <td>Requires hiring 10–15 agency designers to keep pace</td>
+            <td><strong>1 Sole Architect</strong> governs 350+ screens across 14+ products</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3>Component Topology &amp; Modality Invariants</h3>
+    <!-- 05. 4 FLOORPLANS -->
+    <h2>05. The 4 Universal Floorplans: Speaking the Engineer's Language</h2>
     <p>
-      To prevent structural degradation as hundreds of screens enter the pipeline, we locked strict modality invariants:
-    </p>
-    <ul>
-      <li><strong>Modal Dialogs:</strong> Restricted strictly to 1–4 inputs for single-intent confirmations (e.g. status transitions, approvals). Multi-step wizards are architecturally forbidden.</li>
-      <li><strong>2-Row Grid Drawers:</strong> Standardized for 5–12 inputs, enabling multi-field parameter entry without obscuring the background ledger.</li>
-      <li><strong>Standard Drawers &amp; Subpages:</strong> Utilized for deep sequential entity records and multi-tab dossiers.</li>
-    </ul>
-
-    <!-- 05. 14-PRODUCT TOPOLOGY & FLOORPLANS -->
-    <h2>05. Platform Topology &amp; Industrial Floorplans</h2>
-    <p>
-      Across all 14 products in Agito’s ecosystem—from Life and Health to Pension and Commercial lines—100% of workflows map into <strong>4 standardized 100vh floorplans</strong>, strictly optimized for 1920x1080 enterprise workstations with zero page bounce:
+      To win over backend engineers who viewed UI as arbitrary, I proved that 100% of insurance enterprise workflows map cleanly into <strong>exactly 4 standardized 100vh floorplans</strong>, strictly optimized for 1920x1080 enterprise workstations with zero page bounce:
     </p>
 
     <!-- INTERACTIVE FLOORPLAN TABS -->
@@ -515,16 +514,16 @@
       </div>
     </div>
 
-    <h3>DTCG Token Pipeline &amp; AI-Assisted Compilation</h3>
+    <h3>DTCG Token Pipeline &amp; AI Subagent Compilation</h3>
     <p>
-      The single source of truth across the 14-product suite is a pure JSON schema (<code>core.json</code>) adhering to Design Tokens Community Group (DTCG) standards. Compiled via Style Dictionary directly into <code>agitoTheme</code>, global tokens propagate across all repositories with zero custom CSS.
+      The single source of truth is a pure JSON schema (<code>core.json</code>) adhering to Design Tokens Community Group (DTCG) standards. Compiled via Style Dictionary directly into <code>agitoTheme</code>, brand tokens propagate across all 14 products with zero custom CSS.
     </p>
     <p>
-      To eliminate delivery bottlenecks across simultaneous Product Owner sprints, I engineered an AI subagent compilation pipeline. By feeding actuarial schema rules and floorplan blueprints directly to autonomous subagents, we compile code-ready Ant Design v5 specifications in minutes—enabling a single architect to absorb the upcoming 350+ screen roadmap without quality loss or organizational drag.
+      To satisfy leadership's relentless demand for delivery speed without sacrificing structural discipline, I constructed an AI subagent compilation pipeline. Feeding actuarial rule tables and floorplan blueprints directly to autonomous subagents compiles code-ready Ant Design v5 specifications in minutes—allowing a sole architect to outpace an entire agency team while maintaining immaculate architectural control.
     </p>
 
     <blockquote>
-      “A design system is a control system. Its value is measured not in the volume of components drawn, but in the architectural decisions removed from the table. By locking 4 floorplans and compiling DTCG tokens directly into deterministic React contracts, Agito turned design from an expensive bottleneck into a scalable infrastructure engine.”
+      “Design systems in enterprise companies fail when they are treated as artistic libraries. They succeed when they are built as engineering contracts. By aligning with frontend reality on Day 14, locking 4 floorplans under live sprint fire, and enforcing zero custom CSS, Agito transformed design from an expensive organizational bottleneck into a deterministic scaling engine.”
     </blockquote>
 
     <!-- BOTTOM CROSS-NAV -->
