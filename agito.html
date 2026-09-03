@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Agito InsurTech Modernization — Murat Çetin</title>
-  <meta name="description" content="Case study on leading in-flight enterprise platform modernization across 14+ products at Agito: dismantling 5 years of agency illusions, fighting backend cultural friction, and building an Ant Design v5 Control System under live sprint pressure."/>
+  <meta name="description" content="Case study on leading in-flight enterprise platform modernization across 14+ products at Agito: dismantling 5 years of agency illusions, dual-track pattern extraction, and building a self-serve Ant Design v5 Control System for Product Owners."/>
   <style>
     *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
     
@@ -267,7 +267,7 @@
     <!-- TITLE & DECK -->
     <h1 id="title">Agito InsurTech Modernization</h1>
     <p class="deck">
-      How a sole Design Systems Architect dismantled five years of outsourced agency illusions at a 250-engineer insurtech company—fighting backend-heavy cultural friction and navigating live sprint deadlines to build an Ant Design v5 Control System while simultaneously delivering a 68-screen foundation.
+      How a sole Design Systems Architect dismantled five years of outsourced agency illusions at a 250-engineer insurtech company—fighting backend cultural friction, forging a dual-track pattern library under live sprint fire, and building a self-serve Ant Design v5 Control System for Product Owners.
     </p>
 
     <!-- STAT ROW -->
@@ -381,8 +381,8 @@
       By speaking the language of engineering contracts rather than visual aesthetics, the gate eliminated over 70% of speculative, half-baked feature requests.
     </p>
 
-    <!-- 04. 40/68 SCREENS IN-FLIGHT -->
-    <h2>04. In-Flight Engine Replacement: 40/68 Screens &amp; Active Pattern Forging</h2>
+    <!-- 04. 40/68 SCREENS IN-FLIGHT & DUAL-TRACK -->
+    <h2>04. In-Flight Engine Replacement: 40/68 Screens &amp; Dual-Track Pattern Extraction</h2>
     <p>
       This program is an active, living enterprise transformation. Across the initial baseline inventory of <strong>68 foundational screens</strong>, exactly <strong>40 screens (59%) have been delivered to production</strong>, with floorplans and reusable patterns being forged in real-time inside live sprints:
     </p>
@@ -424,44 +424,34 @@
       </table>
     </div>
 
-    <h3>The Zero-Marginal-Cost Scaling Curve</h3>
+    <h3>Dual-Track Pattern Extraction: Rejecting the Post-Launch Fallacy</h3>
     <p>
-      The goal of forging strict patterns now is to break the linear scaling curve. Once the 68-screen foundation and floorplans are locked, adding the next 300+ roadmap screens requires zero new components:
+      Conventional design systems literature suggests a sequential fallacy: <em>"Design and ship all foundational screens first, then document your pattern library."</em>
     </p>
+    <p>
+      In a 250-engineer software organization with live sprint deadlines, that luxury does not exist. Waiting for all 68 screens to finish before establishing a library guarantees 68 screens of architectural drift.
+    </p>
+    <p>
+      I instituted a <strong>dual-track architecture</strong>:
+    </p>
+    <ul>
+      <li><strong>Track 1 (Live Tactical Delivery):</strong> Designing and unblocking production screens on-demand for immediate sprint commitments (e.g. currency tables, payment registers, claims queues).</li>
+      <li><strong>Track 2 (Real-Time Pattern Hardening):</strong> Simultaneously extracting, tokenizing, and hardening every newly solved layout into a centralized, immutable Pattern Library.</li>
+    </ul>
 
-    <div class="clean-table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Dimension</th>
-            <th>Outsourced Agency Model</th>
-            <th>Agito Control Architecture</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Delivery Speed</strong></td>
-            <td>2–3 weeks per screen (bespoke Figma drawing)</td>
-            <td><strong>1–2 hours per screen</strong> (binding data schema to existing floorplan)</td>
-          </tr>
-          <tr>
-            <td><strong>Component Creation</strong></td>
-            <td>Every feature invents new custom UI buttons and cards</td>
-            <td><strong>0 new components</strong>; 100% mapped to locked AntD floorplans</td>
-          </tr>
-          <tr>
-            <td><strong>Engineering Friction</strong></td>
-            <td>Ambiguous specs, conflicting redlines, constant CSS rewrite</td>
-            <td>Zero handoff friction: JSON token schema + deterministic React contracts</td>
-          </tr>
-          <tr>
-            <td><strong>Organizational Leverage</strong></td>
-            <td>Requires hiring 10–15 agency designers to keep pace</td>
-            <td><strong>1 Sole Architect</strong> governs 350+ screens across 14+ products</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <h3>The Self-Serve Endgame: Turning Product Owners into System Composers</h3>
+    <p>
+      A sole architect governing 14+ products cannot survive as a perpetual ticket-drawing factory. If every button addition or form parameter requires my manual Figma handcrafting, the design function becomes an organizational bottleneck.
+    </p>
+    <p>
+      The ultimate objective of the Pattern Library is <strong>federated self-serve design for Product Owners</strong>:
+    </p>
+    <blockquote>
+      “Instead of Product Owners waiting two weeks for a designer to draw a basic parameter screen, the Pattern Library functions as a bounded Lego assembly kit. Product Owners compose standardized user stories directly using locked floorplans and pre-validated component patterns. Because the building blocks are hardcoded to Ant Design v5 and DTCG tokens, whatever the Product Owner composes is structurally impossible to misalign with engineering.”
+    </blockquote>
+    <p>
+      This operational shift transforms the design role: from an exhausted reactive decorator drawing tickets, to a <strong>platform architect building the control rails</strong> that enable the entire organization to ship valid software autonomously.
+    </p>
 
     <!-- 05. 4 FLOORPLANS -->
     <h2>05. The 4 Universal Floorplans: Speaking the Engineer's Language</h2>
