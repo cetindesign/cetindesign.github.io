@@ -203,41 +203,181 @@
 
     .interactive-floorplans{
       margin:2rem 0;
-      border:1px solid #f4f4f6;
+      border:1px solid #e4e4e7;
       border-radius:8px;
       overflow:hidden;
+      background:#ffffff;
+      box-shadow:0 1px 3px rgba(0,0,0,0.03);
+    }
+    .studio-chrome-bar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background:#fafafa;
+      border-bottom:1px solid #e4e4e7;
+      padding:0.5rem 0.85rem;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:11px;
     }
     .tab-nav{
       display:flex;
-      background:#fafafa;
-      border-bottom:1px solid #f4f4f6;
+      background:#ffffff;
+      border-bottom:1px solid #e4e4e7;
       overflow-x:auto;
     }
     .tab-btn{
-      padding:0.6rem 0.9rem;
-      font-size:12.5px;
+      padding:0.65rem 1rem;
+      font-size:12px;
       background:transparent;
       border:none;
       color:#71717a;
       cursor:pointer;
       white-space:nowrap;
       border-bottom:2px solid transparent;
-      transition:color 0.15s ease;
+      transition:all 0.15s ease;
       font-family:inherit;
     }
+    .tab-btn:hover{ color:#18181b; }
     .tab-btn.active{
-      color:#000;
+      color:#18181b;
       font-weight:500;
-      border-bottom-color:#000;
+      border-bottom-color:#5D2BC7;
+      background:#fafafa;
     }
     .tab-pane{
       display:none;
       padding:1.25rem;
-      font-size:13.5px;
+      font-size:13px;
       color:#52525b;
       line-height:1.6;
+      background:#ffffff;
     }
     .tab-pane.active{ display:block; }
+
+    .studio-stat-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:0.75rem;
+      margin-bottom:1rem;
+    }
+    @media (max-width:600px){
+      .studio-stat-grid{ grid-template-columns:repeat(2, 1fr); }
+    }
+    .studio-stat-card{
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      padding:0.75rem;
+      background:#ffffff;
+      transition:border-color 0.15s ease;
+    }
+    .studio-stat-card:hover{ border-color:#5D2BC7; }
+    .studio-stat-val{
+      font-family:ui-monospace,monospace;
+      font-size:14px;
+      font-weight:600;
+      color:#18181b;
+    }
+    .studio-stat-lbl{ font-size:10.5px; color:#71717a; margin-bottom:0.25rem; }
+
+    .studio-table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:12px;
+      text-align:left;
+    }
+    .studio-table th{
+      background:#fafafa;
+      border-bottom:1px solid #e4e4e7;
+      padding:0.55rem 0.75rem;
+      font-family:ui-monospace,monospace;
+      font-size:10px;
+      color:#71717a;
+      font-weight:600;
+      text-transform:uppercase;
+    }
+    .studio-table td{
+      padding:0.6rem 0.75rem;
+      border-bottom:1px solid #f4f4f6;
+      color:#18181b;
+      font-size:12px;
+      cursor:pointer;
+      transition:background 0.15s ease;
+    }
+    .studio-table tr:hover td{ background:#fafafa; }
+    .studio-table tr.selected td{ background:#f5f3ff; }
+    .studio-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+      font-family:ui-monospace,monospace;
+      font-size:10px;
+      padding:2px 6px;
+      border-radius:4px;
+      background:#f4f4f6;
+      color:#18181b;
+    }
+    .studio-badge.active{ background:#ecfdf5; color:#047857; }
+    .studio-badge.pending{ background:#fffbeb; color:#b45309; }
+    .studio-btn-primary{
+      background:#5D2BC7;
+      color:#ffffff;
+      border:1px solid #5D2BC7;
+      border-radius:4px;
+      padding:0 0.85rem;
+      height:32px;
+      font-size:12px;
+      font-weight:500;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition:opacity 0.15s ease;
+      font-family:inherit;
+    }
+    .studio-btn-primary:hover{ opacity:0.9; }
+    .studio-btn-secondary{
+      background:#ffffff;
+      color:#18181b;
+      border:1px solid #d9d9d9;
+      border-radius:4px;
+      padding:0 0.85rem;
+      height:32px;
+      font-size:12px;
+      font-weight:400;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-family:inherit;
+    }
+    .studio-btn-secondary:hover{ border-color:#5D2BC7; color:#5D2BC7; }
+    .studio-input-40{
+      height:40px;
+      border:1px solid #d9d9d9;
+      border-radius:4px;
+      padding:0 0.75rem;
+      font-size:12.5px;
+      color:#18181b;
+      background:#ffffff;
+      outline:none;
+      transition:all 0.15s ease;
+      width:100%;
+      box-sizing:border-box;
+      font-family:inherit;
+    }
+    .studio-input-40:focus{
+      border-color:#5D2BC7;
+      box-shadow:0 0 0 2px rgba(93, 43, 199, 0.12);
+    }
+    .studio-inspector{
+      background:#09090b;
+      color:#f4f4f5;
+      padding:0.85rem 1rem;
+      border-top:1px solid #27272a;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:11px;
+      line-height:1.5;
+    }
 
     .wireframe-box{
       background:#fafafa;
@@ -387,56 +527,69 @@
       </table>
     </div>
 
-    <!-- ARCHITECTURAL SPECIMEN: DELIVERY PIPELINE CONTRAST -->
-    <div style="margin:2rem 0; border:1px solid #f4f4f6; border-radius:8px; padding:1.5rem; background:#fafafa;">
-      <div style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:#a1a1aa; margin-bottom:1rem;">
-        Architectural Specimen · Delivery Pipeline Contrast
+    <!-- ARCHITECTURAL SPECIMEN: DELIVERY ARCHITECTURE CONTRAST -->
+    <div style="margin:2rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.6rem 1rem;">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444;"></span>
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#eab308;"></span>
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e;"></span>
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; font-weight:500; color:#71717a; margin-left:0.5rem;">Architectural Specimen · Code Audit &amp; Failure Mode Analysis</span>
+        </div>
+        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; text-transform:uppercase; letter-spacing:0.05em;">Day 14 Audit</span>
       </div>
-      <svg viewBox="0 0 620 170" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
-        <!-- TRACK A: AGENCY MIRAGE -->
-        <rect x="2" y="8" width="616" height="68" rx="6" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-        <text x="14" y="26" fill="#71717a" font-family="ui-monospace, monospace" font-size="10" text-transform="uppercase" letter-spacing="0.05em">The Agency Model · 5-Year Churn</text>
-        
-        <rect x="14" y="34" width="100" height="32" rx="4" fill="#fafafa" stroke="#d4d4d8" stroke-width="1"/>
-        <text x="24" y="54" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">Mobbin Copy</text>
-        
-        <path d="M118 50 H134 M130 46 L135 50 L130 54" stroke="#a1a1aa" stroke-width="1.2" stroke-linecap="round"/>
-        
-        <rect x="138" y="34" width="115" height="32" rx="4" fill="#fafafa" stroke="#d4d4d8" stroke-width="1"/>
-        <text x="148" y="54" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">1440px Artboard</text>
-        
-        <path d="M257 50 H273 M269 46 L274 50 L269 54" stroke="#a1a1aa" stroke-width="1.2" stroke-linecap="round"/>
-        
-        <rect x="277" y="34" width="125" height="32" rx="4" fill="#fafafa" stroke="#d4d4d8" stroke-width="1"/>
-        <text x="287" y="54" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">Passive Frontend</text>
-        
-        <path d="M406 50 H422 M418 46 L423 50 L418 54" stroke="#a1a1aa" stroke-width="1.2" stroke-linecap="round"/>
-        
-        <rect x="426" y="34" width="180" height="32" rx="4" fill="#fafafa" stroke="#d4d4d8" stroke-width="1"/>
-        <text x="436" y="54" fill="#71717a" font-family="ui-monospace, monospace" font-size="10.5">400 LOC CSS / Screen</text>
 
-        <!-- TRACK B: CONTROL ARCHITECTURE -->
-        <rect x="2" y="92" width="616" height="68" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1.2"/>
-        <text x="14" y="110" fill="#18181b" font-family="ui-monospace, monospace" font-size="10" font-weight="600" text-transform="uppercase" letter-spacing="0.05em">Agito Control System · Zero-Marginal-Cost</text>
-        
-        <rect x="14" y="118" width="100" height="32" rx="4" fill="#18181b"/>
-        <text x="24" y="138" fill="#ffffff" font-family="ui-monospace, monospace" font-size="11">core.json</text>
-        
-        <path d="M118 134 H134 M130 130 L135 134 L130 138" stroke="#18181b" stroke-width="1.5" stroke-linecap="round"/>
-        
-        <rect x="138" y="118" width="115" height="32" rx="4" fill="#fafafa" stroke="#18181b" stroke-width="1"/>
-        <text x="148" y="138" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="500">AntD agitoTheme</text>
-        
-        <path d="M257 134 H273 M269 130 L274 134 L269 138" stroke="#18181b" stroke-width="1.5" stroke-linecap="round"/>
-        
-        <rect x="277" y="118" width="125" height="32" rx="4" fill="#fafafa" stroke="#18181b" stroke-width="1"/>
-        <text x="287" y="138" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="500">4 Locked Floorplans</text>
-        
-        <path d="M406 134 H422 M418 130 L423 134 L418 138" stroke="#18181b" stroke-width="1.5" stroke-linecap="round"/>
-        
-        <rect x="426" y="118" width="180" height="32" rx="4" fill="#18181b"/>
-        <text x="436" y="138" fill="#ffffff" font-family="ui-monospace, monospace" font-size="10.5">0 Custom CSS Overrides</text>
-      </svg>
+      <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #e4e4e7;">
+        <div style="padding:1rem; border-right:1px solid #e4e4e7; background:#fafafa;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+            <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#dc2626;">01. Agency Anti-Pattern (420 LOC)</span>
+            <span style="font-size:10px; background:#fee2e2; color:#991b1b; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace;">FATAL DEBT</span>
+          </div>
+          <pre style="margin:0; padding:0.75rem; background:#ffffff; border:1px solid #fecaca; border-radius:4px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; line-height:1.5; color:#7f1d1d; overflow-x:auto;"><code>/* legacy-screen-04.css · 420 LOC */
+.policy-submit-btn {
+  background: #7B3FE4 !important; /* ad-hoc hex */
+  padding: 13px 21px; /* arbitrary eyeballing */
+  border-radius: 9px;
+  box-shadow: 0 4px 14px rgba(123,63,228,.3);
+}
+.custom-table-cell {
+  overflow: hidden; /* truncates 18-digit IBAN */
+  height: 48px; /* breaks on 1080p viewport */
+}</code></pre>
+          <div style="margin-top:0.75rem; font-size:11px; color:#71717a; line-height:1.4;">
+            <strong>Result:</strong> Zero token inheritance, ad-hoc hex explosion, components break on real data loads.
+          </div>
+        </div>
+
+        <div style="padding:1rem; background:#ffffff;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+            <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#18181b;">02. Agito Control System (DTCG)</span>
+            <span style="font-size:10px; background:#f4f4f6; color:#18181b; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace;">ZERO OVERRIDE</span>
+          </div>
+          <pre style="margin:0; padding:0.75rem; background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; line-height:1.5; color:#18181b; overflow-x:auto;"><code>// packages/tokens/core.json -> agitoTheme
+{
+  "token": {
+    "colorPrimary": "#5D2BC7",
+    "controlHeight": 32,
+    "borderRadius": 4,
+    "wireframe": false
+  },
+  "components": {
+    "Table": { "cellPaddingBlock": 8 },
+    "Form": { "controlHeight": 40 }
+  }
+}</code></pre>
+          <div style="margin-top:0.75rem; font-size:11px; color:#71717a; line-height:1.4;">
+            <strong>Result:</strong> 0 LOC custom CSS. Tokens compile directly to AntD v5 ConfigProvider across 14 products.
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); padding:0.75rem 1rem; background:#ffffff; font-family:ui-monospace,monospace; font-size:11px;">
+        <div><span style="color:#a1a1aa;">Custom CSS:</span> <strong style="color:#18181b;">420 LOC ➔ 0 LOC</strong></div>
+        <div><span style="color:#a1a1aa;">Component Reuse:</span> <strong style="color:#18181b;">0% ➔ 100%</strong></div>
+        <div><span style="color:#a1a1aa;">System Drift:</span> <strong style="color:#18181b;">Fatal ➔ Mathematically Zero</strong></div>
+      </div>
     </div>
 
     <p>
@@ -597,42 +750,45 @@
       This operational shift transforms the design role: from an exhausted reactive decorator drawing tickets, to a <strong>platform architect building the control rails</strong> that enable the entire organization to ship valid software autonomously.
     </p>
 
-    <!-- ARCHITECTURAL SPECIMEN: SELF-SERVE PO ASSEMBLY ENGINE -->
-    <div style="margin:2rem 0; border:1px solid #f4f4f6; border-radius:8px; padding:1.5rem; background:#fafafa;">
-      <div style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:#a1a1aa; margin-bottom:1rem;">
-        Architectural Specimen · Product Owner Self-Serve Assembly Kit
+    <!-- ARCHITECTURAL SPECIMEN: SELF-SERVE ASSEMBLY KIT -->
+    <div style="margin:2rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.6rem 1rem;">
+        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; font-weight:500; color:#71717a;">Architectural Specimen · Product Owner Self-Serve Assembly Recipe</span>
+        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#18181b; background:#f4f4f6; padding:2px 6px; border-radius:3px;">ZERO DESIGNER BOTTLENECK</span>
       </div>
-      <svg viewBox="0 0 620 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
-        <rect x="2" y="10" width="130" height="98" rx="6" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-        <text x="14" y="32" fill="#71717a" font-family="ui-monospace, monospace" font-size="10">STEP 01</text>
-        <text x="14" y="52" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600">Select Floorplan</text>
-        <text x="14" y="72" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5">Floorplan 02 (List)</text>
-        <text x="14" y="88" fill="#a1a1aa" font-family="ui-monospace, monospace" font-size="9.5">100vh · Zero Bounce</text>
-
-        <text x="144" y="64" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400">+</text>
-
-        <rect x="164" y="10" width="130" height="98" rx="6" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-        <text x="176" y="32" fill="#71717a" font-family="ui-monospace, monospace" font-size="10">STEP 02</text>
-        <text x="176" y="52" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600">Bind Schema</text>
-        <text x="176" y="72" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5">Currencies.json</text>
-        <text x="176" y="88" fill="#a1a1aa" font-family="ui-monospace, monospace" font-size="9.5">14 Columns · Frozen</text>
-
-        <text x="306" y="64" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400">+</text>
-
-        <rect x="326" y="10" width="130" height="98" rx="6" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-        <text x="338" y="32" fill="#71717a" font-family="ui-monospace, monospace" font-size="10">STEP 03</text>
-        <text x="338" y="52" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600">AntD Recipes</text>
-        <text x="338" y="72" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5">FilterBar + 40px Form</text>
-        <text x="338" y="88" fill="#a1a1aa" font-family="ui-monospace, monospace" font-size="9.5">Strict DTCG Tokens</text>
-
-        <text x="468" y="64" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="600">=</text>
-
-        <rect x="488" y="10" width="130" height="98" rx="6" fill="#18181b"/>
-        <text x="500" y="32" fill="#a1a1aa" font-family="ui-monospace, monospace" font-size="10">PRODUCTION</text>
-        <text x="500" y="52" fill="#ffffff" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600">Valid Spec</text>
-        <text x="500" y="72" fill="#d4d4d8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10.5">0 Designer Hours</text>
-        <text x="500" y="88" fill="#a1a1aa" font-family="ui-monospace, monospace" font-size="9.5">100% Contract Match</text>
-      </svg>
+      <div style="padding:1.25rem;">
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0.75rem; margin-bottom:1rem;">
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">01. CONTAINER</div>
+            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Floorplan 02</div>
+            <div style="font-size:11px; color:#71717a;">Standard List · 100vh locked viewport</div>
+          </div>
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">02. DATA BINDING</div>
+            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">CurrencySchema</div>
+            <div style="font-size:11px; color:#71717a;">14 Columns · Frozen action column</div>
+          </div>
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">03. ANT-D RECIPE</div>
+            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">FilterBar + Form</div>
+            <div style="font-size:11px; color:#71717a;">40px inputs · 32px actions · DTCG tokens</div>
+          </div>
+          <div style="border:1px solid #18181b; border-radius:6px; padding:0.75rem; background:#18181b; color:#ffffff;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:0.25rem;">04. COMPILED VIEW</div>
+            <div style="font-size:12.5px; font-weight:600; color:#ffffff; margin-bottom:0.25rem;">Production Spec</div>
+            <div style="font-size:11px; color:#d4d4d8;">0 Designer Hours · 100% Contract Match</div>
+          </div>
+        </div>
+        <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; font-family:ui-monospace,monospace; font-size:11px; color:#52525b; line-height:1.5;">
+          <span style="color:#a1a1aa;">// PO Assembly Story Contract:</span><br>
+          <span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">CurrencyParameterView</span> = createEnterpriseScreen({<br>
+          &nbsp;&nbsp;floorplan: <span style="color:#059669;">'StandardListReport'</span>,<br>
+          &nbsp;&nbsp;endpoint: <span style="color:#059669;">'/api/v1/actuarial/currencies'</span>,<br>
+          &nbsp;&nbsp;frozenRight: [<span style="color:#059669;">'actions'</span>],<br>
+          &nbsp;&nbsp;governanceGate: <span style="color:#059669;">'UX_READY_PASS'</span><br>
+          });
+        </div>
+      </div>
     </div>
 
     <!-- 05. 4 FLOORPLANS -->
@@ -641,208 +797,317 @@
       To win over backend engineers who viewed UI as arbitrary, I proved that 100% of insurance enterprise workflows map cleanly into <strong>exactly 4 standardized 100vh floorplans</strong>, strictly optimized for 1920x1080 enterprise workstations with zero page bounce:
     </p>
 
-    <!-- INTERACTIVE FLOORPLAN TABS -->
+    <!-- HIGH-CRAFT ANT DESIGN V5 ENTERPRISE STUDIO -->
     <div class="interactive-floorplans">
+      <!-- WORKSTATION CHROME BAR -->
+      <div class="studio-chrome-bar">
+        <div style="display:flex; align-items:center; gap:6px;">
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444;"></span>
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#eab308;"></span>
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e;"></span>
+          <span style="color:#71717a; margin-left:6px; font-weight:500;">Agito Enterprise Runtime · 100vh Target (1920x1080)</span>
+        </div>
+        <span style="font-size:10px; background:#f4f4f6; color:#18181b; padding:2px 6px; border-radius:3px; font-weight:600;">ZERO PAGE SCROLL</span>
+      </div>
+
+      <!-- FLOORPLAN SWITCHER TABS -->
       <div class="tab-nav">
-        <button class="tab-btn active" onclick="setTab(0)">01. Overview (Dashboard)</button>
-        <button class="tab-btn" onclick="setTab(1)">02. Standard List (Grid)</button>
-        <button class="tab-btn" onclick="setTab(2)">03. Object (Detail View)</button>
-        <button class="tab-btn" onclick="setTab(3)">04. Analytical (Split View)</button>
+        <button class="tab-btn active" onclick="switchFloorplan(0, this)">01. Overview (Dashboard)</button>
+        <button class="tab-btn" onclick="switchFloorplan(1, this)">02. Standard List (Grid)</button>
+        <button class="tab-btn" onclick="switchFloorplan(2, this)">03. Object (Detail View)</button>
+        <button class="tab-btn" onclick="switchFloorplan(3, this)">04. Analytical (Split View)</button>
       </div>
 
+      <!-- PANE 0: OVERVIEW HUB -->
       <div class="tab-pane active" id="pane-0">
-        <div style="margin-bottom:1rem; border:1px solid #e4e4e7; border-radius:6px; background:#fff; overflow:hidden;">
-          <svg viewBox="0 0 620 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
-            <rect x="0" y="0" width="620" height="28" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
-            <circle cx="14" cy="14" r="4" fill="#5D2BC7"/>
-            <text x="26" y="17" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9.5" font-weight="600">Agito Core Platform · Overview Hub</text>
-            <rect x="460" y="6" width="100" height="16" rx="3" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="470" y="17" fill="#a1a1aa" font-family="ui-monospace, monospace" font-size="8">Search (Ctrl+K)...</text>
-            <circle cx="580" cy="14" r="6" fill="#e4e4e7"/>
-
-            <rect x="12" y="38" width="140" height="40" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="20" y="52" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Claims SLA Today</text>
-            <text x="20" y="68" fill="#18181b" font-family="ui-monospace, monospace" font-size="12" font-weight="600">99.4%</text>
-
-            <rect x="162" y="38" width="140" height="40" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="170" y="52" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Active Policies</text>
-            <text x="170" y="68" fill="#18181b" font-family="ui-monospace, monospace" font-size="12" font-weight="600">142,850</text>
-
-            <rect x="312" y="38" width="140" height="40" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="320" y="52" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Open Collections</text>
-            <text x="320" y="68" fill="#18181b" font-family="ui-monospace, monospace" font-size="12" font-weight="600">₺ 4.2M</text>
-
-            <rect x="462" y="38" width="146" height="40" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="470" y="52" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Actuarial Queue</text>
-            <text x="470" y="68" fill="#18181b" font-family="ui-monospace, monospace" font-size="12" font-weight="600">18 Pending</text>
-
-            <rect x="12" y="86" width="365" height="84" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <rect x="12" y="86" width="365" height="20" fill="#fafafa"/>
-            <text x="20" y="100" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="600">Workpool Task Allocation (60% Width · Independent Scroll)</text>
-            <line x1="12" y1="106" x2="377" y2="106" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="20" y="122" fill="#52525b" font-family="ui-monospace, monospace" font-size="8.5">#POL-9021 · Commercial Fire Endorsement</text>
-            <text x="320" y="122" fill="#5D2BC7" font-family="ui-monospace, monospace" font-size="8">ASSIGNED</text>
-            <line x1="12" y1="130" x2="377" y2="130" stroke="#f4f4f6" stroke-width="1"/>
-            <text x="20" y="146" fill="#52525b" font-family="ui-monospace, monospace" font-size="8.5">#CLM-4412 · Motor Vehicle Assessment</text>
-            <text x="320" y="146" fill="#71717a" font-family="ui-monospace, monospace" font-size="8">IN REVIEW</text>
-            <line x1="12" y1="154" x2="377" y2="154" stroke="#f4f4f6" stroke-width="1"/>
-
-            <rect x="387" y="86" width="221" height="84" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <rect x="387" y="86" width="221" height="20" fill="#fafafa"/>
-            <text x="395" y="100" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="600">System Audit Stream (40%)</text>
-            <line x1="387" y1="106" x2="608" y2="106" stroke="#e4e4e7" stroke-width="1"/>
-            <circle cx="398" cy="120" r="3" fill="#18181b"/>
-            <text x="408" y="122" fill="#52525b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8">Exchange rates sync completed</text>
-            <circle cx="398" cy="144" r="3" fill="#18181b"/>
-            <text x="408" y="146" fill="#52525b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8">KVKK audit log anchored</text>
-          </svg>
+        <!-- TopBar Component -->
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:0.6rem 0.75rem; background:#fafafa; border:1px solid #e4e4e7; border-radius:6px; margin-bottom:1rem;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="width:14px; height:14px; border-radius:3px; background:#5D2BC7; display:inline-block;"></span>
+            <span style="font-weight:600; font-size:12px; color:#18181b;">Agito Core · Underwriting &amp; Actuarial Workspace</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px; font-size:11px; color:#71717a;">
+            <span style="font-family:ui-monospace,monospace;">Operator: actuary.lead</span>
+            <span class="studio-badge active">● LIVE SYNC</span>
+          </div>
         </div>
-        <strong>Overview Floorplan:</strong> High-density operational hub for operators starting shifts. Zero page bounce; internal task table scrolls independently.
+
+        <!-- 4 KPI Metrics -->
+        <div class="studio-stat-grid">
+          <div class="studio-stat-card" onclick="inspectElement('KPI.ClaimsSLA', 'token.colorSuccess', '32px metric card', '99.4% SLA')">
+            <div class="studio-stat-lbl">Claims SLA Today</div>
+            <div class="studio-stat-val">99.4%</div>
+            <div style="font-size:10px; color:#059669; margin-top:2px;">+0.6% vs Target</div>
+          </div>
+          <div class="studio-stat-card" onclick="inspectElement('KPI.ActivePolicies', 'token.colorPrimary', '32px metric card', '142,850 Active')">
+            <div class="studio-stat-lbl">Active Policies</div>
+            <div class="studio-stat-val">142,850</div>
+            <div style="font-size:10px; color:#71717a; margin-top:2px;">Allianz · HDI · Sompo</div>
+          </div>
+          <div class="studio-stat-card" onclick="inspectElement('KPI.Collections', 'token.colorWarning', '32px metric card', '₺ 4.2M')">
+            <div class="studio-stat-lbl">Open Collections</div>
+            <div class="studio-stat-val">₺ 4.2M</div>
+            <div style="font-size:10px; color:#b45309; margin-top:2px;">38 Clearing Runs</div>
+          </div>
+          <div class="studio-stat-card" onclick="inspectElement('KPI.ActuarialQueue', 'token.colorInfo', '32px metric card', '18 Pending')">
+            <div class="studio-stat-lbl">Actuarial Queue</div>
+            <div class="studio-stat-val">18 Pending</div>
+            <div style="font-size:10px; color:#5D2BC7; margin-top:2px;">Reinsurance Treaties</div>
+          </div>
+        </div>
+
+        <!-- Split 60/40 Viewport -->
+        <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:0.75rem;">
+          <!-- Left 60%: Workpool Table -->
+          <div style="border:1px solid #e4e4e7; border-radius:6px; overflow:hidden;">
+            <div style="background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.5rem 0.75rem; font-weight:600; font-size:11px; color:#18181b; display:flex; justify-content:space-between;">
+              <span>Workpool Priority Queue (Independent Scroll)</span>
+              <span style="font-family:ui-monospace,monospace; color:#71717a;">3 ASSIGNED</span>
+            </div>
+            <table class="studio-table">
+              <tbody>
+                <tr class="selected" onclick="inspectElement('Table.Row #POL-9021', 'color.brand.violet.600', 'height: 40px locked', 'Fire Endorsement')">
+                  <td style="font-family:ui-monospace,monospace; font-weight:600;">#POL-9021</td>
+                  <td>Commercial Fire Endorsement</td>
+                  <td><span class="studio-badge active">● READY</span></td>
+                  <td style="text-align:right;"><span style="color:#5D2BC7; font-weight:500;">Review ↗</span></td>
+                </tr>
+                <tr onclick="inspectElement('Table.Row #CLM-4412', 'color.neutral.zinc.700', 'height: 40px locked', 'Motor Fleet Damage')">
+                  <td style="font-family:ui-monospace,monospace; font-weight:600;">#CLM-4412</td>
+                  <td>Motor Fleet Damage Settlement</td>
+                  <td><span class="studio-badge pending">● IN REVIEW</span></td>
+                  <td style="text-align:right;"><span style="color:#71717a;">Inspect</span></td>
+                </tr>
+                <tr onclick="inspectElement('Table.Row #POL-8812', 'color.neutral.zinc.700', 'height: 40px locked', 'Group Health Quota')">
+                  <td style="font-family:ui-monospace,monospace; font-weight:600;">#POL-8812</td>
+                  <td>Group Health Risk Assessment</td>
+                  <td><span class="studio-badge active">● PASSED</span></td>
+                  <td style="text-align:right;"><span style="color:#71717a;">Inspect</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Right 40%: Audit Stream -->
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa; font-size:11.5px; display:flex; flex-direction:column; gap:0.6rem;">
+            <div style="font-weight:600; font-size:11px; color:#18181b; border-bottom:1px solid #e4e4e7; padding-bottom:0.4rem;">
+              Audit Stream · KVKK &amp; MASAK Ledger
+            </div>
+            <div style="color:#52525b;">
+              <span style="font-family:ui-monospace,monospace; color:#a1a1aa;">14:22</span> Exchange rate sync completed (USD/TRY 41.20)
+            </div>
+            <div style="color:#52525b;">
+              <span style="font-family:ui-monospace,monospace; color:#a1a1aa;">14:18</span> KVKK operator audit trail committed to immutable log
+            </div>
+            <div style="color:#52525b;">
+              <span style="font-family:ui-monospace,monospace; color:#a1a1aa;">14:05</span> Treaty quota allocation approved for SwissRe (40%)
+            </div>
+          </div>
+        </div>
       </div>
 
+      <!-- PANE 1: STANDARD LIST REPORT -->
       <div class="tab-pane" id="pane-1">
-        <div style="margin-bottom:1rem; border:1px solid #e4e4e7; border-radius:6px; background:#fff; overflow:hidden;">
-          <svg viewBox="0 0 620 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
-            <rect x="0" y="0" width="620" height="34" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
-            <rect x="12" y="7" width="130" height="20" rx="3" fill="#ffffff" stroke="#d4d4d8" stroke-width="1"/>
-            <text x="20" y="21" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Search parameter...</text>
-            
-            <rect x="150" y="7" width="90" height="20" rx="3" fill="#ffffff" stroke="#d4d4d8" stroke-width="1"/>
-            <text x="158" y="21" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Status: All ▼</text>
-
-            <rect x="248" y="7" width="110" height="20" rx="3" fill="#ffffff" stroke="#d4d4d8" stroke-width="1"/>
-            <text x="256" y="21" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">2026-01 · 2026-09</text>
-
-            <rect x="520" y="7" width="88" height="20" rx="3" fill="#18181b"/>
-            <text x="532" y="21" fill="#ffffff" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5" font-weight="500">+ New Record</text>
-
-            <rect x="0" y="34" width="620" height="22" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="14" y="48" fill="#71717a" font-family="ui-monospace, monospace" font-size="8" font-weight="600">CODE</text>
-            <text x="70" y="48" fill="#71717a" font-family="ui-monospace, monospace" font-size="8" font-weight="600">CURRENCY / ENTITY</text>
-            <text x="210" y="48" fill="#71717a" font-family="ui-monospace, monospace" font-size="8" font-weight="600">MODULE SCOPE</text>
-            <text x="330" y="48" fill="#71717a" font-family="ui-monospace, monospace" font-size="8" font-weight="600">DECIMAL RULE</text>
-            <text x="430" y="48" fill="#71717a" font-family="ui-monospace, monospace" font-size="8" font-weight="600">STATUS</text>
-            <line x1="520" y1="34" x2="520" y2="155" stroke="#d4d4d8" stroke-width="1.2" stroke-dasharray="2 2"/>
-            <text x="530" y="48" fill="#18181b" font-family="ui-monospace, monospace" font-size="8" font-weight="600">ACTION (FROZEN)</text>
-
-            <rect x="0" y="56" width="620" height="24" fill="#fafafa"/>
-            <text x="14" y="71" fill="#18181b" font-family="ui-monospace, monospace" font-size="8.5">TRY</text>
-            <text x="70" y="71" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Turkish Lira (Base)</text>
-            <text x="210" y="71" fill="#52525b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Collections &amp; Claims</text>
-            <text x="330" y="71" fill="#52525b" font-family="ui-monospace, monospace" font-size="8.5">2 Decimals (.00)</text>
-            <rect x="430" y="62" width="46" height="13" rx="2" fill="#e4e4e7"/>
-            <text x="436" y="71" fill="#18181b" font-family="ui-monospace, monospace" font-size="7.5">ACTIVE</text>
-            <text x="530" y="71" fill="#5D2BC7" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5" font-weight="500">Edit / Config</text>
-            <line x1="0" y1="80" x2="620" y2="80" stroke="#f4f4f6" stroke-width="1"/>
-
-            <rect x="0" y="80" width="620" height="24" fill="#ffffff"/>
-            <text x="14" y="95" fill="#18181b" font-family="ui-monospace, monospace" font-size="8.5">USD</text>
-            <text x="70" y="95" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">US Dollar (Foreign)</text>
-            <text x="210" y="95" fill="#52525b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Reinsurance Treaty</text>
-            <text x="330" y="95" fill="#52525b" font-family="ui-monospace, monospace" font-size="8.5">4 Decimals (.0000)</text>
-            <rect x="430" y="86" width="46" height="13" rx="2" fill="#e4e4e7"/>
-            <text x="436" y="95" fill="#18181b" font-family="ui-monospace, monospace" font-size="7.5">ACTIVE</text>
-            <text x="530" y="95" fill="#5D2BC7" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5" font-weight="500">Edit / Config</text>
-            <line x1="0" y1="104" x2="620" y2="104" stroke="#f4f4f6" stroke-width="1"/>
-
-            <rect x="0" y="104" width="620" height="24" fill="#fafafa"/>
-            <text x="14" y="119" fill="#18181b" font-family="ui-monospace, monospace" font-size="8.5">EUR</text>
-            <text x="70" y="119" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Euro (Cross Rate)</text>
-            <text x="210" y="119" fill="#52525b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Commercial Transit</text>
-            <text x="330" y="119" fill="#52525b" font-family="ui-monospace, monospace" font-size="8.5">4 Decimals (.0000)</text>
-            <rect x="430" y="110" width="46" height="13" rx="2" fill="#e4e4e7"/>
-            <text x="436" y="119" fill="#18181b" font-family="ui-monospace, monospace" font-size="7.5">ACTIVE</text>
-            <text x="530" y="119" fill="#5D2BC7" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5" font-weight="500">Edit / Config</text>
-            <line x1="0" y1="128" x2="620" y2="128" stroke="#f4f4f6" stroke-width="1"/>
-
-            <rect x="0" y="155" width="620" height="25" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="14" y="171" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Showing 1 to 3 of 40 entries</text>
-            <text x="520" y="171" fill="#18181b" font-family="ui-monospace, monospace" font-size="8.5">⟨ 1 [2] 3 4 ⟩</text>
-          </svg>
+        <!-- Filter Bar -->
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:0.5rem; flex:1; min-width:260px;">
+            <input type="text" class="studio-input-40" placeholder="Search parameters (TRY, USD, IBAN, Scope)..." value="TRY" onclick="inspectElement('Form.Input.Search', 'metrics.ts: controlHeight 40px', 'floating label contract', 'Search query: TRY')">
+            <div style="height:40px; border:1px solid #d9d9d9; border-radius:4px; padding:0 0.75rem; display:flex; align-items:center; font-size:12px; color:#18181b; background:#fff; white-space:nowrap; cursor:pointer;" onclick="inspectElement('Select.Dropdown', 'controlHeight 40px', 'AntD Select primitive', 'Status: All')">
+              Status: All ▼
+            </div>
+          </div>
+          <button class="studio-btn-primary" onclick="inspectElement('Button.Primary', 'color.brand.violet.600 (#5D2BC7)', 'height: 32px locked', 'New Currency modal trigger')">
+            + New Currency Definition
+          </button>
         </div>
-        <strong>List Floorplan:</strong> Enterprise workhorse powering Policy Lists, Claims Ledgers, and Global Parameter Definitions.
+
+        <!-- Real Ant Design Data Table with Frozen Column -->
+        <div style="border:1px solid #e4e4e7; border-radius:6px; overflow-x:auto;">
+          <table class="studio-table">
+            <thead>
+              <tr>
+                <th>CODE</th>
+                <th>CURRENCY NAME</th>
+                <th>MODULE SCOPE</th>
+                <th>DECIMAL RULE</th>
+                <th>STATUS</th>
+                <th style="position:sticky; right:0; background:#fafafa; border-left:1px solid #e4e4e7;">ACTION (FROZEN)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="selected" onclick="inspectElement('Table.Row TRY', 'core.json: baseCurrency', 'AntD.Table.Row paddingBlock: 8px', 'TRY / Base Currency')">
+                <td style="font-family:ui-monospace,monospace; font-weight:600;">TRY</td>
+                <td style="font-weight:500;">Turkish Lira (Base)</td>
+                <td>Collections &amp; Claims</td>
+                <td style="font-family:ui-monospace,monospace;">2 Decimals (.00)</td>
+                <td><span class="studio-badge active">● ACTIVE</span></td>
+                <td style="position:sticky; right:0; background:#ffffff; border-left:1px solid #e4e4e7; white-space:nowrap;">
+                  <span style="color:#5D2BC7; font-weight:500; margin-right:8px;">Configure</span>
+                  <span style="color:#71717a;">Audit</span>
+                </td>
+              </tr>
+              <tr onclick="inspectElement('Table.Row USD', 'core.json: fxTreaty', 'AntD.Table.Row paddingBlock: 8px', 'USD / Foreign Treaty')">
+                <td style="font-family:ui-monospace,monospace; font-weight:600;">USD</td>
+                <td style="font-weight:500;">US Dollar (Foreign)</td>
+                <td>Reinsurance Treaty</td>
+                <td style="font-family:ui-monospace,monospace;">4 Decimals (.0000)</td>
+                <td><span class="studio-badge active">● ACTIVE</span></td>
+                <td style="position:sticky; right:0; background:#ffffff; border-left:1px solid #e4e4e7; white-space:nowrap;">
+                  <span style="color:#5D2BC7; font-weight:500; margin-right:8px;">Configure</span>
+                  <span style="color:#71717a;">Audit</span>
+                </td>
+              </tr>
+              <tr onclick="inspectElement('Table.Row EUR', 'core.json: fxTreaty', 'AntD.Table.Row paddingBlock: 8px', 'EUR / Cross Rate')">
+                <td style="font-family:ui-monospace,monospace; font-weight:600;">EUR</td>
+                <td style="font-weight:500;">Euro (Cross Rate)</td>
+                <td>Commercial Transit</td>
+                <td style="font-family:ui-monospace,monospace;">4 Decimals (.0000)</td>
+                <td><span class="studio-badge active">● ACTIVE</span></td>
+                <td style="position:sticky; right:0; background:#ffffff; border-left:1px solid #e4e4e7; white-space:nowrap;">
+                  <span style="color:#5D2BC7; font-weight:500; margin-right:8px;">Configure</span>
+                  <span style="color:#71717a;">Audit</span>
+                </td>
+              </tr>
+              <tr onclick="inspectElement('Table.Row GBP', 'core.json: fxTreaty', 'AntD.Table.Row paddingBlock: 8px', 'GBP / London Treaty')">
+                <td style="font-family:ui-monospace,monospace; font-weight:600;">GBP</td>
+                <td style="font-weight:500;">British Pound</td>
+                <td>London Treaty Share</td>
+                <td style="font-family:ui-monospace,monospace;">4 Decimals (.0000)</td>
+                <td><span class="studio-badge pending">● IN REVIEW</span></td>
+                <td style="position:sticky; right:0; background:#ffffff; border-left:1px solid #e4e4e7; white-space:nowrap;">
+                  <span style="color:#5D2BC7; font-weight:500; margin-right:8px;">Configure</span>
+                  <span style="color:#71717a;">Audit</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- Sticky Table Footer -->
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:0.5rem 0.75rem; background:#fafafa; border-top:1px solid #e4e4e7; font-size:11px; color:#71717a;">
+            <span>Showing 1 to 4 of 40 records (Strict 100vh Pagination)</span>
+            <div style="font-family:ui-monospace,monospace; display:flex; gap:4px;">
+              <span style="padding:2px 6px; border:1px solid #d9d9d9; border-radius:3px; background:#fff; color:#18181b;">⟨</span>
+              <span style="padding:2px 6px; border:1px solid #5D2BC7; border-radius:3px; background:#5D2BC7; color:#fff;">1</span>
+              <span style="padding:2px 6px; border:1px solid #d9d9d9; border-radius:3px; background:#fff; color:#18181b;">2</span>
+              <span style="padding:2px 6px; border:1px solid #d9d9d9; border-radius:3px; background:#fff; color:#18181b;">3</span>
+              <span style="padding:2px 6px; border:1px solid #d9d9d9; border-radius:3px; background:#fff; color:#18181b;">⟩</span>
+            </div>
+          </div>
+        </div>
       </div>
 
+      <!-- PANE 2: OBJECT DETAIL VIEW -->
       <div class="tab-pane" id="pane-2">
-        <div style="margin-bottom:1rem; border:1px solid #e4e4e7; border-radius:6px; background:#fff; overflow:hidden;">
-          <svg viewBox="0 0 620 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
-            <rect x="0" y="0" width="620" height="42" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="14" y="20" fill="#71717a" font-family="ui-monospace, monospace" font-size="8.5">POLICY RECORD</text>
-            <text x="14" y="34" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600">POL-2026-89410 · Commercial Property All-Risk</text>
-            <rect x="420" y="12" width="70" height="20" rx="3" fill="#ffffff" stroke="#d4d4d8" stroke-width="1"/>
-            <text x="432" y="25" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Endorse</text>
-            <rect x="498" y="12" width="108" height="20" rx="3" fill="#18181b"/>
-            <text x="512" y="25" fill="#ffffff" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5" font-weight="500">Calculate Premium</text>
-
-            <rect x="0" y="42" width="620" height="24" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="14" y="57" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5" font-weight="600">General Information</text>
-            <line x1="14" y1="65" x2="105" y2="65" stroke="#18181b" stroke-width="2"/>
-            <text x="125" y="57" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Coverage Limits</text>
-            <text x="215" y="57" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Actuarial Allocations</text>
-            <text x="330" y="57" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Reinsurance Treaty</text>
-            <text x="440" y="57" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Audit Trail</text>
-
-            <rect x="12" y="74" width="186" height="96" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="20" y="90" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="600">Insured Entity</text>
-            <rect x="20" y="98" width="170" height="28" rx="3" fill="#fafafa" stroke="#d4d4d8" stroke-width="1"/>
-            <text x="26" y="108" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7">CORPORATE NAME</text>
-            <text x="26" y="120" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Anadolu Lojistik A.Ş.</text>
-
-            <rect x="208" y="74" width="186" height="96" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="216" y="90" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="600">Risk Assessment</text>
-            <rect x="216" y="98" width="170" height="28" rx="3" fill="#fafafa" stroke="#d4d4d8" stroke-width="1"/>
-            <text x="222" y="108" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7">EARTHQUAKE ZONE</text>
-            <text x="222" y="120" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5">Zone 1 · High Risk</text>
-
-            <rect x="404" y="74" width="204" height="96" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="412" y="90" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="600">Underwriting Limits</text>
-            <rect x="412" y="98" width="188" height="28" rx="3" fill="#fafafa" stroke="#d4d4d8" stroke-width="1"/>
-            <text x="418" y="108" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7">MAX LIABILITY (TRY)</text>
-            <text x="418" y="120" fill="#18181b" font-family="ui-monospace, monospace" font-size="8.5">₺ 250,000,000.00</text>
-          </svg>
+        <!-- Entity Hero Banner -->
+        <div style="display:flex; align-items:center; justify-content:space-between; padding-bottom:1rem; border-bottom:1px solid #e4e4e7; margin-bottom:1rem; flex-wrap:wrap; gap:0.75rem;">
+          <div>
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; text-transform:uppercase;">Entity Ledger · Policy Record</div>
+            <div style="font-size:15px; font-weight:600; color:#18181b; display:flex; align-items:center; gap:8px; margin-top:2px;">
+              <span>POL-2026-89410</span>
+              <span style="color:#71717a; font-weight:400;">· Commercial Property All-Risk</span>
+              <span class="studio-badge active">● ACTIVE</span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button class="studio-btn-secondary" onclick="inspectElement('Button.Secondary', 'border: 1px solid #d9d9d9', '32px default button', 'Endorse Policy Action')">
+              Endorse Policy
+            </button>
+            <button class="studio-btn-primary" onclick="inspectElement('Button.Primary', 'color.brand.violet.600', '32px primary button', 'Calculate Reserve Action')">
+              Calculate Reserve
+            </button>
+          </div>
         </div>
-        <strong>Object Floorplan:</strong> Deep single-record inspection for Underwriting, Policy Details, and Customer Profiles.
+
+        <!-- Sub-Tabs Anchor Navigation -->
+        <div style="display:flex; gap:16px; border-bottom:1px solid #e4e4e7; margin-bottom:1rem; font-size:12px;">
+          <span style="padding-bottom:6px; border-bottom:2px solid #5D2BC7; color:#18181b; font-weight:500; cursor:pointer;">General Information</span>
+          <span style="padding-bottom:6px; color:#71717a; cursor:pointer;">Coverage Limits</span>
+          <span style="padding-bottom:6px; color:#71717a; cursor:pointer;">Actuarial Allocations</span>
+          <span style="padding-bottom:6px; color:#71717a; cursor:pointer;">Reinsurance Treaty</span>
+          <span style="padding-bottom:6px; color:#71717a; cursor:pointer;">Audit Trail</span>
+        </div>
+
+        <!-- 3-Column Form Grid -->
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0.75rem;">
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-size:10px; color:#71717a; font-family:ui-monospace,monospace; margin-bottom:0.35rem;">INSURED ENTITY</div>
+            <input type="text" class="studio-input-40" value="Anadolu Lojistik A.Ş." onclick="inspectElement('Form.Input #corporateName', 'token.controlHeight: 40px', 'DM Sans 13px / 20px', 'Corporate Insured Field')">
+          </div>
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-size:10px; color:#71717a; font-family:ui-monospace,monospace; margin-bottom:0.35rem;">RISK ASSESSMENT ZONE</div>
+            <input type="text" class="studio-input-40" value="Earthquake Zone 1 · High Risk" onclick="inspectElement('Form.Input #riskZone', 'token.controlHeight: 40px', 'DM Sans 13px / 20px', 'Risk Assessment Field')">
+          </div>
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-size:10px; color:#71717a; font-family:ui-monospace,monospace; margin-bottom:0.35rem;">MAX LIABILITY LIMIT (TRY)</div>
+            <input type="text" class="studio-input-40" style="font-family:ui-monospace,monospace;" value="₺ 250,000,000.00" onclick="inspectElement('Form.Input #maxLiability', 'token.controlHeight: 40px', 'DM Sans 13px / 20px', 'Max Liability Field')">
+          </div>
+        </div>
       </div>
 
+      <!-- PANE 3: ANALYTICAL SPLIT VIEW -->
       <div class="tab-pane" id="pane-3">
-        <div style="margin-bottom:1rem; border:1px solid #e4e4e7; border-radius:6px; background:#fff; overflow:hidden;">
-          <svg viewBox="0 0 620 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
-            <rect x="0" y="0" width="620" height="24" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="14" y="16" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="600">Actuarial Claims Reconciliation · Split View Contract</text>
-            <text x="480" y="16" fill="#71717a" font-family="ui-monospace, monospace" font-size="8.5">Sync State: 100vh Locked</text>
+        <div style="display:grid; grid-template-columns:1fr 1.8fr; gap:0.75rem; border:1px solid #e4e4e7; border-radius:6px; overflow:hidden;">
+          <!-- Left Queue (35%) -->
+          <div style="background:#fafafa; border-right:1px solid #e4e4e7; padding:0.75rem;">
+            <div style="font-weight:600; font-size:11px; color:#71717a; font-family:ui-monospace,monospace; margin-bottom:0.5rem; text-transform:uppercase;">
+              Claims Master Queue (35%)
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <div id="claim-row-1" style="background:#ffffff; border:1px solid #5D2BC7; border-radius:4px; padding:0.5rem; cursor:pointer;" onclick="selectClaim(1)">
+                <div style="font-family:ui-monospace,monospace; font-weight:600; font-size:11px; color:#18181b;">#CLM-8910 · Marine Cargo</div>
+                <div style="font-size:10px; color:#b45309; margin-top:2px;">Variance: +₺18,400.00 (Pending)</div>
+              </div>
+              <div id="claim-row-2" style="background:#ffffff; border:1px solid #e4e4e7; border-radius:4px; padding:0.5rem; cursor:pointer;" onclick="selectClaim(2)">
+                <div style="font-family:ui-monospace,monospace; font-weight:600; font-size:11px; color:#18181b;">#CLM-8911 · Factory Fire</div>
+                <div style="font-size:10px; color:#059669; margin-top:2px;">Settled · Treaty Share 40%</div>
+              </div>
+              <div id="claim-row-3" style="background:#ffffff; border:1px solid #e4e4e7; border-radius:4px; padding:0.5rem; cursor:pointer;" onclick="selectClaim(3)">
+                <div style="font-family:ui-monospace,monospace; font-weight:600; font-size:11px; color:#18181b;">#CLM-8912 · Transit Theft</div>
+                <div style="font-size:10px; color:#71717a; margin-top:2px;">Deductible: ₺12,000.00</div>
+              </div>
+            </div>
+          </div>
 
-            <rect x="0" y="24" width="217" height="156" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            <rect x="0" y="24" width="217" height="22" fill="#fafafa"/>
-            <text x="10" y="38" fill="#71717a" font-family="ui-monospace, monospace" font-size="8" font-weight="600">INSPECTION QUEUE (35%)</text>
-
-            <rect x="6" y="50" width="205" height="34" rx="3" fill="#18181b"/>
-            <text x="14" y="64" fill="#ffffff" font-family="ui-monospace, monospace" font-size="8.5">#CLM-8910 · Marine Cargo</text>
-            <text x="14" y="77" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7.5">Deviation: +₺18,400.00 (Variance)</text>
-
-            <rect x="6" y="88" width="205" height="34" rx="3" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="14" y="102" fill="#18181b" font-family="ui-monospace, monospace" font-size="8.5">#CLM-8911 · Factory Fire</text>
-            <text x="14" y="115" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7.5">Settled · Treaty Share 40%</text>
-
-            <rect x="217" y="24" width="403" height="156" fill="#fafafa"/>
-            <rect x="227" y="34" width="383" height="136" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-            
-            <text x="237" y="52" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="600">Variance Calculation Canvas (65% Width)</text>
-            <text x="237" y="66" fill="#71717a" font-family="ui-monospace, monospace" font-size="8">Formula: (Allocated Claim × Excess Rate) − Deductible Share</text>
-
-            <rect x="237" y="76" width="175" height="32" rx="3" fill="#fafafa" stroke="#d4d4d8" stroke-width="1"/>
-            <text x="245" y="88" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7">ADJUSTED RESERVE (TRY)</text>
-            <text x="245" y="101" fill="#18181b" font-family="ui-monospace, monospace" font-size="9">₺ 142,500.00</text>
-
-            <rect x="425" y="76" width="175" height="32" rx="3" fill="#fafafa" stroke="#d4d4d8" stroke-width="1"/>
-            <text x="433" y="88" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7">DEDUCTIBLE RETENTION</text>
-            <text x="433" y="101" fill="#18181b" font-family="ui-monospace, monospace" font-size="9">₺ 15,000.00</text>
-
-            <rect x="237" y="120" width="363" height="38" rx="3" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
-            <text x="245" y="134" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8">Reinsurance Treaty: Quota Share 60/40 · Direct settlement approved by Actuary</text>
-            <text x="245" y="148" fill="#5D2BC7" font-family="ui-monospace, monospace" font-size="8" font-weight="600">STATUS: READY FOR ERP DISPATCH</text>
-          </svg>
+          <!-- Right Calculation Canvas (65%) -->
+          <div style="padding:1rem; background:#ffffff;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+              <span id="claim-detail-title" style="font-size:13px; font-weight:600; color:#18181b;">#CLM-8910 · Actuarial Reserve Calculation</span>
+              <span class="studio-badge active">100vh LOCKED</span>
+            </div>
+            <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.6rem; font-family:ui-monospace,monospace; font-size:10.5px; color:#71717a; margin-bottom:1rem;">
+              Formula: (Allocated Claim × Excess Rate) − Deductible Retention
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1rem;">
+              <div style="border:1px solid #e4e4e7; border-radius:4px; padding:0.6rem; background:#fafafa;">
+                <div style="font-size:10px; color:#71717a; font-family:ui-monospace,monospace;">ADJUSTED RESERVE</div>
+                <div id="claim-val-reserve" style="font-family:ui-monospace,monospace; font-size:14px; font-weight:600; color:#18181b; margin-top:2px;">₺ 142,500.00</div>
+              </div>
+              <div style="border:1px solid #e4e4e7; border-radius:4px; padding:0.6rem; background:#fafafa;">
+                <div style="font-size:10px; color:#71717a; font-family:ui-monospace,monospace;">DEDUCTIBLE RETENTION</div>
+                <div id="claim-val-deductible" style="font-family:ui-monospace,monospace; font-size:14px; font-weight:600; color:#18181b; margin-top:2px;">₺ 15,000.00</div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; padding-top:0.75rem; border-top:1px solid #e4e4e7;">
+              <span style="font-size:11px; color:#71717a;">Treaty: Quota Share 60/40 SwissRe</span>
+              <button class="studio-btn-primary" onclick="inspectElement('Button.CommitReserve', 'color.brand.violet.600', '32px primary button', 'Approved by Actuary Lead')">
+                Approve &amp; Dispatch to ERP
+              </button>
+            </div>
+          </div>
         </div>
-        <strong>Analytical Split Floorplan:</strong> Designed for rapid actuarial comparison, claims reconciliation, and adjustment workflows.
+      </div>
+
+      <!-- LIVE TOKEN & SPECIFICATION INSPECTOR (DEVTOOLS BAR) -->
+      <div class="studio-inspector">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem; color:#a1a1aa; font-size:10px; text-transform:uppercase; letter-spacing:0.05em;">
+          <span>Live Token &amp; Contract Inspector · Figma Dev Mode Equivalent</span>
+          <span style="color:#22c55e;">● 100% Ant Design v5 Token Binding</span>
+        </div>
+        <div id="inspector-output" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0.75rem; font-size:11px;">
+          <div><span style="color:#a1a1aa;">Node:</span> <strong id="insp-node" style="color:#fff;">&lt;Table.Row id="TRY" /&gt;</strong></div>
+          <div><span style="color:#a1a1aa;">Token:</span> <strong id="insp-token" style="color:#c084fc;">--agito-color-primary: #5D2BC7</strong></div>
+          <div><span style="color:#a1a1aa;">Geometry:</span> <strong id="insp-geom" style="color:#fff;">40px locked · 0.5px hairline</strong></div>
+          <div><span style="color:#a1a1aa;">CSS Override:</span> <strong id="insp-css" style="color:#4ade80;">0 Custom Rules (Zero-Override)</strong></div>
+        </div>
       </div>
     </div>
 
@@ -986,11 +1251,54 @@
   </div>
 
   <script>
-    function setTab(idx) {
+    function switchFloorplan(idx, btn) {
       var btns = document.querySelectorAll('.tab-btn');
       var panes = document.querySelectorAll('.tab-pane');
       btns.forEach(function(b, i){ b.classList.toggle('active', i === idx); });
       panes.forEach(function(p, i){ p.classList.toggle('active', i === idx); });
+      
+      var nodes = ['<Overview.Hub />', '<Table.DataGrid />', '<Form.ObjectDetail />', '<Split.Reconciliation />'];
+      var tokens = ['token.colorPrimary (#5D2BC7)', 'token.controlHeight (40px)', 'token.borderRadius (4px)', 'token.colorSuccess (#059669)'];
+      var geoms = ['100vh Container (1920x1080)', 'Frozen Right Column (1px hairline)', '3-Column Form Grid (8px grid)', '35/65 Split Ratio (0px bounce)'];
+      inspectElement(nodes[idx], tokens[idx], geoms[idx], 'Floorplan activated');
+    }
+
+    function setTab(idx) {
+      switchFloorplan(idx, null);
+    }
+
+    function inspectElement(node, token, geom, note) {
+      var n = document.getElementById('insp-node');
+      var t = document.getElementById('insp-token');
+      var g = document.getElementById('insp-geom');
+      var c = document.getElementById('insp-css');
+      if(n) n.textContent = node;
+      if(t) t.textContent = token;
+      if(g) g.textContent = geom;
+      if(c) c.textContent = '0 Custom Rules (Zero-Override)';
+    }
+
+    function selectClaim(id) {
+      for(var i=1; i<=3; i++) {
+        var row = document.getElementById('claim-row-' + i);
+        if(row) row.style.borderColor = (i === id) ? '#5D2BC7' : '#e4e4e7';
+      }
+      if(id === 1) {
+        document.getElementById('claim-detail-title').textContent = '#CLM-8910 · Marine Cargo Settlement';
+        document.getElementById('claim-val-reserve').textContent = '₺ 142,500.00';
+        document.getElementById('claim-val-deductible').textContent = '₺ 15,000.00';
+        inspectElement('ClaimQueue #CLM-8910', 'token.colorWarning', 'Marine Cargo Variance', 'Excess Rate 1.25');
+      } else if(id === 2) {
+        document.getElementById('claim-detail-title').textContent = '#CLM-8911 · Factory Fire Settlement';
+        document.getElementById('claim-val-reserve').textContent = '₺ 2,480,000.00';
+        document.getElementById('claim-val-deductible').textContent = '₺ 250,000.00';
+        inspectElement('ClaimQueue #CLM-8911', 'token.colorSuccess', 'Industrial Fire Treaty', 'SwissRe Quota Share 40%');
+      } else if(id === 3) {
+        document.getElementById('claim-detail-title').textContent = '#CLM-8912 · Transit Theft Settlement';
+        document.getElementById('claim-val-reserve').textContent = '₺ 38,200.00';
+        document.getElementById('claim-val-deductible').textContent = '₺ 12,000.00';
+        inspectElement('ClaimQueue #CLM-8912', 'token.colorNeutral', 'Commercial Transit Deductible', 'Direct ERP Dispatch');
+      }
     }
   </script>
 </body>
