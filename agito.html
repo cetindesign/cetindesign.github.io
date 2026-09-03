@@ -327,27 +327,30 @@
       </div>
     </div>
 
-    <!-- 01. THE INHERITANCE -->
-    <h2>01. The 3-Agency Inheritance &amp; The Reality Wall</h2>
+    <!-- 01. THE DECEMBER TRAP -->
+    <h2>01. The December Trap: Sidelined by an Outsourced Agency</h2>
     <p>
-      Agito powers core transactional infrastructure for <strong>35% of Turkey’s private life, pension, and property insurance market</strong>. When I joined as the company’s first and sole Lead Design Systems Architect, the organization had 250 employees—almost exclusively backend Oracle database developers, actuarial mathematicians, and corporate account managers—with zero internal design infrastructure.
+      Agito powers core transactional infrastructure for <strong>35% of Turkey’s private life, pension, and property insurance market</strong>. When I was recruited in December as the company’s first Lead Design Systems Architect, I walked into an immediate corporate paradox: leadership had already committed their year-end design budget to a third consecutive external agency.
     </p>
     <p>
-      Over the preceding five years, Agito had contracted three consecutive external design agencies. The result was a graveyard of static Figma drawings:
+      For the first three months, I was forced into the role of a powerless spectator:
     </p>
     <ul>
-      <li>Agencies worked in comfortable agency isolation, producing subjective, Dribbble-style mockups that treated enterprise software like consumer marketing sites.</li>
-      <li>They designed in a vacuum: no component reusability, no data-density awareness, no understanding of Turkish regulatory constraints (KVKK/MASAK/SPK), and zero alignment with frontend engineering.</li>
-      <li>Meanwhile, engineering leadership concluded that <em>"designers just draw pretty pictures that can’t actually be built."</em> Design was minimized into an annoying cosmetic bottleneck.</li>
+      <li><strong>Deliberate Exclusion:</strong> The agency’s leadership and designers actively refused to collaborate with me. An in-house systems architect was a direct threat to their billable hours, so they bypassed design governance entirely—dealing directly with corporate account managers and Product Owners.</li>
+      <li><strong>The Mobbin Echo Chamber:</strong> Without conducting a single domain analysis or researching complex actuarial workflows, the agency churned out superficial mockups copied off Mobbin. They drew whatever flattered executive vanity, completely detached from enterprise realities.</li>
+      <li><strong>Blind Speculative Production:</strong> Screens were rushed through production simply to give backend developers visual shapes so they could start writing database endpoints. The mockups adhered to no established framework—neither Ant Design nor Material Design—consisting entirely of unbuildable, decorative cosmetics.</li>
     </ul>
-
-    <!-- 02. THE TURNING POINT: DAY 14 AUDIT -->
-    <h2>02. Day 14: The Frontend Code Audit That Broke the Illusion</h2>
     <p>
-      The turning point did not happen in an executive boardroom; it happened on Day 14 at a developer’s workstation.
+      Watching this organizational drift unfold for 90 days was excruciating. I submitted an internal critical evaluation to leadership documenting that these deliverables lacked any component logic or framework feasibility. The warning was ignored. Leadership presented the agency's polished slides to the Board of Directors, and the Board enthusiastically approved them based purely on surface aesthetics.
+    </p>
+
+    <!-- 02. THE DAY OF RECKONING -->
+    <h2>02. The Handover of the Ruins &amp; The Code Epiphany</h2>
+    <p>
+      Immediately following Board approval, the dynamic shifted overnight. The agency concluded its engagement, and leadership handed the entire scope to me with a naive order: <em>"Now produce all the components first, and then build the screens."</em>
     </p>
     <p>
-      I sat down side-by-side with the lead frontend engineer to audit the screen files delivered by the most recent agency. We attempted to map their Figma frames directly into code:
+      The reckoning occurred when I sat down side-by-side with the frontend engineering team to map the agency’s approved Figma files directly to code:
     </p>
 
     <div class="clean-table-wrap">
@@ -366,14 +369,14 @@
             <td>Impossible to tokenize; required writing raw custom CSS classes for every single button and table cell</td>
           </tr>
           <tr>
+            <td><strong>Framework Feasibility</strong></td>
+            <td>Bespoke decorative widgets disconnected from Ant Design v5</td>
+            <td>Frontend had zero component matches; would require rewriting basic inputs from scratch</td>
+          </tr>
+          <tr>
             <td><strong>Responsive Dynamics</strong></td>
             <td>Fixed 1440px desktop artboards with no responsive rules or scroll constraints</td>
             <td>Collapsed entirely on standard 1920x1080 enterprise workstations with high data volumes</td>
-          </tr>
-          <tr>
-            <td><strong>Ant Design Alignment</strong></td>
-            <td>Designed custom controls from scratch ignoring Ant Design v5 fundamentals</td>
-            <td>Frontend team had to either fight AntD's virtual DOM or spend weeks rewriting basic inputs</td>
           </tr>
           <tr>
             <td><strong>Actuarial State Machines</strong></td>
@@ -385,10 +388,13 @@
     </div>
 
     <p>
-      Looking at the audit, the lead engineer said the quiet truth out loud: <em>"We cannot build this. If we try to implement these drawings across 14 products, we will spend the next three years writing throwaway CSS that breaks on every sprint."</em>
+      The audit exposed a deeper organizational pathology: the frontend developers themselves had spent years in passive compliance—blindly writing throwaway CSS for whatever arbitrary art was thrown over the wall, without questioning architectural reusability or usability tolerances.
     </p>
     <p>
-      The agency illusion was shattered. That afternoon, design and frontend formed a direct alliance: we stopped treating design as subjective drawings and started treating it as a <strong>code-governed Control System</strong>.
+      Looking at the audit, the lead engineer finally admitted the truth: <em>"We cannot build this. If we try to implement these drawings across 14 products, we will spend the next three years writing throwaway CSS that breaks on every sprint."</em>
+    </p>
+    <p>
+      I took full ownership of the ruins. I made an immediate executive decision: <strong>even if the resulting interface looked less flashy than the agency’s cosmetic Mobbin drawings, we would prioritize strict behavioral sets, data density, and Ant Design v5 zero-override contracts over decorative marketing fluff.</strong> We stopped drawing pictures and started building an industrial control system.
     </p>
 
     <!-- 03. THE PRESSURE COOKER & GOVERNANCE -->
