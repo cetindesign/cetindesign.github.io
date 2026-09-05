@@ -399,13 +399,19 @@
       <li><strong>Blind Speculative Production:</strong> Screens were rushed through production simply to give backend developers visual shapes so they could start writing database endpoints. The mockups adhered to no established framework—neither Ant Design nor Material Design—consisting entirely of unbuildable, decorative cosmetics.</li>
     </ul>
     <p>
-      Watching this organizational drift unfold for 90 days was excruciating. I submitted an internal critical evaluation to leadership documenting that these deliverables lacked any component logic or framework feasibility. The warning was ignored. Leadership presented the agency's polished slides to the Board of Directors, and the Board enthusiastically approved them based purely on surface aesthetics.
+      Watching this organizational drift unfold for 90 days was excruciating. I submitted an internal critical evaluation to leadership diagnosing the systemic bottleneck: <strong>“Visual output production speed has surpassed validated decision production speed.”</strong> The agency was churning out pictures at high velocity, but producing zero validated architectural decisions.
+    </p>
+    <p>
+      The warning was initially brushed aside. Accustomed to treating design as cosmetic, the CTO intervened with a simplistic request: <em>“Just generate a component list for frontend developers. What the agency delivered works for us anyway; we never had a design culture here to begin with.”</em>
+    </p>
+    <p>
+      Rather than arguing philosophically or resigning to the role of a draftsman, I executed a strategic pivot: I transformed the CTO's requested "grocery list" into a <strong>Figma-Deep vs. Code-Deep Technical Debt Risk Matrix</strong>. By evaluating every single component through its architectural divergence from Ant Design’s native React API, I mathematically proved that coding directly from the agency’s decorative mockups would inflict a <strong>3x velocity penalty</strong> on frontend engineering through incessant CSS overrides and DOM restructuring.
     </p>
 
     <!-- 02. THE DAY OF RECKONING -->
     <h2>02. The Handover of the Ruins &amp; The Code Epiphany</h2>
     <p>
-      Immediately following Board approval, the dynamic shifted overnight. The agency concluded its engagement, and leadership handed the entire scope to me with a naive order: <em>"Now produce all the components first, and then build the screens."</em>
+      Immediately following Board approval, the reality of that risk matrix hit the organization. The agency concluded its engagement, took their budget, and handed the entire scope to me with a naive order: <em>"Now produce all the components first, and then build the screens."</em>
     </p>
     <p>
       The reckoning occurred when I sat down side-by-side with the frontend engineering team to map the agency’s approved Figma files directly to code:
@@ -646,14 +652,21 @@
       Conventional design systems literature suggests a sequential fallacy: <em>"Design and ship all foundational screens first, then document your pattern library."</em>
     </p>
     <p>
-      In a 250-engineer software organization with live sprint deadlines, that luxury does not exist. Waiting for all 68 screens to finish before establishing a library guarantees 68 screens of architectural drift.
-    </p>
-    <p>
-      I instituted a <strong>dual-track architecture</strong>:
+      In a 250-engineer software organization with live sprint deadlines, that luxury does not exist. Waiting for all foundational screens to finish before establishing a library guarantees irreversible architectural drift. When leadership asked: <em>“How long will this redesign take and can you draw all screens in 10–15 days alone?”</em> I rejected the fragile, heroic 10-day trap that would inevitably end in approval theater and rework. Instead, I established a rigorous <strong>5+2 Week Dual-Track Operating Model</strong>:
     </p>
     <ul>
-      <li><strong>Track 1 (Live Tactical Delivery):</strong> Designing and unblocking production screens on-demand for immediate sprint commitments (e.g. currency tables, payment registers, claims queues).</li>
-      <li><strong>Track 2 (Real-Time Pattern Hardening):</strong> Simultaneously extracting, tokenizing, and hardening every newly solved layout into a centralized, immutable Pattern Library.</li>
+      <li><strong>5 Weeks (Continuous Tactical Delivery):</strong> Running exactly 1 sprint ahead of lead frontend engineers, laying down production-ready files so developers never wait on design.</li>
+      <li><strong>+2 Weeks (System Hardening &amp; Governance):</strong> Halting new screen output to stress-test edge cases, resolve real-world DOM quirks, and codify the Agito UI Catalog into an untouchable contract.</li>
+    </ul>
+
+    <p>
+      To make subjective approval debates impossible, I instituted a strict 4-point <strong>Definition of Ready (DoR)</strong> before any screen could enter an engineering sprint:
+    </p>
+    <ul>
+      <li><strong>1. Zero-Override Token Compliance:</strong> Every color, margin, and typography scale binds directly to <code>core.json</code> / <code>agitoTheme</code> tokens. Zero arbitrary hex, zero bespoke geometry overrides.</li>
+      <li><strong>2. Interaction State Completeness:</strong> Explicit Figma specifications for all six component lifecycle states: Default, Hover, Active, Focus, Disabled, and Loading.</li>
+      <li><strong>3. Edge Case Boundary Handling:</strong> Validated treatments for zero-data empty states, maximum-length Turkish localized text truncation, and network exception alerts.</li>
+      <li><strong>4. 15-Minute Engineering Sync:</strong> Mandatory bilateral review with the Lead Frontend Developer to verify Ant Design React API parity before committing to sprint backlog.</li>
     </ul>
 
     <h3>The Self-Serve Endgame: Turning Product Owners into System Composers</h3>
