@@ -409,6 +409,33 @@
       font-size: 10px;
       line-height: 1;
     }
+    .specimen-tab-btn {
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      padding: 3px 8px;
+      border: 1px solid #e4e4e7;
+      background: #ffffff;
+      color: #71717a;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .specimen-tab-btn:hover {
+      color: #18181b;
+      border-color: #a1a1aa;
+    }
+    .specimen-tab-btn.active {
+      background: #18181b;
+      color: #ffffff;
+      border-color: #18181b;
+      font-weight: 600;
+    }
+    .specimen-tab-pane {
+      display: none;
+    }
+    .specimen-tab-pane.active {
+      display: block;
+    }
     @media (max-width: 768px) {
       .token-sim-toolbar {
         flex-direction: column;
@@ -968,17 +995,22 @@
           <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 6px; border-radius:3px; font-weight:600;">CODE AUDIT</span>
           <span style="color:#18181b; font-weight:600; margin-left:0.25rem;">Architectural Specimen · AST &amp; DOM Failure Mode Analysis</span>
         </div>
-        <span style="color:#71717a;">Day 14 System Audit</span>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <button type="button" class="specimen-tab-btn active" data-target="specimen-tab-ast">Code AST Diff</button>
+          <button type="button" class="specimen-tab-btn" data-target="specimen-tab-dom">DOM Drift &amp; Specificity</button>
+        </div>
       </div>
 
       <div class="bleed-card">
-        <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #e4e4e7;">
-          <div style="padding:1.25rem; border-right:1px solid #e4e4e7; background:#fafafa;">
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-              <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#dc2626;">01. Agency Anti-Pattern (420 LOC)</span>
-              <span style="font-size:10px; background:#fee2e2; color:#991b1b; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">FATAL DEBT</span>
-            </div>
-            <pre style="margin:0; padding:0.85rem; background:#ffffff; border:1px solid #fecaca; border-radius:4px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; line-height:1.55; color:#7f1d1d; overflow-x:auto;"><code>/* legacy-screen-04.css · 420 LOC */
+        <!-- TAB 1: CODE AST DIFF -->
+        <div id="specimen-tab-ast" class="specimen-tab-pane active">
+          <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #e4e4e7;">
+            <div style="padding:1.25rem; border-right:1px solid #e4e4e7; background:#fafafa;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+                <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#dc2626;">01. Agency Anti-Pattern (420 LOC)</span>
+                <span style="font-size:10px; background:#fee2e2; color:#991b1b; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">FATAL DEBT</span>
+              </div>
+              <pre style="margin:0; padding:0.85rem; background:#ffffff; border:1px solid #fecaca; border-radius:4px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; line-height:1.55; color:#7f1d1d; overflow-x:auto;"><code>/* legacy-screen-04.css · 420 LOC */
 .policy-submit-btn {
   background: #7B3FE4 !important; /* ad-hoc hex */
   padding: 13px 21px; /* arbitrary eyeballing */
@@ -989,17 +1021,17 @@
   overflow: hidden; /* truncates 18-digit IBAN */
   height: 48px; /* breaks on 1080p viewport */
 }</code></pre>
-            <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
-              <strong style="color:#18181b;">Failure Mode:</strong> Zero token inheritance, ad-hoc hex sprawl, tables truncate critical financial identifiers on real production databases.
+              <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
+                <strong style="color:#18181b;">Failure Mode:</strong> Zero token inheritance, ad-hoc hex sprawl, tables truncate critical financial identifiers on real production databases.
+              </div>
             </div>
-          </div>
 
-          <div style="padding:1.25rem; background:#ffffff;">
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-              <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#18181b;">02. Agito Control System (DTCG)</span>
-              <span style="font-size:10px; background:#f4f4f6; color:#047857; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">ZERO OVERRIDE</span>
-            </div>
-            <pre style="margin:0; padding:0.85rem; background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; line-height:1.55; color:#18181b; overflow-x:auto;"><code>// packages/tokens/core.json -> agitoTheme
+            <div style="padding:1.25rem; background:#ffffff;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+                <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#18181b;">02. Agito Control System (DTCG)</span>
+                <span style="font-size:10px; background:#f4f4f6; color:#047857; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">ZERO OVERRIDE</span>
+              </div>
+              <pre style="margin:0; padding:0.85rem; background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; line-height:1.55; color:#18181b; overflow-x:auto;"><code>// packages/tokens/core.json -> agitoTheme
 {
   "token": {
     "colorPrimary": "#5D2BC7",
@@ -1012,13 +1044,64 @@
     "Form": { "controlHeight": 40 }
   }
 }</code></pre>
-            <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
-              <strong style="color:#18181b;">System Leverage:</strong> 0 LOC custom CSS. Tokens compile directly into Ant Design v5 ConfigProvider, driving all 14 platforms deterministically.
+              <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
+                <strong style="color:#18181b;">System Leverage:</strong> 0 LOC custom CSS. Tokens compile directly into Ant Design v5 ConfigProvider, driving all 14 platforms deterministically.
+              </div>
             </div>
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); padding:0.85rem 1.25rem; background:#ffffff; font-family:ui-monospace,monospace; font-size:11px; gap:0.5rem; border-top:1px solid #f4f4f6;">
+        <!-- TAB 2: DOM DRIFT & SPECIFICITY -->
+        <div id="specimen-tab-dom" class="specimen-tab-pane">
+          <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #e4e4e7;">
+            <div style="padding:1.25rem; border-right:1px solid #e4e4e7; background:#fafafa;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+                <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#dc2626;">Agency Deep DOM (Specificity War)</span>
+                <span style="font-size:10px; background:#fee2e2; color:#991b1b; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">7 LAYERS DEEP</span>
+              </div>
+              <svg viewBox="0 0 300 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; background:#ffffff; border:1px solid #fecaca; border-radius:4px; padding:8px;">
+                <rect x="6" y="8" width="280" height="18" rx="2" fill="#fef2f2" stroke="#fecaca" stroke-width="0.8"/>
+                <text x="14" y="20" font-family="ui-monospace, monospace" font-size="8" fill="#7f1d1d">&lt;div class="page-outer-container"&gt;</text>
+                
+                <rect x="20" y="32" width="255" height="18" rx="2" fill="#fef2f2" stroke="#fecaca" stroke-width="0.8"/>
+                <text x="28" y="44" font-family="ui-monospace, monospace" font-size="8" fill="#7f1d1d">↳ &lt;div class="content-frame-styled"&gt;</text>
+                
+                <rect x="34" y="56" width="230" height="18" rx="2" fill="#fef2f2" stroke="#fecaca" stroke-width="0.8"/>
+                <text x="42" y="68" font-family="ui-monospace, monospace" font-size="8" fill="#7f1d1d">↳ &lt;div class="button-wrapper-box"&gt;</text>
+                
+                <rect x="48" y="80" width="205" height="24" rx="2" fill="#dc2626"/>
+                <text x="56" y="94" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#ffffff">↳ &lt;button style="background: #7B3FE4 !important;"&gt;</text>
+                <text x="56" y="102" font-family="ui-monospace, monospace" font-size="6.5" fill="#fecaca">Specificity: (0,2,1) + !important lock</text>
+              </svg>
+              <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
+                <strong style="color:#18181b;">Failure Mode:</strong> Fragile DOM nesting breaks on responsive reflow. CSS specificity wars force engineers into `!important` band-aids.
+              </div>
+            </div>
+
+            <div style="padding:1.25rem; background:#ffffff;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+                <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#18181b;">Agito Control DOM (AntD Semantic)</span>
+                <span style="font-size:10px; background:#f4f4f6; color:#047857; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">FLAT SEMANTIC</span>
+              </div>
+              <svg viewBox="0 0 300 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:8px;">
+                <rect x="6" y="8" width="280" height="22" rx="2" fill="#ffffff" stroke="#e4e4e7" stroke-width="0.8"/>
+                <text x="14" y="22" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#5D2BC7">&lt;ConfigProvider theme={agitoTheme}&gt;</text>
+                
+                <rect x="20" y="38" width="255" height="22" rx="2" fill="#ffffff" stroke="#e4e4e7" stroke-width="0.8"/>
+                <text x="28" y="52" font-family="ui-monospace, monospace" font-size="8" fill="#18181b">↳ &lt;StandardListFloorplan&gt;</text>
+                
+                <rect x="34" y="68" width="230" height="26" rx="2" fill="#5D2BC7"/>
+                <text x="42" y="82" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#ffffff">↳ &lt;Button type="primary"&gt;</text>
+                <text x="42" y="91" font-family="ui-monospace, monospace" font-size="6.5" fill="#e9d5ff">Zero inline styles · Inherits --token-primary directly</text>
+              </svg>
+              <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
+                <strong style="color:#18181b;">System Leverage:</strong> Clean 3-layer semantic hierarchy. Zero custom classes, zero specificity overrides, 100% theme token inheritance.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); padding:0.85rem 1.25rem; background:#ffffff; font-family:ui-monospace,monospace; font-size:11px; gap:0.5rem;">
           <div><span style="color:#a1a1aa;">Custom CSS:</span> <strong style="color:#18181b;">420 LOC ➔ 0 LOC</strong></div>
           <div><span style="color:#a1a1aa;">Dev Time / View:</span> <strong style="color:#18181b;">14h ➔ 2.5h (-82%)</strong></div>
           <div><span style="color:#a1a1aa;">Agency Retainer:</span> <strong style="color:#18181b;">~$180k/yr ➔ $0</strong></div>
@@ -1068,34 +1151,106 @@
       By speaking the language of engineering contracts rather than visual aesthetics, the gate eliminated over 70% of speculative, half-baked feature requests.
     </p>
 
-    <!-- ARCHITECTURAL SPECIMEN: UX READINESS GATE -->
-    <div style="margin:2rem 0; border:1px solid #f4f4f6; border-radius:8px; padding:1.5rem; background:#fafafa;">
-      <div style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:#a1a1aa; margin-bottom:1rem;">
-        Architectural Specimen · The 3-Tier UX Readiness Gate Contract
+    <!-- ARCHITECTURAL SPECIMEN: UX READINESS GATE & FILTER ENGINE -->
+    <div style="margin:2.25rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.65rem 1.25rem;">
+        <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">
+          Architectural Specimen · The 3-Tier UX Readiness Gate &amp; Filter Engine
+        </span>
+        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 8px; border-radius:3px; font-weight:600;">
+          70% CHURN ELIMINATED
+        </span>
       </div>
-      <svg viewBox="0 0 620 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
-        <rect x="2" y="10" width="180" height="98" rx="6" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-        <text x="16" y="36" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600">01. Persona &amp; Intent</text>
-        <text x="16" y="58" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">Who operates this view</text>
-        <text x="16" y="74" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">for 8 hours daily.</text>
-        <text x="16" y="94" fill="#18181b" font-family="ui-monospace, monospace" font-size="10">Invariant: Friction Bound</text>
 
-        <path d="M192 60 H216 M212 55 L218 60 L212 65" stroke="#a1a1aa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <div style="padding:1.5rem 1.25rem 1.25rem;">
+        <svg viewBox="0 0 640 210" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+          <!-- Pipeline flow backbone line -->
+          <line x1="30" y1="90" x2="610" y2="90" stroke="#e4e4e7" stroke-width="1.5" stroke-dasharray="3 3"/>
 
-        <rect x="220" y="10" width="180" height="98" rx="6" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-        <text x="234" y="36" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600">02. Task Blueprint</text>
-        <text x="234" y="58" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">Current vs. target flow</text>
-        <text x="234" y="74" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">across module borders.</text>
-        <text x="234" y="94" fill="#18181b" font-family="ui-monospace, monospace" font-size="10">Invariant: State Machine</text>
+          <!-- 00. INCOMING REQUEST STREAM -->
+          <rect x="10" y="55" width="90" height="70" rx="4" fill="#fafafa" stroke="#d4d4d8" stroke-width="0.8"/>
+          <text x="18" y="74" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#71717a">INCOMING</text>
+          <text x="18" y="88" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#18181b">Raw Requests</text>
+          <text x="18" y="103" font-family="ui-monospace, monospace" font-size="8" fill="#a1a1aa">100% Vol (Unvetted)</text>
+          <rect x="18" y="110" width="45" height="4" rx="1" fill="#dc2626"/>
 
-        <path d="M410 60 H434 M430 55 L436 60 L430 65" stroke="#a1a1aa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Arrow 0 -> 1 -->
+          <path d="M100 90 H120 M116 86 L121 90 L116 94" stroke="#a1a1aa" stroke-width="1.2" stroke-linecap="round"/>
 
-        <rect x="438" y="10" width="180" height="98" rx="6" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
-        <text x="452" y="36" fill="#18181b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600">03. Modality Boundary</text>
-        <text x="452" y="58" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">Floorplan mapping: List,</text>
-        <text x="452" y="74" fill="#71717a" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">2-row drawer, or modal.</text>
-        <text x="452" y="94" fill="#18181b" font-family="ui-monospace, monospace" font-size="10">Invariant: Locked Contract</text>
-      </svg>
+          <!-- GATE 01: PERSONA & INTENT -->
+          <rect x="125" y="32" width="130" height="116" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
+          <rect x="125" y="32" width="130" height="18" rx="4" fill="#fafafa"/>
+          <text x="133" y="44" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#5D2BC7">GATE 01 · PERSONA</text>
+          <text x="133" y="65" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#18181b">Operator Intent</text>
+          <text x="133" y="80" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">8h Daily Operator:</text>
+          <text x="133" y="92" font-family="ui-monospace, monospace" font-size="7.5" fill="#71717a">Actuary / Claims / Legal</text>
+          <text x="133" y="106" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">Quantified Friction Bound</text>
+          <rect x="133" y="118" width="114" height="18" rx="2" fill="#f4f4f6"/>
+          <text x="137" y="130" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#18181b">Invariant: Validated User</text>
+
+          <!-- Gate 01 Filter Drop-off -->
+          <path d="M190 148 V170 M186 166 L190 171 L194 166" stroke="#dc2626" stroke-width="1" stroke-linecap="round"/>
+          <rect x="145" y="172" width="90" height="26" rx="2" fill="#fef2f2" stroke="#fecaca" stroke-width="0.8"/>
+          <text x="150" y="183" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#dc2626">REJECT -30%</text>
+          <text x="150" y="193" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#7f1d1d">No operator friction</text>
+
+          <!-- Arrow 1 -> 2 -->
+          <path d="M255 90 H275 M271 86 L276 90 L271 94" stroke="#a1a1aa" stroke-width="1.2" stroke-linecap="round"/>
+
+          <!-- GATE 02: TASK BLUEPRINT -->
+          <rect x="280" y="32" width="130" height="116" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
+          <rect x="280" y="32" width="130" height="18" rx="4" fill="#fafafa"/>
+          <text x="288" y="44" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#5D2BC7">GATE 02 · BLUEPRINT</text>
+          <text x="288" y="65" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#18181b">State Machine Flow</text>
+          <text x="288" y="80" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">Full Task Boundary:</text>
+          <text x="288" y="92" font-family="ui-monospace, monospace" font-size="7.5" fill="#71717a">Current vs Target Loop</text>
+          <text x="288" y="106" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">Error &amp; Loading States</text>
+          <rect x="288" y="118" width="114" height="18" rx="2" fill="#f4f4f6"/>
+          <text x="292" y="130" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#18181b">Invariant: State Machine</text>
+
+          <!-- Gate 02 Filter Drop-off -->
+          <path d="M345 148 V170 M341 166 L345 171 L349 166" stroke="#dc2626" stroke-width="1" stroke-linecap="round"/>
+          <rect x="300" y="172" width="90" height="26" rx="2" fill="#fef2f2" stroke="#fecaca" stroke-width="0.8"/>
+          <text x="305" y="183" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#dc2626">REJECT -25%</text>
+          <text x="305" y="193" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#7f1d1d">Missing error bounds</text>
+
+          <!-- Arrow 2 -> 3 -->
+          <path d="M410 90 H430 M426 86 L431 90 L426 94" stroke="#a1a1aa" stroke-width="1.2" stroke-linecap="round"/>
+
+          <!-- GATE 03: MODALITY & FLOORPLAN LOCK -->
+          <rect x="435" y="32" width="130" height="116" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
+          <rect x="435" y="32" width="130" height="18" rx="4" fill="#fafafa"/>
+          <text x="443" y="44" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#5D2BC7">GATE 03 · MODALITY</text>
+          <text x="443" y="65" font-family="ui-sans-serif, sans-serif" font-size="10" font-weight="600" fill="#18181b">Floorplan Binding</text>
+          <text x="443" y="80" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">Enforced Geometry:</text>
+          <text x="443" y="92" font-family="ui-monospace, monospace" font-size="7.5" fill="#71717a">FP 01 / 02 / 03 / 04</text>
+          <text x="443" y="106" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">100vh Lock · 40px Input</text>
+          <rect x="443" y="118" width="114" height="18" rx="2" fill="#f4f4f6"/>
+          <text x="447" y="130" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#18181b">Invariant: Locked Floorplan</text>
+
+          <!-- Gate 03 Filter Drop-off -->
+          <path d="M500 148 V170 M496 166 L500 171 L504 166" stroke="#dc2626" stroke-width="1" stroke-linecap="round"/>
+          <rect x="455" y="172" width="90" height="26" rx="2" fill="#fef2f2" stroke="#fecaca" stroke-width="0.8"/>
+          <text x="460" y="183" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#dc2626">REJECT -15%</text>
+          <text x="460" y="193" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#7f1d1d">Ad-hoc layout attempt</text>
+
+          <!-- Arrow 3 -> Dispatch -->
+          <path d="M565 90 H578 M574 86 L579 90 L574 94" stroke="#047857" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- OUTPUT: PRODUCTION CONTRACT -->
+          <rect x="580" y="42" width="55" height="96" rx="4" fill="#18181b" stroke="#18181b" stroke-width="1"/>
+          <text x="607" y="66" font-family="ui-monospace, monospace" font-size="7.5" font-weight="600" fill="#047857" text-anchor="middle">PASS</text>
+          <text x="607" y="84" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#ffffff" text-anchor="middle">30% NET</text>
+          <text x="607" y="104" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#d4d4d8" text-anchor="middle">Zero-Debt</text>
+          <text x="607" y="116" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#d4d4d8" text-anchor="middle">Sprint Rail</text>
+          <circle cx="607" cy="126" r="3" fill="#047857"/>
+        </svg>
+      </div>
+
+      <div style="border-top:1px solid #e4e4e7; padding:0.75rem 1.25rem; font-size:12px; color:#71717a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; background:#fafafa;">
+        <span>Filter Yield: 70% of ambiguous requests filtered before Figma · 100% of admitted specs build with zero CSS overrides.</span>
+        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#18181b; font-weight:600;">Gate Elimination Metric</span>
+      </div>
     </div>
 
     <h3>The Ingestion Protocol: Refactoring PO Prototypes into Production Rails</h3>
@@ -1249,6 +1404,91 @@
       <li><strong>3. Edge Case Boundary Handling:</strong> Validated treatments for zero-data empty states, maximum-length Turkish localized text truncation, and network exception alerts.</li>
       <li><strong>4. 15-Minute Engineering Sync:</strong> Mandatory bilateral review with the Lead Frontend Developer to verify Ant Design React API parity before committing to sprint backlog.</li>
     </ul>
+
+    <!-- ARCHITECTURAL SPECIMEN: 5+2 DUAL-TRACK OPERATING MODEL -->
+    <div style="margin:2.25rem 0 2.75rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.65rem 1.25rem;">
+        <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">
+          Architectural Specimen · The 5+2 Dual-Track Operating Model &amp; Velocity Matrix
+        </span>
+        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 8px; border-radius:3px; font-weight:600;">
+          -82% DEV DRAG · 460H SAVED
+        </span>
+      </div>
+
+      <div style="padding:1.5rem 1.25rem 1.25rem;">
+        <svg viewBox="0 0 640 230" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+          <!-- Timeline Header -->
+          <rect x="0" y="8" width="440" height="22" rx="3" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8"/>
+          <text x="220" y="22" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#18181b" text-anchor="middle">5 WEEKS · CONTINUOUS TACTICAL DELIVERY (SPRINT N-1)</text>
+
+          <rect x="450" y="8" width="190" height="22" rx="3" fill="#18181b"/>
+          <text x="545" y="22" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">+2 WEEKS · SYSTEM HARDENING</text>
+
+          <!-- Timeline Columns guidelines -->
+          <line x1="88" y1="30" x2="88" y2="190" stroke="#f4f4f6" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <line x1="176" y1="30" x2="176" y2="190" stroke="#f4f4f6" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <line x1="264" y1="30" x2="264" y2="190" stroke="#f4f4f6" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <line x1="352" y1="30" x2="352" y2="190" stroke="#f4f4f6" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <line x1="440" y1="30" x2="440" y2="190" stroke="#a1a1aa" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <line x1="540" y1="30" x2="540" y2="190" stroke="#f4f4f6" stroke-width="0.8" stroke-dasharray="2 2"/>
+
+          <!-- Week markers -->
+          <text x="44" y="44" font-family="ui-monospace, monospace" font-size="8" fill="#71717a" text-anchor="middle">W1</text>
+          <text x="132" y="44" font-family="ui-monospace, monospace" font-size="8" fill="#71717a" text-anchor="middle">W2</text>
+          <text x="220" y="44" font-family="ui-monospace, monospace" font-size="8" fill="#71717a" text-anchor="middle">W3</text>
+          <text x="308" y="44" font-family="ui-monospace, monospace" font-size="8" fill="#71717a" text-anchor="middle">W4</text>
+          <text x="396" y="44" font-family="ui-monospace, monospace" font-size="8" fill="#71717a" text-anchor="middle">W5</text>
+          <text x="495" y="44" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#18181b" text-anchor="middle">W6 (FREEZE)</text>
+          <text x="590" y="44" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#5D2BC7" text-anchor="middle">W7 (RELEASE)</text>
+
+          <!-- TRACK A: TACTICAL PRODUCT VELOCITY -->
+          <rect x="0" y="54" width="440" height="54" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
+          <rect x="0" y="54" width="6" height="54" rx="2" fill="#5D2BC7"/>
+          <text x="14" y="70" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#5D2BC7">TRACK A · TACTICAL SCREEN DELIVERY</text>
+          <text x="14" y="85" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#18181b">Sprint N-1 Runway · 40 Views Shipped (8 views / sprint batch)</text>
+          <text x="14" y="98" font-family="ui-sans-serif, sans-serif" font-size="8.5" fill="#71717a">Currencies, Banks, Ledgers, Reinsurance Parameters, Claims Queues</text>
+
+          <!-- Synchronized DoR Gate Connectors -->
+          <path d="M440 81 H450 M446 78 L450 81 L446 84" stroke="#5D2BC7" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Track A Freeze Marker -->
+          <rect x="450" y="54" width="190" height="54" rx="4" fill="#fafafa" stroke="#d4d4d8" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <text x="545" y="76" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#71717a" text-anchor="middle">NEW SCREEN FREEZE</text>
+          <text x="545" y="92" font-family="ui-sans-serif, sans-serif" font-size="8.5" fill="#a1a1aa" text-anchor="middle">Zero ad-hoc screen creep</text>
+
+          <!-- TRACK B: SYSTEM HARDENING & PATTERN EXTRACTION -->
+          <rect x="0" y="122" width="440" height="54" rx="4" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8"/>
+          <rect x="0" y="122" width="6" height="54" rx="2" fill="#a1a1aa"/>
+          <text x="14" y="138" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#71717a">TRACK B · BACKGROUND TELEMETRY</text>
+          <text x="14" y="153" font-family="ui-sans-serif, sans-serif" font-size="9.5" fill="#52525b">AST &amp; DOM Drift Logging · Observation of recurring table &amp; form shapes</text>
+          <text x="14" y="166" font-family="ui-sans-serif, sans-serif" font-size="8.5" fill="#a1a1aa">Zero premature abstractions · Ground truth collected under sprint fire</text>
+
+          <!-- Transition to Hardening Phase -->
+          <path d="M440 149 H450 M446 146 L450 149 L446 152" stroke="#18181b" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Hardening Block -->
+          <rect x="450" y="122" width="190" height="54" rx="4" fill="#ffffff" stroke="#5D2BC7" stroke-width="1.5"/>
+          <rect x="450" y="122" width="6" height="54" rx="2" fill="#5D2BC7"/>
+          <text x="464" y="138" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#5D2BC7">PATTERN CONSOLIDATION</text>
+          <text x="464" y="153" font-family="ui-sans-serif, sans-serif" font-size="9.5" font-weight="600" fill="#18181b">Agito Pattern Library</text>
+          <text x="464" y="166" font-family="ui-sans-serif, sans-serif" font-size="8.5" fill="#52525b">4 Floorplans locked to DTCG</text>
+
+          <!-- Horizontal Velocity Metric Bar -->
+          <rect x="0" y="190" width="640" height="32" rx="4" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8"/>
+          <text x="14" y="210" font-family="ui-monospace, monospace" font-size="8.5" fill="#71717a">Implementation Velocity:</text>
+          <text x="160" y="210" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#dc2626">14h / view (Legacy Ad-hoc)</text>
+          <text x="310" y="210" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa">➔</text>
+          <text x="330" y="210" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#5D2BC7">2.5h / view (-82% Dev Drag)</text>
+          <text x="510" y="210" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#047857">460h Net Unlocked</text>
+        </svg>
+      </div>
+
+      <div style="border-top:1px solid #e4e4e7; padding:0.75rem 1.25rem; font-size:12px; color:#71717a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; background:#fafafa;">
+        <span>The rhythm: 5 weeks continuous delivery ahead of dev squads + 2 weeks systemic hardening to prevent architectural drift.</span>
+        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#18181b; font-weight:600;">Operational Rhythm</span>
+      </div>
+    </div>
 
     <!-- 05. THE DUAL-BENCHMARK ARCHITECTURE & 4 FLOORPLANS -->
     <h2 id="sec-05">05. The Dual-Benchmark Architecture: Enterprise Skeleton &amp; SaaS Muscle</h2>
@@ -1909,6 +2149,89 @@
       </table>
     </div>
 
+    <!-- ARCHITECTURAL SPECIMEN: MULTI-WAVE HORIZON SCHEMATIC -->
+    <div style="margin:2.25rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.65rem 1.25rem;">
+        <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">
+          Architectural Specimen · Multi-Wave Scaling Horizon &amp; Zero-Marginal-Cost Absorption
+        </span>
+        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 8px; border-radius:3px; font-weight:600;">
+          350+ ENTERPRISE VIEWS BUFFERED
+        </span>
+      </div>
+
+      <div style="padding:1.5rem 1.25rem 1.25rem;">
+        <svg viewBox="0 0 640 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+          <!-- Horizontal progression track -->
+          <line x1="20" y1="90" x2="620" y2="90" stroke="#e4e4e7" stroke-width="2"/>
+
+          <!-- WAVE 1.0: BASELINE KERNEL -->
+          <rect x="10" y="24" width="135" height="132" rx="6" fill="#ffffff" stroke="#5D2BC7" stroke-width="1.5"/>
+          <rect x="10" y="24" width="135" height="24" rx="6" fill="#f5f3ff"/>
+          <text x="20" y="40" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#5D2BC7">WAVE 1.0 · KERNEL</text>
+          <text x="20" y="66" font-family="ui-sans-serif, sans-serif" font-size="11" font-weight="600" fill="#18181b">40 / 68 Screens</text>
+          <rect x="20" y="74" width="115" height="6" rx="3" fill="#e4e4e7"/>
+          <rect x="20" y="74" width="68" height="6" rx="3" fill="#5D2BC7"/>
+          <text x="20" y="94" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#5D2BC7">59% SHIPPED</text>
+          <text x="20" y="110" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">4 Floorplans Deployed</text>
+          <text x="20" y="124" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">AntD v5 Zero-Override</text>
+          <rect x="20" y="132" width="55" height="16" rx="2" fill="#ecfdf5"/>
+          <text x="26" y="143" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#047857">PROD READY</text>
+
+          <!-- Arrow 1.0 -> 1.1 -->
+          <path d="M145 90 H165 M160 85 L166 90 L160 95" stroke="#5D2BC7" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- WAVE 1.1: PATTERN EXTRACTION -->
+          <rect x="170" y="24" width="135" height="132" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+          <rect x="170" y="24" width="135" height="24" rx="6" fill="#18181b"/>
+          <text x="180" y="40" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#ffffff">WAVE 1.1 · EXTRACTION</text>
+          <text x="180" y="66" font-family="ui-sans-serif, sans-serif" font-size="11" font-weight="600" fill="#18181b">Pattern Library</text>
+          <rect x="180" y="74" width="115" height="6" rx="3" fill="#e4e4e7"/>
+          <rect x="180" y="74" width="115" height="6" rx="3" fill="#18181b"/>
+          <text x="180" y="94" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#18181b">CURRENT SPRINT</text>
+          <text x="180" y="110" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">PO Self-Serve Assembly</text>
+          <text x="180" y="124" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">Real-Time Hardening</text>
+          <rect x="180" y="132" width="65" height="16" rx="2" fill="#f4f4f6"/>
+          <text x="186" y="143" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#18181b">IN PROGRESS</text>
+
+          <!-- Arrow 1.1 -> 1.2 -->
+          <path d="M305 90 H325 M320 85 L326 90 L320 95" stroke="#a1a1aa" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- WAVE 1.2: PLATFORM COMPLETION -->
+          <rect x="330" y="24" width="135" height="132" rx="6" fill="#ffffff" stroke="#e4e4e7" stroke-width="1"/>
+          <rect x="330" y="24" width="135" height="24" rx="6" fill="#fafafa"/>
+          <text x="340" y="40" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#71717a">WAVE 1.2 · FOUNDATION</text>
+          <text x="340" y="66" font-family="ui-sans-serif, sans-serif" font-size="11" font-weight="600" fill="#18181b">Remaining 28 Views</text>
+          <rect x="340" y="74" width="115" height="6" rx="3" fill="#e4e4e7"/>
+          <rect x="340" y="74" width="30" height="6" rx="3" fill="#a1a1aa"/>
+          <text x="340" y="94" font-family="ui-monospace, monospace" font-size="8" fill="#71717a">ACTIVE PIPELINE</text>
+          <text x="340" y="110" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">Bank Payment Gateways</text>
+          <text x="340" y="124" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">Currency Exchange Grids</text>
+          <rect x="340" y="132" width="55" height="16" rx="2" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8"/>
+          <text x="346" y="143" font-family="ui-monospace, monospace" font-size="7" fill="#71717a">QUEUED</text>
+
+          <!-- Arrow 1.2 -> 2.0 -->
+          <path d="M465 90 H485 M480 85 L486 90 L480 95" stroke="#a1a1aa" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- WAVE 2.0: ENTERPRISE SCALING -->
+          <rect x="490" y="24" width="140" height="132" rx="6" fill="#fafafa" stroke="#d4d4d8" stroke-width="1" stroke-dasharray="3 2"/>
+          <rect x="490" y="24" width="140" height="24" rx="6" fill="#f4f4f6"/>
+          <text x="500" y="40" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#71717a">WAVE 2.0 · EXPANSION</text>
+          <text x="500" y="66" font-family="ui-sans-serif, sans-serif" font-size="11" font-weight="600" fill="#18181b">180+ Enterprise Views</text>
+          <text x="500" y="84" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#5D2BC7">ZERO MARGINAL COST</text>
+          <text x="500" y="102" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">Reinsurance Treaty Model</text>
+          <text x="500" y="116" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#52525b">Broker &amp; Agency Mesh</text>
+          <rect x="500" y="128" width="120" height="20" rx="2" fill="#ffffff" stroke="#e4e4e7" stroke-width="0.8"/>
+          <text x="506" y="141" font-family="ui-monospace, monospace" font-size="7.5" font-weight="600" fill="#18181b">Deterministic Rails</text>
+        </svg>
+      </div>
+
+      <div style="border-top:1px solid #e4e4e7; padding:0.75rem 1.25rem; font-size:12px; color:#71717a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; background:#fafafa;">
+        <span>Progress: 40/68 screens shipped (59%) · Foundation locked to absorb 350+ upcoming views with flat marginal engineering cost.</span>
+        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#18181b; font-weight:600;">Scale Telemetry</span>
+      </div>
+    </div>
+
     <!-- 07. RETROSPECTIVE -->
     <h2 id="sec-07">07. Retrospective: The High-Stakes Mental Model Shift</h2>
     <div class="bottom-line-strip">
@@ -1916,20 +2239,62 @@
       <span class="bl-text">Shifted organizational paradigm from cosmetic screen production to deterministic control systems.</span>
     </div>
     <p>
-      The ultimate transformation at Agito was not merely technical; it was an organizational and mental model shift.
+      The ultimate transformation at Agito was not merely technical; it was an organizational and mental model shift. Navigating 14 monolithic enterprise products under live sprint deadlines forced a structural paradigm shift: moving from the fragile, decorative handoff pipelines of consumer apps to an immutable, code-governed control architecture:
     </p>
-    <p>
-      In early career phases, designers operate within a narrow linear pipeline:
-    </p>
-    <div style="background:#fafafa; border:1px solid #f4f4f6; border-radius:6px; padding:12px 16px; font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:12px; color:#71717a; margin-bottom:1.25rem;">
-      UX → UI → Design System → Screens → Handover
+
+    <!-- ARCHITECTURAL SPECIMEN: PARADIGM SHIFT COMPARISON MATRIX -->
+    <div style="margin:2.25rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.65rem 1.25rem;">
+        <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">
+          Architectural Specimen · The Control Architecture Paradigm Shift
+        </span>
+        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 8px; border-radius:3px; font-weight:600;">
+          DECISION ELIMINATION
+        </span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #e4e4e7;">
+        <!-- LEFT: THE VISUAL PRODUCER -->
+        <div style="padding:1.5rem; border-right:1px solid #e4e4e7; background:#fafafa;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+            <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#dc2626;">01. Visual Screen Producer (Figma-Centric)</span>
+            <span style="font-size:10px; background:#fee2e2; color:#991b1b; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">FRAGILE</span>
+          </div>
+          <div style="font-family:ui-monospace,monospace; font-size:11px; background:#ffffff; border:1px solid #fecaca; border-radius:4px; padding:0.75rem; color:#7f1d1d; margin-bottom:0.85rem; line-height:1.6;">
+            UX ➔ UI ➔ Component Lib ➔ Mockups ➔ Wall Handoff
+          </div>
+          <ul style="margin:0; padding-left:1.1rem; font-size:12px; color:#52525b; line-height:1.6;">
+            <li><strong>Value Metric:</strong> Screen volume delivered (drawing 60+ static pictures).</li>
+            <li><strong>Engineering Impact:</strong> 420 LOC custom CSS per view; developers guess error states.</li>
+            <li><strong>Cost of Change:</strong> Compounding frontend debt; requires constant agency retainers.</li>
+            <li><strong>Failure Mode:</strong> Three failed agency handovers over five years.</li>
+          </ul>
+        </div>
+
+        <!-- RIGHT: THE CONTROL SYSTEMS ARCHITECT -->
+        <div style="padding:1.5rem; background:#ffffff;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+            <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#18181b;">02. Control Systems Architect (Code-Centric)</span>
+            <span style="font-size:10px; background:#f4f4f6; color:#047857; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">DETERMINISTIC</span>
+          </div>
+          <div style="font-family:ui-monospace,monospace; font-size:11px; background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; color:#18181b; margin-bottom:0.85rem; line-height:1.6;">
+            Business Invariants ➔ Tokens &amp; AST ➔ 4 Floorplans ➔ Decision Elimination
+          </div>
+          <ul style="margin:0; padding-left:1.1rem; font-size:12px; color:#52525b; line-height:1.6;">
+            <li><strong>Value Metric:</strong> Decisions removed from the table (0 ad-hoc layouts, 0 raw hex).</li>
+            <li><strong>Engineering Impact:</strong> 0 LOC custom CSS; implementation drops from 14h to 2.5h (-82%).</li>
+            <li><strong>Cost of Change:</strong> Flat marginal cost; token changes propagate globally in seconds.</li>
+            <li><strong>Success Mode:</strong> Scalable software factory operated autonomously by dev squads.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="padding:0.75rem 1.25rem; font-size:12px; color:#71717a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; background:#fafafa;">
+        <span>The core thesis: Design value is measured in decisions removed from the table, not components delivered.</span>
+        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#18181b; font-weight:600;">Control Architecture Proof</span>
+      </div>
     </div>
-    <p>
-      Navigating 14 monolithic products under intense sprint deadlines forced a fundamentally different mental model:
-    </p>
-    <div style="background:#fafafa; border:1px solid #f4f4f6; border-radius:6px; padding:12px 16px; font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:12px; color:#18181b; margin-bottom:1.25rem;">
-      Business Rules → Organizational Dynamics → Technical Constraints → Delivery Economics → Governance → Decision Ownership
-    </div>
+
     <p>
       The core failure of the three external agencies was not that they made bad components; it was that <strong>Agito outsourced visual production without establishing decision ownership and validation mechanisms</strong>.
     </p>
@@ -2072,6 +2437,24 @@
           });
         }
       }
+
+      // Generic Specimen Tab Switcher (e.g. Section 02 Code AST vs DOM Drift)
+      var tabButtons = document.querySelectorAll('.specimen-tab-btn');
+      tabButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var targetId = btn.getAttribute('data-target');
+          if (!targetId) return;
+          var container = btn.closest('.bleed-canvas');
+          if (!container) return;
+
+          container.querySelectorAll('.specimen-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+          container.querySelectorAll('.specimen-tab-pane').forEach(function(p) { p.classList.remove('active'); });
+
+          btn.classList.add('active');
+          var targetPane = document.getElementById(targetId);
+          if (targetPane) targetPane.classList.add('active');
+        });
+      });
     })();
   </script>
 </body>
