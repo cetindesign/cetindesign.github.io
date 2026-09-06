@@ -408,69 +408,66 @@
       Rather than arguing philosophically or resigning to the role of a draftsman, I executed a strategic pivot: I transformed the CTO's requested "grocery list" into a <strong>Figma-Deep vs. Code-Deep Technical Debt Risk Matrix</strong>. By evaluating every single component through its architectural divergence from Ant Design’s native React API, I mathematically proved that coding directly from the agency’s decorative mockups would inflict a <strong>3x velocity penalty</strong> on frontend engineering through incessant CSS overrides and DOM restructuring.
     </p>
 
-    <!-- EXECUTIVE RISK AUDIT CARD: FIGMA-DEEP VS CODE-DEEP -->
-    <div style="margin:2rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
-      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.65rem 1.15rem;">
-        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; font-weight:500; color:#71717a;">Executive Risk Audit · Submitted to CTO &amp; Engineering Leads</span>
-        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#b91c1c; background:#fef2f2; border:1px solid #fecaca; padding:2px 8px; border-radius:3px; font-weight:600;">3X VELOCITY RISK DETECTED</span>
-      </div>
-      
-      <!-- AUDIT METRIC STRIP -->
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:1px; background:#e4e4e7; border-bottom:1px solid #e4e4e7;">
-        <div style="background:#ffffff; padding:0.85rem 1rem;">
-          <span style="display:block; font-size:11px; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">Audited Scope</span>
-          <strong style="display:block; font-size:18px; color:#18181b; font-weight:600; margin-top:2px;">87 Screens</strong>
-          <span style="font-size:11px; color:#a1a1aa;">4 Core Modules</span>
-        </div>
-        <div style="background:#ffffff; padding:0.85rem 1rem;">
-          <span style="display:block; font-size:11px; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">Native Code Parity</span>
-          <strong style="display:block; font-size:18px; color:#b91c1c; font-weight:600; margin-top:2px;">0% (Pure Concept)</strong>
-          <span style="font-size:11px; color:#a1a1aa;">Zero usable tokens</span>
-        </div>
-        <div style="background:#ffffff; padding:0.85rem 1rem;">
-          <span style="display:block; font-size:11px; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">Projected Dev Friction</span>
-          <strong style="display:block; font-size:18px; color:#b91c1c; font-weight:600; margin-top:2px;">3x Velocity Penalty</strong>
-          <span style="font-size:11px; color:#a1a1aa;">Per-screen CSS overrides</span>
-        </div>
-        <div style="background:#ffffff; padding:0.85rem 1rem;">
-          <span style="display:block; font-size:11px; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">Strategic Remedy</span>
-          <strong style="display:block; font-size:18px; color:#059669; font-weight:600; margin-top:2px;">Zero-Override AntD</strong>
-          <span style="font-size:11px; color:#a1a1aa;">Single Source of Truth</span>
-        </div>
-      </div>
-
-      <!-- 3 PUNCHY STRATEGIC COMPARISON ROWS -->
-      <div style="padding:1.15rem;">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; font-size:13px; line-height:1.5;">
-          <div style="background:#fafafa; border:1px solid #f4f4f6; border-radius:6px; padding:0.85rem 1rem;">
-            <div style="display:flex; align-items:center; gap:0.4rem; margin-bottom:0.4rem;">
-              <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#ef4444;"></span>
-              <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:#71717a;">The Agency Deliverable (Figma-Deep)</strong>
-            </div>
-            <p style="margin:0; font-size:13px; color:#52525b;">
-              <strong>Surface Concept:</strong> 87 flat vector artboards with hardcoded hex values, non-standard 8pt metrics, and zero interaction lifecycle states (no hover, active, disabled, loading, or empty states).
-            </p>
+    <!-- EDITORIAL ARCHITECTURAL CONTRAST: FIGMA-DEEP VS CODE-DEEP -->
+    <div style="margin: 2.25rem 0; border: 1px solid #e4e4e7; border-radius: 6px; background: #ffffff; overflow: hidden;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        
+        <!-- COLUMN 1: AGENCY DELIVERABLE -->
+        <div style="padding: 1.5rem 1.75rem; border-right: 1px solid #e4e4e7;">
+          <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.04em; color: #71717a; text-transform: uppercase; margin-bottom: 0.35rem;">
+            01 · Agency Concept (Figma-Deep)
+          </div>
+          <div style="font-size: 14px; font-weight: 500; color: #18181b; margin-bottom: 1rem;">
+            Speculative Surface Mockups
           </div>
           
-          <div style="background:#fafafa; border:1px solid #f4f4f6; border-radius:6px; padding:0.85rem 1rem;">
-            <div style="display:flex; align-items:center; gap:0.4rem; margin-bottom:0.4rem;">
-              <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#22c55e;"></span>
-              <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:#18181b;">The Agito Architecture (Code-Deep)</strong>
-            </div>
-            <p style="margin:0; font-size:13px; color:#52525b;">
-              <strong>Engineering Contract:</strong> 100% Native Ant Design v5 API binding. Agency visual identity isolated strictly into Design Tokens (<code>core.json</code>) and standardized floorplans. Zero CSS overrides.
-            </p>
-          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 13.5px; color: #52525b; line-height: 1.6;">
+            <li style="margin-bottom: 0.75rem; padding-left: 1rem; position: relative;">
+              <span style="position: absolute; left: 0; color: #a1a1aa;">—</span>
+              <strong>Token Parity:</strong> Raw hex values and arbitrary geometry (13px padding, un-tokenized radii) with no link to codebase variables.
+            </li>
+            <li style="margin-bottom: 0.75rem; padding-left: 1rem; position: relative;">
+              <span style="position: absolute; left: 0; color: #a1a1aa;">—</span>
+              <strong>Component Lifecycle:</strong> Single-state vector drawings. Ignored error, loading, empty, and focus states across 87 screens.
+            </li>
+            <li style="padding-left: 1rem; position: relative;">
+              <span style="position: absolute; left: 0; color: #a1a1aa;">—</span>
+              <strong>Frontend Velocity:</strong> Imposed an estimated 3x engineering drag by forcing developers to write bespoke CSS overrides per screen.
+            </li>
+          </ul>
         </div>
 
-        <div style="margin-top:0.85rem; padding-top:0.85rem; border-top:1px solid #f4f4f6; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
-          <span style="font-size:12.5px; color:#71717a;">
-            <strong>Executive Takeaway:</strong> Reframed the design handoff from a visual approval debate into an engineering capacity safeguard.
-          </span>
-          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#059669; font-weight:500;">
-            Estimated savings: ~1,200 dev hours avoided
-          </span>
+        <!-- COLUMN 2: AGITO SYSTEM -->
+        <div style="padding: 1.5rem 1.75rem; background: #fafafa;">
+          <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.04em; color: #5D2BC7; text-transform: uppercase; margin-bottom: 0.35rem;">
+            02 · Agito Architecture (Code-Deep)
+          </div>
+          <div style="font-size: 14px; font-weight: 500; color: #18181b; margin-bottom: 1rem;">
+            Enforceable Engineering Contract
+          </div>
+          
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 13.5px; color: #52525b; line-height: 1.6;">
+            <li style="margin-bottom: 0.75rem; padding-left: 1rem; position: relative;">
+              <span style="position: absolute; left: 0; color: #5D2BC7;">—</span>
+              <strong>Token Parity:</strong> 100% bound to <code>core.json</code> and Ant Design’s <code>agitoTheme</code>. One global token update re-skins the platform.
+            </li>
+            <li style="margin-bottom: 0.75rem; padding-left: 1rem; position: relative;">
+              <span style="position: absolute; left: 0; color: #5D2BC7;">—</span>
+              <strong>Component Lifecycle:</strong> Native framework API parity. Hover, active, disabled, and loading states handled out-of-the-box.
+            </li>
+            <li style="padding-left: 1rem; position: relative;">
+              <span style="position: absolute; left: 0; color: #5D2BC7;">—</span>
+              <strong>Frontend Velocity:</strong> Zero-override rule. Engineering builds standard floorplans with out-of-the-box speed and zero throwaway CSS.
+            </li>
+          </ul>
         </div>
+
+      </div>
+
+      <!-- FOOTER NOTE -->
+      <div style="border-top: 1px solid #e4e4e7; padding: 0.75rem 1.75rem; font-size: 12px; color: #71717a; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; background: #ffffff;">
+        <span>Audit scope: 87 screens across 4 enterprise core modules</span>
+        <span style="font-family: ui-monospace, monospace; font-size: 11px; color: #18181b;">Zero-override baseline</span>
       </div>
     </div>
 
