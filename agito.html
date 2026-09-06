@@ -297,6 +297,174 @@
       font-weight:500;
     }
 
+    /* TOKEN SIMULATOR & BLUEPRINT INSPECTOR */
+    :root {
+      --token-primary: #5D2BC7;
+      --token-primary-subtle: #f5f3ff;
+      --token-primary-border: #ddd6fe;
+      --token-radius: 4px;
+    }
+    .token-sim-toolbar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.75rem 1.25rem;
+      background: #fafafa;
+      border-bottom: 1px solid #e4e4e7;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+    }
+    .token-sim-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .token-sim-label {
+      color: #71717a;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .token-color-picker {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .token-color-btn {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      outline: 1px solid #d4d4d8;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.15s ease, outline-color 0.15s ease;
+    }
+    .token-color-btn:hover {
+      transform: scale(1.15);
+    }
+    .token-color-btn.active {
+      outline: 2px solid var(--token-primary);
+      transform: scale(1.1);
+    }
+    .token-radius-picker {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .token-pill-btn {
+      font-family: ui-monospace, monospace;
+      font-size: 10.5px;
+      padding: 3px 8px;
+      border: 1px solid #e4e4e7;
+      background: #ffffff;
+      color: #71717a;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .token-pill-btn:hover {
+      color: #18181b;
+      border-color: #a1a1aa;
+    }
+    .token-pill-btn.active {
+      background: #18181b;
+      color: #ffffff;
+      border-color: #18181b;
+      font-weight: 600;
+    }
+    .token-sim-divider {
+      width: 1px;
+      height: 18px;
+      background: #e4e4e7;
+    }
+    .blueprint-group {
+      margin-left: auto;
+    }
+    .blueprint-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border: 1px solid #d4d4d8;
+      background: #ffffff;
+      color: #18181b;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .blueprint-toggle-btn:hover {
+      border-color: var(--token-primary);
+      color: var(--token-primary);
+    }
+    .blueprint-toggle-btn.active {
+      background: #18181b;
+      color: #ffffff;
+      border-color: #18181b;
+    }
+    .blueprint-indicator {
+      font-size: 10px;
+      line-height: 1;
+    }
+    @media (max-width: 768px) {
+      .token-sim-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+      }
+      .token-sim-divider {
+        display: none;
+      }
+      .blueprint-group {
+        margin-left: 0;
+      }
+    }
+
+    /* TOKEN DYNAMICS & BLUEPRINT OVERLAYS */
+    .token-primary-fill {
+      fill: var(--token-primary, #5D2BC7);
+      transition: fill 0.2s ease;
+    }
+    .token-primary-stroke {
+      stroke: var(--token-primary, #5D2BC7);
+      transition: stroke 0.2s ease;
+    }
+    .token-primary-text {
+      fill: var(--token-primary, #5D2BC7);
+      transition: fill 0.2s ease;
+    }
+    .floorplan-tag {
+      color: var(--token-primary, #5D2BC7);
+      background: var(--token-primary-subtle, #f5f3ff);
+      transition: color 0.2s ease, background-color 0.2s ease;
+    }
+    .token-radius-target {
+      rx: var(--token-radius, 2px);
+      transition: rx 0.2s ease;
+    }
+
+    /* BLUEPRINT MODE STYLING */
+    .blueprint-grid-bg {
+      display: none;
+    }
+    .blueprint-overlay {
+      display: none;
+    }
+    .blueprint-active .blueprint-grid-bg {
+      display: block;
+    }
+    .blueprint-active .blueprint-overlay {
+      display: block;
+    }
+    .blueprint-active .floorplan-diagram {
+      background: #ffffff;
+      border-color: #a1a1aa;
+      box-shadow: 0 0 0 1px #e4e4e7;
+    }
+
     .wireframe-box{
       background:#fafafa;
       border:1px dashed #d4d4d8;
@@ -668,6 +836,81 @@
       <div style="border-top: 1px solid #e4e4e7; padding: 0.75rem 1.75rem; font-size: 12px; color: #71717a; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; background: #ffffff;">
         <span>Audit scope: 87 screens across 4 enterprise core modules · Terminates ~$180k/yr recurring agency retainer</span>
         <span style="font-family: ui-monospace, monospace; font-size: 11px; color: #18181b;">Zero-override baseline</span>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURAL SPECIMEN: DUAL-VECTOR DIVERGENCE PLOT -->
+    <div style="margin:2.25rem 0 3rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.65rem 1.25rem;">
+        <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">
+          Architectural Specimen · Cumulative Engineering Debt Divergence
+        </span>
+        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 8px; border-radius:3px; font-weight:600;">
+          3X VELOCITY GAP
+        </span>
+      </div>
+
+      <div style="padding:1.5rem 1.5rem 1.25rem;">
+        <div style="margin-bottom:1rem; font-size:12px; color:#71717a; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
+          <div><strong>Metric:</strong> Cumulative Engineering Drag (Hours) vs. Sprint Progression (S1–S12)</div>
+          <div style="font-family:ui-monospace,monospace; font-size:11px;">
+            <span style="display:inline-block; width:12px; height:2px; background:#dc2626; vertical-align:middle; margin-right:4px;"></span> Agency Vector (Figma-Deep)
+            <span style="display:inline-block; width:12px; height:2px; background:#5D2BC7; vertical-align:middle; margin-left:12px; margin-right:4px;"></span> Agito Control System (Code-Deep)
+          </div>
+        </div>
+
+        <svg viewBox="0 0 640 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+          <!-- Axes and Gridlines -->
+          <line x1="50" y1="20" x2="50" y2="180" stroke="#e4e4e7" stroke-width="1"/>
+          <line x1="50" y1="180" x2="620" y2="180" stroke="#e4e4e7" stroke-width="1"/>
+
+          <!-- Horizontal guidelines -->
+          <line x1="50" y1="140" x2="620" y2="140" stroke="#f4f4f6" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <line x1="50" y1="100" x2="620" y2="100" stroke="#f4f4f6" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <line x1="50" y1="60" x2="620" y2="60" stroke="#f4f4f6" stroke-width="0.8" stroke-dasharray="2 2"/>
+
+          <!-- Y-axis labels -->
+          <text x="42" y="183" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="end">0h</text>
+          <text x="42" y="143" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="end">400h</text>
+          <text x="42" y="103" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="end">800h</text>
+          <text x="42" y="63" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="end">1,200h</text>
+
+          <!-- X-axis labels -->
+          <text x="50" y="196" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="middle">S1</text>
+          <text x="145" y="196" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="middle">S3</text>
+          <text x="240" y="196" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="middle">S5</text>
+          <text x="335" y="196" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="middle">S7</text>
+          <text x="430" y="196" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="middle">S9</text>
+          <text x="525" y="196" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="middle">S11</text>
+          <text x="610" y="196" font-family="ui-monospace, monospace" font-size="9" fill="#a1a1aa" text-anchor="middle">S12</text>
+
+          <!-- Decoupling Point Line -->
+          <line x1="145" y1="20" x2="145" y2="180" stroke="#a1a1aa" stroke-width="1" stroke-dasharray="3 3"/>
+          <rect x="95" y="24" width="100" height="18" rx="3" fill="#18181b"/>
+          <text x="145" y="36" font-family="ui-monospace, monospace" font-size="8.5" fill="#ffffff" font-weight="600" text-anchor="middle">DAY 14 DECOUPLING</text>
+
+          <!-- Agency Vector (Red dashed - exponential debt) -->
+          <path d="M50 178 C90 175, 145 160, 240 130 C335 100, 450 65, 610 40" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
+          <circle cx="610" cy="40" r="3.5" fill="#dc2626"/>
+          <text x="605" y="30" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#dc2626" text-anchor="end">+1,200h Dev Drag (~$180k/yr)</text>
+
+          <!-- Agito Vector (Violet solid - initial ramp, then flat zero-marginal-cost) -->
+          <path d="M50 178 C80 172, 120 162, 145 158 C200 155, 300 152, 610 148" stroke="#5D2BC7" stroke-width="2.5" fill="none"/>
+          <circle cx="145" cy="158" r="3.5" fill="#5D2BC7"/>
+          <circle cx="610" cy="148" r="3.5" fill="#5D2BC7"/>
+          <text x="605" y="165" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#5D2BC7" text-anchor="end">2.5h / View (Zero Marginal Cost)</text>
+
+          <!-- Highlight Annotation Box -->
+          <rect x="250" y="70" width="165" height="42" rx="4" fill="#ffffff" stroke="#e4e4e7" stroke-width="0.8"/>
+          <text x="260" y="86" font-family="ui-monospace, monospace" font-size="8.5" font-weight="600" fill="#dc2626">3X Velocity Penalty Zone</text>
+          <text x="260" y="99" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#71717a">Un-tokenized bespoke overrides</text>
+          <text x="260" y="108" font-family="ui-sans-serif, sans-serif" font-size="8" fill="#71717a">DOM regressions across 14 products</text>
+        </svg>
+      </div>
+
+      <div style="border-top:1px solid #e4e4e7; padding:0.75rem 1.25rem; font-size:12px; color:#71717a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; background:#fafafa;">
+        <span>The divergence: Agency mockups generated rapid visual pictures but compounding architectural debt.</span>
+        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#18181b; font-weight:600;">Mathematical Debt Proof</span>
       </div>
     </div>
 
@@ -1183,13 +1426,54 @@
     </p>
 
     <!-- GAVIN NELSON ARCHITECTURAL BREAKOUT: THE 4 UNIVERSAL FLOORPLANS -->
-    <div class="bleed-canvas">
+    <div class="bleed-canvas" id="floorplan-inspector-canvas">
       <div class="bleed-header">
         <div style="display:flex; align-items:center; gap:0.5rem;">
           <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 6px; border-radius:3px; font-weight:600;">TAXONOMY</span>
           <span style="color:#18181b; font-weight:600; margin-left:0.25rem;">Architectural Specimen · The 4 Universal Floorplans (SAP Fiori Adapted)</span>
         </div>
         <span style="color:#71717a;">100vh Enterprise Workstation Runtime (1920x1080)</span>
+      </div>
+
+      <!-- TOKEN SIMULATOR & BLUEPRINT INSPECTOR TOOLBAR -->
+      <div class="token-sim-toolbar">
+        <div class="token-sim-group">
+          <span class="token-sim-label">TOKEN: colorPrimary</span>
+          <div class="token-color-picker" role="radiogroup" aria-label="colorPrimary selector">
+            <button type="button" class="token-color-btn active" data-color="#5D2BC7" style="background:#5D2BC7;" title="Agito Violet (#5D2BC7) - System Invariant">
+              <span class="sr-only" style="display:none;">Agito Violet</span>
+            </button>
+            <button type="button" class="token-color-btn" data-color="#0F172A" style="background:#0F172A;" title="Slate (#0F172A)">
+              <span class="sr-only" style="display:none;">Slate</span>
+            </button>
+            <button type="button" class="token-color-btn" data-color="#1D4ED8" style="background:#1D4ED8;" title="Cobalt (#1D4ED8)">
+              <span class="sr-only" style="display:none;">Cobalt</span>
+            </button>
+            <button type="button" class="token-color-btn" data-color="#047857" style="background:#047857;" title="Emerald (#047857)">
+              <span class="sr-only" style="display:none;">Emerald</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="token-sim-divider"></div>
+
+        <div class="token-sim-group">
+          <span class="token-sim-label">TOKEN: borderRadius</span>
+          <div class="token-radius-picker" role="radiogroup" aria-label="borderRadius selector">
+            <button type="button" class="token-pill-btn" data-radius="2">2px (Sharp)</button>
+            <button type="button" class="token-pill-btn active" data-radius="4">4px (Locked)</button>
+            <button type="button" class="token-pill-btn" data-radius="8">8px (Soft)</button>
+          </div>
+        </div>
+
+        <div class="token-sim-divider"></div>
+
+        <div class="token-sim-group blueprint-group">
+          <button type="button" class="blueprint-toggle-btn" id="blueprint-toggle-btn" aria-pressed="false">
+            <span class="blueprint-indicator">○</span>
+            <span>Blueprint Mode (X-Ray)</span>
+          </button>
+        </div>
       </div>
 
       <div class="floorplan-gallery">
@@ -1205,30 +1489,37 @@
             </div>
             <div class="floorplan-diagram">
               <svg viewBox="0 0 320 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+                <defs>
+                  <pattern id="blueprint-grid-1" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="16" y2="0" stroke="#e4e4e7" stroke-width="0.5"/>
+                    <line x1="0" y1="0" x2="0" y2="16" stroke="#e4e4e7" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#blueprint-grid-1)" class="blueprint-grid-bg"/>
                 <!-- Topbar -->
-                <rect x="0" y="0" width="320" height="16" rx="2" fill="#e4e4e7"/>
-                <circle cx="8" cy="8" r="3" fill="#5D2BC7"/>
+                <rect x="0" y="0" width="320" height="16" rx="2" fill="#e4e4e7" class="token-radius-target"/>
+                <circle cx="8" cy="8" r="3" fill="#5D2BC7" class="token-primary-fill"/>
                 <rect x="18" y="5" width="80" height="6" rx="1" fill="#a1a1aa"/>
                 <rect x="260" y="5" width="50" height="6" rx="1" fill="#d4d4d8"/>
                 <!-- 4 KPI Cards -->
-                <rect x="0" y="22" width="75" height="24" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="0" y="22" width="75" height="24" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="6" y="27" width="30" height="4" rx="1" fill="#a1a1aa"/>
                 <text x="6" y="41" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#18181b">99.4% SLA</text>
 
-                <rect x="81" y="22" width="75" height="24" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="81" y="22" width="75" height="24" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="87" y="27" width="35" height="4" rx="1" fill="#a1a1aa"/>
                 <text x="87" y="41" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#18181b">142,850 POL</text>
 
-                <rect x="162" y="22" width="75" height="24" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="162" y="22" width="75" height="24" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="168" y="27" width="32" height="4" rx="1" fill="#a1a1aa"/>
                 <text x="168" y="41" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#18181b">₺ 4.2M RUN</text>
 
-                <rect x="243" y="22" width="77" height="24" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="243" y="22" width="77" height="24" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="249" y="27" width="30" height="4" rx="1" fill="#a1a1aa"/>
-                <text x="249" y="41" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#5D2BC7">18 QUEUE</text>
+                <text x="249" y="41" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#5D2BC7" class="token-primary-text">18 QUEUE</text>
 
                 <!-- 60/40 Split Content -->
-                <rect x="0" y="52" width="190" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="0" y="52" width="190" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="0" y="52" width="190" height="14" fill="#f4f4f5"/>
                 <text x="6" y="62" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">WORKPOOL QUEUE (INDEPENDENT SCROLL)</text>
                 <line x1="0" y1="80" x2="190" y2="80" stroke="#f4f4f6" stroke-width="0.8"/>
@@ -1241,15 +1532,27 @@
                 <rect x="6" y="102" width="110" height="4" rx="1" fill="#71717a"/>
                 <rect x="155" y="101" width="28" height="6" rx="1" fill="#ecfdf5"/>
 
-                <rect x="196" y="52" width="124" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="196" y="52" width="124" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="196" y="52" width="124" height="14" fill="#f4f4f5"/>
                 <text x="202" y="62" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">KVKK / AUDIT LEDGER (40%)</text>
-                <circle cx="204" cy="74" r="2" fill="#5D2BC7"/>
+                <circle cx="204" cy="74" r="2" fill="#5D2BC7" class="token-primary-fill"/>
                 <rect x="210" y="72" width="95" height="4" rx="1" fill="#71717a"/>
                 <circle cx="204" cy="88" r="2" fill="#18181b"/>
                 <rect x="210" y="86" width="85" height="4" rx="1" fill="#a1a1aa"/>
                 <circle cx="204" cy="102" r="2" fill="#18181b"/>
                 <rect x="210" y="100" width="90" height="4" rx="1" fill="#a1a1aa"/>
+
+                <!-- Blueprint Overlay -->
+                <g class="blueprint-overlay">
+                  <rect x="0" y="52" width="190" height="88" fill="none" stroke="#5D2BC7" stroke-width="1" stroke-dasharray="3 2" class="token-primary-stroke"/>
+                  <rect x="196" y="52" width="124" height="88" fill="none" stroke="#5D2BC7" stroke-width="1" stroke-dasharray="3 2" class="token-primary-stroke"/>
+                  <rect x="2" y="54" width="76" height="10" rx="1" fill="#18181b"/>
+                  <text x="5" y="61.5" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">60% DYNAMIC QUEUE</text>
+                  <rect x="198" y="54" width="70" height="10" rx="1" fill="#18181b"/>
+                  <text x="201" y="61.5" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">40% PINNED AUDIT</text>
+                  <rect x="228" y="2" width="90" height="11" rx="1" fill="#5D2BC7" class="token-primary-fill"/>
+                  <text x="232" y="9.5" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">100VH LOCKED VIEWPORT</text>
+                </g>
               </svg>
             </div>
           </div>
@@ -1270,14 +1573,21 @@
             </div>
             <div class="floorplan-diagram">
               <svg viewBox="0 0 320 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+                <defs>
+                  <pattern id="blueprint-grid-2" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="16" y2="0" stroke="#e4e4e7" stroke-width="0.5"/>
+                    <line x1="0" y1="0" x2="0" y2="16" stroke="#e4e4e7" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#blueprint-grid-2)" class="blueprint-grid-bg"/>
                 <!-- Filter Bar -->
-                <rect x="0" y="0" width="100" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="0" y="0" width="100" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="6" y="6" width="50" height="4" rx="1" fill="#a1a1aa"/>
-                <rect x="106" y="0" width="60" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="106" y="0" width="60" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="112" y="6" width="35" height="4" rx="1" fill="#71717a"/>
-                <rect x="172" y="0" width="65" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="172" y="0" width="65" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="178" y="6" width="40" height="4" rx="1" fill="#71717a"/>
-                <rect x="260" y="0" width="60" height="16" rx="2" fill="#5D2BC7"/>
+                <rect x="260" y="0" width="60" height="16" rx="2" fill="#5D2BC7" class="token-primary-fill token-radius-target"/>
                 <rect x="270" y="6" width="40" height="4" rx="1" fill="#ffffff"/>
 
                 <!-- Table Header -->
@@ -1287,8 +1597,8 @@
                 <text x="135" y="35" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">MODULE SCOPE</text>
                 <text x="205" y="35" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">STATUS</text>
                 <!-- Frozen Column Divider -->
-                <line x1="250" y1="24" x2="250" y2="124" stroke="#5D2BC7" stroke-width="1" stroke-dasharray="2 2"/>
-                <text x="256" y="35" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#5D2BC7">ACTION (FROZEN)</text>
+                <line x1="250" y1="24" x2="250" y2="124" stroke="#5D2BC7" stroke-width="1" stroke-dasharray="2 2" class="token-primary-stroke"/>
+                <text x="256" y="35" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#5D2BC7" class="token-primary-text">ACTION (FROZEN)</text>
 
                 <!-- Rows -->
                 <rect x="0" y="40" width="320" height="20" fill="#ffffff"/>
@@ -1296,7 +1606,7 @@
                 <text x="45" y="53" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#18181b">Turkish Lira (Base)</text>
                 <text x="135" y="53" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#71717a">Collections</text>
                 <rect x="205" y="46" width="32" height="8" rx="1.5" fill="#ecfdf5"/>
-                <rect x="256" y="46" width="45" height="8" rx="1.5" fill="#5D2BC7"/>
+                <rect x="256" y="46" width="45" height="8" rx="1.5" fill="#5D2BC7" class="token-primary-fill token-radius-target"/>
 
                 <line x1="0" y1="60" x2="320" y2="60" stroke="#f4f4f6" stroke-width="0.8"/>
                 <rect x="0" y="60" width="320" height="20" fill="#fafafa"/>
@@ -1304,7 +1614,7 @@
                 <text x="45" y="73" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#18181b">US Dollar (Foreign)</text>
                 <text x="135" y="73" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#71717a">Reinsurance</text>
                 <rect x="205" y="66" width="32" height="8" rx="1.5" fill="#ecfdf5"/>
-                <rect x="256" y="66" width="45" height="8" rx="1.5" fill="#5D2BC7"/>
+                <rect x="256" y="66" width="45" height="8" rx="1.5" fill="#5D2BC7" class="token-primary-fill token-radius-target"/>
 
                 <line x1="0" y1="80" x2="320" y2="80" stroke="#f4f4f6" stroke-width="0.8"/>
                 <rect x="0" y="80" width="320" height="20" fill="#ffffff"/>
@@ -1312,12 +1622,26 @@
                 <text x="45" y="93" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#18181b">Euro (Cross Rate)</text>
                 <text x="135" y="93" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#71717a">Commercial</text>
                 <rect x="205" y="86" width="32" height="8" rx="1.5" fill="#ecfdf5"/>
-                <rect x="256" y="86" width="45" height="8" rx="1.5" fill="#5D2BC7"/>
+                <rect x="256" y="86" width="45" height="8" rx="1.5" fill="#5D2BC7" class="token-primary-fill token-radius-target"/>
 
                 <!-- Sticky Footer -->
                 <rect x="0" y="124" width="320" height="16" fill="#f4f4f5" stroke="#d4d4d8" stroke-width="0.8"/>
                 <text x="6" y="135" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#71717a">Showing 1 to 3 of 40 records</text>
                 <text x="255" y="135" font-family="ui-monospace, monospace" font-size="7" fill="#18181b">⟨ 1 [2] 3 4 ⟩</text>
+
+                <!-- Blueprint Overlay -->
+                <g class="blueprint-overlay">
+                  <rect x="0" y="0" width="240" height="16" fill="none" stroke="#5D2BC7" stroke-width="0.8" stroke-dasharray="2 2" class="token-primary-stroke"/>
+                  <rect x="2" y="2" width="76" height="9" rx="1" fill="#18181b"/>
+                  <text x="5" y="8.5" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">40PX FILTER BAR</text>
+                  
+                  <rect x="250" y="24" width="70" height="100" fill="none" stroke="#5D2BC7" stroke-width="1" stroke-dasharray="3 2" class="token-primary-stroke"/>
+                  <rect x="252" y="112" width="66" height="10" rx="1" fill="#5D2BC7" class="token-primary-fill"/>
+                  <text x="255" y="119" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">FROZEN PINNED (RIGHT)</text>
+                  
+                  <rect x="2" y="125" width="82" height="10" rx="1" fill="#18181b"/>
+                  <text x="5" y="132" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">OVERFLOW-X: AUTO</text>
+                </g>
               </svg>
             </div>
           </div>
@@ -1338,40 +1662,62 @@
             </div>
             <div class="floorplan-diagram">
               <svg viewBox="0 0 320 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+                <defs>
+                  <pattern id="blueprint-grid-3" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="16" y2="0" stroke="#e4e4e7" stroke-width="0.5"/>
+                    <line x1="0" y1="0" x2="0" y2="16" stroke="#e4e4e7" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#blueprint-grid-3)" class="blueprint-grid-bg"/>
                 <!-- Hero Banner -->
-                <rect x="0" y="0" width="320" height="28" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="0" y="0" width="320" height="28" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="8" y="12" font-family="ui-monospace, monospace" font-size="6.5" fill="#71717a">POLICY RECORD</text>
                 <text x="8" y="22" font-family="ui-sans-serif, sans-serif" font-size="8.5" font-weight="600" fill="#18181b">POL-2026-89410 · Commercial Property All-Risk</text>
-                <rect x="235" y="6" width="35" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
-                <rect x="275" y="6" width="38" height="16" rx="2" fill="#5D2BC7"/>
+                <rect x="235" y="6" width="35" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
+                <rect x="275" y="6" width="38" height="16" rx="2" fill="#5D2BC7" class="token-primary-fill token-radius-target"/>
 
                 <!-- Anchor Sub-tabs -->
                 <rect x="0" y="32" width="320" height="14" fill="#f4f4f5"/>
                 <text x="8" y="42" font-family="ui-sans-serif, sans-serif" font-size="7" font-weight="600" fill="#18181b">General Info</text>
-                <line x1="8" y1="45" x2="48" y2="45" stroke="#5D2BC7" stroke-width="1.5"/>
+                <line x1="8" y1="45" x2="48" y2="45" stroke="#5D2BC7" stroke-width="1.5" class="token-primary-stroke"/>
                 <text x="60" y="42" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#71717a">Coverage</text>
                 <text x="105" y="42" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#71717a">Actuarial Share</text>
                 <text x="165" y="42" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#71717a">Reinsurance</text>
                 <text x="220" y="42" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#71717a">Audit Trail</text>
 
                 <!-- 3-Col Form Grid -->
-                <rect x="0" y="52" width="102" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="0" y="52" width="102" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="6" y="65" font-family="ui-sans-serif, sans-serif" font-size="7.5" font-weight="600" fill="#18181b">Insured Entity</text>
-                <rect x="6" y="72" width="90" height="22" rx="2" fill="#fafafa" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="6" y="72" width="90" height="22" rx="2" fill="#fafafa" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="10" y="80" font-family="ui-monospace, monospace" font-size="5.5" fill="#a1a1aa">CORPORATE NAME</text>
                 <text x="10" y="89" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#18181b">Anadolu Lojistik A.Ş.</text>
 
-                <rect x="108" y="52" width="102" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="108" y="52" width="102" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="114" y="65" font-family="ui-sans-serif, sans-serif" font-size="7.5" font-weight="600" fill="#18181b">Risk Assessment</text>
-                <rect x="114" y="72" width="90" height="22" rx="2" fill="#fafafa" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="114" y="72" width="90" height="22" rx="2" fill="#fafafa" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="118" y="80" font-family="ui-monospace, monospace" font-size="5.5" fill="#a1a1aa">ZONE ASSIGNMENT</text>
                 <text x="118" y="89" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#18181b">Earthquake Zone 1</text>
 
-                <rect x="216" y="52" width="104" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="216" y="52" width="104" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="222" y="65" font-family="ui-sans-serif, sans-serif" font-size="7.5" font-weight="600" fill="#18181b">Liability Limits</text>
-                <rect x="222" y="72" width="92" height="22" rx="2" fill="#fafafa" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="222" y="72" width="92" height="22" rx="2" fill="#fafafa" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="226" y="80" font-family="ui-monospace, monospace" font-size="5.5" fill="#a1a1aa">MAX RETENTION</text>
                 <text x="226" y="89" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#18181b">₺ 250,000,000</text>
+
+                <!-- Blueprint Overlay -->
+                <g class="blueprint-overlay">
+                  <rect x="0" y="0" width="320" height="28" fill="none" stroke="#5D2BC7" stroke-width="0.8" stroke-dasharray="2 2" class="token-primary-stroke"/>
+                  <rect x="150" y="2" width="80" height="9" rx="1" fill="#18181b"/>
+                  <text x="153" y="8.5" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">STICKY HERO BANNER</text>
+                  
+                  <rect x="0" y="52" width="102" height="88" fill="none" stroke="#5D2BC7" stroke-width="0.8" stroke-dasharray="2 2" class="token-primary-stroke"/>
+                  <rect x="108" y="52" width="102" height="88" fill="none" stroke="#5D2BC7" stroke-width="0.8" stroke-dasharray="2 2" class="token-primary-stroke"/>
+                  <rect x="216" y="52" width="104" height="88" fill="none" stroke="#5D2BC7" stroke-width="0.8" stroke-dasharray="2 2" class="token-primary-stroke"/>
+                  <rect x="2" y="128" width="96" height="10" rx="1" fill="#5D2BC7" class="token-primary-fill"/>
+                  <text x="5" y="135" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">3-COL 8PX FORM GRID</text>
+                  <rect x="110" y="128" width="96" height="10" rx="1" fill="#18181b"/>
+                  <text x="113" y="135" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">40PX CONTROL HEIGHT</text>
+                </g>
               </svg>
             </div>
           </div>
@@ -1392,20 +1738,27 @@
             </div>
             <div class="floorplan-diagram">
               <svg viewBox="0 0 320 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+                <defs>
+                  <pattern id="blueprint-grid-4" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="16" y2="0" stroke="#e4e4e7" stroke-width="0.5"/>
+                    <line x1="0" y1="0" x2="0" y2="16" stroke="#e4e4e7" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#blueprint-grid-4)" class="blueprint-grid-bg"/>
                 <!-- Left 35% Master Queue -->
                 <rect x="0" y="0" width="112" height="140" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
                 <rect x="0" y="0" width="112" height="16" fill="#f4f4f5"/>
                 <text x="6" y="11" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">INSPECTION QUEUE (35%)</text>
 
-                <rect x="4" y="22" width="104" height="28" rx="2" fill="#5D2BC7"/>
+                <rect x="4" y="22" width="104" height="28" rx="2" fill="#5D2BC7" class="token-primary-fill token-radius-target"/>
                 <text x="8" y="34" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#ffffff">#CLM-8910 Marine</text>
                 <text x="8" y="44" font-family="ui-sans-serif, sans-serif" font-size="6" fill="#f5f3ff">Variance: +₺18,400.00</text>
 
-                <rect x="4" y="54" width="104" height="28" rx="2" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8"/>
+                <rect x="4" y="54" width="104" height="28" rx="2" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8" class="token-radius-target"/>
                 <text x="8" y="66" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#18181b">#CLM-8911 Fire</text>
                 <text x="8" y="76" font-family="ui-sans-serif, sans-serif" font-size="6" fill="#71717a">Treaty Share 40%</text>
 
-                <rect x="4" y="86" width="104" height="28" rx="2" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8"/>
+                <rect x="4" y="86" width="104" height="28" rx="2" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8" class="token-radius-target"/>
                 <text x="8" y="98" font-family="ui-monospace, monospace" font-size="7" font-weight="600" fill="#18181b">#CLM-8912 Theft</text>
                 <text x="8" y="108" font-family="ui-sans-serif, sans-serif" font-size="6" fill="#71717a">Deductible: ₺12k</text>
 
@@ -1413,25 +1766,35 @@
                 <rect x="118" y="0" width="202" height="140" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
                 <rect x="118" y="0" width="202" height="16" fill="#f4f4f5"/>
                 <text x="124" y="11" font-family="ui-sans-serif, sans-serif" font-size="7" font-weight="600" fill="#18181b">Variance Calculation Canvas (65%)</text>
-                <rect x="260" y="3" width="54" height="10" rx="1.5" fill="#5D2BC7"/>
+                <rect x="260" y="3" width="54" height="10" rx="1.5" fill="#5D2BC7" class="token-primary-fill"/>
                 <text x="265" y="10.5" font-family="ui-monospace, monospace" font-size="5.5" fill="#ffffff">100VH LOCKED</text>
 
-                <rect x="124" y="24" width="190" height="20" rx="2" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8"/>
+                <rect x="124" y="24" width="190" height="20" rx="2" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8" class="token-radius-target"/>
                 <text x="130" y="36" font-family="ui-monospace, monospace" font-size="6.5" fill="#71717a">Formula: (Allocated Claim × Excess Rate) − Deductible</text>
 
-                <rect x="124" y="50" width="90" height="32" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="124" y="50" width="90" height="32" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="130" y="61" font-family="ui-monospace, monospace" font-size="6" fill="#a1a1aa">ADJUSTED RESERVE</text>
                 <text x="130" y="74" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#18181b">₺ 142,500.00</text>
 
-                <rect x="220" y="50" width="94" height="32" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="220" y="50" width="94" height="32" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="226" y="61" font-family="ui-monospace, monospace" font-size="6" fill="#a1a1aa">DEDUCTIBLE RETENTION</text>
                 <text x="226" y="74" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#18181b">₺ 15,000.00</text>
 
-                <rect x="124" y="90" width="190" height="22" rx="2" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8"/>
+                <rect x="124" y="90" width="190" height="22" rx="2" fill="#fafafa" stroke="#e4e4e7" stroke-width="0.8" class="token-radius-target"/>
                 <text x="130" y="103" font-family="ui-sans-serif, sans-serif" font-size="6.5" fill="#71717a">Treaty: Quota Share 60/40 SwissRe · Direct Settlement</text>
 
-                <rect x="210" y="118" width="104" height="16" rx="2" fill="#5D2BC7"/>
+                <rect x="210" y="118" width="104" height="16" rx="2" fill="#5D2BC7" class="token-primary-fill token-radius-target"/>
                 <text x="218" y="129" font-family="ui-sans-serif, sans-serif" font-size="6.5" font-weight="500" fill="#ffffff">Approve &amp; Dispatch to ERP</text>
+
+                <!-- Blueprint Overlay -->
+                <g class="blueprint-overlay">
+                  <rect x="0" y="0" width="112" height="140" fill="none" stroke="#5D2BC7" stroke-width="1" stroke-dasharray="3 2" class="token-primary-stroke"/>
+                  <rect x="118" y="0" width="202" height="140" fill="none" stroke="#5D2BC7" stroke-width="1" stroke-dasharray="3 2" class="token-primary-stroke"/>
+                  <rect x="3" y="127" width="106" height="10" rx="1" fill="#18181b"/>
+                  <text x="6" y="134" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">35% MASTER QUEUE (V-SCROLL)</text>
+                  <rect x="120" y="127" width="86" height="10" rx="1" fill="#5D2BC7" class="token-primary-fill"/>
+                  <text x="123" y="134" font-family="ui-monospace, monospace" font-size="5.5" font-weight="600" fill="#ffffff">65% DETAIL CANVAS</text>
+                </g>
               </svg>
             </div>
           </div>
@@ -1654,6 +2017,61 @@
         var el = document.getElementById(id);
         if (el) observer.observe(el);
       });
+
+      // Interactive Token Simulator & Blueprint Inspector
+      var canvas = document.getElementById('floorplan-inspector-canvas');
+      if (canvas) {
+        // Color Tokens
+        var colorButtons = canvas.querySelectorAll('.token-color-btn');
+        var colorThemes = {
+          '#5D2BC7': { subtle: '#f5f3ff', border: '#ddd6fe' },
+          '#0F172A': { subtle: '#f1f5f9', border: '#cbd5e1' },
+          '#1D4ED8': { subtle: '#eff6ff', border: '#bfdbfe' },
+          '#047857': { subtle: '#ecfdf5', border: '#a7f3d0' }
+        };
+
+        colorButtons.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var color = btn.getAttribute('data-color');
+            colorButtons.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+
+            canvas.style.setProperty('--token-primary', color);
+            if (colorThemes[color]) {
+              canvas.style.setProperty('--token-primary-subtle', colorThemes[color].subtle);
+              canvas.style.setProperty('--token-primary-border', colorThemes[color].border);
+            }
+            if (progressBar) progressBar.style.background = color;
+          });
+        });
+
+        // Radius Tokens
+        var radiusButtons = canvas.querySelectorAll('.token-pill-btn');
+        radiusButtons.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var radius = btn.getAttribute('data-radius');
+            radiusButtons.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+
+            canvas.style.setProperty('--token-radius', radius + 'px');
+            canvas.querySelectorAll('.token-radius-target').forEach(function(el) {
+              el.setAttribute('rx', radius);
+            });
+          });
+        });
+
+        // Blueprint Mode Toggle
+        var blueprintBtn = document.getElementById('blueprint-toggle-btn');
+        if (blueprintBtn) {
+          blueprintBtn.addEventListener('click', function() {
+            var isActive = canvas.classList.toggle('blueprint-active');
+            blueprintBtn.classList.toggle('active', isActive);
+            var indicator = blueprintBtn.querySelector('.blueprint-indicator');
+            if (indicator) indicator.textContent = isActive ? '◉' : '○';
+            blueprintBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          });
+        }
+      }
     })();
   </script>
 </body>
