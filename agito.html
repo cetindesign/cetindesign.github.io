@@ -172,34 +172,42 @@
     }
     li{ margin-bottom:0.5rem; }
 
+    /* FINANCIAL LEDGER TABLE STYLE (KEYNOTE / GAVIN NELSON / LINEAR STANDARD) */
     .clean-table-wrap{
       width:100%;
       overflow-x:auto;
-      margin:1.75rem 0;
-      border:1px solid #f4f4f6;
-      border-radius:6px;
+      margin:2.5rem 0;
+      border:none;
+      background:transparent;
     }
     table{
       width:100%;
       border-collapse:collapse;
-      font-size:13px;
+      font-size:13.5px;
       text-align:left;
+      letter-spacing:-0.01em;
     }
     th{
-      padding:0.6rem 0.85rem;
-      border-bottom:1px solid #f4f4f6;
-      color:#71717a;
-      font-weight:500;
-      font-size:12px;
-      background:#fafafa;
+      padding:0.75rem 1.25rem 0.75rem 0;
+      border-bottom:1px solid #18181b;
+      color:#18181b;
+      font-weight:600;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      background:transparent;
     }
     td{
-      padding:0.65rem 0.85rem;
-      border-bottom:1px solid #f4f4f6;
-      color:#52525b;
+      padding:1rem 1.25rem 1rem 0;
+      border-bottom:0.5px solid #e4e4e7;
+      color:#3f3f46;
       vertical-align:top;
+      line-height:1.55;
+      font-variant-numeric:tabular-nums;
     }
-    tr:last-child td{ border-bottom:none; }
+    tr:last-child td{
+      border-bottom:1px solid #18181b;
+    }
 
     /* GAVIN NELSON CINEMATIC BLEED CANVAS (md:-mx-28 equivalent) */
     .bleed-canvas{
@@ -760,6 +768,79 @@
       color: #a1a1aa;
       letter-spacing: 0.02em;
     }
+
+    /* KEYNOTE EXECUTIVE SPECIMEN ARCHITECTURE */
+    .keynote-card {
+      border: 1px solid #e4e4e7;
+      border-radius: 6px;
+      background: #ffffff;
+      padding: 1.75rem;
+      margin: 2.5rem 0;
+      position: relative;
+    }
+    .keynote-hero-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #18181b;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .keynote-stat-val {
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #18181b;
+    }
+    .keynote-stat-desc {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #71717a;
+      text-align: right;
+      line-height: 1.5;
+    }
+    .keynote-ledger-row {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      padding: 1.1rem 0;
+      border-bottom: 0.5px solid #e4e4e7;
+      align-items: baseline;
+      gap: 1.5rem;
+      font-size: 13.5px;
+    }
+    @media (max-width: 640px) {
+      .keynote-ledger-row { grid-template-columns: 1fr; gap: 0.25rem; }
+    }
+    .keynote-ledger-row:last-child {
+      border-bottom: none;
+    }
+    .keynote-ledger-key {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: #18181b;
+      letter-spacing: 0.03em;
+    }
+    .keynote-ledger-val {
+      color: #3f3f46;
+      line-height: 1.55;
+    }
+    .keynote-ledger-val strong {
+      color: #18181b;
+      font-weight: 600;
+    }
+    .keynote-ledger-val .filter-rule {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 12px;
+      color: #5D2BC7;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
   </style>
 </head>
 <body>
@@ -1299,70 +1380,41 @@
       By speaking the language of engineering invariants rather than cosmetic preferences, the gate eliminated over 70% of speculative, un-governed backlog requests prior to design ingestion.
     </p>
 
-    <!-- ARCHITECTURAL SPECIMEN: UX READINESS GATE (GAVIN NELSON STANDARD) -->
-    <div class="specimen-frame">
-      <div class="specimen-frame-header">
-        <span class="specimen-badge-label">
-          Architectural Specimen · 3-Tier UX Readiness Invariant Registry
-        </span>
-        <span class="specimen-pill specimen-pill-violet">
-          70% UNVETTED CHURN ELIMINATED
-        </span>
-      </div>
-
-      <div class="specimen-canvas" style="background:#fafafa;">
-        <!-- FIGMA ASSET DROP-IN: Replace inner content or insert <img src="..." alt="Readiness Gate Specimen" style="width:100%; height:auto;" /> -->
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:0.75rem;">
-          <!-- INVARIANT 01 -->
-          <div style="border:1px solid #e4e4e7; border-radius:4px; background:#ffffff; padding:1rem; position:relative;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-              <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#5D2BC7;">INVARIANT 01</span>
-              <span class="specimen-pill specimen-pill-success">VALIDATED</span>
-            </div>
-            <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Operational Persona</div>
-            <div style="font-size:11.5px; color:#52525b; line-height:1.5; margin-bottom:0.75rem;">
-              8h daily professional operator (Actuary / Claims / Underwriting). Specific friction metric verified.
-            </div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; background:#fafafa; border:1px solid #e4e4e7; padding:4px 6px; border-radius:3px; color:#71717a;">
-              Filter: Reject speculative vanity requests
-            </div>
-          </div>
-
-          <!-- INVARIANT 02 -->
-          <div style="border:1px solid #e4e4e7; border-radius:4px; background:#ffffff; padding:1rem; position:relative;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-              <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#5D2BC7;">INVARIANT 02</span>
-              <span class="specimen-pill specimen-pill-success">BOUNDED</span>
-            </div>
-            <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">State Machine Flow</div>
-            <div style="font-size:11.5px; color:#52525b; line-height:1.5; margin-bottom:0.75rem;">
-              Complete task loop mapped across modules. Explicit Empty, Error, Loading, and 18-col boundaries.
-            </div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; background:#fafafa; border:1px solid #e4e4e7; padding:4px 6px; border-radius:3px; color:#71717a;">
-              Filter: Reject undefined edge states
-            </div>
-          </div>
-
-          <!-- INVARIANT 03 -->
-          <div style="border:1px solid #e4e4e7; border-radius:4px; background:#ffffff; padding:1rem; position:relative;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-              <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#5D2BC7;">INVARIANT 03</span>
-              <span class="specimen-pill specimen-pill-success">LOCKED</span>
-            </div>
-            <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Floorplan Constraint</div>
-            <div style="font-size:11.5px; color:#52525b; line-height:1.5; margin-bottom:0.75rem;">
-              Mapped to Floorplan 01/02/03/04. Strictly locked to 100vh viewport, 40px inputs, 32px secondary actions.
-            </div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; background:#fafafa; border:1px solid #e4e4e7; padding:4px 6px; border-radius:3px; color:#71717a;">
-              Filter: Reject ad-hoc layout creation
-            </div>
-          </div>
+    <!-- KEYNOTE SPECIMEN: UX READINESS GATE REGISTRY -->
+    <div class="keynote-card">
+      <div class="keynote-hero-stat">
+        <div>
+          <div class="keynote-stat-val">70%</div>
+          <div style="font-size:13px; color:#52525b; margin-top:4px;">Un-governed backlog requests eliminated before Figma ingestion.</div>
+        </div>
+        <div class="keynote-stat-desc">
+          <span>Operational Gate · 3 Invariants</span><br>
+          <span style="color:#5D2BC7; font-weight:600;">Zero Designer Bottleneck</span>
         </div>
       </div>
 
-      <div class="specimen-footer">
-        <span>Intake yield: 70% of ambiguous requests resolved before Figma · 100% of admitted specs build with zero CSS overrides.</span>
-        <span style="color:#18181b; font-weight:600;">Gate Elimination Metric</span>
+      <div class="keynote-ledger-row">
+        <div class="keynote-ledger-key">01 · OPERATIONAL PERSONA</div>
+        <div class="keynote-ledger-val">
+          <strong>8-Hour Daily Operator Intent:</strong> Explicit validation of actuary, claims handler, or underwriter workflow. Rejects cosmetic executive vanity features that do not solve measured transaction friction.
+          <span class="filter-rule">Invariant: Rejects unvetted executive feature churn.</span>
+        </div>
+      </div>
+
+      <div class="keynote-ledger-row">
+        <div class="keynote-ledger-key">02 · STATE MACHINE INTEGRITY</div>
+        <div class="keynote-ledger-val">
+          <strong>Deterministic Task Boundaries:</strong> Complete loop mapped across modules. Explicit Empty, Error, Loading, and 18-column tabular edge boundaries defined before drawing UI.
+          <span class="filter-rule">Invariant: Rejects undefined runtime states and developer guesswork.</span>
+        </div>
+      </div>
+
+      <div class="keynote-ledger-row">
+        <div class="keynote-ledger-key">03 · FLOORPLAN BOUNDARY</div>
+        <div class="keynote-ledger-val">
+          <strong>Universal Structural Contract:</strong> Mapped to Floorplan 01–04. Strictly constrained to 100vh locked page viewport, 40px floating-label inputs, 32px secondary actions, and 0.5px hairlines.
+          <span class="filter-rule">Invariant: Rejects bespoke layouts and CSS overrides.</span>
+        </div>
       </div>
     </div>
 
@@ -1377,57 +1429,52 @@
       <li><strong>4. Tokenization &amp; Engineering Contract:</strong> All elements bind to Ant Design v5 primitives and <code>core.json</code> tokens, generating a zero-override specification for frontend implementation.</li>
     </ul>
 
-    <!-- ARCHITECTURAL SPECIMEN: PO PROTOTYPE TO SYSTEM NORMALIZATION -->
-    <div class="specimen-frame" style="margin:2rem 0;">
-      <div class="specimen-frame-header">
-        <span class="specimen-badge-label">
-          Architectural Specimen · PO Prototype Ingestion &amp; Normalization Pipeline
+    <!-- KEYNOTE SPECIMEN: PO PROTOTYPE TO SYSTEM NORMALIZATION -->
+    <div class="keynote-card" style="margin:2.5rem 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:1rem; border-bottom:1px solid #18181b; margin-bottom:1.25rem;">
+        <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#18181b; text-transform:uppercase; letter-spacing:0.04em;">
+          PO Normalization Pipeline · Execution Rail
         </span>
-        <span class="specimen-pill specimen-pill-neutral">ZERO DESIGNER BOTTLENECK</span>
+        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#5D2BC7; font-weight:600;">
+          Figma Flow ➔ Production Contract
+        </span>
       </div>
-      <div class="specimen-canvas">
-        <!-- FIGMA ASSET DROP-IN: Replace inner grid or insert <img src="..." alt="PO Normalization" style="width:100%; height:auto;" /> -->
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:0.75rem; margin-bottom:1rem;">
-          <div style="border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">01. RAW INPUT</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">PO Prototype</div>
-            <div style="font-size:11px; color:#71717a;">Figma functional flow · Raw un-governed frames</div>
-          </div>
-          <div style="border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">02. NORMALIZATION</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Flow Dissection</div>
-            <div style="font-size:11px; color:#71717a;">Joint review · Actuarial edge cases fixed</div>
-          </div>
-          <div style="border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">03. SYSTEM RAIL</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Floorplan 02</div>
-            <div style="font-size:11px; color:#71717a;">100vh lock · AntD primitives · DTCG tokens</div>
-          </div>
-          <div style="border:1px solid #18181b; border-radius:4px; padding:0.75rem; background:#18181b; color:#ffffff;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:0.25rem;">04. COMPILED SPEC</div>
-            <div style="font-size:12.5px; font-weight:600; color:#ffffff; margin-bottom:0.25rem;">Production Contract</div>
-            <div style="font-size:11px; color:#d4d4d8;">Shipped to Frontend · 0 CSS Overrides</div>
-          </div>
+
+      <!-- 3-STAGE TRANSFORMATION SEQUENCE -->
+      <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; gap:0.75rem; padding:1rem 0; border-bottom:0.5px solid #e4e4e7; font-size:12.5px; margin-bottom:1.25rem;">
+        <div>
+          <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa;">STAGE 01 · INPUT</div>
+          <div style="font-weight:600; color:#18181b; margin-top:2px;">PO Figma Prototype</div>
+          <div style="font-size:11px; color:#71717a;">Domain intent, calculations &amp; forms</div>
         </div>
-        <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; font-family:ui-monospace,monospace; font-size:11px; color:#52525b; line-height:1.5;">
-          <span style="color:#a1a1aa;">// modules/parametre/src/CurrencyParameterView.tsx · Production Contract</span><br>
-          <span style="color:#5D2BC7;">import</span> { StandardListFloorplan } <span style="color:#5D2BC7;">from</span> <span style="color:#059669;">'@agito/ui'</span>;<br>
-          <span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">CurrencyParameterView</span> = () =&gt; (<br>
-          &nbsp;&nbsp;&lt;<span style="color:#18181b; font-weight:600;">StandardListFloorplan</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;title=<span style="color:#059669;">"Currencies &amp; Exchange Rates"</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;endpoint=<span style="color:#059669;">"/api/v1/parameters/currencies"</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;tableProps={{<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowKey: <span style="color:#059669;">"currencyCode"</span>,<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scroll: { y: <span style="color:#059669;">"calc(100vh - 240px)"</span> },<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: currencyColumns <span style="color:#a1a1aa;">/* Frozen action column locked via token */</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;}}<br>
-          &nbsp;&nbsp;/&gt;<br>
-          );
+        <div style="color:#a1a1aa; font-family:ui-monospace,monospace;">➔</div>
+        <div>
+          <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa;">STAGE 02 · FILTER</div>
+          <div style="font-weight:600; color:#18181b; margin-top:2px;">Architectural Normalization</div>
+          <div style="font-size:11px; color:#71717a;">Strip ad-hoc 13px pad · Map to Floorplan 02</div>
+        </div>
+        <div style="color:#a1a1aa; font-family:ui-monospace,monospace;">➔</div>
+        <div>
+          <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa;">STAGE 03 · CONTRACT</div>
+          <div style="font-weight:600; color:#18181b; margin-top:2px;">Production Runtime</div>
+          <div style="font-size:11px; color:#71717a;">AntD v5 primitives · 0 CSS Overrides</div>
         </div>
       </div>
-      <div class="specimen-footer">
-        <span>Normalization outcome: PO functional requirements mapped into production floorplans with zero handoff ambiguity.</span>
-        <span style="color:#18181b; font-weight:600;">Execution Rail</span>
+
+      <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.85rem 1rem; font-family:ui-monospace,monospace; font-size:11.5px; color:#52525b; line-height:1.6;">
+        <span style="color:#a1a1aa;">// modules/parametre/src/CurrencyParameterView.tsx · Production Contract</span><br>
+        <span style="color:#5D2BC7;">import</span> { StandardListFloorplan } <span style="color:#5D2BC7;">from</span> <span style="color:#059669;">'@agito/ui'</span>;<br>
+        <span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">CurrencyParameterView</span> = () =&gt; (<br>
+        &nbsp;&nbsp;&lt;<span style="color:#18181b; font-weight:600;">StandardListFloorplan</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;title=<span style="color:#059669;">"Currencies &amp; Exchange Rates"</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;endpoint=<span style="color:#059669;">"/api/v1/parameters/currencies"</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;tableProps={{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowKey: <span style="color:#059669;">"currencyCode"</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scroll: { y: <span style="color:#059669;">"calc(100vh - 240px)"</span> },<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: currencyColumns <span style="color:#a1a1aa;">/* Frozen action column locked via token */</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}}<br>
+        &nbsp;&nbsp;/&gt;<br>
+        );
       </div>
     </div>
 
@@ -1519,103 +1566,60 @@
       <li><strong>4. Bilateral Engineering Alignment:</strong> Mandatory verification with the Lead Frontend Developer to verify Ant Design React API parity before committing to sprint backlog.</li>
     </ul>
 
-    <!-- ARCHITECTURAL SPECIMEN: 5+2 DUAL-TRACK CADENCE (GAVIN NELSON STANDARD) -->
-    <div class="specimen-frame">
-      <div class="specimen-frame-header">
-        <span class="specimen-badge-label">
-          Architectural Specimen · 5+2 Dual-Track Operating Cadence
-        </span>
-        <span class="specimen-pill specimen-pill-violet">
-          -82% DEV DRAG · 460H SAVED
-        </span>
-      </div>
-
-      <div class="specimen-canvas">
-        <!-- FIGMA ASSET DROP-IN: Replace inner runway or insert <img src="..." alt="Dual-Track Runway Specimen" style="width:100%; height:auto;" /> -->
-        <!-- TRACK A: TACTICAL RUNWAY -->
-        <div style="margin-bottom:1.25rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-            <div style="display:flex; align-items:center; gap:6px;">
-              <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 6px; border-radius:3px;">TRACK A</span>
-              <span style="font-size:12.5px; font-weight:600; color:#18181b;">Tactical Screen Delivery (Weeks 1–5 · Sprint N-1 Runway)</span>
-            </div>
-            <span class="specimen-pill specimen-pill-success">40 VIEWS SHIPPED</span>
-          </div>
-
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(110px, 1fr)); gap:6px;">
-            <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.6rem; font-family:ui-monospace,monospace;">
-              <div style="font-size:9px; color:#71717a; margin-bottom:2px;">BATCH 01 (W1)</div>
-              <div style="font-size:11px; font-weight:600; color:#18181b;">8 Views</div>
-              <div style="font-size:9.5px; color:#52525b; margin-top:2px;">Currencies &amp; FX</div>
-            </div>
-            <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.6rem; font-family:ui-monospace,monospace;">
-              <div style="font-size:9px; color:#71717a; margin-bottom:2px;">BATCH 02 (W2)</div>
-              <div style="font-size:11px; font-weight:600; color:#18181b;">8 Views</div>
-              <div style="font-size:9.5px; color:#52525b; margin-top:2px;">Bank Gateways</div>
-            </div>
-            <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.6rem; font-family:ui-monospace,monospace;">
-              <div style="font-size:9px; color:#71717a; margin-bottom:2px;">BATCH 03 (W3)</div>
-              <div style="font-size:11px; font-weight:600; color:#18181b;">8 Views</div>
-              <div style="font-size:9.5px; color:#52525b; margin-top:2px;">System Dicts</div>
-            </div>
-            <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.6rem; font-family:ui-monospace,monospace;">
-              <div style="font-size:9px; color:#71717a; margin-bottom:2px;">BATCH 04 (W4)</div>
-              <div style="font-size:11px; font-weight:600; color:#18181b;">8 Views</div>
-              <div style="font-size:9.5px; color:#52525b; margin-top:2px;">Policy Ledgers</div>
-            </div>
-            <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.6rem; font-family:ui-monospace,monospace;">
-              <div style="font-size:9px; color:#71717a; margin-bottom:2px;">BATCH 05 (W5)</div>
-              <div style="font-size:11px; font-weight:600; color:#18181b;">8 Views</div>
-              <div style="font-size:9.5px; color:#52525b; margin-top:2px;">Claims Queues</div>
-            </div>
-          </div>
+    <!-- KEYNOTE SPECIMEN: 5+2 DUAL-TRACK CADENCE -->
+    <div class="keynote-card">
+      <div class="keynote-hero-stat">
+        <div>
+          <div class="keynote-stat-val">-82%</div>
+          <div style="font-size:13px; color:#52525b; margin-top:4px;">Frontend build time reduced from 14h to 2.5h per enterprise view.</div>
         </div>
-
-        <!-- TRACK B: HARDENING & CONSOLIDATION -->
-        <div style="margin-bottom:1.25rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-            <div style="display:flex; align-items:center; gap:6px;">
-              <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#18181b; background:#f4f4f6; border:1px solid #e4e4e7; padding:2px 6px; border-radius:3px;">TRACK B</span>
-              <span style="font-size:12.5px; font-weight:600; color:#18181b;">System Hardening &amp; Pattern Consolidation (Weeks 6–7)</span>
-            </div>
-            <span class="specimen-pill specimen-pill-violet">ZERO REGRESSION FREEZE</span>
-          </div>
-
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
-            <div style="border:1px solid #e4e4e7; border-radius:4px; padding:0.85rem; background:#fafafa;">
-              <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-                <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#71717a;">W6 · SCREEN FREEZE</span>
-                <span class="cad-dim">No ad-hoc additions</span>
-              </div>
-              <p style="margin:0; font-size:11.5px; color:#52525b; line-height:1.45;">
-                Halt new screen intake. Run telemetry audits across 40 views; identify recurring form, ledger, and drawer patterns.
-              </p>
-            </div>
-            <div style="border:1px solid #5D2BC7; border-radius:4px; padding:0.85rem; background:#ffffff;">
-              <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-                <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#5D2BC7;">W7 · PATTERN EXTRACTION</span>
-                <span class="cad-dim">@agito/ui release</span>
-              </div>
-              <p style="margin:0; font-size:11.5px; color:#52525b; line-height:1.45;">
-                Codify 4 Universal Floorplans and compound primitives into central package. Ensure zero CSS overrides for Wave 2+.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- METRIC ACCELERATION FOOTER -->
-        <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem 1rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; font-family:ui-monospace,monospace; font-size:11px;">
-          <div><span style="color:#a1a1aa;">Legacy Velocity:</span> <strong style="color:#dc2626;">14h / view</strong></div>
-          <div style="color:#a1a1aa;">➔</div>
-          <div><span style="color:#a1a1aa;">Agito Floorplan:</span> <strong style="color:#5D2BC7;">2.5h / view (-82%)</strong></div>
-          <div style="color:#a1a1aa;">➔</div>
-          <div><span style="color:#a1a1aa;">Engineering Hours Recovered:</span> <strong style="color:#047857;">460h Net</strong></div>
+        <div class="keynote-stat-desc">
+          <span>5+2 Operating Cadence</span><br>
+          <span style="color:#5D2BC7; font-weight:600;">460 Net Engineering Hours Recovered</span>
         </div>
       </div>
 
-      <div class="specimen-footer">
-        <span>The rhythm: 5 weeks continuous delivery ahead of dev squads + 2 weeks systemic hardening to prevent architectural drift.</span>
-        <span style="color:#18181b; font-weight:600;">Operational Cadence</span>
+      <!-- CONTINUOUS TIMELINE RUNWAY -->
+      <div style="margin: 1.5rem 0 2rem 0;">
+        <div style="display:flex; justify-content:space-between; align-items:center; font-family:ui-monospace,monospace; font-size:11px; margin-bottom:8px;">
+          <span style="font-weight:600; color:#18181b;">TRACK A: 5-WEEK TACTICAL RUNWAY (40 SHIPPED VIEWS)</span>
+          <span style="font-weight:600; color:#5D2BC7;">TRACK B: 2-WEEK HARDENING</span>
+        </div>
+        
+        <!-- PROPORTIONAL BAR (71% / 29%) -->
+        <div style="display:flex; height:32px; border-radius:4px; overflow:hidden; border:1px solid #18181b;">
+          <div style="flex:5; background:#18181b; color:#ffffff; display:flex; align-items:center; justify-content:space-between; padding:0 1rem; font-family:ui-monospace,monospace; font-size:11px;">
+            <span>Weeks 1–5 · Sprint N-1 Runway</span>
+            <span style="color:#a1a1aa;">40 Views Delivered</span>
+          </div>
+          <div style="flex:2; background:#5D2BC7; color:#ffffff; display:flex; align-items:center; justify-content:center; font-family:ui-monospace,monospace; font-size:11px; font-weight:600; border-left:1px solid #ffffff;">
+            <span>Weeks 6–7 · Freeze &amp; Extraction</span>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; margin-top:6px; font-family:ui-monospace,monospace; font-size:10px; color:#71717a;">
+          <span>W1 Currencies (8)</span>
+          <span>W2 Gateways (8)</span>
+          <span>W3 System Dicts (8)</span>
+          <span>W4 Policy Ledgers (8)</span>
+          <span>W5 Claims (8)</span>
+          <span style="color:#5D2BC7; font-weight:600;">W6 Screen Freeze</span>
+          <span style="color:#5D2BC7; font-weight:600;">W7 @agito/ui Codification</span>
+        </div>
+      </div>
+
+      <div class="keynote-ledger-row">
+        <div class="keynote-ledger-key">TACTICAL PRODUCTION (TRACK A)</div>
+        <div class="keynote-ledger-val">
+          <strong>Continuous Sprint Lead:</strong> Architecture delivers production contracts exactly 1 sprint ahead of engineering squads. Frontend developers pull verified <code>StandardListFloorplan</code> and <code>EntityDetailFloorplan</code> templates with zero missing edge states.
+        </div>
+      </div>
+
+      <div class="keynote-ledger-row">
+        <div class="keynote-ledger-key">SYSTEM HARDENING (TRACK B)</div>
+        <div class="keynote-ledger-val">
+          <strong>Bi-Monthly Output Freeze:</strong> Halts new screen intake for 14 days. Mines the 40 shipped views for recurring patterns, stress-tests Ant Design React API limits, and extracts reusable compound primitives into <code>@agito/ui</code>.
+        </div>
       </div>
     </div>
 
@@ -2187,62 +2191,64 @@
       The single source of truth is a pure JSON schema (<code>core.json</code>) adhering to Design Tokens Community Group (DTCG) standards. Compiled via Style Dictionary directly into <code>agitoTheme</code>, brand tokens propagate across all 14 products with zero custom CSS.
     </p>
 
-    <!-- ARCHITECTURAL SPECIMEN: DTCG TOKEN COMPILER (GAVIN NELSON STANDARD) -->
-    <div class="specimen-frame" style="margin:2rem 0;">
-      <div class="specimen-frame-header">
-        <span class="specimen-badge-label">
-          Architectural Specimen · The DTCG Token Pipeline Contract
+    <!-- KEYNOTE SPECIMEN: DTCG TOKEN PIPELINE CONTRACT -->
+    <div class="keynote-card" style="margin:2.5rem 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:1rem; border-bottom:1px solid #18181b; margin-bottom:1.5rem;">
+        <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#18181b; text-transform:uppercase; letter-spacing:0.04em;">
+          DTCG Token Architecture · Automated Compiler Pipeline
         </span>
-        <span class="specimen-pill specimen-pill-violet">SINGLE SOURCE OF TRUTH</span>
+        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#5D2BC7; font-weight:600;">
+          Single Source of Truth · 14 Products
+        </span>
       </div>
-      <div class="specimen-canvas">
-        <!-- FIGMA ASSET DROP-IN: Replace inner content or insert <img src="..." alt="DTCG Pipeline Specimen" style="width:100%; height:auto;" /> -->
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:0.75rem;">
-          <!-- STAGE 01 -->
-          <div style="border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">01. SCHEMA</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.35rem;">core.json</div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; color:#52525b; line-height:1.45; background:#ffffff; border:1px solid #e4e4e7; border-radius:3px; padding:4px;">
-              colorPrimary: #5D2BC7<br>
-              controlHeight: 32<br>
-              borderRadius: 4
-            </div>
-          </div>
-          <!-- STAGE 02 -->
-          <div style="border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">02. COMPILER</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.35rem;">Style Dictionary</div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; color:#52525b; line-height:1.45; background:#ffffff; border:1px solid #e4e4e7; border-radius:3px; padding:4px;">
-              DTCG Parser Engine<br>
-              TypeScript Typing<br>
-              Zero Manual Edits
-            </div>
-          </div>
-          <!-- STAGE 03 -->
-          <div style="border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">03. RUNTIME</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.35rem;">agitoTheme</div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; color:#52525b; line-height:1.45; background:#ffffff; border:1px solid #e4e4e7; border-radius:3px; padding:4px;">
-              ConfigProvider Map<br>
-              Component Tokens<br>
-              Zero Custom CSS
-            </div>
-          </div>
-          <!-- STAGE 04 -->
-          <div style="border:1px solid #18181b; border-radius:4px; padding:0.75rem; background:#18181b; color:#ffffff;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:0.25rem;">04. TARGET</div>
-            <div style="font-size:12.5px; font-weight:600; color:#ffffff; margin-bottom:0.35rem;">14 Enterprise Products</div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; color:#d4d4d8; line-height:1.45; background:#27272a; border-radius:3px; padding:4px;">
-              Single source update<br>
-              Global re-skinning<br>
-              Automated QA CI/CD
-            </div>
-          </div>
+
+      <!-- 3-COLUMN ARCHITECTURAL CONTRACT EQUATION -->
+      <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:stretch; gap:1.5rem; margin-bottom:1.5rem;">
+        <!-- SOURCE: CORE.JSON -->
+        <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:1.25rem;">
+          <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:4px;">01 · SOURCE SPECIFICATION (DTCG JSON)</div>
+          <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.75rem;">packages/tokens/core.json</div>
+          <pre style="margin:0; font-family:ui-monospace,monospace; font-size:11px; line-height:1.6; color:#18181b;"><code>{
+  <span style="color:#5D2BC7;">"color"</span>: {
+    <span style="color:#5D2BC7;">"primary"</span>: { <span style="color:#059669;">"value"</span>: <span style="color:#059669;">"#5D2BC7"</span> }
+  },
+  <span style="color:#5D2BC7;">"size"</span>: {
+    <span style="color:#5D2BC7;">"controlHeight"</span>: { <span style="color:#09734e;">32</span> },
+    <span style="color:#5D2BC7;">"radius"</span>: { <span style="color:#09734e;">4</span> }
+  }
+}</code></pre>
+        </div>
+
+        <!-- COMPILER BRIDGE -->
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:ui-monospace,monospace; font-size:10px; color:#71717a; text-align:center; padding:0 0.5rem;">
+          <span style="font-size:16px; color:#5D2BC7; margin-bottom:4px;">➔</span>
+          <span style="font-weight:600; color:#18181b;">Style Dictionary</span>
+          <span>Build Pipeline</span>
+          <span style="color:#a1a1aa; font-size:9.5px; margin-top:4px;">TypeScript + CSS Vars</span>
+        </div>
+
+        <!-- RUNTIME: AGITOTHEME -->
+        <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:1.25rem;">
+          <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:4px;">02 · PRODUCTION RUNTIME (ANTD V5)</div>
+          <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.75rem;">packages/ui/agitoTheme.ts</div>
+          <pre style="margin:0; font-family:ui-monospace,monospace; font-size:11px; line-height:1.6; color:#18181b;"><code><span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">agitoTheme</span> = {
+  token: {
+    colorPrimary: <span style="color:#059669;">'#5D2BC7'</span>,
+    controlHeight: <span style="color:#09734e;">32</span>,
+    borderRadius: <span style="color:#09734e;">4</span>
+  },
+  components: {
+    Input: { controlHeight: <span style="color:#09734e;">40</span> }
+  }
+};</code></pre>
         </div>
       </div>
-      <div class="specimen-footer">
-        <span>Token governance: Modifying one token in core.json re-skins 14 enterprise products in seconds.</span>
-        <span style="color:#18181b; font-weight:600;">DTCG Pipeline</span>
+
+      <div class="keynote-ledger-row">
+        <div class="keynote-ledger-key">TOKEN PROPAGATION</div>
+        <div class="keynote-ledger-val">
+          <strong>14 Enterprise Products:</strong> Single token change in <code>core.json</code> automatically compiles typed definitions and re-skins all 14 platforms via CI/CD with 0 lines of bespoke CSS.
+        </div>
       </div>
     </div>
 
@@ -2303,88 +2309,6 @@
       </table>
     </div>
 
-    <!-- ARCHITECTURAL SPECIMEN: MULTI-WAVE HORIZON (GAVIN NELSON STANDARD) -->
-    <div class="specimen-frame">
-      <div class="specimen-frame-header">
-        <span class="specimen-badge-label">
-          Architectural Specimen · Multi-Wave Scaling Horizon &amp; Absorption Matrix
-        </span>
-        <span class="specimen-pill specimen-pill-violet">
-          350+ ENTERPRISE VIEWS BUFFERED
-        </span>
-      </div>
-
-      <div class="specimen-canvas" style="background:#fafafa;">
-        <!-- FIGMA ASSET DROP-IN: Replace inner cards or insert <img src="..." alt="Multi-Wave Specimen" style="width:100%; height:auto;" /> -->
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:0.75rem;">
-          <!-- WAVE 1.0 -->
-          <div style="border:1px solid #5D2BC7; border-radius:4px; background:#ffffff; padding:1rem; position:relative;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-              <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#5D2BC7;">WAVE 1.0 · KERNEL</span>
-              <span class="specimen-pill specimen-pill-success">59% SHIPPED</span>
-            </div>
-            <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">40 / 68 Screens</div>
-            <div style="font-size:11px; color:#52525b; line-height:1.45; margin-bottom:0.75rem;">
-              AntD v5 zero-override theme locked; 4 Floorplans deployed into production codebase.
-            </div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; background:#ecfdf5; border:1px solid #a7f3d0; padding:4px 6px; border-radius:3px; color:#047857; font-weight:600;">
-              PROD READY · 0 CSS Overrides
-            </div>
-          </div>
-
-          <!-- WAVE 1.1 -->
-          <div style="border:1px solid #18181b; border-radius:4px; background:#ffffff; padding:1rem; position:relative;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-              <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#18181b;">WAVE 1.1 · EXTRACTION</span>
-              <span class="specimen-pill specimen-pill-neutral">ACTIVE SPRINT</span>
-            </div>
-            <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Pattern Library</div>
-            <div style="font-size:11px; color:#52525b; line-height:1.45; margin-bottom:0.75rem;">
-              Federated self-serve UI assembly kit for Product Owners; real-time sprint pattern hardening.
-            </div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; background:#f4f4f6; border:1px solid #e4e4e7; padding:4px 6px; border-radius:3px; color:#18181b; font-weight:600;">
-              IN PROGRESS · PO Assembly Kit
-            </div>
-          </div>
-
-          <!-- WAVE 1.2 -->
-          <div style="border:1px solid #e4e4e7; border-radius:4px; background:#ffffff; padding:1rem; position:relative;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-              <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#71717a;">WAVE 1.2 · FOUNDATION</span>
-              <span class="specimen-pill specimen-pill-neutral">QUEUED</span>
-            </div>
-            <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">28 Remaining Views</div>
-            <div style="font-size:11px; color:#52525b; line-height:1.45; margin-bottom:0.75rem;">
-              Bank payment gateways, currency exchange matrices, custom error topologies.
-            </div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; background:#fafafa; border:1px solid #e4e4e7; padding:4px 6px; border-radius:3px; color:#71717a;">
-              ACTIVE PIPELINE · Spec Locked
-            </div>
-          </div>
-
-          <!-- WAVE 2.0 -->
-          <div style="border:1px dashed #a1a1aa; border-radius:4px; background:#fafafa; padding:1rem; position:relative;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-              <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#71717a;">WAVE 2.0 · EXPANSION</span>
-              <span class="specimen-pill specimen-pill-violet">$0 MARGINAL COST</span>
-            </div>
-            <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">180+ Enterprise Views</div>
-            <div style="font-size:11px; color:#52525b; line-height:1.45; margin-bottom:0.75rem;">
-              Zero-marginal-cost scaling: Reinsurance treaty modeling, broker &amp; agency distribution mesh.
-            </div>
-            <div style="font-family:ui-monospace,monospace; font-size:9.5px; background:#ffffff; border:1px solid #e4e4e7; padding:4px 6px; border-radius:3px; color:#18181b; font-weight:600;">
-              HORIZON ROADMAP · Deterministic
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="specimen-footer">
-        <span>Progress telemetry: 40/68 screens shipped (59%) · Foundation locked to absorb 350+ upcoming views with zero marginal engineering cost.</span>
-        <span style="color:#18181b; font-weight:600;">Scale Telemetry</span>
-      </div>
-    </div>
-
     <!-- 07. RETROSPECTIVE -->
     <h2 id="sec-07">07. Retrospective: The High-Stakes Mental Model Shift</h2>
     <div class="bottom-line-strip">
@@ -2395,59 +2319,44 @@
       The ultimate transformation at Agito was not merely technical; it was an organizational and mental model shift. Navigating 14 monolithic enterprise products under live sprint deadlines forced a structural paradigm shift: moving from the fragile, decorative handoff pipelines of consumer apps to an immutable, code-governed control architecture:
     </p>
 
-    <!-- ARCHITECTURAL SPECIMEN: PARADIGM SHIFT COMPARISON MATRIX -->
-    <div class="specimen-frame">
-      <div class="specimen-frame-header">
-        <span class="specimen-badge-label">
-          Architectural Specimen · The Control Architecture Paradigm Shift
-        </span>
-        <span class="specimen-pill specimen-pill-violet">
-          DECISION ELIMINATION
-        </span>
-      </div>
-
-      <div class="specimen-grid-pair">
-        <!-- LEFT: THE VISUAL PRODUCER -->
-        <div class="specimen-column">
-          <!-- FIGMA ASSET DROP-IN: Replace inner content or insert <img src="..." alt="Visual Producer Specimen" style="width:100%; height:auto;" /> -->
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-            <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#dc2626;">01. Visual Screen Producer (Figma-Centric)</span>
-            <span class="specimen-pill specimen-pill-danger">FRAGILE</span>
-          </div>
-          <div style="font-family:ui-monospace,monospace; font-size:11px; background:#ffffff; border:1px solid #fecaca; border-radius:4px; padding:0.75rem; color:#7f1d1d; margin-bottom:0.85rem; line-height:1.6;">
-            UX ➔ UI ➔ Component Lib ➔ Mockups ➔ Wall Handoff
-          </div>
-          <ul style="margin:0; padding-left:1.1rem; font-size:12px; color:#52525b; line-height:1.6;">
-            <li><strong>Value Metric:</strong> Screen volume delivered (drawing 60+ static pictures).</li>
-            <li><strong>Engineering Impact:</strong> 420 LOC custom CSS per view; developers guess error states.</li>
-            <li><strong>Cost of Change:</strong> Compounding frontend debt; requires constant agency retainers.</li>
-            <li><strong>Failure Mode:</strong> Three failed agency handovers over five years.</li>
-          </ul>
-        </div>
-
-        <!-- RIGHT: THE CONTROL SYSTEMS ARCHITECT -->
-        <div class="specimen-column">
-          <!-- FIGMA ASSET DROP-IN: Replace inner content or insert <img src="..." alt="Control Architect Specimen" style="width:100%; height:auto;" /> -->
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-            <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#18181b;">02. Control Systems Architect (Code-Centric)</span>
-            <span class="specimen-pill specimen-pill-success">DETERMINISTIC</span>
-          </div>
-          <div style="font-family:ui-monospace,monospace; font-size:11px; background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; color:#18181b; margin-bottom:0.85rem; line-height:1.6;">
-            Business Invariants ➔ Tokens &amp; Schema ➔ 4 Floorplans ➔ Decision Elimination
-          </div>
-          <ul style="margin:0; padding-left:1.1rem; font-size:12px; color:#52525b; line-height:1.6;">
-            <li><strong>Value Metric:</strong> Decisions removed from the table (0 ad-hoc layouts, 0 raw hex).</li>
-            <li><strong>Engineering Impact:</strong> 0 LOC custom CSS; implementation drops from 14h to 2.5h (-82%).</li>
-            <li><strong>Cost of Change:</strong> Flat marginal cost; token changes propagate globally in seconds.</li>
-            <li><strong>Success Mode:</strong> Scalable software factory operated autonomously by dev squads.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="specimen-footer">
-        <span>The core thesis: Design value is measured in decisions removed from the table, not components delivered.</span>
-        <span style="color:#18181b; font-weight:600;">Control Architecture Proof</span>
-      </div>
+    <!-- KEYNOTE SPECIMEN: PARADIGM SHIFT COMPARISON LEDGER -->
+    <div class="clean-table-wrap" style="margin:2.5rem 0;">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:25%;">Strategic Dimension</th>
+            <th style="width:37.5%; color:#71717a;">01 · The Visual Screen Producer</th>
+            <th style="width:37.5%; color:#18181b;">02 · The Control Systems Architect</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Value Metric</strong></td>
+            <td style="color:#71717a;">Screen volume delivered (drawing 60+ static pictures in Figma).</td>
+            <td><strong>Decisions removed from the table</strong> (0 ad-hoc layouts, 0 arbitrary hex).</td>
+          </tr>
+          <tr>
+            <td><strong>Engineering Drag</strong></td>
+            <td style="color:#71717a;">420 LOC custom CSS per view; developers guess error states.</td>
+            <td><strong>0 LOC custom CSS</strong>; implementation drops from 14h to 2.5h (-82%).</td>
+          </tr>
+          <tr>
+            <td><strong>Cost of Change</strong></td>
+            <td style="color:#71717a;">Compounding frontend debt; requires constant agency retainers.</td>
+            <td><strong>Flat marginal cost</strong>; token changes propagate globally in seconds.</td>
+          </tr>
+          <tr>
+            <td><strong>Boundary Governance</strong></td>
+            <td style="color:#71717a;">Fragile wall handoff; zero framework or viewport awareness.</td>
+            <td><strong>Ant Design v5 contracts</strong>; locked to 100vh runtime constraints.</td>
+          </tr>
+          <tr>
+            <td><strong>Long-Term Outcome</strong></td>
+            <td style="color:#71717a;">Three failed agency handovers over five years.</td>
+            <td><strong>Autonomous software factory</strong> operated directly by dev squads.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <p>
