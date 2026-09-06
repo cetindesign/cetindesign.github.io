@@ -322,9 +322,205 @@
     .footer-prev:hover{ color:#000; }
     .footer-next{ color:#000; text-decoration:none; font-weight:500; }
     .footer-next:hover{ text-decoration-color:#000; }
+
+    /* EXECUTIVE HUD & READING RADAR */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: #5D2BC7;
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.05s linear;
+    }
+
+    .executive-hud {
+      display: none;
+    }
+
+    @media (min-width: 1200px) {
+      .executive-hud {
+        display: block;
+        position: fixed;
+        top: 5.5rem;
+        left: calc(50% + 23rem);
+        width: 175px;
+        z-index: 90;
+        pointer-events: auto;
+      }
+    }
+
+    .hud-inner {
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 6px;
+      padding: 0.85rem 0.95rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+    }
+
+    .hud-header {
+      font-size: 9.5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #a1a1aa;
+      margin-bottom: 0.45rem;
+      font-weight: 600;
+    }
+
+    .hud-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .hud-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #71717a;
+      text-decoration: none;
+      padding: 2px 0;
+      transition: color 0.15s ease;
+    }
+
+    .hud-link:hover {
+      color: #18181b;
+    }
+
+    .hud-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #d4d4d8;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .hud-link.active {
+      color: #18181b;
+      font-weight: 600;
+    }
+
+    .hud-link.active .hud-dot {
+      background: #5D2BC7;
+      box-shadow: 0 0 0 2px rgba(93, 43, 199, 0.2);
+    }
+
+    .hud-divider {
+      border-top: 1px solid #f4f4f6;
+      margin: 0.75rem 0;
+    }
+
+    .hud-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      color: #71717a;
+      font-size: 10px;
+    }
+
+    .hud-metric-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s ease;
+    }
+
+    .hud-metric-item.achieved {
+      color: #18181b;
+      font-weight: 600;
+    }
+
+    .hud-metric-item.achieved .hud-check {
+      color: #5D2BC7;
+      font-weight: 700;
+    }
+
+    /* BOTTOM LINE / DECISIONS REMOVED STRIP */
+    .bottom-line-strip {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      background: #fafafa;
+      border-left: 2px solid #5D2BC7;
+      border-top: 1px solid #f4f4f6;
+      border-right: 1px solid #f4f4f6;
+      border-bottom: 1px solid #f4f4f6;
+      border-radius: 0 4px 4px 0;
+      padding: 0.5rem 0.85rem;
+      margin-top: 0.65rem;
+      margin-bottom: 1.5rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .bl-tag {
+      color: #5D2BC7;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .bl-text {
+      color: #52525b;
+    }
   </style>
 </head>
 <body>
+
+  <!-- 1PX READING PROGRESS HAIRLINE -->
+  <div id="reading-progress"></div>
+
+  <!-- STICKY DESKTOP EXECUTIVE HUD (READING RADAR) -->
+  <aside class="executive-hud" id="executive-hud" aria-label="Executive Reading Radar">
+    <div class="hud-inner">
+      <div class="hud-header">RADAR · CHAPTERS</div>
+      <nav class="hud-nav">
+        <a href="#sec-01" class="hud-link active" data-sec="sec-01">
+          <span class="hud-dot"></span>
+          <span>01 · Paradox</span>
+        </a>
+        <a href="#sec-02" class="hud-link" data-sec="sec-02">
+          <span class="hud-dot"></span>
+          <span>02 · Ruins</span>
+        </a>
+        <a href="#sec-03" class="hud-link" data-sec="sec-03">
+          <span class="hud-dot"></span>
+          <span>03 · Governance</span>
+        </a>
+        <a href="#sec-04" class="hud-link" data-sec="sec-04">
+          <span class="hud-dot"></span>
+          <span>04 · Engine (40/68)</span>
+        </a>
+        <a href="#sec-05" class="hud-link" data-sec="sec-05">
+          <span class="hud-dot"></span>
+          <span>05 · Benchmarks</span>
+        </a>
+        <a href="#sec-06" class="hud-link" data-sec="sec-06">
+          <span class="hud-dot"></span>
+          <span>06 · Horizon</span>
+        </a>
+        <a href="#sec-07" class="hud-link" data-sec="sec-07">
+          <span class="hud-dot"></span>
+          <span>07 · Shift</span>
+        </a>
+      </nav>
+      <div class="hud-divider"></div>
+      <div class="hud-header">DECISIONS ELIMINATED</div>
+      <div class="hud-metrics">
+        <div class="hud-metric-item" id="hud-m-01"><span class="hud-check">○</span> Retainer: $0</div>
+        <div class="hud-metric-item" id="hud-m-02"><span class="hud-check">○</span> Custom CSS: 0 LOC</div>
+        <div class="hud-metric-item" id="hud-m-03"><span class="hud-check">○</span> Gate: 70% Cut</div>
+        <div class="hud-metric-item" id="hud-m-04"><span class="hud-check">○</span> Dev Drag: -82%</div>
+        <div class="hud-metric-item" id="hud-m-05"><span class="hud-check">○</span> Scroll: 100vh Lock</div>
+        <div class="hud-metric-item" id="hud-m-06"><span class="hud-check">○</span> Wave 2+: $0 Cost</div>
+      </div>
+    </div>
+  </aside>
 
   <div class="wrap">
 
@@ -386,7 +582,11 @@
     </div>
 
     <!-- 01. THE DECEMBER PARADOX -->
-    <h2>01. The December Paradox: Auditing the Outsourced Agency Trap</h2>
+    <h2 id="sec-01">01. The December Paradox: Auditing the Outsourced Agency Trap</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">01 · DECISION REMOVED</span>
+      <span class="bl-text">Terminated $180k/yr recurring agency spend; prevented 1,200h of unmaintainable CSS debt.</span>
+    </div>
     <p>
       Agito powers core transactional infrastructure for <strong>35% of Turkey’s private life, pension, and property insurance market</strong>. When I was recruited in December as the company’s first Lead Design Systems Architect, I walked into an immediate governance paradox: leadership had already committed their year-end design budget to a third consecutive external agency.
     </p>
@@ -472,7 +672,11 @@
     </div>
 
     <!-- 02. THE DAY OF RECKONING -->
-    <h2>02. The Handover of the Ruins &amp; The Code Epiphany</h2>
+    <h2 id="sec-02">02. The Handover of the Ruins &amp; The Code Epiphany</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">02 · DECISION REMOVED</span>
+      <span class="bl-text">Eliminated 420 LOC bespoke CSS per view; enforced zero-override AntD v5 token contracts.</span>
+    </div>
     <p>
       Immediately following Board approval, the reality of that risk matrix hit the organization. The agency concluded its engagement, took their budget, and handed the entire scope to me with a naive order: <em>"Now produce all the components first, and then build the screens."</em>
     </p>
@@ -518,10 +722,8 @@
     <div class="bleed-canvas">
       <div class="bleed-header">
         <div style="display:flex; align-items:center; gap:0.5rem;">
-          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444;"></span>
-          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#eab308;"></span>
-          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e;"></span>
-          <span style="color:#18181b; font-weight:600; margin-left:0.25rem;">Architectural Specimen · Code Audit &amp; Failure Mode Analysis</span>
+          <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 6px; border-radius:3px; font-weight:600;">CODE AUDIT</span>
+          <span style="color:#18181b; font-weight:600; margin-left:0.25rem;">Architectural Specimen · AST &amp; DOM Failure Mode Analysis</span>
         </div>
         <span style="color:#71717a;">Day 14 System Audit</span>
       </div>
@@ -593,7 +795,11 @@
     </p>
 
     <!-- 03. THE PRESSURE COOKER & GOVERNANCE -->
-    <h2>03. The Friction of Governance Under Sprint Pressure</h2>
+    <h2 id="sec-03">03. The Friction of Governance Under Sprint Pressure</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">03 · DECISION REMOVED</span>
+      <span class="bl-text">Enforced 3-Tier UX Readiness Gate &amp; PO Ingestion; eliminated 70% of speculative, un-governed backlog requests.</span>
+    </div>
     <p>
       Dismantling agency debt was only half the battle. The harder battle was the daily pressure cooker inside a monolithic engineering company.
     </p>
@@ -649,6 +855,67 @@
       </svg>
     </div>
 
+    <h3>The Ingestion Protocol: Refactoring PO Prototypes into Production Rails</h3>
+    <p>
+      In Agito’s engineering-led culture, Product Owners do not write 30-page functional requirement documents; they build rapid, interactive prototypes in modern tools like Figma to articulate business intent. My role as the sole systems architect is not to bottleneck this momentum with traditional waterfall handoffs, but to govern and elevate it.
+    </p>
+    <p>
+      When a Product Owner brings a raw functional prototype, we run a rigorous <strong>collaborative refactoring session</strong>:
+    </p>
+    <ul>
+      <li><strong>1. Flow Surgery &amp; Logic Inspection:</strong> We walk through the working prototype end-to-end. We stress-test transaction mechanics, identify circular navigation traps, and resolve domain/actuarial disconnects directly in the model before a single developer touches it.</li>
+      <li><strong>2. Stripping Ad-Hoc Geometry:</strong> PO prototypes naturally lack system constraints—containing arbitrary padding, broken margins, and detached vectors. I strip away the cosmetic layer while preserving 100% of the validated business logic.</li>
+      <li><strong>3. Floorplan &amp; Density Normalization:</strong> The validated flow is mapped into one of the 4 Universal Floorplans. It is instantly constrained to the 100vh locked page viewport, 40px floating-label inputs, 32px secondary actions, and high-density data grids.</li>
+      <li><strong>4. Tokenization &amp; Engineering Dispatch:</strong> Every element is bound to Ant Design v5 primitives and <code>core.json</code> tokens. The final deliverable handed to Lead Frontend (İsmail) is not an unbuildable picture, but an executable contract requiring zero CSS overrides.</li>
+    </ul>
+
+    <!-- ARCHITECTURAL SPECIMEN: PO PROTOTYPE TO SYSTEM NORMALIZATION -->
+    <div style="margin:2rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.6rem 1rem;">
+        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; font-weight:500; color:#71717a;">Architectural Specimen · PO Prototype Ingestion &amp; Normalization Pipeline</span>
+        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#18181b; background:#f4f4f6; padding:2px 6px; border-radius:3px;">ZERO DESIGNER BOTTLENECK</span>
+      </div>
+      <div style="padding:1.25rem;">
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0.75rem; margin-bottom:1rem;">
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">01. RAW INPUT</div>
+            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">PO Prototype</div>
+            <div style="font-size:11px; color:#71717a;">Figma functional flow · Raw un-governed frames</div>
+          </div>
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">02. LOGIC SURGERY</div>
+            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Flow Dissection</div>
+            <div style="font-size:11px; color:#71717a;">Joint review · Actuarial edge cases fixed</div>
+          </div>
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">03. SYSTEM RAIL</div>
+            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Floorplan 02</div>
+            <div style="font-size:11px; color:#71717a;">100vh lock · AntD primitives · DTCG tokens</div>
+          </div>
+          <div style="border:1px solid #18181b; border-radius:6px; padding:0.75rem; background:#18181b; color:#ffffff;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:0.25rem;">04. COMPILED SPEC</div>
+            <div style="font-size:12.5px; font-weight:600; color:#ffffff; margin-bottom:0.25rem;">Production Contract</div>
+            <div style="font-size:11px; color:#d4d4d8;">Shipped to Frontend · 0 CSS Overrides</div>
+          </div>
+        </div>
+        <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; font-family:ui-monospace,monospace; font-size:11px; color:#52525b; line-height:1.5;">
+          <span style="color:#a1a1aa;">// modules/parametre/src/CurrencyParameterView.tsx · Production Contract</span><br>
+          <span style="color:#5D2BC7;">import</span> { StandardListFloorplan } <span style="color:#5D2BC7;">from</span> <span style="color:#059669;">'@agito/ui'</span>;<br>
+          <span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">CurrencyParameterView</span> = () =&gt; (<br>
+          &nbsp;&nbsp;&lt;<span style="color:#18181b; font-weight:600;">StandardListFloorplan</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;title=<span style="color:#059669;">"Currencies &amp; Exchange Rates"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;endpoint=<span style="color:#059669;">"/api/v1/parameters/currencies"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;tableProps={{<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowKey: <span style="color:#059669;">"currencyCode"</span>,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scroll: { y: <span style="color:#059669;">"calc(100vh - 240px)"</span> },<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: currencyColumns <span style="color:#a1a1aa;">/* Frozen action column locked via token */</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}}<br>
+          &nbsp;&nbsp;/&gt;<br>
+          );
+        </div>
+      </div>
+    </div>
+
     <h3>The Automation Asymmetry: Rejecting Design Theater</h3>
     <p>
       In high-pressure enterprise environments, classical design theater collapses immediately. I had zero luxury to run 6-week discovery sprints, print empathy maps, or conduct academic persona workshops. 
@@ -664,12 +931,16 @@
     </p>
     <ul>
       <li>Stabilized atomic DTCG tokens and 4 immutable floorplans as rigid mathematical contracts.</li>
-      <li>Leveraged an autonomous subagent compilation pipeline to assemble code-ready Ant Design v5 component recipes directly from data schemas.</li>
+      <li>Treated design tokens and floorplans as rigid mathematical schemas, compiling directly into frontend packages rather than manually redrawing identical views.</li>
       <li>While the company assumed I was working around the clock hand-drawing Figma frames, I was operating a software factory—delivering 40 complex enterprise screens and establishing an untouchable pattern library at speeds an entire 15-person agency could not match.</li>
     </ul>
 
     <!-- 04. 40/68 SCREENS IN-FLIGHT & DUAL-TRACK -->
-    <h2>04. In-Flight Engine Replacement: 40/68 Screens &amp; Dual-Track Pattern Extraction</h2>
+    <h2 id="sec-04">04. In-Flight Engine Replacement: 40/68 Screens &amp; Dual-Track Pattern Extraction</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">04 · DECISION REMOVED</span>
+      <span class="bl-text">Reduced frontend build time from 14h to 2.5h (-82%); unlocked 460+ dev-hours across 40 shipped views.</span>
+    </div>
     <p>
       This program is an active, living enterprise transformation. Across the initial baseline inventory of <strong>68 foundational screens</strong>, exactly <strong>40 screens (59%) have been delivered to production</strong>, with floorplans and reusable patterns being forged in real-time inside live sprints:
     </p>
@@ -736,64 +1007,12 @@
       <li><strong>4. 15-Minute Engineering Sync:</strong> Mandatory bilateral review with the Lead Frontend Developer to verify Ant Design React API parity before committing to sprint backlog.</li>
     </ul>
 
-    <h3>The Ingestion Protocol: Refactoring PO Prototypes into Production Rails</h3>
-    <p>
-      In Agito’s engineering-led culture, Product Owners do not write 30-page functional requirement documents; they build rapid, interactive prototypes in modern tools like Figma to articulate business intent. My role as the sole systems architect is not to bottleneck this momentum with traditional waterfall handoffs, but to govern and elevate it.
-    </p>
-    <p>
-      When a Product Owner brings a raw functional prototype, we run a rigorous <strong>collaborative refactoring session</strong>:
-    </p>
-    <ul>
-      <li><strong>1. Flow Surgery &amp; Logic Inspection:</strong> We walk through the working prototype end-to-end. We stress-test transaction mechanics, identify circular navigation traps, and resolve domain/actuarial disconnects directly in the model before a single developer touches it.</li>
-      <li><strong>2. Stripping Ad-Hoc Geometry:</strong> PO prototypes naturally lack system constraints—containing arbitrary padding, broken margins, and detached vectors. I strip away the cosmetic layer while preserving 100% of the validated business logic.</li>
-      <li><strong>3. Floorplan &amp; Density Normalization:</strong> The validated flow is mapped into one of the 4 Universal Floorplans. It is instantly constrained to the 100vh locked page viewport, 40px floating-label inputs, 32px secondary actions, and high-density data grids.</li>
-      <li><strong>4. Tokenization &amp; Engineering Dispatch:</strong> Every element is bound to Ant Design v5 primitives and <code>core.json</code> tokens. The final deliverable handed to Lead Frontend (İsmail) is not an unbuildable picture, but an executable contract requiring zero CSS overrides.</li>
-    </ul>
-
-    <!-- ARCHITECTURAL SPECIMEN: PO PROTOTYPE TO SYSTEM NORMALIZATION -->
-    <div style="margin:2rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
-      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.6rem 1rem;">
-        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; font-weight:500; color:#71717a;">Architectural Specimen · PO Prototype Ingestion &amp; Normalization Pipeline</span>
-        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#18181b; background:#f4f4f6; padding:2px 6px; border-radius:3px;">ZERO DESIGNER BOTTLENECK</span>
-      </div>
-      <div style="padding:1.25rem;">
-        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0.75rem; margin-bottom:1rem;">
-          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">01. RAW INPUT</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">PO Prototype</div>
-            <div style="font-size:11px; color:#71717a;">Figma functional flow · Raw un-governed frames</div>
-          </div>
-          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">02. LOGIC SURGERY</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Flow Dissection</div>
-            <div style="font-size:11px; color:#71717a;">Joint review · Actuarial edge cases fixed</div>
-          </div>
-          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">03. SYSTEM RAIL</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Floorplan 02</div>
-            <div style="font-size:11px; color:#71717a;">100vh lock · AntD primitives · DTCG tokens</div>
-          </div>
-          <div style="border:1px solid #18181b; border-radius:6px; padding:0.75rem; background:#18181b; color:#ffffff;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:0.25rem;">04. COMPILED SPEC</div>
-            <div style="font-size:12.5px; font-weight:600; color:#ffffff; margin-bottom:0.25rem;">Production Contract</div>
-            <div style="font-size:11px; color:#d4d4d8;">Shipped to Frontend · 0 CSS Overrides</div>
-          </div>
-        </div>
-        <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; font-family:ui-monospace,monospace; font-size:11px; color:#52525b; line-height:1.5;">
-          <span style="color:#a1a1aa;">// Ingestion &amp; Normalization Contract:</span><br>
-          <span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">CurrencyParameterView</span> = normalizePOPrototype({<br>
-          &nbsp;&nbsp;sourcePrototype: <span style="color:#059669;">'Figma/PO-Collection-Draft-v2'</span>,<br>
-          &nbsp;&nbsp;floorplan: <span style="color:#059669;">'StandardListReport'</span>,<br>
-          &nbsp;&nbsp;endpoint: <span style="color:#059669;">'/api/v1/actuarial/currencies'</span>,<br>
-          &nbsp;&nbsp;frozenRight: [<span style="color:#059669;">'actions'</span>],<br>
-          &nbsp;&nbsp;governanceGate: <span style="color:#059669;">'UX_READY_PASS'</span><br>
-          });
-        </div>
-      </div>
-    </div>
-
     <!-- 05. THE DUAL-BENCHMARK ARCHITECTURE & 4 FLOORPLANS -->
-    <h2>05. The Dual-Benchmark Architecture: Enterprise Skeleton &amp; SaaS Muscle</h2>
+    <h2 id="sec-05">05. The Dual-Benchmark Architecture: Enterprise Skeleton &amp; SaaS Muscle</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">05 · DECISION REMOVED</span>
+      <span class="bl-text">Replaced ad-hoc screen geometry with 4 immutable SAP Fiori floorplans; locked 100vh page scroll across 14 products.</span>
+    </div>
     <p>
       When standardizing an enterprise software house powering 35% of a national insurance sector, design cannot be an exercise in aesthetic guesswork or copying trendy consumer apps. Heavy transactional software collapses under consumer SaaS patterns; conversely, default enterprise software is notoriously archaic, visually neglected, and hostile to operate.
     </p>
@@ -967,9 +1186,7 @@
     <div class="bleed-canvas">
       <div class="bleed-header">
         <div style="display:flex; align-items:center; gap:0.5rem;">
-          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ef4444;"></span>
-          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#eab308;"></span>
-          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e;"></span>
+          <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 6px; border-radius:3px; font-weight:600;">TAXONOMY</span>
           <span style="color:#18181b; font-weight:600; margin-left:0.25rem;">Architectural Specimen · The 4 Universal Floorplans (SAP Fiori Adapted)</span>
         </div>
         <span style="color:#71717a;">100vh Enterprise Workstation Runtime (1920x1080)</span>
@@ -1281,7 +1498,11 @@
     </blockquote>
 
     <!-- 06. LIVING SYSTEM LOG -->
-    <h2>06. Living System Log: Multi-Wave Horizon &amp; Progression</h2>
+    <h2 id="sec-06">06. Living System Log: Multi-Wave Horizon &amp; Progression</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">06 · DECISION REMOVED</span>
+      <span class="bl-text">Established zero-marginal-cost scaling engine to absorb 350+ upcoming enterprise views.</span>
+    </div>
     <p>
       An enterprise control system is an evolving infrastructure asset. The platform's roadmap is tracked across distinct operational waves, expanding governance incrementally without introducing architectural regressions:
     </p>
@@ -1326,7 +1547,11 @@
     </div>
 
     <!-- 07. RETROSPECTIVE -->
-    <h2>07. Retrospective: The High-Stakes Mental Model Shift</h2>
+    <h2 id="sec-07">07. Retrospective: The High-Stakes Mental Model Shift</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">07 · DECISION REMOVED</span>
+      <span class="bl-text">Shifted organizational paradigm from cosmetic screen production to deterministic control systems.</span>
+    </div>
     <p>
       The ultimate transformation at Agito was not merely technical; it was an organizational and mental model shift.
     </p>
@@ -1372,6 +1597,64 @@
 
   </div>
 
+  <!-- READING PROGRESS & EXECUTIVE HUD INTERACTION SCRIPT -->
+  <script>
+    (function() {
+      // 1px Reading Progress Hairline
+      var progressBar = document.getElementById('reading-progress');
+      window.addEventListener('scroll', function() {
+        var totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+        if (progressBar) progressBar.style.width = progress + '%';
+      }, { passive: true });
 
+      // Executive HUD Scrollspy & Metric Telemetry
+      var sectionIds = ['sec-01', 'sec-02', 'sec-03', 'sec-04', 'sec-05', 'sec-06', 'sec-07'];
+      var hudLinks = document.querySelectorAll('.hud-link');
+      var metricMap = {
+        'sec-01': 'hud-m-01',
+        'sec-02': 'hud-m-02',
+        'sec-03': 'hud-m-03',
+        'sec-04': 'hud-m-04',
+        'sec-05': 'hud-m-05',
+        'sec-06': 'hud-m-06'
+      };
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.id;
+            hudLinks.forEach(function(link) {
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+
+            var activeIndex = sectionIds.indexOf(id);
+            sectionIds.forEach(function(sId, sIdx) {
+              var mEl = document.getElementById(metricMap[sId]);
+              if (mEl) {
+                var chk = mEl.querySelector('.hud-check');
+                if (sIdx <= activeIndex) {
+                  mEl.classList.add('achieved');
+                  if (chk) chk.textContent = '✓';
+                } else {
+                  mEl.classList.remove('achieved');
+                  if (chk) chk.textContent = '○';
+                }
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px' });
+
+      sectionIds.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    })();
+  </script>
 </body>
 </html>
