@@ -732,52 +732,53 @@
       <li><strong>4. 15-Minute Engineering Sync:</strong> Mandatory bilateral review with the Lead Frontend Developer to verify Ant Design React API parity before committing to sprint backlog.</li>
     </ul>
 
-    <h3>The Self-Serve Endgame: Turning Product Owners into System Composers</h3>
+    <h3>The Ingestion Protocol: Refactoring PO Prototypes into Production Rails</h3>
     <p>
-      A sole architect governing 14+ products cannot survive as a perpetual ticket-drawing factory. If every button addition or form parameter requires my manual Figma handcrafting, the design function becomes an organizational bottleneck.
+      In Agito’s engineering-led culture, Product Owners do not write 30-page functional requirement documents; they build rapid, interactive prototypes in modern tools like Figma to articulate business intent. My role as the sole systems architect is not to bottleneck this momentum with traditional waterfall handoffs, but to govern and elevate it.
     </p>
     <p>
-      The ultimate objective of the Pattern Library is <strong>federated self-serve design for Product Owners</strong>:
+      When a Product Owner brings a raw functional prototype, we run a rigorous <strong>collaborative refactoring session</strong>:
     </p>
-    <blockquote>
-      “Instead of Product Owners waiting two weeks for a designer to draw a basic parameter screen, the Pattern Library functions as a bounded Lego assembly kit. Product Owners compose standardized user stories directly using locked floorplans and pre-validated component patterns. Because the building blocks are hardcoded to Ant Design v5 and DTCG tokens, whatever the Product Owner composes is structurally impossible to misalign with engineering.”
-    </blockquote>
-    <p>
-      This operational shift transforms the design role: from an exhausted reactive decorator drawing tickets, to a <strong>platform architect building the control rails</strong> that enable the entire organization to ship valid software autonomously.
-    </p>
+    <ul>
+      <li><strong>1. Flow Surgery &amp; Logic Inspection:</strong> We walk through the working prototype end-to-end. We stress-test transaction mechanics, identify circular navigation traps, and resolve domain/actuarial disconnects directly in the model before a single developer touches it.</li>
+      <li><strong>2. Stripping Ad-Hoc Geometry:</strong> PO prototypes naturally lack system constraints—containing arbitrary padding, broken margins, and detached vectors. I strip away the cosmetic layer while preserving 100% of the validated business logic.</li>
+      <li><strong>3. Floorplan &amp; Density Normalization:</strong> The validated flow is mapped into one of the 4 Universal Floorplans. It is instantly constrained to the 100vh locked page viewport, 40px floating-label inputs, 32px secondary actions, and high-density data grids.</li>
+      <li><strong>4. Tokenization &amp; Engineering Dispatch:</strong> Every element is bound to Ant Design v5 primitives and <code>core.json</code> tokens. The final deliverable handed to Lead Frontend (İsmail) is not an unbuildable picture, but an executable contract requiring zero CSS overrides.</li>
+    </ul>
 
-    <!-- ARCHITECTURAL SPECIMEN: SELF-SERVE ASSEMBLY KIT -->
+    <!-- ARCHITECTURAL SPECIMEN: PO PROTOTYPE TO SYSTEM NORMALIZATION -->
     <div style="margin:2rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
       <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.6rem 1rem;">
-        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; font-weight:500; color:#71717a;">Architectural Specimen · Product Owner Self-Serve Assembly Recipe</span>
+        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; font-weight:500; color:#71717a;">Architectural Specimen · PO Prototype Ingestion &amp; Normalization Pipeline</span>
         <span style="font-family:ui-monospace,monospace; font-size:10px; color:#18181b; background:#f4f4f6; padding:2px 6px; border-radius:3px;">ZERO DESIGNER BOTTLENECK</span>
       </div>
       <div style="padding:1.25rem;">
         <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0.75rem; margin-bottom:1rem;">
           <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">01. CONTAINER</div>
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">01. RAW INPUT</div>
+            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">PO Prototype</div>
+            <div style="font-size:11px; color:#71717a;">Figma functional flow · Raw un-governed frames</div>
+          </div>
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">02. LOGIC SURGERY</div>
+            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Flow Dissection</div>
+            <div style="font-size:11px; color:#71717a;">Joint review · Actuarial edge cases fixed</div>
+          </div>
+          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">03. SYSTEM RAIL</div>
             <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">Floorplan 02</div>
-            <div style="font-size:11px; color:#71717a;">Standard List · 100vh locked viewport</div>
-          </div>
-          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">02. DATA BINDING</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">CurrencySchema</div>
-            <div style="font-size:11px; color:#71717a;">14 Columns · Frozen action column</div>
-          </div>
-          <div style="border:1px solid #e4e4e7; border-radius:6px; padding:0.75rem; background:#fafafa;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#71717a; margin-bottom:0.25rem;">03. ANT-D RECIPE</div>
-            <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.25rem;">FilterBar + Form</div>
-            <div style="font-size:11px; color:#71717a;">40px inputs · 32px actions · DTCG tokens</div>
+            <div style="font-size:11px; color:#71717a;">100vh lock · AntD primitives · DTCG tokens</div>
           </div>
           <div style="border:1px solid #18181b; border-radius:6px; padding:0.75rem; background:#18181b; color:#ffffff;">
-            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:0.25rem;">04. COMPILED VIEW</div>
-            <div style="font-size:12.5px; font-weight:600; color:#ffffff; margin-bottom:0.25rem;">Production Spec</div>
-            <div style="font-size:11px; color:#d4d4d8;">0 Designer Hours · 100% Contract Match</div>
+            <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:0.25rem;">04. COMPILED SPEC</div>
+            <div style="font-size:12.5px; font-weight:600; color:#ffffff; margin-bottom:0.25rem;">Production Contract</div>
+            <div style="font-size:11px; color:#d4d4d8;">Shipped to Frontend · 0 CSS Overrides</div>
           </div>
         </div>
         <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.75rem; font-family:ui-monospace,monospace; font-size:11px; color:#52525b; line-height:1.5;">
-          <span style="color:#a1a1aa;">// PO Assembly Story Contract:</span><br>
-          <span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">CurrencyParameterView</span> = createEnterpriseScreen({<br>
+          <span style="color:#a1a1aa;">// Ingestion &amp; Normalization Contract:</span><br>
+          <span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">CurrencyParameterView</span> = normalizePOPrototype({<br>
+          &nbsp;&nbsp;sourcePrototype: <span style="color:#059669;">'Figma/PO-Collection-Draft-v2'</span>,<br>
           &nbsp;&nbsp;floorplan: <span style="color:#059669;">'StandardListReport'</span>,<br>
           &nbsp;&nbsp;endpoint: <span style="color:#059669;">'/api/v1/actuarial/currencies'</span>,<br>
           &nbsp;&nbsp;frozenRight: [<span style="color:#059669;">'actions'</span>],<br>
