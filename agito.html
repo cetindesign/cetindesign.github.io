@@ -408,146 +408,69 @@
       Rather than arguing philosophically or resigning to the role of a draftsman, I executed a strategic pivot: I transformed the CTO's requested "grocery list" into a <strong>Figma-Deep vs. Code-Deep Technical Debt Risk Matrix</strong>. By evaluating every single component through its architectural divergence from Ant Design’s native React API, I mathematically proved that coding directly from the agency’s decorative mockups would inflict a <strong>3x velocity penalty</strong> on frontend engineering through incessant CSS overrides and DOM restructuring.
     </p>
 
-    <!-- REALISTIC EXECUTIVE MATRIX: FIGMA-DEEP VS CODE-DEEP -->
+    <!-- EXECUTIVE RISK AUDIT CARD: FIGMA-DEEP VS CODE-DEEP -->
     <div style="margin:2rem 0; border:1px solid #e4e4e7; border-radius:8px; overflow:hidden; background:#ffffff;">
-      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.6rem 1rem;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:#fafafa; border-bottom:1px solid #e4e4e7; padding:0.65rem 1.15rem;">
         <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; font-weight:500; color:#71717a;">Executive Risk Audit · Submitted to CTO &amp; Engineering Leads</span>
-        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#b91c1c; background:#fef2f2; border:1px solid #fecaca; padding:2px 6px; border-radius:3px; font-weight:600;">3X VELOCITY PENALTY DETECTED</span>
+        <span style="font-family:ui-monospace,monospace; font-size:10px; color:#b91c1c; background:#fef2f2; border:1px solid #fecaca; padding:2px 8px; border-radius:3px; font-weight:600;">3X VELOCITY RISK DETECTED</span>
       </div>
-      <div style="overflow-x:auto;">
-        <table style="width:100%; border-collapse:collapse; font-size:12.5px; text-align:left;">
-          <thead>
-            <tr style="background:#fcfcfc;">
-              <th style="padding:0.65rem 0.85rem; border-bottom:1px solid #e4e4e7; color:#18181b; font-weight:600; font-size:11.5px; width:16%;">Component Specimen</th>
-              <th style="padding:0.65rem 0.85rem; border-bottom:1px solid #e4e4e7; color:#71717a; font-weight:600; font-size:11.5px; width:22%;">Agency Concept (Figma-Deep)</th>
-              <th style="padding:0.65rem 0.85rem; border-bottom:1px solid #e4e4e7; color:#71717a; font-weight:600; font-size:11.5px; width:18%;">Ant Design v5 Target</th>
-              <th style="padding:0.65rem 0.85rem; border-bottom:1px solid #e4e4e7; color:#71717a; font-weight:600; font-size:11.5px; width:26%;">Architectural Debt &amp; Friction</th>
-              <th style="padding:0.65rem 0.85rem; border-bottom:1px solid #e4e4e7; color:#18181b; font-weight:600; font-size:11.5px; width:18%;">Velocity &amp; Resolution</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <strong style="color:#18181b; display:block;">Action Buttons</strong>
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">Core Actions</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Pill shape &amp; 7px radii. Arbitrary 13px padding. Hardcoded hex (<code>#7B3FE4</code>). Static vector with zero Hover, Active, Disabled, or Loading states.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; font-family:ui-monospace,monospace; font-size:11.5px; color:#18181b;">
-                &lt;Button type="primary" /&gt;
-                <span style="display:block; font-size:10.5px; color:#71717a; margin-top:2px;">token.colorPrimary</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Missing 6 lifecycle states. Coding directly requires writing custom CSS class overrides for every button variant and manual JS for loading spinners.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#b91c1c; font-weight:600; background:#fef2f2; padding:1px 5px; border-radius:3px;">2.5x Effort</span>
-                <span style="display:block; font-size:11px; color:#059669; margin-top:4px; font-weight:500;">Bound to agitoTheme; native loading/disabled props preserved out-of-the-box.</span>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <strong style="color:#18181b; display:block;">High-Density Ledger</strong>
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">Data Display</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Fixed 1440px canvas. Hardcoded cell positions. Missing column sorting, pagination controls, horizontal scroll constraints, and empty states.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; font-family:ui-monospace,monospace; font-size:11.5px; color:#18181b;">
-                &lt;Table columns={...} /&gt;
-                <span style="display:block; font-size:10.5px; color:#71717a; margin-top:2px;">scroll={{ x: 1400 }}</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Un-virtualized DOM layout. Completely breaks when populated with 18-column actuarial data. Engineering forced to hand-craft responsive wrappers.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#b91c1c; font-weight:600; background:#fef2f2; padding:1px 5px; border-radius:3px;">3.0x Effort</span>
-                <span style="display:block; font-size:11px; color:#059669; margin-top:4px; font-weight:500;">Direct AntD columns API mapping + Pinned Right Column floorplan. 0 CSS overrides.</span>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <strong style="color:#18181b; display:block;">Form Validation</strong>
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">Data Entry</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Floating cards with 37px input heights (breaking 8pt grid). Zero inline error messages, helper text, focus rings, or disabled field styling.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; font-family:ui-monospace,monospace; font-size:11.5px; color:#18181b;">
-                &lt;Form.Item status="..." /&gt;
-                <span style="display:block; font-size:10.5px; color:#71717a; margin-top:2px;">40px Floating Label</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Disconnected DOM hierarchy between label, input, and validation nodes. Devs must build custom React validation wrapper components from scratch.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#b91c1c; font-weight:600; background:#fef2f2; padding:1px 5px; border-radius:3px;">3.0x Effort</span>
-                <span style="display:block; font-size:11px; color:#059669; margin-top:4px; font-weight:500;">Locked to 40px floating-label pattern. AntD status API handles errors natively.</span>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <strong style="color:#18181b; display:block;">Overlays &amp; Drawers</strong>
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">Feedback / Nav</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Misnamed "Sidepanel". Hardcoded z-index. Drawn as detached floating rectangles with no backdrop mask, ESC key trap, or scroll lock.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; font-family:ui-monospace,monospace; font-size:11.5px; color:#18181b;">
-                &lt;Drawer open={...} /&gt;
-                <span style="display:block; font-size:10.5px; color:#71717a; margin-top:2px;">Standard Width S/M/L</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Accessibility and DOM tree violation. Implementing without AntD requires developers to hand-code modal focus traps and window listeners.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#b91c1c; font-weight:600; background:#fef2f2; padding:1px 5px; border-radius:3px;">2.5x Effort</span>
-                <span style="display:block; font-size:11px; color:#059669; margin-top:4px; font-weight:500;">Normalized to native &lt;Drawer&gt;. Pre-configured S/M/L width token constraints.</span>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <strong style="color:#18181b; display:block;">Alerts &amp; Notifications</strong>
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">Feedback</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Flat text boxes with only 2 generic Figma properties (Property 1/2). Zero dismiss triggers, action slots, or semantic severity icons.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; font-family:ui-monospace,monospace; font-size:11.5px; color:#18181b;">
-                &lt;Alert showIcon closable /&gt;
-                <span style="display:block; font-size:10.5px; color:#71717a; margin-top:2px;">Semantic Status Tokens</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6; color:#52525b;">
-                Zero API depth. Developers must invent custom dismissal logic and icon alignments across 14 products instead of leveraging tested framework APIs.
-              </td>
-              <td style="padding:0.75rem 0.85rem; border-bottom:1px solid #f4f4f6;">
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#b91c1c; font-weight:600; background:#fef2f2; padding:1px 5px; border-radius:3px;">2.0x Effort</span>
-                <span style="display:block; font-size:11px; color:#059669; margin-top:4px; font-weight:500;">Direct AntD Alert binding. Semantic colors governed by core.json tokens.</span>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0.75rem 0.85rem;">
-                <strong style="color:#18181b; display:block;">Core UX: Search &amp; Filter</strong>
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">Custom Pattern</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; color:#52525b;">
-                Ad-hoc filter bars scattered randomly across 87 screens with varying heights, bespoke dropdown icons, and no clear query or reset model.
-              </td>
-              <td style="padding:0.75rem 0.85rem; font-family:ui-monospace,monospace; font-size:11.5px; color:#18181b;">
-                Master Filter Floorplan
-                <span style="display:block; font-size:10.5px; color:#71717a; margin-top:2px;">&lt;Space&gt; + &lt;Input.Search&gt;</span>
-              </td>
-              <td style="padding:0.75rem 0.85rem; color:#52525b;">
-                Without a unified pattern, 8 different backend squads would code 8 incompatible query params and filter lifecycles.
-              </td>
-              <td style="padding:0.75rem 0.85rem;">
-                <span style="font-family:ui-monospace,monospace; font-size:11px; color:#b91c1c; font-weight:600; background:#fef2f2; padding:1px 5px; border-radius:3px;">3.5x Effort</span>
-                <span style="display:block; font-size:11px; color:#059669; margin-top:4px; font-weight:500;">Abstracted into Master Filter Floorplan. Built once, reused across 100% of screens.</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      
+      <!-- AUDIT METRIC STRIP -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:1px; background:#e4e4e7; border-bottom:1px solid #e4e4e7;">
+        <div style="background:#ffffff; padding:0.85rem 1rem;">
+          <span style="display:block; font-size:11px; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">Audited Scope</span>
+          <strong style="display:block; font-size:18px; color:#18181b; font-weight:600; margin-top:2px;">87 Screens</strong>
+          <span style="font-size:11px; color:#a1a1aa;">4 Core Modules</span>
+        </div>
+        <div style="background:#ffffff; padding:0.85rem 1rem;">
+          <span style="display:block; font-size:11px; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">Native Code Parity</span>
+          <strong style="display:block; font-size:18px; color:#b91c1c; font-weight:600; margin-top:2px;">0% (Pure Concept)</strong>
+          <span style="font-size:11px; color:#a1a1aa;">Zero usable tokens</span>
+        </div>
+        <div style="background:#ffffff; padding:0.85rem 1rem;">
+          <span style="display:block; font-size:11px; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">Projected Dev Friction</span>
+          <strong style="display:block; font-size:18px; color:#b91c1c; font-weight:600; margin-top:2px;">3x Velocity Penalty</strong>
+          <span style="font-size:11px; color:#a1a1aa;">Per-screen CSS overrides</span>
+        </div>
+        <div style="background:#ffffff; padding:0.85rem 1rem;">
+          <span style="display:block; font-size:11px; color:#71717a; text-transform:uppercase; letter-spacing:0.04em;">Strategic Remedy</span>
+          <strong style="display:block; font-size:18px; color:#059669; font-weight:600; margin-top:2px;">Zero-Override AntD</strong>
+          <span style="font-size:11px; color:#a1a1aa;">Single Source of Truth</span>
+        </div>
+      </div>
+
+      <!-- 3 PUNCHY STRATEGIC COMPARISON ROWS -->
+      <div style="padding:1.15rem;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; font-size:13px; line-height:1.5;">
+          <div style="background:#fafafa; border:1px solid #f4f4f6; border-radius:6px; padding:0.85rem 1rem;">
+            <div style="display:flex; align-items:center; gap:0.4rem; margin-bottom:0.4rem;">
+              <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#ef4444;"></span>
+              <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:#71717a;">The Agency Deliverable (Figma-Deep)</strong>
+            </div>
+            <p style="margin:0; font-size:13px; color:#52525b;">
+              <strong>Surface Concept:</strong> 87 flat vector artboards with hardcoded hex values, non-standard 8pt metrics, and zero interaction lifecycle states (no hover, active, disabled, loading, or empty states).
+            </p>
+          </div>
+          
+          <div style="background:#fafafa; border:1px solid #f4f4f6; border-radius:6px; padding:0.85rem 1rem;">
+            <div style="display:flex; align-items:center; gap:0.4rem; margin-bottom:0.4rem;">
+              <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#22c55e;"></span>
+              <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:#18181b;">The Agito Architecture (Code-Deep)</strong>
+            </div>
+            <p style="margin:0; font-size:13px; color:#52525b;">
+              <strong>Engineering Contract:</strong> 100% Native Ant Design v5 API binding. Agency visual identity isolated strictly into Design Tokens (<code>core.json</code>) and standardized floorplans. Zero CSS overrides.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top:0.85rem; padding-top:0.85rem; border-top:1px solid #f4f4f6; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
+          <span style="font-size:12.5px; color:#71717a;">
+            <strong>Executive Takeaway:</strong> Reframed the design handoff from a visual approval debate into an engineering capacity safeguard.
+          </span>
+          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#059669; font-weight:500;">
+            Estimated savings: ~1,200 dev hours avoided
+          </span>
+        </div>
       </div>
     </div>
 
