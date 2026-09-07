@@ -417,33 +417,6 @@
       font-size: 10px;
       line-height: 1;
     }
-    .specimen-tab-btn {
-      font-family: ui-monospace, monospace;
-      font-size: 10px;
-      padding: 3px 8px;
-      border: 1px solid #e4e4e7;
-      background: #ffffff;
-      color: #71717a;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .specimen-tab-btn:hover {
-      color: #18181b;
-      border-color: #a1a1aa;
-    }
-    .specimen-tab-btn.active {
-      background: #18181b;
-      color: #ffffff;
-      border-color: #18181b;
-      font-weight: 600;
-    }
-    .specimen-tab-pane {
-      display: none;
-    }
-    .specimen-tab-pane.active {
-      display: block;
-    }
     @media (max-width: 768px) {
       .token-sim-toolbar {
         flex-direction: column;
@@ -886,7 +859,7 @@
       <div class="hud-header">DECISIONS ELIMINATED</div>
       <div class="hud-metrics">
         <div class="hud-metric-item" id="hud-m-01"><span class="hud-check">○</span> Retainer: $0</div>
-        <div class="hud-metric-item" id="hud-m-02"><span class="hud-check">○</span> Custom CSS: 0 LOC</div>
+        <div class="hud-metric-item" id="hud-m-02"><span class="hud-check">○</span> CSS Overrides: 0</div>
         <div class="hud-metric-item" id="hud-m-03"><span class="hud-check">○</span> Gate: 70% Cut</div>
         <div class="hud-metric-item" id="hud-m-04"><span class="hud-check">○</span> Dev Drag: -82%</div>
         <div class="hud-metric-item" id="hud-m-05"><span class="hud-check">○</span> Scroll: 100vh Lock</div>
@@ -1168,7 +1141,7 @@
     <h2 id="sec-02">02. The Handover of the Ruins &amp; The Code Epiphany</h2>
     <div class="bottom-line-strip">
       <span class="bl-tag">02 · DECISION REMOVED</span>
-      <span class="bl-text">Eliminated 420 LOC bespoke CSS per view; enforced zero-override Ant Design 6 token contracts.</span>
+      <span class="bl-text">Eliminated ad-hoc geometry and bespoke CSS debt; enforced zero-override Ant Design 6 token contracts.</span>
     </div>
     <p>
       Following executive alignment on the architectural risk model, the transition from agency engagement to internal systems architecture exposed the structural gap between static Figma files and production software engineering.
@@ -1190,7 +1163,7 @@
           <tr>
             <td><strong>Component Tokens</strong></td>
             <td>Arbitrary hex colors, bespoke padding (13px, 19px), disconnected fonts</td>
-            <td>Impossible to tokenize; required writing raw custom CSS classes for every single button and table cell</td>
+            <td>Impossible to tokenize; required bespoke styling overrides for every single screen element</td>
           </tr>
           <tr>
             <td><strong>Framework Feasibility</strong></td>
@@ -1211,130 +1184,105 @@
       </table>
     </div>
 
-    <!-- GAVIN NELSON ARCHITECTURAL BREAKOUT: DELIVERY CONTRAST -->
+    <!-- ARCHITECTURAL SPECIMEN: DELIVERY CONTRAST & INVARIANT ANALYSIS -->
     <div class="bleed-canvas">
       <div class="bleed-header">
         <div style="display:flex; align-items:center; gap:0.5rem;">
-          <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 6px; border-radius:3px; font-weight:600;">CODE AUDIT</span>
-          <span style="color:#18181b; font-weight:600; margin-left:0.25rem;">Architectural Specimen · Token &amp; Schema Parity Analysis</span>
+          <span style="font-family:ui-monospace,monospace; font-size:10px; color:#5D2BC7; background:#f5f3ff; border:1px solid #ddd6fe; padding:2px 6px; border-radius:3px; font-weight:600;">SYSTEM INVARIANT</span>
+          <span style="color:#18181b; font-weight:600; margin-left:0.25rem;">Architectural Specimen · Delivery Contrast &amp; Invariant Analysis</span>
         </div>
-        <div style="display:flex; align-items:center; gap:6px;">
-          <button type="button" class="specimen-tab-btn active" data-target="specimen-tab-ast">Code AST Diff</button>
-          <button type="button" class="specimen-tab-btn" data-target="specimen-tab-dom">Component Token Parity</button>
-        </div>
+        <span style="font-family:ui-monospace,monospace; font-size:10.5px; color:#71717a;">Contract Governance</span>
       </div>
 
       <div class="bleed-card">
-        <!-- TAB 1: CODE AST DIFF -->
-        <div id="specimen-tab-ast" class="specimen-tab-pane active">
-          <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #e4e4e7;">
-            <div style="padding:1.25rem; border-right:1px solid #e4e4e7; background:#fafafa;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #e4e4e7;">
+          <!-- LEFT: AGENCY AD-HOC PRIMITIVE -->
+          <div style="padding:1.25rem; border-right:1px solid #e4e4e7; background:#fafafa;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+              <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#dc2626;">01 · Agency Ad-Hoc Vector</span>
+              <span style="font-size:10px; background:#fee2e2; color:#991b1b; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">DETACHED</span>
+            </div>
+            
+            <div style="background:#ffffff; border:1px solid #fecaca; border-radius:4px; padding:1rem; margin-bottom:0.85rem;">
               <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-                <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#dc2626;">01. Agency Anti-Pattern (420 LOC)</span>
-                <span style="font-size:10px; background:#fee2e2; color:#991b1b; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">FATAL DEBT</span>
+                <span class="cad-dim">Ad-Hoc Button (38px · Pad: 13x21)</span>
+                <span class="cad-dim">Hex: #7B3FE4</span>
               </div>
-              <pre style="margin:0; padding:0.85rem; background:#ffffff; border:1px solid #fecaca; border-radius:4px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; line-height:1.55; color:#7f1d1d; overflow-x:auto;"><code>/* legacy-screen-04.css · 420 LOC */
-.policy-submit-btn {
-  background: #7B3FE4 !important; /* ad-hoc hex */
-  padding: 13px 21px; /* arbitrary eyeballing */
-  border-radius: 9px;
-  box-shadow: 0 4px 14px rgba(123,63,228,.3);
-}
-.custom-table-cell {
-  overflow: hidden; /* truncates 18-digit IBAN */
-  height: 48px; /* breaks on 1080p viewport */
-}</code></pre>
-              <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
-                <strong style="color:#18181b;">Failure Mode:</strong> Zero token inheritance, ad-hoc hex sprawl, tables truncate critical financial identifiers on real production databases.
+              <div style="height:38px; background:#7B3FE4; border-radius:9px; box-shadow:0 4px 14px rgba(123,63,228,.3); display:flex; align-items:center; justify-content:center; color:#ffffff; font-size:12px; font-weight:500; margin-bottom:0.75rem;">
+                Submit Policy Application
+              </div>
+              <div style="display:flex; justify-content:space-between; font-family:ui-monospace,monospace; font-size:9.5px; color:#b91c1c;">
+                <span>|← 13px top/bottom · 21px left/right →|</span>
+                <span>Radius: 9px · Eyeballed</span>
               </div>
             </div>
 
-            <div style="padding:1.25rem; background:#ffffff;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-                <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#18181b;">02. Agito Control System (DTCG)</span>
-                <span style="font-size:10px; background:#f4f4f6; color:#047857; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">ZERO OVERRIDE</span>
+            <!-- INVARIANT BREAKDOWN TABLE -->
+            <div style="font-size:11.5px; line-height:1.6; color:#52525b;">
+              <div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:0.5px solid #fecaca;">
+                <span style="color:#71717a;">Token Contract:</span>
+                <strong style="color:#dc2626;">None (Detached Hex #7B3FE4)</strong>
               </div>
-              <pre style="margin:0; padding:0.85rem; background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; line-height:1.55; color:#18181b; overflow-x:auto;"><code>// packages/tokens/core.json -> agitoTheme
-{
-  "token": {
-    "colorPrimary": "#5D2BC7",
-    "controlHeight": 32,
-    "borderRadius": 4,
-    "wireframe": false
-  },
-  "components": {
-    "Table": { "cellPaddingBlock": 8 },
-    "Form": { "controlHeight": 40 }
-  }
-}</code></pre>
-              <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
-                <strong style="color:#18181b;">System Leverage:</strong> 0 LOC custom CSS. Tokens compile directly into Ant Design 6 ConfigProvider, driving all 14 platforms deterministically.
+              <div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:0.5px solid #fecaca;">
+                <span style="color:#71717a;">Grid Geometry:</span>
+                <strong style="color:#dc2626;">Arbitrary (38px breaks 8px base grid)</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:0.5px solid #fecaca;">
+                <span style="color:#71717a;">State Machine:</span>
+                <strong style="color:#dc2626;">1 State (Happy-path only; 0 edge states)</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0;">
+                <span style="color:#71717a;">Engineering Cost:</span>
+                <strong style="color:#dc2626;">Forces bespoke CSS overrides per screen</strong>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- TAB 2: COMPONENT TOKEN PARITY SPECIMEN -->
-        <div id="specimen-tab-dom" class="specimen-tab-pane">
-          <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #e4e4e7;">
-            <!-- LEFT: AGENCY AD-HOC PRIMITIVE -->
-            <div style="padding:1.25rem; border-right:1px solid #e4e4e7; background:#fafafa;">
+          <!-- RIGHT: AGITO TOKENIZED PRIMITIVE -->
+          <div style="padding:1.25rem; background:#ffffff;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+              <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#18181b;">02 · Agito Deterministic Contract</span>
+              <span style="font-size:10px; background:#f4f4f6; color:#047857; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">ZERO OVERRIDE</span>
+            </div>
+            
+            <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:1rem; margin-bottom:0.85rem;">
               <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-                <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#dc2626;">01. Agency Ad-Hoc Primitive</span>
-                <span style="font-size:10px; background:#fee2e2; color:#991b1b; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">DETACHED</span>
+                <span class="cad-dim">AntD Primary (32px · Pad: 8x15)</span>
+                <span class="cad-dim">--token-primary: #5D2BC7</span>
               </div>
-              
-              <!-- FIGMA ASSET DROP-IN: Replace inner SVG or insert <img src="..." alt="Agency Component" style="width:100%; height:auto;" /> -->
-              <div style="background:#ffffff; border:1px solid #fecaca; border-radius:4px; padding:1rem; position:relative;">
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-                  <span class="cad-dim">Ad-Hoc Button (38px · Pad: 13x21)</span>
-                  <span class="cad-dim">Hex: #7B3FE4</span>
-                </div>
-                <div style="height:38px; background:#7B3FE4; border-radius:9px; box-shadow:0 4px 14px rgba(123,63,228,.3); display:flex; align-items:center; justify-content:center; color:#ffffff; font-size:12px; font-weight:500; margin-bottom:0.75rem;">
-                  Submit Policy Application
-                </div>
-                <div style="display:flex; justify-content:space-between; font-family:ui-monospace,monospace; font-size:9px; color:#b91c1c;">
-                  <span>|← 13px top/bottom · 21px left/right →|</span>
-                  <span>Radius: 9px</span>
-                </div>
+              <div style="height:32px; background:#5D2BC7; border-radius:4px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-size:12px; font-weight:500; margin-bottom:0.75rem;">
+                Submit Policy Application
               </div>
-
-              <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
-                <strong style="color:#18181b;">Failure Mode:</strong> Detached from framework primitives; forces engineers into bespoke CSS overrides and broken hover/disabled states.
+              <div style="display:flex; justify-content:space-between; font-family:ui-monospace,monospace; font-size:9.5px; color:#5D2BC7;">
+                <span>|← 32px height · 8px base grid →|</span>
+                <span>Radius: 4px · 6 Lifecycle States</span>
               </div>
             </div>
 
-            <!-- RIGHT: AGITO TOKENIZED PRIMITIVE -->
-            <div style="padding:1.25rem; background:#ffffff;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-                <span style="font-family:ui-monospace,monospace; font-size:11.5px; font-weight:600; color:#18181b;">02. Agito Deterministic Contract</span>
-                <span style="font-size:10px; background:#f4f4f6; color:#047857; padding:2px 6px; border-radius:3px; font-family:ui-monospace,monospace; font-weight:600;">ZERO OVERRIDE</span>
+            <!-- INVARIANT BREAKDOWN TABLE -->
+            <div style="font-size:11.5px; line-height:1.6; color:#52525b;">
+              <div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:0.5px solid #e4e4e7;">
+                <span style="color:#71717a;">Token Contract:</span>
+                <strong style="color:#047857;">100% DTCG Token Inheritance</strong>
               </div>
-              
-              <!-- FIGMA ASSET DROP-IN: Replace inner SVG or insert <img src="..." alt="Agito Component" style="width:100%; height:auto;" /> -->
-              <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:1rem; position:relative;">
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-                  <span class="cad-dim">AntD Primary (32px · Pad: 8x15)</span>
-                  <span class="cad-dim">--token-primary: #5D2BC7</span>
-                </div>
-                <div style="height:32px; background:#5D2BC7; border-radius:4px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-size:12px; font-weight:500; margin-bottom:0.75rem;">
-                  Submit Policy Application
-                </div>
-                <div style="display:flex; justify-content:space-between; font-family:ui-monospace,monospace; font-size:9px; color:#5D2BC7;">
-                  <span>|← 32px height · 8px base grid →|</span>
-                  <span>Radius: 4px · 6 Lifecycle States</span>
-                </div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:0.5px solid #e4e4e7;">
+                <span style="color:#71717a;">Grid Geometry:</span>
+                <strong style="color:#047857;">Deterministic (32px / 8px grid locked)</strong>
               </div>
-
-              <div style="margin-top:0.75rem; font-size:11.5px; color:#71717a; line-height:1.4;">
-                <strong style="color:#18181b;">System Leverage:</strong> 100% theme token inheritance. Out-of-the-box support for Hover, Active, Focus, Disabled, and Loading states.
+              <div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:0.5px solid #e4e4e7;">
+                <span style="color:#71717a;">State Machine:</span>
+                <strong style="color:#047857;">6 States (Hover, Active, Focus, Disabled, Loading)</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0;">
+                <span style="color:#71717a;">Engineering Cost:</span>
+                <strong style="color:#047857;">Zero CSS overrides; native Ant Design 6 runtime</strong>
               </div>
             </div>
           </div>
         </div>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); padding:0.85rem 1.25rem; background:#ffffff; font-family:ui-monospace,monospace; font-size:11px; gap:0.5rem;">
-          <div><span style="color:#a1a1aa;">Custom CSS:</span> <strong style="color:#18181b;">420 LOC ➔ 0 LOC</strong></div>
+          <div><span style="color:#a1a1aa;">CSS Overrides:</span> <strong style="color:#18181b;">Bespoke Debt ➔ Zero Overrides</strong></div>
           <div><span style="color:#a1a1aa;">Dev Time / View:</span> <strong style="color:#18181b;">14h ➔ 2.5h (-82%)</strong></div>
           <div><span style="color:#a1a1aa;">Agency Retainer:</span> <strong style="color:#18181b;">~$180k/yr ➔ $0</strong></div>
           <div><span style="color:#a1a1aa;">System Drift:</span> <strong style="color:#18181b;">Zero</strong></div>
@@ -1461,20 +1409,28 @@
         </div>
       </div>
 
-      <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:0.85rem 1rem; font-family:ui-monospace,monospace; font-size:11.5px; color:#52525b; line-height:1.6;">
-        <span style="color:#a1a1aa;">// modules/parametre/src/CurrencyParameterView.tsx · Production Contract</span><br>
-        <span style="color:#5D2BC7;">import</span> { StandardListFloorplan } <span style="color:#5D2BC7;">from</span> <span style="color:#059669;">'@agito/ui'</span>;<br>
-        <span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">CurrencyParameterView</span> = () =&gt; (<br>
-        &nbsp;&nbsp;&lt;<span style="color:#18181b; font-weight:600;">StandardListFloorplan</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;title=<span style="color:#059669;">"Currencies &amp; Exchange Rates"</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;endpoint=<span style="color:#059669;">"/api/v1/parameters/currencies"</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;tableProps={{<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowKey: <span style="color:#059669;">"currencyCode"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scroll: { y: <span style="color:#059669;">"calc(100vh - 240px)"</span> },<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: currencyColumns <span style="color:#a1a1aa;">/* Frozen action column locked via token */</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;}}<br>
-        &nbsp;&nbsp;/&gt;<br>
-        );
+      <!-- PO NORMALIZATION SPECIFICATION MATRIX (FINANCIAL LEDGER) -->
+      <div style="background:#ffffff; border:1px solid #e4e4e7; border-radius:4px; overflow:hidden;">
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:0.6rem 1rem; background:#fafafa; border-bottom:1px solid #e4e4e7;">
+          <span style="font-family:ui-monospace,monospace; font-size:10px; font-weight:600; color:#18181b; text-transform:uppercase; letter-spacing:0.04em;">PO Normalization Specification Matrix · Currency Domain View</span>
+          <span style="font-family:ui-monospace,monospace; font-size:10px; color:#047857; font-weight:600;">STATUS: ARCHITECTURALLY LOCKED</span>
+        </div>
+        <div class="keynote-ledger-row" style="padding:0.75rem 1rem;">
+          <div class="keynote-ledger-key">DOMAIN INTENT</div>
+          <div class="keynote-ledger-val"><strong>High-Density Actuarial Admin:</strong> Global currencies, FX spot rates, effective margins, and multi-currency exchange parameters.</div>
+        </div>
+        <div class="keynote-ledger-row" style="padding:0.75rem 1rem;">
+          <div class="keynote-ledger-key">INVARIANT MAPPING</div>
+          <div class="keynote-ledger-val"><strong>Floorplan 02 (Standard Master-Detail List):</strong> Stripped un-tokenized padding; mapped to 100vh locked container with internal vertical scrolling.</div>
+        </div>
+        <div class="keynote-ledger-row" style="padding:0.75rem 1rem;">
+          <div class="keynote-ledger-key">LAYOUT CONTRACT</div>
+          <div class="keynote-ledger-val"><strong>Deterministic Dimensions:</strong> Pinned TopBar (48px) + Filter Strip (56px) + Table Header (40px) + Frozen Sticky Action Column.</div>
+        </div>
+        <div class="keynote-ledger-row" style="padding:0.75rem 1rem; border-bottom:none;">
+          <div class="keynote-ledger-key">SYSTEM OUTCOME</div>
+          <div class="keynote-ledger-val"><strong>Zero Decision Debt:</strong> 0 hand-drawn mockups; 0 bespoke CSS classes; squad builds directly against Ant Design 6 token contracts in 2.5h.</div>
+        </div>
       </div>
     </div>
 
@@ -1611,14 +1567,14 @@
       <div class="keynote-ledger-row">
         <div class="keynote-ledger-key">TACTICAL PRODUCTION (TRACK A)</div>
         <div class="keynote-ledger-val">
-          <strong>Continuous Sprint Lead:</strong> Architecture delivers production contracts exactly 1 sprint ahead of engineering squads. Frontend developers pull verified <code>StandardListFloorplan</code> and <code>EntityDetailFloorplan</code> templates with zero missing edge states.
+          <strong>Continuous Sprint Lead:</strong> Architecture delivers production contracts exactly 1 sprint ahead of engineering squads. Frontend squads build directly against verified Standard List and Entity Detail floorplan specifications with zero missing edge states.
         </div>
       </div>
 
       <div class="keynote-ledger-row">
         <div class="keynote-ledger-key">SYSTEM HARDENING (TRACK B)</div>
         <div class="keynote-ledger-val">
-          <strong>Bi-Monthly Output Freeze:</strong> Halts new screen intake for 14 days. Mines the 40 shipped views for recurring patterns, stress-tests Ant Design React API limits, and extracts reusable compound primitives into <code>@agito/ui</code>.
+          <strong>Bi-Monthly Output Freeze:</strong> Halts new screen intake for 14 days. Mines the 40 shipped views for recurring patterns, stress-tests component boundaries, and codifies reusable compound primitives into <code>@agito/ui</code>.
         </div>
       </div>
     </div>
@@ -2202,52 +2158,61 @@
         </span>
       </div>
 
-      <!-- 3-COLUMN ARCHITECTURAL CONTRACT EQUATION -->
-      <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:stretch; gap:1.5rem; margin-bottom:1.5rem;">
-        <!-- SOURCE: CORE.JSON -->
+      <!-- 3-TIER SEMANTIC TOKEN GOVERNANCE ARCHITECTURE -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1rem; margin-bottom:1.5rem;">
+        <!-- TIER 1: GLOBAL PRIMITIVES -->
         <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:1.25rem;">
-          <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:4px;">01 · SOURCE SPECIFICATION (DTCG JSON)</div>
-          <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.75rem;">packages/tokens/core.json</div>
-          <pre style="margin:0; font-family:ui-monospace,monospace; font-size:11px; line-height:1.6; color:#18181b;"><code>{
-  <span style="color:#5D2BC7;">"color"</span>: {
-    <span style="color:#5D2BC7;">"primary"</span>: { <span style="color:#059669;">"value"</span>: <span style="color:#059669;">"#5D2BC7"</span> }
-  },
-  <span style="color:#5D2BC7;">"size"</span>: {
-    <span style="color:#5D2BC7;">"controlHeight"</span>: { <span style="color:#09734e;">32</span> },
-    <span style="color:#5D2BC7;">"radius"</span>: { <span style="color:#09734e;">4</span> }
-  }
-}</code></pre>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; font-weight:600;">TIER 1 · PRIMITIVES</span>
+            <span style="font-size:9.5px; font-family:ui-monospace,monospace; background:#e4e4e7; color:#3f3f46; padding:1px 5px; border-radius:3px; font-weight:600;">SOURCE</span>
+          </div>
+          <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.5rem;">Global Token Source</div>
+          <div style="font-size:11px; color:#71717a; margin-bottom:1rem; line-height:1.4;">Raw platform-agnostic mathematical invariants defined in <code>core.json</code> adhering to DTCG standards.</div>
+          
+          <div style="font-family:ui-monospace,monospace; font-size:10.5px; line-height:1.7; background:#ffffff; border:1px solid #e4e4e7; border-radius:3px; padding:0.6rem 0.75rem;">
+            <div style="display:flex; justify-content:space-between;"><span style="color:#71717a;">color.violet.600</span> <strong style="color:#5D2BC7;">#5D2BC7</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span style="color:#71717a;">size.grid.base</span> <strong style="color:#18181b;">8px</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span style="color:#71717a;">size.radius.sm</span> <strong style="color:#18181b;">4px</strong></div>
+          </div>
         </div>
 
-        <!-- COMPILER BRIDGE -->
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:ui-monospace,monospace; font-size:10px; color:#71717a; text-align:center; padding:0 0.5rem;">
-          <span style="font-size:16px; color:#5D2BC7; margin-bottom:4px;">➔</span>
-          <span style="font-weight:600; color:#18181b;">Style Dictionary</span>
-          <span>Build Pipeline</span>
-          <span style="color:#a1a1aa; font-size:9.5px; margin-top:4px;">TypeScript + CSS Vars</span>
+        <!-- TIER 2: SEMANTIC INTENT -->
+        <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:1.25rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; font-weight:600;">TIER 2 · SEMANTIC INTENT</span>
+            <span style="font-size:9.5px; font-family:ui-monospace,monospace; background:#ddd6fe; color:#5D2BC7; padding:1px 5px; border-radius:3px; font-weight:600;">GOVERNANCE</span>
+          </div>
+          <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.5rem;">Semantic Role Aliases</div>
+          <div style="font-size:11px; color:#71717a; margin-bottom:1rem; line-height:1.4;">Functional aliases mapping purpose to primitives, completely decoupling intent from vendor UI libraries.</div>
+          
+          <div style="font-family:ui-monospace,monospace; font-size:10.5px; line-height:1.7; background:#ffffff; border:1px solid #e4e4e7; border-radius:3px; padding:0.6rem 0.75rem;">
+            <div style="display:flex; justify-content:space-between;"><span style="color:#71717a;">color.brand.primary</span> <span style="color:#5D2BC7; font-weight:600;">➔ violet.600</span></div>
+            <div style="display:flex; justify-content:space-between;"><span style="color:#71717a;">control.height.action</span> <span style="color:#18181b; font-weight:600;">➔ 32px</span></div>
+            <div style="display:flex; justify-content:space-between;"><span style="color:#71717a;">control.height.form</span> <span style="color:#18181b; font-weight:600;">➔ 40px</span></div>
+          </div>
         </div>
 
-        <!-- RUNTIME: AGITOTHEME -->
+        <!-- TIER 3: MULTI-PRODUCT PROPAGATION -->
         <div style="background:#fafafa; border:1px solid #e4e4e7; border-radius:4px; padding:1.25rem;">
-          <div style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; margin-bottom:4px;">02 · PRODUCTION RUNTIME (ANT DESIGN 6)</div>
-          <div style="font-size:13px; font-weight:600; color:#18181b; margin-bottom:0.75rem;">packages/ui/agitoTheme.ts</div>
-          <pre style="margin:0; font-family:ui-monospace,monospace; font-size:11px; line-height:1.6; color:#18181b;"><code><span style="color:#5D2BC7;">export const</span> <span style="color:#18181b; font-weight:600;">agitoTheme</span> = {
-  token: {
-    colorPrimary: <span style="color:#059669;">'#5D2BC7'</span>,
-    controlHeight: <span style="color:#09734e;">32</span>,
-    borderRadius: <span style="color:#09734e;">4</span>
-  },
-  components: {
-    Input: { controlHeight: <span style="color:#09734e;">40</span> }
-  }
-};</code></pre>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-family:ui-monospace,monospace; font-size:10px; color:#a1a1aa; font-weight:600;">TIER 3 · PROPAGATION</span>
+            <span style="font-size:9.5px; font-family:ui-monospace,monospace; background:#dcfce7; color:#047857; padding:1px 5px; border-radius:3px; font-weight:600;">14 PRODUCTS</span>
+          </div>
+          <div style="font-size:12.5px; font-weight:600; color:#18181b; margin-bottom:0.5rem;">Ant Design 6 Runtime</div>
+          <div style="font-size:11px; color:#71717a; margin-bottom:1rem; line-height:1.4;">Compiled directly into ConfigProvider theme contracts across 14 enterprise platforms with zero overrides.</div>
+          
+          <div style="font-family:ui-monospace,monospace; font-size:10.5px; line-height:1.7; background:#ffffff; border:1px solid #e4e4e7; border-radius:3px; padding:0.6rem 0.75rem;">
+            <div style="display:flex; justify-content:space-between;"><span style="color:#71717a;">Theme Scope:</span> <strong style="color:#047857;">Global ConfigProvider</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span style="color:#71717a;">Custom CSS:</span> <strong style="color:#047857;">0 Bespoke Overrides</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span style="color:#71717a;">Sync Latency:</span> <strong style="color:#047857;">Zero Drift via CI/CD</strong></div>
+          </div>
         </div>
       </div>
 
       <div class="keynote-ledger-row">
-        <div class="keynote-ledger-key">TOKEN PROPAGATION</div>
+        <div class="keynote-ledger-key">SYSTEM LEVERAGE</div>
         <div class="keynote-ledger-val">
-          <strong>14 Enterprise Products:</strong> Single token change in <code>core.json</code> automatically compiles typed definitions and re-skins all 14 platforms via CI/CD with 0 lines of bespoke CSS.
+          <strong>14 Enterprise Products:</strong> A single architectural token update in <code>core.json</code> automatically compiles and propagates across all 14 platforms via CI/CD with zero manual CSS refactoring.
         </div>
       </div>
     </div>
@@ -2337,8 +2302,8 @@
           </tr>
           <tr>
             <td><strong>Engineering Drag</strong></td>
-            <td style="color:#71717a;">420 LOC custom CSS per view; developers guess error states.</td>
-            <td><strong>0 LOC custom CSS</strong>; implementation drops from 14h to 2.5h (-82%).</td>
+            <td style="color:#71717a;">Bespoke CSS debt per view; developers guess missing edge states.</td>
+            <td><strong>Zero styling overrides</strong>; implementation drops from 14h to 2.5h (-82%).</td>
           </tr>
           <tr>
             <td><strong>Cost of Change</strong></td>
@@ -2501,24 +2466,6 @@
           });
         }
       }
-
-      // Generic Specimen Tab Switcher (e.g. Section 02 Code AST vs DOM Drift)
-      var tabButtons = document.querySelectorAll('.specimen-tab-btn');
-      tabButtons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var targetId = btn.getAttribute('data-target');
-          if (!targetId) return;
-          var container = btn.closest('.bleed-canvas');
-          if (!container) return;
-
-          container.querySelectorAll('.specimen-tab-btn').forEach(function(b) { b.classList.remove('active'); });
-          container.querySelectorAll('.specimen-tab-pane').forEach(function(p) { p.classList.remove('active'); });
-
-          btn.classList.add('active');
-          var targetPane = document.getElementById(targetId);
-          if (targetPane) targetPane.classList.add('active');
-        });
-      });
     })();
   </script>
 </body>
