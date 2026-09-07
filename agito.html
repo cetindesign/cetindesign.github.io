@@ -499,7 +499,7 @@
     .footer-next{ color:#000; text-decoration:none; font-weight:500; }
     .footer-next:hover{ text-decoration-color:#000; }
 
-    /* EXECUTIVE HUD & READING RADAR */
+    /* FLOATING CHAPTER DOCK (DYNAMIC SCRUBBER) */
     #reading-progress {
       position: fixed;
       top: 0;
@@ -511,108 +511,207 @@
       transition: width 0.05s linear;
     }
 
-    .executive-hud {
-      display: none;
+    .chapter-dock {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      pointer-events: auto;
     }
 
-    @media (min-width: 1200px) {
-      .executive-hud {
-        display: block;
-        position: fixed;
-        top: 5.5rem;
-        left: calc(50% + 23rem);
-        width: 175px;
-        z-index: 90;
-        pointer-events: auto;
-      }
-    }
-
-    .hud-inner {
+    .dock-pill {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 38px;
+      padding: 0 6px 0 8px;
       background: #ffffff;
-      border: 1px solid #e4e4e7;
-      border-radius: 6px;
-      padding: 0.85rem 0.95rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      border: 1px solid #18181b;
+      border-radius: 9999px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: 11px;
     }
 
-    .hud-header {
-      font-size: 9.5px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #a1a1aa;
-      margin-bottom: 0.45rem;
+    /* DESKTOP RAIL (>= 768px) */
+    .dock-desktop {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .dock-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      color: #71717a;
+      text-decoration: none;
+      border-radius: 9999px;
+      font-weight: 500;
+      font-size: 11px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .dock-step:hover {
+      color: #18181b;
+      background: #f4f4f6;
+    }
+
+    .dock-step-label {
+      display: none;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 11.5px;
       font-weight: 600;
     }
 
-    .hud-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
+    .dock-step.active {
+      background: #18181b;
+      color: #ffffff;
+      padding: 4px 10px;
     }
 
-    .hud-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .dock-step.active .dock-step-label {
+      display: inline;
+    }
+
+    .dock-step.active .dock-step-num {
+      color: #a1a1aa;
+    }
+
+    .dock-divider {
+      width: 1px;
+      height: 16px;
+      background: #e4e4e7;
+      margin: 0 4px;
+    }
+
+    .dock-progress {
+      font-size: 10.5px;
       color: #71717a;
-      text-decoration: none;
-      padding: 2px 0;
-      transition: color 0.15s ease;
+      font-weight: 600;
+      padding: 0 6px 0 2px;
+      min-width: 32px;
+      text-align: right;
     }
 
-    .hud-link:hover {
+    /* MOBILE CAPSULE (< 768px) */
+    .dock-mobile-btn {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: none;
+      padding: 0 6px;
       color: #18181b;
+      font-family: inherit;
+      font-size: 11px;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
-    .hud-dot {
-      width: 5px;
-      height: 5px;
+    .dock-mobile-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: #d4d4d8;
-      transition: all 0.2s ease;
+      background: #5D2BC7;
       flex-shrink: 0;
     }
 
-    .hud-link.active {
-      color: #18181b;
+    .dock-mobile-title {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12px;
       font-weight: 600;
+      color: #18181b;
     }
 
-    .hud-link.active .hud-dot {
-      background: #5D2BC7;
-      box-shadow: 0 0 0 2px rgba(93, 43, 199, 0.2);
-    }
-
-    .hud-divider {
-      border-top: 1px solid #f4f4f6;
-      margin: 0.75rem 0;
-    }
-
-    .hud-metrics {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
+    .dock-mobile-chevron {
+      font-size: 9px;
       color: #71717a;
-      font-size: 10px;
+      transition: transform 0.2s ease;
     }
 
-    .hud-metric-item {
+    .dock-mobile-btn.open .dock-mobile-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* MOBILE POPOVER SHEET */
+    .dock-sheet {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 290px;
+      background: #ffffff;
+      border: 1px solid #18181b;
+      border-radius: 8px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.14);
+      padding: 6px;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 1001;
+    }
+
+    .dock-sheet.open {
+      display: flex;
+    }
+
+    .dock-sheet-header {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #a1a1aa;
+      padding: 6px 10px 4px 10px;
+      border-bottom: 0.5px solid #e4e4e7;
+      margin-bottom: 4px;
+    }
+
+    .dock-sheet-item {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      transition: color 0.2s ease;
+      justify-content: space-between;
+      padding: 8px 10px;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #52525b;
+      font-size: 12px;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      transition: background 0.12s ease;
     }
 
-    .hud-metric-item.achieved {
+    .dock-sheet-item:hover, .dock-sheet-item.active {
+      background: #fafafa;
       color: #18181b;
       font-weight: 600;
     }
 
-    .hud-metric-item.achieved .hud-check {
+    .dock-sheet-item.active {
+      color: #5D2BC7;
+    }
+
+    .dock-sheet-item .dock-sheet-num {
+      font-family: ui-monospace, monospace;
+      font-size: 10.5px;
+      color: #a1a1aa;
+      margin-right: 8px;
+    }
+
+    .dock-sheet-item.active .dock-sheet-num {
       color: #5D2BC7;
       font-weight: 700;
+    }
+
+    @media (max-width: 767px) {
+      .dock-desktop {
+        display: none;
+      }
+      .dock-mobile-btn {
+        display: inline-flex;
+      }
     }
 
     /* BOTTOM LINE / DECISIONS REMOVED STRIP */
@@ -821,50 +920,77 @@
   <!-- 1PX READING PROGRESS HAIRLINE -->
   <div id="reading-progress"></div>
 
-  <!-- STICKY DESKTOP EXECUTIVE HUD (READING RADAR) -->
-  <aside class="executive-hud" id="executive-hud" aria-label="Executive Reading Radar">
-    <div class="hud-inner">
-      <div class="hud-header">RADAR · CHAPTERS</div>
-      <nav class="hud-nav">
-        <a href="#sec-01" class="hud-link active" data-sec="sec-01">
-          <span class="hud-dot"></span>
-          <span>01 · Paradox</span>
+  <!-- FLOATING CHAPTER DOCK (DYNAMIC SCRUBBER) -->
+  <aside class="chapter-dock" id="chapter-dock" aria-label="Chapter Navigation Dock">
+    <!-- MOBILE POPOVER SHEET -->
+    <div class="dock-sheet" id="dock-sheet">
+      <div class="dock-sheet-header">TABLE OF CONTENTS · 7 CHAPTERS</div>
+      <a href="#sec-01" class="dock-sheet-item active" data-sec="sec-01">
+        <span><span class="dock-sheet-num">01</span>The December Paradox</span>
+      </a>
+      <a href="#sec-02" class="dock-sheet-item" data-sec="sec-02">
+        <span><span class="dock-sheet-num">02</span>Handover of the Ruins</span>
+      </a>
+      <a href="#sec-03" class="dock-sheet-item" data-sec="sec-03">
+        <span><span class="dock-sheet-num">03</span>Friction of Governance</span>
+      </a>
+      <a href="#sec-04" class="dock-sheet-item" data-sec="sec-04">
+        <span><span class="dock-sheet-num">04</span>In-Flight Engine (40/68)</span>
+      </a>
+      <a href="#sec-05" class="dock-sheet-item" data-sec="sec-05">
+        <span><span class="dock-sheet-num">05</span>Dual-Benchmark &amp; Floorplans</span>
+      </a>
+      <a href="#sec-06" class="dock-sheet-item" data-sec="sec-06">
+        <span><span class="dock-sheet-num">06</span>Living System Log</span>
+      </a>
+      <a href="#sec-07" class="dock-sheet-item" data-sec="sec-07">
+        <span><span class="dock-sheet-num">07</span>Paradigm Shift</span>
+      </a>
+    </div>
+
+    <!-- MAIN DOCK PILL -->
+    <div class="dock-pill">
+      <!-- DESKTOP SEGMENTED RAIL -->
+      <nav class="dock-desktop" aria-label="Desktop Chapter Scrubber">
+        <a href="#sec-01" class="dock-step active" data-sec="sec-01">
+          <span class="dock-step-num">01</span>
+          <span class="dock-step-label">Paradox</span>
         </a>
-        <a href="#sec-02" class="hud-link" data-sec="sec-02">
-          <span class="hud-dot"></span>
-          <span>02 · Ruins</span>
+        <a href="#sec-02" class="dock-step" data-sec="sec-02">
+          <span class="dock-step-num">02</span>
+          <span class="dock-step-label">Ruins</span>
         </a>
-        <a href="#sec-03" class="hud-link" data-sec="sec-03">
-          <span class="hud-dot"></span>
-          <span>03 · Governance</span>
+        <a href="#sec-03" class="dock-step" data-sec="sec-03">
+          <span class="dock-step-num">03</span>
+          <span class="dock-step-label">Governance</span>
         </a>
-        <a href="#sec-04" class="hud-link" data-sec="sec-04">
-          <span class="hud-dot"></span>
-          <span>04 · Engine (40/68)</span>
+        <a href="#sec-04" class="dock-step" data-sec="sec-04">
+          <span class="dock-step-num">04</span>
+          <span class="dock-step-label">Engine</span>
         </a>
-        <a href="#sec-05" class="hud-link" data-sec="sec-05">
-          <span class="hud-dot"></span>
-          <span>05 · Benchmarks</span>
+        <a href="#sec-05" class="dock-step" data-sec="sec-05">
+          <span class="dock-step-num">05</span>
+          <span class="dock-step-label">Benchmarks</span>
         </a>
-        <a href="#sec-06" class="hud-link" data-sec="sec-06">
-          <span class="hud-dot"></span>
-          <span>06 · Horizon</span>
+        <a href="#sec-06" class="dock-step" data-sec="sec-06">
+          <span class="dock-step-num">06</span>
+          <span class="dock-step-label">Horizon</span>
         </a>
-        <a href="#sec-07" class="hud-link" data-sec="sec-07">
-          <span class="hud-dot"></span>
-          <span>07 · Shift</span>
+        <a href="#sec-07" class="dock-step" data-sec="sec-07">
+          <span class="dock-step-num">07</span>
+          <span class="dock-step-label">Shift</span>
         </a>
       </nav>
-      <div class="hud-divider"></div>
-      <div class="hud-header">DECISIONS ELIMINATED</div>
-      <div class="hud-metrics">
-        <div class="hud-metric-item" id="hud-m-01"><span class="hud-check">○</span> Retainer: $0</div>
-        <div class="hud-metric-item" id="hud-m-02"><span class="hud-check">○</span> CSS Overrides: 0</div>
-        <div class="hud-metric-item" id="hud-m-03"><span class="hud-check">○</span> Gate: 70% Cut</div>
-        <div class="hud-metric-item" id="hud-m-04"><span class="hud-check">○</span> Dev Drag: -82%</div>
-        <div class="hud-metric-item" id="hud-m-05"><span class="hud-check">○</span> Scroll: 100vh Lock</div>
-        <div class="hud-metric-item" id="hud-m-06"><span class="hud-check">○</span> Wave 2+: $0 Cost</div>
-      </div>
+
+      <!-- MOBILE TRIGGER BUTTON -->
+      <button type="button" class="dock-mobile-btn" id="dock-mobile-trigger" aria-expanded="false" aria-controls="dock-sheet">
+        <span class="dock-mobile-dot"></span>
+        <span class="dock-mobile-title" id="dock-mobile-title">01 · Paradox</span>
+        <span class="dock-mobile-chevron">▾</span>
+      </button>
+
+      <div class="dock-divider"></div>
+      <div class="dock-progress" id="dock-progress-val">0%</div>
     </div>
   </aside>
 
@@ -2367,58 +2493,98 @@
   <!-- READING PROGRESS & EXECUTIVE HUD INTERACTION SCRIPT -->
   <script>
     (function() {
-      // 1px Reading Progress Hairline
+      // Reading Progress Hairline & Dock Telemetry
       var progressBar = document.getElementById('reading-progress');
-      window.addEventListener('scroll', function() {
+      var dockProgress = document.getElementById('dock-progress-val');
+
+      function updateProgress() {
         var totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        var progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+        var progress = totalHeight > 0 ? Math.min(100, Math.max(0, Math.round((window.scrollY / totalHeight) * 100))) : 0;
         if (progressBar) progressBar.style.width = progress + '%';
-      }, { passive: true });
+        if (dockProgress) dockProgress.textContent = progress + '%';
+      }
 
-      // Executive HUD Scrollspy & Metric Telemetry
-      var sectionIds = ['sec-01', 'sec-02', 'sec-03', 'sec-04', 'sec-05', 'sec-06', 'sec-07'];
-      var hudLinks = document.querySelectorAll('.hud-link');
-      var metricMap = {
-        'sec-01': 'hud-m-01',
-        'sec-02': 'hud-m-02',
-        'sec-03': 'hud-m-03',
-        'sec-04': 'hud-m-04',
-        'sec-05': 'hud-m-05',
-        'sec-06': 'hud-m-06'
-      };
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
 
+      // Chapter Dock Navigation & Scrollspy
+      var sectionMeta = [
+        { id: 'sec-01', short: '01 · Paradox', full: '01 · The December Paradox' },
+        { id: 'sec-02', short: '02 · Ruins', full: '02 · Handover of the Ruins' },
+        { id: 'sec-03', short: '03 · Governance', full: '03 · Friction of Governance' },
+        { id: 'sec-04', short: '04 · Engine', full: '04 · In-Flight Engine (40/68)' },
+        { id: 'sec-05', short: '05 · Benchmarks', full: '05 · Dual-Benchmark & Floorplans' },
+        { id: 'sec-06', short: '06 · Horizon', full: '06 · Living System Log' },
+        { id: 'sec-07', short: '07 · Shift', full: '07 · Paradigm Shift' }
+      ];
+
+      var dockSteps = document.querySelectorAll('.dock-step');
+      var dockSheetItems = document.querySelectorAll('.dock-sheet-item');
+      var mobileTitle = document.getElementById('dock-mobile-title');
+      var mobileTrigger = document.getElementById('dock-mobile-trigger');
+      var dockSheet = document.getElementById('dock-sheet');
+
+      // Mobile popover toggle
+      if (mobileTrigger && dockSheet) {
+        mobileTrigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var isOpen = dockSheet.classList.toggle('open');
+          mobileTrigger.classList.toggle('open', isOpen);
+          mobileTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        document.addEventListener('click', function(e) {
+          if (!dockSheet.contains(e.target) && !mobileTrigger.contains(e.target)) {
+            dockSheet.classList.remove('open');
+            mobileTrigger.classList.remove('open');
+            mobileTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && dockSheet.classList.contains('open')) {
+            dockSheet.classList.remove('open');
+            mobileTrigger.classList.remove('open');
+            mobileTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // Close popover sheet when clicking any item
+      dockSheetItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+          if (dockSheet) dockSheet.classList.remove('open');
+          if (mobileTrigger) {
+            mobileTrigger.classList.remove('open');
+            mobileTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      // Scrollspy Intersection Observer
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            var id = entry.target.id;
-            hudLinks.forEach(function(link) {
-              if (link.getAttribute('href') === '#' + id) {
-                link.classList.add('active');
-              } else {
-                link.classList.remove('active');
-              }
+            var currentId = entry.target.id;
+            var currentSection = sectionMeta.find(function(s) { return s.id === currentId; });
+
+            dockSteps.forEach(function(step) {
+              step.classList.toggle('active', step.getAttribute('href') === '#' + currentId);
             });
 
-            var activeIndex = sectionIds.indexOf(id);
-            sectionIds.forEach(function(sId, sIdx) {
-              var mEl = document.getElementById(metricMap[sId]);
-              if (mEl) {
-                var chk = mEl.querySelector('.hud-check');
-                if (sIdx <= activeIndex) {
-                  mEl.classList.add('achieved');
-                  if (chk) chk.textContent = '✓';
-                } else {
-                  mEl.classList.remove('achieved');
-                  if (chk) chk.textContent = '○';
-                }
-              }
+            dockSheetItems.forEach(function(item) {
+              item.classList.toggle('active', item.getAttribute('href') === '#' + currentId);
             });
+
+            if (mobileTitle && currentSection) {
+              mobileTitle.textContent = currentSection.short;
+            }
           }
         });
       }, { rootMargin: '-20% 0px -60% 0px' });
 
-      sectionIds.forEach(function(id) {
-        var el = document.getElementById(id);
+      sectionMeta.forEach(function(section) {
+        var el = document.getElementById(section.id);
         if (el) observer.observe(el);
       });
 
