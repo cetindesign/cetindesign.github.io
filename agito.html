@@ -511,53 +511,78 @@
       transition: width 0.05s linear;
     }
 
+    /* PRECISION CHAPTER SCRUBBER & EXECUTIVE X-RAY DOCK */
     .chapter-dock {
       position: fixed;
-      bottom: 20px;
+      bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
       pointer-events: auto;
     }
 
+    /* THE PILL CONTAINER */
     .dock-pill {
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 4px;
-      height: 38px;
-      padding: 0 6px 0 8px;
+      gap: 2px;
+      height: 40px;
+      padding: 4px;
       background: #ffffff;
       border: 1px solid #18181b;
       border-radius: 9999px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: 11px;
     }
 
-    /* DESKTOP RAIL (>= 768px) */
-    .dock-desktop {
+    /* THE SCRUBBER TRACK & MAGNETIC GLIDER */
+    .dock-track {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 2px;
     }
 
+    .dock-glider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 32px;
+      background: #18181b;
+      border-radius: 9999px;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), width 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+    }
+
     .dock-step {
+      position: relative;
+      z-index: 2;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 8px;
+      height: 32px;
+      padding: 0 10px;
       color: #71717a;
       text-decoration: none;
       border-radius: 9999px;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 11px;
-      transition: all 0.15s ease;
+      transition: color 0.18s ease;
       white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
     }
 
     .dock-step:hover {
       color: #18181b;
-      background: #f4f4f6;
+    }
+
+    .dock-step.active {
+      color: #ffffff;
     }
 
     .dock-step-label {
@@ -567,150 +592,159 @@
       font-weight: 600;
     }
 
-    .dock-step.active {
-      background: #18181b;
-      color: #ffffff;
-      padding: 4px 10px;
-    }
-
-    .dock-step.active .dock-step-label {
-      display: inline;
-    }
-
-    .dock-step.active .dock-step-num {
-      color: #a1a1aa;
+    @media (min-width: 900px) {
+      .dock-step.active .dock-step-label {
+        display: inline;
+      }
     }
 
     .dock-divider {
       width: 1px;
       height: 16px;
       background: #e4e4e7;
-      margin: 0 4px;
+      margin: 0 4px 0 2px;
+      flex-shrink: 0;
     }
 
     .dock-progress {
       font-size: 10.5px;
       color: #71717a;
       font-weight: 600;
-      padding: 0 6px 0 2px;
-      min-width: 32px;
+      padding: 0 8px 0 4px;
+      min-width: 34px;
       text-align: right;
-    }
-
-    /* MOBILE CAPSULE (< 768px) */
-    .dock-mobile-btn {
-      display: none;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      border: none;
-      padding: 0 6px;
-      color: #18181b;
-      font-family: inherit;
-      font-size: 11px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .dock-mobile-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #5D2BC7;
       flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
     }
 
-    .dock-mobile-title {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      color: #18181b;
-    }
-
-    .dock-mobile-chevron {
-      font-size: 9px;
-      color: #71717a;
-      transition: transform 0.2s ease;
-    }
-
-    .dock-mobile-btn.open .dock-mobile-chevron {
-      transform: rotate(180deg);
-    }
-
-    /* MOBILE POPOVER SHEET */
-    .dock-sheet {
-      display: none;
+    /* EXECUTIVE X-RAY PREVIEW CARD */
+    .dock-xray {
       position: absolute;
-      bottom: calc(100% + 10px);
+      bottom: calc(100% + 12px);
       left: 50%;
-      transform: translateX(-50%);
-      width: 290px;
+      transform: translateX(-50%) translateY(8px);
+      width: 320px;
       background: #ffffff;
       border: 1px solid #18181b;
       border-radius: 8px;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.14);
-      padding: 6px;
-      flex-direction: column;
-      gap: 2px;
-      z-index: 1001;
+      padding: 10px 12px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1002;
     }
 
-    .dock-sheet.open {
-      display: flex;
+    .dock-xray.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
     }
 
-    .dock-sheet-header {
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #a1a1aa;
-      padding: 6px 10px 4px 10px;
-      border-bottom: 0.5px solid #e4e4e7;
-      margin-bottom: 4px;
+    .dock-xray-arrow {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #18181b;
     }
 
-    .dock-sheet-item {
+    .dock-xray-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 10px;
-      border-radius: 4px;
-      text-decoration: none;
-      color: #52525b;
-      font-size: 12px;
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      transition: background 0.12s ease;
+      margin-bottom: 6px;
     }
 
-    .dock-sheet-item:hover, .dock-sheet-item.active {
+    .xray-badge {
+      font-family: ui-monospace, monospace;
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #5D2BC7;
+      background: #f5f3ff;
+      border: 1px solid #ddd6fe;
+      padding: 1px 5px;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+    }
+
+    .xray-time {
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      color: #71717a;
+      font-weight: 500;
+    }
+
+    .xray-title {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #18181b;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .xray-decision {
       background: #fafafa;
+      border-left: 2px solid #5D2BC7;
+      border-radius: 0 4px 4px 0;
+      padding: 6px 8px;
+      font-size: 11px;
+      line-height: 1.45;
+      color: #52525b;
+    }
+
+    .xray-decision strong {
+      color: #18181b;
+      font-family: ui-monospace, monospace;
+      font-size: 9.5px;
+      display: block;
+      margin-bottom: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    .xray-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 0.5px solid #e4e4e7;
+      font-size: 10px;
+      color: #a1a1aa;
+      font-family: ui-monospace, monospace;
+    }
+
+    .xray-jump-link {
       color: #18181b;
       font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
     }
 
-    .dock-sheet-item.active {
+    .xray-jump-link:hover {
       color: #5D2BC7;
     }
 
-    .dock-sheet-item .dock-sheet-num {
-      font-family: ui-monospace, monospace;
-      font-size: 10.5px;
-      color: #a1a1aa;
-      margin-right: 8px;
-    }
-
-    .dock-sheet-item.active .dock-sheet-num {
-      color: #5D2BC7;
-      font-weight: 700;
-    }
-
-    @media (max-width: 767px) {
-      .dock-desktop {
-        display: none;
+    @media (max-width: 640px) {
+      .dock-pill {
+        height: 38px;
+        padding: 3px;
       }
-      .dock-mobile-btn {
-        display: inline-flex;
+      .dock-glider {
+        height: 30px;
+      }
+      .dock-step {
+        height: 30px;
+        padding: 0 7px;
+        font-size: 10.5px;
+      }
+      .dock-xray {
+        width: 290px;
       }
     }
 
@@ -920,74 +954,60 @@
   <!-- 1PX READING PROGRESS HAIRLINE -->
   <div id="reading-progress"></div>
 
-  <!-- FLOATING CHAPTER DOCK (DYNAMIC SCRUBBER) -->
-  <aside class="chapter-dock" id="chapter-dock" aria-label="Chapter Navigation Dock">
-    <!-- MOBILE POPOVER SHEET -->
-    <div class="dock-sheet" id="dock-sheet">
-      <div class="dock-sheet-header">TABLE OF CONTENTS · 7 CHAPTERS</div>
-      <a href="#sec-01" class="dock-sheet-item active" data-sec="sec-01">
-        <span><span class="dock-sheet-num">01</span>The December Paradox</span>
-      </a>
-      <a href="#sec-02" class="dock-sheet-item" data-sec="sec-02">
-        <span><span class="dock-sheet-num">02</span>Handover of the Ruins</span>
-      </a>
-      <a href="#sec-03" class="dock-sheet-item" data-sec="sec-03">
-        <span><span class="dock-sheet-num">03</span>Friction of Governance</span>
-      </a>
-      <a href="#sec-04" class="dock-sheet-item" data-sec="sec-04">
-        <span><span class="dock-sheet-num">04</span>In-Flight Engine (40/68)</span>
-      </a>
-      <a href="#sec-05" class="dock-sheet-item" data-sec="sec-05">
-        <span><span class="dock-sheet-num">05</span>Dual-Benchmark &amp; Floorplans</span>
-      </a>
-      <a href="#sec-06" class="dock-sheet-item" data-sec="sec-06">
-        <span><span class="dock-sheet-num">06</span>Living System Log</span>
-      </a>
-      <a href="#sec-07" class="dock-sheet-item" data-sec="sec-07">
-        <span><span class="dock-sheet-num">07</span>Paradigm Shift</span>
-      </a>
+  <!-- FLOATING PRECISION CHAPTER SCRUBBER & EXECUTIVE X-RAY DOCK -->
+  <aside class="chapter-dock" id="chapter-dock" aria-label="Precision Chapter Scrubber">
+    <!-- EXECUTIVE X-RAY PREVIEW CARD -->
+    <div class="dock-xray" id="dock-xray" role="tooltip" aria-hidden="true">
+      <div class="dock-xray-arrow" id="dock-xray-arrow"></div>
+      <div class="dock-xray-top">
+        <span class="xray-badge" id="xray-badge">01 · ARCHITECTURE INTAKE</span>
+        <span class="xray-time" id="xray-time">2 MIN READ · 1 / 7</span>
+      </div>
+      <div class="xray-title" id="xray-title">The December Paradox &amp; Architecture Intake</div>
+      <div class="xray-decision">
+        <strong>DECISION REMOVED</strong>
+        <span id="xray-decision-text">Terminated $180k/yr agency spend; prevented 1,200h of unmaintainable CSS debt.</span>
+      </div>
+      <div class="xray-footer">
+        <span>Click to jump · [←][→]</span>
+        <a href="#sec-01" class="xray-jump-link" id="xray-jump-link">Jump to Chapter ➔</a>
+      </div>
     </div>
 
     <!-- MAIN DOCK PILL -->
     <div class="dock-pill">
-      <!-- DESKTOP SEGMENTED RAIL -->
-      <nav class="dock-desktop" aria-label="Desktop Chapter Scrubber">
-        <a href="#sec-01" class="dock-step active" data-sec="sec-01">
+      <!-- SCRUBBER TRACK WITH MAGNETIC GLIDER -->
+      <nav class="dock-track" id="dock-track" aria-label="Chapter Track">
+        <div class="dock-glider" id="dock-glider"></div>
+        <a href="#sec-01" class="dock-step active" data-sec="sec-01" data-index="0">
           <span class="dock-step-num">01</span>
           <span class="dock-step-label">Paradox</span>
         </a>
-        <a href="#sec-02" class="dock-step" data-sec="sec-02">
+        <a href="#sec-02" class="dock-step" data-sec="sec-02" data-index="1">
           <span class="dock-step-num">02</span>
           <span class="dock-step-label">Ruins</span>
         </a>
-        <a href="#sec-03" class="dock-step" data-sec="sec-03">
+        <a href="#sec-03" class="dock-step" data-sec="sec-03" data-index="2">
           <span class="dock-step-num">03</span>
           <span class="dock-step-label">Governance</span>
         </a>
-        <a href="#sec-04" class="dock-step" data-sec="sec-04">
+        <a href="#sec-04" class="dock-step" data-sec="sec-04" data-index="3">
           <span class="dock-step-num">04</span>
           <span class="dock-step-label">Engine</span>
         </a>
-        <a href="#sec-05" class="dock-step" data-sec="sec-05">
+        <a href="#sec-05" class="dock-step" data-sec="sec-05" data-index="4">
           <span class="dock-step-num">05</span>
           <span class="dock-step-label">Benchmarks</span>
         </a>
-        <a href="#sec-06" class="dock-step" data-sec="sec-06">
+        <a href="#sec-06" class="dock-step" data-sec="sec-06" data-index="5">
           <span class="dock-step-num">06</span>
           <span class="dock-step-label">Horizon</span>
         </a>
-        <a href="#sec-07" class="dock-step" data-sec="sec-07">
+        <a href="#sec-07" class="dock-step" data-sec="sec-07" data-index="6">
           <span class="dock-step-num">07</span>
           <span class="dock-step-label">Shift</span>
         </a>
       </nav>
-
-      <!-- MOBILE TRIGGER BUTTON -->
-      <button type="button" class="dock-mobile-btn" id="dock-mobile-trigger" aria-expanded="false" aria-controls="dock-sheet">
-        <span class="dock-mobile-dot"></span>
-        <span class="dock-mobile-title" id="dock-mobile-title">01 · Paradox</span>
-        <span class="dock-mobile-chevron">▾</span>
-      </button>
 
       <div class="dock-divider"></div>
       <div class="dock-progress" id="dock-progress-val">0%</div>
@@ -2507,85 +2527,183 @@
       window.addEventListener('scroll', updateProgress, { passive: true });
       updateProgress();
 
-      // Chapter Dock Navigation & Scrollspy
-      var sectionMeta = [
-        { id: 'sec-01', short: '01 · Paradox', full: '01 · The December Paradox' },
-        { id: 'sec-02', short: '02 · Ruins', full: '02 · Handover of the Ruins' },
-        { id: 'sec-03', short: '03 · Governance', full: '03 · Friction of Governance' },
-        { id: 'sec-04', short: '04 · Engine', full: '04 · In-Flight Engine (40/68)' },
-        { id: 'sec-05', short: '05 · Benchmarks', full: '05 · Dual-Benchmark & Floorplans' },
-        { id: 'sec-06', short: '06 · Horizon', full: '06 · Living System Log' },
-        { id: 'sec-07', short: '07 · Shift', full: '07 · Paradigm Shift' }
+      // Precision Scrubber Data Architecture
+      var chapters = [
+        {
+          id: 'sec-01',
+          tag: '01 · ARCHITECTURE INTAKE',
+          time: '2 MIN READ · 1 / 7',
+          title: 'The December Paradox & Architecture Intake',
+          decision: 'Terminated $180k/yr agency spend; prevented 1,200h of unmaintainable CSS debt.'
+        },
+        {
+          id: 'sec-02',
+          tag: '02 · INVARIANT AUDIT',
+          time: '3 MIN READ · 2 / 7',
+          title: 'The Handover of the Ruins & The Code Epiphany',
+          decision: 'Eliminated ad-hoc geometry & bespoke CSS debt; enforced zero-override Ant Design 6 contracts.'
+        },
+        {
+          id: 'sec-03',
+          tag: '03 · GOVERNANCE GATE',
+          time: '3 MIN READ · 3 / 7',
+          title: 'The Friction of Governance Under Sprint Pressure',
+          decision: 'Replaced tribal knowledge with 3-Tier Readiness Gate; eliminated 70% of speculative backlog churn.'
+        },
+        {
+          id: 'sec-04',
+          tag: '04 · VELOCITY ENGINE',
+          time: '2 MIN READ · 4 / 7',
+          title: 'In-Flight Engine: 40/68 Screens & Dual-Track Extraction',
+          decision: 'Reduced frontend build time from 14h to 2.5h (-82%); unlocked 460+ engineering hours.'
+        },
+        {
+          id: 'sec-05',
+          tag: '05 · FLOORPLAN SYSTEM',
+          time: '4 MIN READ · 5 / 7',
+          title: 'The Dual-Benchmark Architecture: Enterprise Skeleton & SaaS Muscle',
+          decision: 'Replaced arbitrary layouts with 4 immutable SAP Fiori floorplans; locked 100vh page scroll.'
+        },
+        {
+          id: 'sec-06',
+          tag: '06 · MULTI-WAVE HORIZON',
+          time: '2 MIN READ · 6 / 7',
+          title: 'Living System Log: Multi-Wave Horizon & Progression',
+          decision: 'Established zero-marginal-cost scaling engine to absorb 350+ upcoming enterprise views.'
+        },
+        {
+          id: 'sec-07',
+          tag: '07 · CONTROL PARADIGM',
+          time: '2 MIN READ · 7 / 7',
+          title: 'Retrospective: The High-Stakes Mental Model Shift',
+          decision: 'Shifted organizational paradigm from cosmetic screen production to deterministic control systems.'
+        }
       ];
 
       var dockSteps = document.querySelectorAll('.dock-step');
-      var dockSheetItems = document.querySelectorAll('.dock-sheet-item');
-      var mobileTitle = document.getElementById('dock-mobile-title');
-      var mobileTrigger = document.getElementById('dock-mobile-trigger');
-      var dockSheet = document.getElementById('dock-sheet');
+      var dockGlider = document.getElementById('dock-glider');
+      var dockXray = document.getElementById('dock-xray');
+      var xrayBadge = document.getElementById('xray-badge');
+      var xrayTime = document.getElementById('xray-time');
+      var xrayTitle = document.getElementById('xray-title');
+      var xrayDecision = document.getElementById('xray-decision-text');
+      var xrayJump = document.getElementById('xray-jump-link');
+      var xrayHideTimer = null;
+      var activeStepIndex = 0;
 
-      // Mobile popover toggle
-      if (mobileTrigger && dockSheet) {
-        mobileTrigger.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var isOpen = dockSheet.classList.toggle('open');
-          mobileTrigger.classList.toggle('open', isOpen);
-          mobileTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-
-        document.addEventListener('click', function(e) {
-          if (!dockSheet.contains(e.target) && !mobileTrigger.contains(e.target)) {
-            dockSheet.classList.remove('open');
-            mobileTrigger.classList.remove('open');
-            mobileTrigger.setAttribute('aria-expanded', 'false');
-          }
-        });
-
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && dockSheet.classList.contains('open')) {
-            dockSheet.classList.remove('open');
-            mobileTrigger.classList.remove('open');
-            mobileTrigger.setAttribute('aria-expanded', 'false');
-          }
-        });
+      function positionGlider(stepEl) {
+        if (!stepEl || !dockGlider) return;
+        var track = stepEl.parentElement;
+        if (!track) return;
+        var trackRect = track.getBoundingClientRect();
+        var stepRect = stepEl.getBoundingClientRect();
+        var leftOffset = stepRect.left - trackRect.left;
+        dockGlider.style.width = stepRect.width + 'px';
+        dockGlider.style.transform = 'translateX(' + leftOffset + 'px)';
+        dockGlider.style.opacity = '1';
       }
 
-      // Close popover sheet when clicking any item
-      dockSheetItems.forEach(function(item) {
-        item.addEventListener('click', function() {
-          if (dockSheet) dockSheet.classList.remove('open');
-          if (mobileTrigger) {
-            mobileTrigger.classList.remove('open');
-            mobileTrigger.setAttribute('aria-expanded', 'false');
+      function showXray(chapterIndex, anchorStepEl) {
+        var chap = chapters[chapterIndex];
+        if (!chap || !dockXray) return;
+        if (xrayHideTimer) clearTimeout(xrayHideTimer);
+
+        xrayBadge.textContent = chap.tag;
+        xrayTime.textContent = chap.time;
+        xrayTitle.textContent = chap.title;
+        xrayDecision.textContent = chap.decision;
+        xrayJump.setAttribute('href', '#' + chap.id);
+
+        dockXray.classList.add('visible');
+        dockXray.setAttribute('aria-hidden', 'false');
+      }
+
+      function hideXray() {
+        if (xrayHideTimer) clearTimeout(xrayHideTimer);
+        xrayHideTimer = setTimeout(function() {
+          if (dockXray) {
+            dockXray.classList.remove('visible');
+            dockXray.setAttribute('aria-hidden', 'true');
           }
+        }, 220);
+      }
+
+      // Step Events
+      dockSteps.forEach(function(step, idx) {
+        step.addEventListener('mouseenter', function() {
+          showXray(idx, step);
+        });
+
+        step.addEventListener('mouseleave', function() {
+          hideXray();
+        });
+
+        step.addEventListener('click', function(e) {
+          activeStepIndex = idx;
+          dockSteps.forEach(function(s) { s.classList.remove('active'); });
+          step.classList.add('active');
+          positionGlider(step);
+          showXray(idx, step);
+          hideXray();
         });
       });
 
-      // Scrollspy Intersection Observer
+      if (dockXray) {
+        dockXray.addEventListener('mouseenter', function() {
+          if (xrayHideTimer) clearTimeout(xrayHideTimer);
+        });
+        dockXray.addEventListener('mouseleave', function() {
+          hideXray();
+        });
+      }
+
+      // Initial Glider Positioning
+      var initialActive = document.querySelector('.dock-step.active') || dockSteps[0];
+      if (initialActive) {
+        setTimeout(function() { positionGlider(initialActive); }, 120);
+      }
+
+      window.addEventListener('resize', function() {
+        var currentActive = document.querySelector('.dock-step.active');
+        if (currentActive) positionGlider(currentActive);
+      }, { passive: true });
+
+      // Scrollspy
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             var currentId = entry.target.id;
-            var currentSection = sectionMeta.find(function(s) { return s.id === currentId; });
-
-            dockSteps.forEach(function(step) {
-              step.classList.toggle('active', step.getAttribute('href') === '#' + currentId);
-            });
-
-            dockSheetItems.forEach(function(item) {
-              item.classList.toggle('active', item.getAttribute('href') === '#' + currentId);
-            });
-
-            if (mobileTitle && currentSection) {
-              mobileTitle.textContent = currentSection.short;
+            var idx = chapters.findIndex(function(c) { return c.id === currentId; });
+            if (idx !== -1) {
+              activeStepIndex = idx;
+              dockSteps.forEach(function(s, sIdx) {
+                s.classList.toggle('active', sIdx === idx);
+              });
+              positionGlider(dockSteps[idx]);
             }
           }
         });
       }, { rootMargin: '-20% 0px -60% 0px' });
 
-      sectionMeta.forEach(function(section) {
-        var el = document.getElementById(section.id);
+      chapters.forEach(function(c) {
+        var el = document.getElementById(c.id);
         if (el) observer.observe(el);
+      });
+
+      // Keyboard Navigation: '[' and ']' or ArrowLeft / ArrowRight
+      document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'ArrowRight' || e.key === ']') {
+          if (activeStepIndex < chapters.length - 1) {
+            activeStepIndex++;
+            dockSteps[activeStepIndex].click();
+          }
+        } else if (e.key === 'ArrowLeft' || e.key === '[') {
+          if (activeStepIndex > 0) {
+            activeStepIndex--;
+            dockSteps[activeStepIndex].click();
+          }
+        }
       });
 
       // Interactive Token Simulator & Blueprint Inspector
