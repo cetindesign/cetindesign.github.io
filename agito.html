@@ -1606,6 +1606,58 @@
       <li>By functioning as a software compiler rather than a manual drawing shop, Agito delivered 40 production-grade views with a single architect—achieving delivery velocity that an entire outsourced agency could not match.</li>
     </ul>
 
+    <h3>The Anatomy of Craft: Designing for 8-Hour High-Stakes Operators</h3>
+    <p>
+      Enterprise software for underwriters, claims adjusters, and actuaries cannot be designed with the consumer SaaS playbook—abundant whitespace, decorative cards, endless vertical scroll, and nested modal overlays cause severe operational fatigue. An operator processing 200 policies during an 8-hour shift cannot afford cognitive friction. Every required mouse switch, missing tabular indicator, or jarring layout jump translates directly into operational latency and catastrophic actuarial error risk.
+    </p>
+    <p>
+      Drawing on empirical research from my Master’s thesis on <em>Interface Trust Architecture and Cognitive Friction in High-Stakes Financial Transactions (Yaşar University)</em>, the craft of design at Agito enforces four operational ergonomics invariants before any view reaches code:
+    </p>
+
+    <!-- KEYNOTE SPECIMEN: THE 4 INVARIANTS OF OPERATOR CRAFT -->
+    <div class="keynote-card" style="margin:2.5rem 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:1rem; border-bottom:1px solid #18181b; margin-bottom:1.25rem;">
+        <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#18181b; text-transform:uppercase; letter-spacing:0.04em;">
+          The Architecture of Craft · Operational Ergonomics Ledger
+        </span>
+        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#5D2BC7; font-weight:600;">
+          Cognitive Invariants
+        </span>
+      </div>
+
+      <div class="keynote-ledger-row">
+        <div class="keynote-ledger-key">01 · MENTAL MODEL DECONSTRUCTION</div>
+        <div class="keynote-ledger-val">
+          <strong>3-Tier Cognitive Hierarchy:</strong> High-dimensional actuarial data is never dumped into flat form fields. Information is decomposed into: (1) Immediate Decision Telemetry (KPI/Status pills in view header), (2) Primary Operational Canvas (100vh dense data ledger), and (3) Contextual Deep Diagnostics (non-modal 380px side-sheet drawer). Preserves working memory: zero context switching, zero navigation disorientation.
+          <span class="filter-rule">Ergonomic Rule: Working memory load capped at 3 simultaneous information planes.</span>
+        </div>
+      </div>
+
+      <div class="keynote-ledger-row">
+        <div class="keynote-ledger-key">02 · KEYBOARD-FIRST TERMINAL</div>
+        <div class="keynote-ledger-val">
+          <strong>Zero Pointer Dependency:</strong> The mouse is treated as an optional secondary pointing device, not the primary interaction tool. 40px floating-label inputs follow deterministic <code>Tab</code> sequencing; primary transaction commits trigger via <code>Cmd/Ctrl + Enter</code>; side-sheet inspectors toggle via <code>Esc</code>. Power operators complete high-volume policy endorsements without ever lifting their hands from the home row.
+          <span class="filter-rule">Ergonomic Rule: 100% of core transaction paths executable without mouse movement.</span>
+        </div>
+      </div>
+
+      <div class="keynote-ledger-row">
+        <div class="keynote-ledger-key">03 · DETERMINISTIC 8-STATE MODELING</div>
+        <div class="keynote-ledger-val">
+          <strong>State Exhaustion Discipline:</strong> Views are never designed merely for the happy path. Every single view contract is explicitly modeled across 8 mandatory runtime states before engineering handoff: (1) Empty State, (2) Layout-Shift-Free Loading Skeleton, (3) Partial/Stale Data, (4) Inline Validation Error, (5) 18-Column Truncation &amp; Overflow, (6) Network/Timeout Boundary, (7) Role-Based Permission Masking, and (8) Audit Trail History.
+          <span class="filter-rule">Ergonomic Rule: Zero developer guesswork for error, loading, or edge boundaries.</span>
+        </div>
+      </div>
+
+      <div class="keynote-ledger-row" style="border-bottom:none;">
+        <div class="keynote-ledger-key">04 · OPTICAL DENSITY &amp; SCANNABILITY</div>
+        <div class="keynote-ledger-val">
+          <strong>Surgical Typographic Rhythm:</strong> 18-column actuarial tables enforce strict 38px cell heights and 8px padding, creating an unyielding optical baseline. Typography adheres strictly to binary weights (DM Sans 400 regular for data, 600 semi-bold for headers). Monetary values and dates align tabularly on vertical axes; status tags employ low-saturation neutral tints to eliminate retinal fatigue during extended 8-hour operator shifts.
+          <span class="filter-rule">Ergonomic Rule: Zero decorative bolding in table body; strictly tabular decimal alignment.</span>
+        </div>
+      </div>
+    </div>
+
     <!-- 04. 40/68 SCREENS IN-FLIGHT & DUAL-TRACK -->
     <h2 id="sec-04">04. In-Flight Engine Replacement: 40/68 Screens &amp; Dual-Track Pattern Extraction</h2>
     <div class="bottom-line-strip">
