@@ -4,9 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Allianz Türkiye — High-Scale B2C Ecosystem — Murat Çetin</title>
-  <meta name="description" content="Case study on leading cross-squad product design strategy for Allianz Türkiye: 1.5M MAU, 5 squads, 8,923 survey discovery, 5.4M health queries, $24M+ written premium."/>
+  <meta name="description" content="Case study on leading cross-squad product design strategy for Turkey’s largest private insurer: 1.5M MAU, 5 squads, 8,923 survey discovery engine, 5.4M health queries, and $24M+ written premium impact."/>
+
+  <!-- OPEN GRAPH & SOCIAL PREVIEW -->
+  <meta property="og:title" content="Allianz Türkiye — High-Scale B2C Ecosystem — Murat Çetin">
+  <meta property="og:description" content="How cross-squad product design strategy, an 8,923-respondent discovery engine, and omnichannel journey architecture drove $24M+ in written premium impact for Turkey’s largest private insurer.">
+  <meta property="og:url" content="https://cetindesign.github.io/allianz.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Allianz Türkiye — High-Scale B2C Ecosystem — Murat Çetin">
+  <meta name="twitter:description" content="How cross-squad product design strategy, an 8,923-respondent discovery engine, and omnichannel journey architecture drove $24M+ in written premium impact for Turkey’s largest private insurer.">
+
+  <!-- FAVICON (SVG MONOGRAM) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
+
   <style>
-    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
+    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e4e4e7}
     
     html,:host{
       -webkit-text-size-adjust:100%;
@@ -15,13 +28,14 @@
       line-height:1.6;
       scrollbar-gutter:stable;
       overflow-y:scroll;
-      background-color:#fff;
+      background-color:#ffffff;
       color:#18181b;
     }
     
     body{
       margin:0;
-      font-size:15px;
+      font-size:14px;
+      line-height:22px;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
@@ -29,183 +43,361 @@
     a{
       text-underline-offset:2px;
       text-decoration-line:underline;
-      text-decoration-color:#eeeff2;
-      text-decoration-thickness:2px;
+      text-decoration-color:#e4e4e7;
+      text-decoration-thickness:1px;
       color:inherit;
-      transition:text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition:text-decoration-color 0.2s ease, color 0.2s ease;
     }
     a:hover{
-      text-decoration-color:#a1a1aa;
-      color:#000;
+      text-decoration-color:#18181b;
+      color:#000000;
     }
 
     .wrap{
-      max-width:42rem;
+      max-width:48rem;
       margin-left:auto;
       margin-right:auto;
-      padding-left:1.5rem;
-      padding-right:1.5rem;
-      padding-top:4rem;
-      padding-bottom:8rem;
+      padding-left:16px;
+      padding-right:16px;
+      padding-top:32px;
+      padding-bottom:64px;
     }
 
     .top-nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding-bottom:1.5rem;
+      padding-bottom:16px;
       border-bottom:1px solid #f4f4f6;
-      margin-bottom:3rem;
-      font-size:13.5px;
+      margin-bottom:32px;
+      font-size:12px;
+      line-height:20px;
     }
 
     .nav-back{
       display:inline-flex;
       align-items:center;
-      gap:0.5rem;
+      gap:8px;
       color:#71717a;
       text-decoration:none;
       font-weight:400;
     }
-    .nav-back:hover{ color:#000; }
+    .nav-back:hover{ color:#000000; }
 
     .meta-tag{
       font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
       font-size:12px;
-      color:#a1a1aa;
+      color:#71717a;
     }
 
     h1{
-      font-size:1.75rem;
-      line-height:1.25;
-      font-weight:500;
+      font-size:24px;
+      line-height:32px;
+      font-weight:600;
       letter-spacing:-0.03em;
-      color:#000;
+      color:#000000;
       margin-top:0;
-      margin-bottom:1rem;
+      margin-bottom:12px;
     }
 
     .deck{
-      font-size:15px;
-      line-height:1.65;
+      font-size:16px;
+      line-height:24px;
       color:#71717a;
-      margin-bottom:2.5rem;
+      margin-bottom:24px;
     }
 
     .stat-row{
       display:grid;
       grid-template-columns:repeat(4, 1fr);
-      gap:1rem;
-      padding-top:1.25rem;
-      padding-bottom:1.25rem;
+      gap:16px;
+      padding-top:16px;
+      padding-bottom:16px;
       border-top:1px solid #f4f4f6;
       border-bottom:1px solid #f4f4f6;
-      margin-bottom:3.5rem;
+      margin-bottom:32px;
     }
-    @media (max-width:600px){
-      .stat-row{ grid-template-columns:repeat(2, 1fr); gap:1.25rem; }
+    @media (max-width:640px){
+      .stat-row{ grid-template-columns:repeat(2, 1fr); gap:16px; }
     }
 
-    .stat-item{ display:flex; flex-direction:column; gap:0.25rem; }
+    .stat-item{ display:flex; flex-direction:column; gap:4px; }
     .stat-val{
       font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-      font-size:15px;
-      font-weight:500;
-      color:#000;
+      font-size:16px;
+      line-height:24px;
+      font-weight:600;
+      color:#000000;
     }
-    .stat-lbl{ font-size:12px; color:#a1a1aa; }
+    .stat-lbl{ font-size:12px; line-height:16px; color:#71717a; }
+
+    /* BOTTOM-LINE DECISION STRIPS */
+    .bottom-line-strip{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      background:#fafafa;
+      border-left:2px solid #003781;
+      padding:8px 12px;
+      margin:16px 0 20px 0;
+      border-radius:0 4px 4px 0;
+    }
+    .bl-tag{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      line-height:16px;
+      font-weight:600;
+      color:#003781;
+      white-space:nowrap;
+      background:#eff6ff;
+      border:1px solid #bfdbfe;
+      padding:2px 6px;
+      border-radius:4px;
+      letter-spacing:0.04em;
+    }
+    .bl-text{
+      font-size:12px;
+      line-height:20px;
+      color:#18181b;
+      font-weight:400;
+    }
 
     h2{
-      font-size:1.15rem;
-      font-weight:500;
+      font-size:16px;
+      line-height:24px;
+      font-weight:600;
       letter-spacing:-0.02em;
-      color:#000;
-      margin-top:3rem;
-      margin-bottom:0.75rem;
+      color:#000000;
+      margin-top:32px;
+      margin-bottom:12px;
+    }
+
+    h3{
+      font-size:14px;
+      line-height:20px;
+      font-weight:600;
+      color:#000000;
+      margin-top:24px;
+      margin-bottom:8px;
     }
 
     p{
-      font-size:15px;
-      line-height:1.65;
+      font-size:14px;
+      line-height:22px;
       color:#52525b;
       margin-top:0;
-      margin-bottom:1.25rem;
+      margin-bottom:16px;
     }
-    p strong{ color:#000; font-weight:500; }
+    p strong{ color:#000000; font-weight:600; }
 
     blockquote{
-      margin:1.75rem 0;
-      padding-left:1rem;
-      border-left:2px solid #e4e4e7;
-      color:#52525b;
-      font-size:14.5px;
-      line-height:1.6;
-    }
-
-    ul{
-      margin:0 0 1.5rem 0;
-      padding-left:1.25rem;
-      color:#52525b;
-      font-size:14.5px;
-      line-height:1.65;
-    }
-    li{ margin-bottom:0.5rem; }
-
-    .media-card{
-      margin:2rem 0;
-      border:1px solid #f4f4f6;
-      border-radius:8px;
-      overflow:hidden;
+      margin:20px 0;
+      padding-left:16px;
+      border-left:2px solid #003781;
+      color:#18181b;
+      font-size:14px;
+      line-height:22px;
       background:#fafafa;
+      padding-top:8px;
+      padding-bottom:8px;
+      border-radius:0 4px 4px 0;
     }
-    .media-card img{
+
+    ul, ol{
+      margin:0 0 16px 0;
+      padding-left:20px;
+      color:#52525b;
+      font-size:14px;
+      line-height:22px;
+    }
+    li{ margin-bottom:8px; }
+    li strong{ color:#18181b; font-weight:600; }
+
+    /* GAVIN NELSON SPECIMEN FRAME SYSTEM */
+    .specimen-frame{
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      background:#ffffff;
+      overflow:hidden;
+      margin:24px 0 32px 0;
+      position:relative;
+    }
+    .specimen-frame-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background:#fafafa;
+      border-bottom:1px solid #e4e4e7;
+      padding:8px 12px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      line-height:16px;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .specimen-badge-label{
+      font-weight:600;
+      color:#71717a;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .specimen-pill{
+      font-family:ui-monospace,monospace;
+      font-size:10px;
+      line-height:16px;
+      font-weight:600;
+      padding:2px 8px;
+      border-radius:4px;
+      letter-spacing:0.04em;
+    }
+    .specimen-pill-blue{
+      background:#eff6ff;
+      border:1px solid #bfdbfe;
+      color:#003781;
+    }
+    .specimen-pill-neutral{
+      background:#f4f4f6;
+      border:1px solid #e4e4e7;
+      color:#18181b;
+    }
+    .specimen-pill-success{
+      background:#ecfdf5;
+      border:1px solid #a7f3d0;
+      color:#047857;
+    }
+    .specimen-media-wrap{
+      background:#09090b;
+      padding:0;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .specimen-media-wrap img{
       width:100%;
       height:auto;
       display:block;
+    }
+    .specimen-footer{
+      border-top:1px solid #e4e4e7;
+      padding:8px 12px;
+      background:#fafafa;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      line-height:16px;
+      color:#71717a;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    /* KEYNOTE CARDS */
+    .keynote-card{
+      background:#fafafa;
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      padding:16px;
+      margin:24px 0;
+    }
+    .keynote-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding-bottom:12px;
+      border-bottom:1px solid #18181b;
+      margin-bottom:16px;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .keynote-title{
+      font-family:ui-monospace,monospace;
+      font-size:10px;
+      line-height:16px;
+      font-weight:600;
+      color:#18181b;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+    }
+    .keynote-sub{
+      font-family:ui-monospace,monospace;
+      font-size:10px;
+      line-height:16px;
+      color:#003781;
+      font-weight:600;
+    }
+    .keynote-ledger-row{
+      display:grid;
+      grid-template-columns:140px 1fr;
+      padding:8px 0;
+      border-bottom:1px solid #e4e4e7;
+      font-size:12px;
+      line-height:20px;
+    }
+    .keynote-ledger-row:last-child{ border-bottom:none; }
+    .keynote-ledger-key{
+      font-family:ui-monospace,monospace;
+      font-size:10px;
+      color:#71717a;
+      font-weight:600;
+    }
+    .keynote-ledger-val{ color:#18181b; }
+    .keynote-ledger-val strong{ color:#000000; font-weight:600; }
+    @media (max-width:600px){
+      .keynote-ledger-row{ grid-template-columns:1fr; gap:4px; }
     }
 
     .clean-table-wrap{
       width:100%;
       overflow-x:auto;
-      margin:1.75rem 0;
-      border:1px solid #f4f4f6;
+      margin:20px 0;
+      border:1px solid #e4e4e7;
       border-radius:6px;
     }
     table{
       width:100%;
       border-collapse:collapse;
-      font-size:13px;
+      font-size:12px;
+      line-height:20px;
       text-align:left;
     }
     th{
-      padding:0.6rem 0.85rem;
-      border-bottom:1px solid #f4f4f6;
+      padding:8px 12px;
+      border-bottom:1px solid #e4e4e7;
       color:#71717a;
-      font-weight:500;
-      font-size:12px;
+      font-weight:600;
+      font-size:10px;
       background:#fafafa;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
     }
     td{
-      padding:0.65rem 0.85rem;
+      padding:8px 12px;
       border-bottom:1px solid #f4f4f6;
       color:#52525b;
       vertical-align:top;
     }
     tr:last-child td{ border-bottom:none; }
+    td strong{ color:#18181b; font-weight:600; }
 
     .footer-nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
       border-top:1px solid #f4f4f6;
-      padding-top:2rem;
-      margin-top:4.5rem;
-      font-size:13.5px;
+      padding-top:24px;
+      margin-top:48px;
+      font-size:12px;
+      line-height:20px;
     }
     .footer-prev{ color:#71717a; text-decoration:none; }
-    .footer-prev:hover{ color:#000; }
-    .footer-next{ color:#000; text-decoration:none; font-weight:500; }
-    .footer-next:hover{ text-decoration-color:#000; }
+    .footer-prev:hover{ color:#000000; }
+    .footer-next{ color:#000000; text-decoration:none; font-weight:600; }
+    .footer-next:hover{ text-decoration-color:#000000; }
   </style>
 </head>
 <body>
@@ -214,14 +406,15 @@
 
     <header class="top-nav">
       <a href="index.html" class="nav-back">← Murat Çetin</a>
-      <span class="meta-tag">Case Study · 1.5M MAU Ecosystem</span>
+      <span class="meta-tag">Flagship Case Study · 1.5M MAU Ecosystem</span>
     </header>
 
     <h1 id="title">Allianz Türkiye: High-Scale B2C Ecosystem</h1>
     <p class="deck">
-      How cross-squad product design strategy, an 8,923-respondent discovery engine, and omnichannel journey architecture drove $24M+ in written premium impact and reduced call center load for Turkey’s largest private insurer.
+      Leading cross-squad product design strategy, an 8,923-respondent discovery engine, and omnichannel journey architecture to drive $24M+ in written premium impact and reduce call center load for Turkey’s largest private insurer.
     </p>
 
+    <!-- STAT ROW -->
     <div class="stat-row">
       <div class="stat-item">
         <span class="stat-val">1.5M+</span>
@@ -233,42 +426,206 @@
       </div>
       <div class="stat-item">
         <span class="stat-val">515K+</span>
-        <span class="stat-lbl">Fund Transactions</span>
+        <span class="stat-lbl">Digital Fund Actions</span>
       </div>
       <div class="stat-item">
         <span class="stat-val">$24M+</span>
-        <span class="stat-lbl">Written Premium</span>
+        <span class="stat-lbl">Written Premium (GWP+ANP)</span>
       </div>
     </div>
 
-    <!-- HERO IMAGE -->
-    <div class="media-card">
-      <img src="assets/allianz-hero.png?v=6" alt="Allianz'ım Ecosystem Architecture Overview">
+    <!-- QUICK-SCAN EXECUTIVE ABSTRACT (RECRUITER CARD) -->
+    <div class="keynote-card" style="margin-bottom: 32px;">
+      <div class="keynote-header">
+        <span class="keynote-title">Executive Abstract · Quick-Scan</span>
+        <span class="keynote-sub">Ecosystem Orchestration Horizon</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div>
+          <span style="color:#71717a; font-size:10px; display:block; font-family:ui-monospace,monospace; font-weight:600;">ROLE &amp; GOVERNANCE</span>
+          <strong style="color:#000000; font-weight:600; font-size:12px;">Lead Product Designer &amp; Ecosystem Orchestrator (ting agency embed)</strong>
+        </div>
+        <div>
+          <span style="color:#71717a; font-size:10px; display:block; font-family:ui-monospace,monospace; font-weight:600;">SQUAD TOPOLOGY</span>
+          <strong style="color:#000000; font-weight:600; font-size:12px;">5 Cross-Functional Squads · 10+ Product Owners · 100+ Initiatives</strong>
+        </div>
+        <div>
+          <span style="color:#71717a; font-size:10px; display:block; font-family:ui-monospace,monospace; font-weight:600;">PORTFOLIO IMPACT</span>
+          <strong style="color:#000000; font-weight:600; font-size:12px;">$24M+ GWP+ANP Production · 2.5M Unique User Engagements · 4.8★ App Store</strong>
+        </div>
+        <div>
+          <span style="color:#71717a; font-size:10px; display:block; font-family:ui-monospace,monospace; font-weight:600;">OPERATIONAL LEVERAGE</span>
+          <strong style="color:#000000; font-weight:600; font-size:12px;">-20% Inbound Call Center Load · 515K+ Digital Fund Rebalancing</strong>
+        </div>
+      </div>
     </div>
 
-    <h2>01. 5 Cross-Functional Squads Orchestration</h2>
-    <p>
-      Allianz Türkiye is the leading private insurance and pension provider in Turkey. Partnering through Ting (Istanbul &amp; London), I served as UX Strategist and Product Designer leading experience architecture across <strong>5 dedicated product squads</strong> powering the <em>Allianz’ım</em> digital ecosystem:
-    </p>
-    <ul>
-      <li><strong>Health Squad:</strong> Policy coverage limits, contracted hospital network search, and mobile claims reimbursement.</li>
-      <li><strong>Private Pension (BES) Squad:</strong> Wealth management, fund distribution, and government contribution tracking.</li>
-      <li><strong>Life &amp; Auto Squad:</strong> Policy renewals, on-demand roadside assistance dispatch, and claims tracking.</li>
-      <li><strong>Non-Life Squad:</strong> Property, home, and compulsory earthquake policy operations.</li>
-      <li><strong>Value-Added Services Squad:</strong> Customer loyalty programs, wellness integrations, and preventative care benefits.</li>
-    </ul>
+    <!-- HERO PRODUCTION SPECIMEN -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <span class="specimen-badge-label">
+          Ecosystem Architecture · Allianz'ım Primary Consumer Touchpoint
+        </span>
+        <span class="specimen-pill specimen-pill-blue">
+          1.5M MAU · RETINA PRODUCTION RUNTIME
+        </span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/allianz-hero.png?v=7" alt="Allianz'ım Ecosystem Architecture Overview">
+      </div>
+      <div class="specimen-footer">
+        <span>Integrated mobile platform unifying Health, Private Pension (BES), Motor, Property, and Lifestyle verticals.</span>
+        <span style="color:#18181b; font-weight:600;">Allianz Türkiye Primary Touchpoint</span>
+      </div>
+    </div>
 
-    <h2>02. The 8,923-Respondent Discovery Engine</h2>
+    <!-- 01. 5 CROSS-FUNCTIONAL SQUADS ORCHESTRATION -->
+    <h2>01. 5 Cross-Functional Squads Orchestration</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">01 · GOVERNANCE</span>
+      <span class="bl-text">Eliminated cross-squad UX fragmentation across 5 verticals; unified 10+ PO backlogs into a coherent journey.</span>
+    </div>
     <p>
-      To diagnose why pension policyholders exhibited high drop-off rates during digital fund rebalancing, I directed a comprehensive research initiative combining quantitative survey data from <strong>8,923 respondents</strong> with deep qualitative usability sessions.
+      Allianz Türkiye is the leading private insurance and pension provider in Turkey. Partnering through <strong>ting (Istanbul &amp; London)</strong>, I served as Lead Product Designer and Experience Architect embedded within Allianz’s in-house product organization. Rather than operating as an isolated visual agency, our 4-person design unit integrated directly across <strong>5 simultaneous agile squads</strong> to govern end-to-end B2C experience logic.
+    </p>
+    <p>
+      The operational challenge was structural: each product vertical was run by separate department heads and product owners with competing backend and efficiency priorities. Without architectural governance, the mobile app risked fragmenting into 5 disconnected sub-applications. I established shared interaction primitives, synchronized customer journeys, and cross-vertical design standards that scaled across <strong>100+ production releases</strong>.
+    </p>
+
+    <!-- SQUAD GOVERNANCE MATRIX TABLE -->
+    <div class="clean-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Squad Vertical</th>
+            <th>Department Scope</th>
+            <th>Primary Customer Flow</th>
+            <th>Operational &amp; Business Metric</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Health Squad</strong></td>
+            <td>Outpatient, Inpatient, Pharmacy</td>
+            <td>Contracted hospital discovery, dynamic limits, claim reimbursement</td>
+            <td><strong>5.4M Limit Queries · -20% Call Inquiries</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Pension (BES) Squad</strong></td>
+            <td>Mutual Funds, Wealth Management</td>
+            <td>Fund rebalancing, risk profiling, 30% government match</td>
+            <td><strong>515K+ Digital Fund Transactions</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Motor &amp; Life Squad</strong></td>
+            <td>Auto, Casco, Personal Life</td>
+            <td>Policy renewals, fast roadside dispatch, digital claims status</td>
+            <td><strong>+34% In-App Policy Renewal Conversion</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Non-Life Squad</strong></td>
+            <td>Property, Home, Earthquake (DASK)</td>
+            <td>Self-service policy issuance, automated property renewal</td>
+            <td><strong>$24M+ Written Premium Production</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Value-Added Services</strong></td>
+            <td>Allianz 365 Club, Wellness</td>
+            <td>Preventive health check-ups, lifestyle perks, telemedicine</td>
+            <td><strong>Daily Engagement &amp; Retention Hook</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 02. THE 8,923-RESPONDENT DISCOVERY ENGINE -->
+    <h2>02. The 8,923-Respondent Discovery Engine</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">02 · DISCOVERY ENGINE</span>
+      <span class="bl-text">Diagnosed 72% drop-off in fund rebalancing; replaced actuarial jargon with risk sliders and government match visualizers.</span>
+    </div>
+    <p>
+      Private Pension (BES) represents a cornerstone of Allianz’s long-term asset accumulation. However, initial funnel analytics exposed a critical bottleneck: over <strong>72% of policyholders abandoned digital fund rebalancing</strong> within the first 60 seconds. To diagnose the behavioral breakdown, I directed a dual-track research methodology combining quantitative survey data from <strong>8,923 policyholders</strong> with qualitative cognitive walkthroughs.
     </p>
     <blockquote>
-      “Users did not avoid fund distribution changes because of disinterest; they avoided it out of financial anxiety and impenetrable actuarial jargon. Presenting raw fund tables without contextual risk bands caused immediate abandonment.”
+      “Users did not avoid fund distribution changes because of disinterest; they avoided it out of acute financial anxiety. Presenting raw mutual fund tables with actuarial jargon (volatility ratios, Sharpe indices, duration tables) paralyzed users into fearing an irreversible loss of their lifelong retirement savings.”
     </blockquote>
-
-    <h2>03. Omnichannel Customer Journey: Mobile, Branch &amp; Telesales</h2>
     <p>
-      Allianz pension products are distributed through three non-aligned channels: mobile application, bank branch advisors (Yapı Kredi, Garanti), and telesales. I mapped an integrated journey blueprint to bridge channel drop-offs:
+      To resolve this anxiety, I restructured the wealth management interface from a financial spreadsheet into a decision-guided advisory engine:
+    </p>
+    <ul>
+      <li><strong>Cognitive Risk Sliders:</strong> Replaced complex percentage distribution inputs with intuitive risk-appetite sliders linked to automated robo-advisory portfolios.</li>
+      <li><strong>30% Government Match Visualizer:</strong> Clearly segregated personal deposits from the 30% state contribution (Devlet Katkısı), demonstrating guaranteed baseline yield.</li>
+      <li><strong>Comparative Return Benchmarks:</strong> Introduced visual return metrics comparing the user's current portfolio directly against inflation, USD, gold, and time-deposit benchmarks.</li>
+    </ul>
+
+    <!-- BES FUND DISTRIBUTION SPECIMEN -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <span class="specimen-badge-label">
+          Architectural Specimen · Private Pension (BES) Wealth Management &amp; Fund Allocation
+        </span>
+        <span class="specimen-pill specimen-pill-blue">
+          515K+ TRANSACTIONS COMPLETED
+        </span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/allianz-pension-funds.png" alt="Allianz Pension Fund Rebalancing and Wealth Advisory">
+      </div>
+      <div class="specimen-footer">
+        <span>Four-tier portfolio ledger: My Savings, Savings Trend, Asset Allocation, and Comparative Returns.</span>
+        <span style="color:#18181b; font-weight:600;">515,000+ Completed Digital Actions</span>
+      </div>
+    </div>
+
+    <!-- 03. HEALTH COVERAGE DIAGNOSTIC: 5.4M QUERIES -->
+    <h2>03. Health Coverage Diagnostic: 5.4M Queries</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">03 · OPERATIONAL DEFLECTION</span>
+      <span class="bl-text">Deflected 20% of inbound medical call center volume; engineered real-time outpatient visit tracking and hospital tier filtering.</span>
+    </div>
+    <p>
+      In private health insurance, customer uncertainty directly drives operational expenditure. Inbound call center logs showed that the vast majority of calls occurred minutes before doctor visits: policyholders asking: <em>"Is this hospital included in my network? How many outpatient visits do I have left this year?"</em>
+    </p>
+    <p>
+      I architected the <strong>Health Limits &amp; Contracted Network Infrastructure</strong> to provide instant, self-service certainty:
+    </p>
+    <ul>
+      <li><strong>Real-Time Outpatient Limit Progress Bars:</strong> Replaced vague policy clauses with instant visual progress meters showing used vs. remaining doctor visits and prescription quotas.</li>
+      <li><strong>Geo-Located Network Directory:</strong> Single-tap location filtering for contracted hospitals, diagnostic clinics, and pharmacies, explicitly tagged with insurance tier compatibility (Supplementary Sağlık, Modular, Comprehensive).</li>
+      <li><strong>Asynchronous Reimbursement Claims:</strong> Built an in-app claims ledger for non-contracted medical expenditures, enabling receipt capture and real-time status tracking (Approved, Under Evaluation, Missing Documents).</li>
+    </ul>
+
+    <!-- HEALTH LIMITS & NETWORK SPECIMEN -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <span class="specimen-badge-label">
+          Architectural Specimen · Contracted Health Network &amp; In-App Expense Management
+        </span>
+        <span class="specimen-pill specimen-pill-blue">
+          5.4M ANNUAL LIMIT QUERIES
+        </span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/allianz-limits.png" alt="Allianz Health Outpatient Limits and Geo-located Network">
+      </div>
+      <div class="specimen-footer">
+        <span>Real-time healthcare logistics: Tiered network discovery, geo-location mapping, and asynchronous claim filing.</span>
+        <span style="color:#18181b; font-weight:600;">20% Deflection in Call Center Inquiries</span>
+      </div>
+    </div>
+
+    <!-- 04. OMNICHANNEL JOURNEY ARCHITECTURE -->
+    <h2>04. Omnichannel Journey Architecture: Mobile, Branch &amp; Telesales</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">04 · OMNICHANNEL BLUEPRINT</span>
+      <span class="bl-text">Bridged the 3-channel disconnect between bank branches, mobile app, and telesales; synchronized contract states in real time.</span>
+    </div>
+    <p>
+      Allianz insurance products are distributed through three traditionally siloed channels: bank branch advisors (Yapı Kredi, Garanti BBVA), telesales representatives, and the digital mobile application. In the legacy workflow, customer interactions were disconnected: branch contracts sat on static paper, while incomplete mobile quote requests resulted in dead leads.
+    </p>
+    <p>
+      I designed an integrated <strong>Omnichannel State Synchronization Model</strong>:
     </p>
 
     <div class="clean-table-wrap">
@@ -277,77 +634,125 @@
           <tr>
             <th>Touchpoint</th>
             <th>Legacy Channel Disconnect</th>
-            <th>Unified Omnichannel Experience</th>
+            <th>Unified Architectural Solution</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>Bank Branch</strong></td>
             <td>Advisor initiates contract; customer receives static paper terms with zero digital follow-up.</td>
-            <td>Instant SMS push with real-time onboarding checklist in the Allianz’ım mobile app.</td>
+            <td><strong>Instant SMS Push Onboarding:</strong> Customer receives a real-time checklist inside the Allianz’ım mobile app upon branch sign-off.</td>
           </tr>
           <tr>
             <td><strong>Mobile App</strong></td>
-            <td>Fund changes made on mobile were invisible to the branch advisor CRM.</td>
-            <td>Unified state synchronization with real-time advisor notification feed.</td>
+            <td>Fund reallocations and policy changes made on mobile were invisible to the branch advisor CRM.</td>
+            <td><strong>Bidirectional State Sync:</strong> Advisor CRM updates in real time with mobile portfolio actions, unlocking proactive advisory touchpoints.</td>
           </tr>
           <tr>
             <td><strong>Telesales</strong></td>
-            <td>Support agents had no context on uncompleted mobile fund rebalancing flows.</td>
-            <td>Contextual drop-off tags passed to telesales for proactive assisted completion.</td>
+            <td>Support agents had zero context on abandoned digital quote calculations.</td>
+            <td><strong>Contextual Drop-Off Handoff:</strong> Calculation state tags pass directly to telesales for targeted assisted completion without repeated questions.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- CUSTOMER PORTAL IMAGE -->
-    <div class="media-card">
-      <img src="assets/allianz-cp.png" alt="Allianz Omnichannel Customer Portal Integration">
+    <!-- NON-POLICY & MOTOR QUOTE SPECIMEN -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <span class="specimen-badge-label">
+          Architectural Specimen · Non-Policy Acquisition &amp; Motor Quote Funnel
+        </span>
+        <span class="specimen-pill specimen-pill-blue">
+          +34% DIGITAL RENEWAL CONVERSION
+        </span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/allianz-quotes-motor.png" alt="Allianz Non-Policy Customer Acquisition and Motor Quote Funnel">
+      </div>
+      <div class="specimen-footer">
+        <span>Acquisition architecture: Non-policy quote calculators, cross-sell triggers, and automated renewal flows.</span>
+        <span style="color:#18181b; font-weight:600;">Omnichannel Lead Pipeline</span>
+      </div>
     </div>
 
-    <h2>04. Health Coverage Diagnostic: 5.4M Queries</h2>
+    <!-- 05. VALUE-ADDED SERVICES & PREVENTATIVE ENGAGEMENT -->
+    <h2>05. Value-Added Services &amp; Preventative Engagement</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">05 · ENGAGEMENT HOOK</span>
+      <span class="bl-text">Transformed insurance from emergency-only grudge purchase to daily wellness engagement; scaled loyalty club membership.</span>
+    </div>
     <p>
-      Health policyholders frequently flooded the call center before medical visits asking: <em>"Is this hospital covered? How many outpatient visits do I have left?"</em>
-    </p>
-    <p>
-      I redesigned the <strong>Health Limits &amp; Contracted Network Experience</strong>:
+      A systemic challenge in insurance is the "grudge purchase" mental model: users only open the application during an accident, illness, or claim. To drive organic engagement and elevate customer lifetime value (LTV), our squad architected the <strong>Allianz 365 Club Ecosystem</strong>.
     </p>
     <ul>
-      <li><strong>Dynamic Limit Progress Bars:</strong> Instant visual breakdown of remaining outpatient visits, inpatient coverage, and prescription quotas.</li>
-      <li><strong>Geo-Located Contracted Hospitals:</strong> Single-tap filtering by specific insurance network tier (A, B, C) with coverage guarantee badges.</li>
-      <li><strong>Measured Outcome:</strong> Scaled to <strong>5.4 Million annual limit queries</strong>, directly contributing to an estimated <strong>20% reduction in inbound support calls</strong>.</li>
+      <li><strong>Tiered Privilege Architecture:</strong> Established tiered membership levels (Bronze, Silver, Gold, Platinum) automatically computed from policy tenure and total accumulated savings.</li>
+      <li><strong>Integrated Telemedicine (Dr. Allianz):</strong> Seamless 24/7 video and chat consultations with medical specialists directly within the mobile application.</li>
+      <li><strong>Preventative Health &amp; Lifestyle Integration:</strong> Automated scheduling for annual health check-ups, dental cleanings, pet care, and daily mobility partnerships (İspark, EspressoLab).</li>
     </ul>
 
-    <!-- HEALTH LIMITS IMAGE -->
-    <div class="media-card">
-      <img src="assets/allianz-limits.png" alt="Allianz Health Outpatient Limits & Geo-located Network">
+    <!-- ALLIANZ 365 CLUB SPECIMEN -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <span class="specimen-badge-label">
+          Architectural Specimen · Allianz 365 Club &amp; Preventative Lifestyle Ecosystem
+        </span>
+        <span class="specimen-pill specimen-pill-blue">
+          DAILY ENGAGEMENT &amp; RETENTION HOOK
+        </span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/allianz-vas-club.png" alt="Allianz 365 Club Membership and Privileges Ecosystem">
+      </div>
+      <div class="specimen-footer">
+        <span>Tiered privilege tiers, telemedicine access, and lifestyle wellness integration.</span>
+        <span style="color:#18181b; font-weight:600;">Ecosystem Retention Engine</span>
+      </div>
     </div>
 
-    <h2>05. Fund Distribution &amp; Wealth Management Flow</h2>
-    <p>
-      Private Pension (BES) users manage their lifelong savings in mutual funds. I restructured the rebalancing flow:
-    </p>
-    <ul>
-      <li>Replaced complex financial tables with <strong>Risk Profile Sliders</strong> and automated robo-advisory suggestions.</li>
-      <li>Visualized the 30% government contribution match alongside personal accumulated capital.</li>
-      <li>Facilitated over <strong>515,000+ completed digital fund rebalancing transactions</strong>.</li>
-    </ul>
-
-    <!-- FUND REBALANCING IMAGE -->
-    <div class="media-card">
-      <img src="assets/allianz-proposal.png" alt="Allianz Pension Fund Rebalancing and Wealth Advisory">
-    </div>
-
+    <!-- 06. MEASURABLE BUSINESS OUTCOMES & SCALE -->
     <h2>06. Measurable Business Outcomes &amp; Scale</h2>
+    <div class="bottom-line-strip">
+      <span class="bl-tag">06 · PROVABLE ROI</span>
+      <span class="bl-text">$24M+ written premium impact; MMA Smarties Global Gold &amp; EMEA Gold; 4.8★ rating across 1.5M active users.</span>
+    </div>
     <p>
-      The redesigned ecosystem established a new benchmark for European insurtech:
+      The transformation of Allianz’ım established a verified benchmark for high-scale European B2C insurtech, proving that rigorous product design architecture directly fuels core business economics:
     </p>
-    <ul>
-      <li><strong>$24M+ Written Premium Impact:</strong> Driven through in-app renewals, cross-sell campaigns, and streamlined pension top-ups.</li>
-      <li><strong>Industry Recognition:</strong> Awarded MMA Smarties Global Gold and MMA Smarties EMEA Gold for mobile business impact.</li>
-      <li><strong>User Satisfaction:</strong> 4.8★ App Store rating maintained across 1.5M+ active policyholders.</li>
-    </ul>
 
+    <!-- EXECUTIVE LEDGER CARD -->
+    <div class="keynote-card" style="margin:24px 0 32px 0;">
+      <div class="keynote-header">
+        <span class="keynote-title">Executive Impact Ledger · Proven Scale</span>
+        <span class="keynote-sub">Audited Production Metrics</span>
+      </div>
+      <div class="keynote-ledger-row">
+        <span class="keynote-ledger-key">01 · REVENUE IMPACT</span>
+        <div class="keynote-ledger-val"><strong>$24 Million+ Written Premium (GWP + ANP):</strong> Driven through automated in-app renewals, cross-sell funnels, and streamlined pension contributions.</div>
+      </div>
+      <div class="keynote-ledger-row">
+        <span class="keynote-ledger-key">02 · ACTIVE SCALE</span>
+        <div class="keynote-ledger-val"><strong>1.5 Million Monthly Active Users:</strong> 2.5 Million unique user engagements per year across Turkey’s largest private insurance base.</div>
+      </div>
+      <div class="keynote-ledger-row">
+        <span class="keynote-ledger-key">03 · CALL DEFLECTION</span>
+        <div class="keynote-ledger-val"><strong>5.4 Million Annual Health Queries:</strong> Contributed to a direct <strong>~20% reduction</strong> in inbound call center medical coverage inquiries.</div>
+      </div>
+      <div class="keynote-ledger-row">
+        <span class="keynote-ledger-key">04 · FUND VELOCITY</span>
+        <div class="keynote-ledger-val"><strong>515,000+ Digital Fund Rebalancing Actions:</strong> Empowered by simplified risk profile matching and 30% state match visualization.</div>
+      </div>
+      <div class="keynote-ledger-row">
+        <span class="keynote-ledger-key">05 · SATISFACTION</span>
+        <div class="keynote-ledger-val"><strong>4.8★ App Store Rating:</strong> Sustained across hundreds of thousands of App Store and Google Play customer reviews.</div>
+      </div>
+      <div class="keynote-ledger-row">
+        <span class="keynote-ledger-key">06 · RECOGNITION</span>
+        <div class="keynote-ledger-val"><strong>MMA Smarties Global Gold &amp; EMEA Gold:</strong> Honored for measurable mobile business impact in enterprise financial services.</div>
+      </div>
+    </div>
+
+    <!-- BOTTOM CROSS-NAV -->
     <div class="footer-nav">
       <a href="agito.html" class="footer-prev">← Agito InsurTech Modernization</a>
       <a href="three.html" class="footer-next">Three Insurance (Berkshire Hathaway) →</a>
