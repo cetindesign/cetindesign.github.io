@@ -473,6 +473,189 @@
       box-shadow: 0 0 0 1px #e4e4e7;
     }
 
+    /* FLOORPLAN FILTER & ZOOM TABS */
+    .floorplan-nav-strip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: #fafafa;
+      border-top: 1px solid #e4e4e7;
+      border-bottom: 1px solid #e4e4e7;
+      flex-wrap: wrap;
+    }
+    .floorplan-nav-label {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 10px;
+      font-weight: 600;
+      color: #71717a;
+      letter-spacing: 0.04em;
+    }
+    .floorplan-nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .floorplan-nav-btn {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border: 1px solid #e4e4e7;
+      border-radius: 4px;
+      background: #ffffff;
+      color: #71717a;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .floorplan-nav-btn:hover {
+      background: #f4f4f6;
+      color: #18181b;
+      border-color: #d4d4d8;
+    }
+    .floorplan-nav-btn.active {
+      background: var(--token-primary, #5D2BC7);
+      color: #ffffff;
+      border-color: var(--token-primary, #5D2BC7);
+    }
+    #floorplan-inspector-canvas[data-active-floorplan="01"] .floorplan-specimen:not([data-floorplan-id="01"]),
+    #floorplan-inspector-canvas[data-active-floorplan="02"] .floorplan-specimen:not([data-floorplan-id="02"]),
+    #floorplan-inspector-canvas[data-active-floorplan="03"] .floorplan-specimen:not([data-floorplan-id="03"]),
+    #floorplan-inspector-canvas[data-active-floorplan="04"] .floorplan-specimen:not([data-floorplan-id="04"]) {
+      display: none;
+    }
+    #floorplan-inspector-canvas[data-active-floorplan="01"] .floorplan-gallery,
+    #floorplan-inspector-canvas[data-active-floorplan="02"] .floorplan-gallery,
+    #floorplan-inspector-canvas[data-active-floorplan="03"] .floorplan-gallery,
+    #floorplan-inspector-canvas[data-active-floorplan="04"] .floorplan-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    /* SPECIMEN VIEW SWITCHER */
+    .specimen-view-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f4f4f6;
+      padding: 2px;
+      border-radius: 4px;
+      border: 1px solid #e4e4e7;
+    }
+    .specimen-view-btn {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: none;
+      background: transparent;
+      color: #71717a;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .specimen-view-btn:hover {
+      color: #18181b;
+    }
+    .specimen-view-btn.active {
+      background: #ffffff;
+      color: #18181b;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .specimen-grid-pair[data-view="agency"] .specimen-column:last-child {
+      display: none;
+    }
+    .specimen-grid-pair[data-view="agito"] .specimen-column:first-child {
+      display: none;
+    }
+    .specimen-grid-pair[data-view="agency"] .specimen-column:first-child,
+    .specimen-grid-pair[data-view="agito"] .specimen-column:last-child {
+      border-right: none;
+      background: #ffffff;
+    }
+
+    /* ARCHITECTURAL CAD INVARIANT PROBE HUD */
+    .cad-hud-container {
+      margin-top: 16px;
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: #ffffff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .cad-hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #27272a;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cad-radar-beacon {
+      width: 6px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+    }
+    .cad-hud-tag {
+      font-size: 10px;
+      font-weight: 600;
+      color: #a1a1aa;
+      letter-spacing: 0.04em;
+    }
+    .cad-hud-hint {
+      font-size: 10px;
+      color: #71717a;
+    }
+    .cad-hud-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 900px) {
+      .cad-hud-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 500px) {
+      .cad-hud-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .cad-hud-box {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cad-hud-k {
+      font-size: 10px;
+      color: #71717a;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .cad-hud-v {
+      font-size: 12px;
+      color: #f4f4f5;
+      font-weight: 400;
+      line-height: 16px;
+      min-height: 32px;
+    }
+    .cad-inspectable {
+      cursor: crosshair;
+      transition: opacity 0.15s ease, stroke-width 0.15s ease;
+    }
+    .cad-inspectable:hover {
+      filter: brightness(0.96);
+      outline: 1px solid var(--token-primary, #5D2BC7);
+    }
+    .blueprint-active .cad-inspectable:hover {
+      outline: 1px dashed var(--token-primary, #5D2BC7);
+    }
+
     .wireframe-box{
       background:#fafafa;
       border:1px dashed #d4d4d8;
@@ -1188,12 +1371,19 @@
         <span class="specimen-badge-label">
           Architectural Specimen · Design-to-Code Divergence Contrast
         </span>
-        <span class="specimen-pill specimen-pill-violet">
-          3X VELOCITY GAP ELIMINATED
-        </span>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <div class="specimen-view-switcher" role="tablist" aria-label="Specimen view mode">
+            <button type="button" class="specimen-view-btn active" data-specimen-view="split">Side-by-Side</button>
+            <button type="button" class="specimen-view-btn" data-specimen-view="agency">Agency Concept (✕ 13px Drift)</button>
+            <button type="button" class="specimen-view-btn" data-specimen-view="agito">Agito Contract (✓ 100vh Locked)</button>
+          </div>
+          <span class="specimen-pill specimen-pill-violet">
+            3X VELOCITY GAP ELIMINATED
+          </span>
+        </div>
       </div>
 
-      <div class="specimen-grid-pair">
+      <div class="specimen-grid-pair" id="specimen-divergence-grid" data-view="split">
         <!-- SPECIMEN 01-A: AGENCY CONCEPT -->
         <div class="specimen-column">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
@@ -2052,9 +2242,21 @@
         </div>
       </div>
 
+      <!-- FLOORPLAN VIEW SELECTOR TABS -->
+      <div class="floorplan-nav-strip">
+        <span class="floorplan-nav-label">FLOORPLAN FILTER:</span>
+        <div class="floorplan-nav-tabs" role="tablist" aria-label="Floorplan filter selector">
+          <button type="button" class="floorplan-nav-btn active" data-floorplan="all">All 4 Floorplans (2×2 Matrix)</button>
+          <button type="button" class="floorplan-nav-btn" data-floorplan="01">01 · Overview (60/40 Split)</button>
+          <button type="button" class="floorplan-nav-btn" data-floorplan="02">02 · Standard List (100vh Ledger)</button>
+          <button type="button" class="floorplan-nav-btn" data-floorplan="03">03 · Object Detail (3-Col Form)</button>
+          <button type="button" class="floorplan-nav-btn" data-floorplan="04">04 · Analytical Split (Reconciliation)</button>
+        </div>
+      </div>
+
       <div class="floorplan-gallery">
         <!-- SPECIMEN 01: OVERVIEW -->
-        <div class="floorplan-specimen">
+        <div class="floorplan-specimen" data-floorplan-id="01">
           <div>
             <div class="floorplan-specimen-header">
               <div>
@@ -2073,7 +2275,7 @@
                 </defs>
                 <rect width="100%" height="100%" fill="url(#blueprint-grid-1)" class="blueprint-grid-bg"/>
                 <!-- Topbar -->
-                <rect x="0" y="0" width="320" height="16" rx="2" fill="#e4e4e7" class="token-radius-target"/>
+                <rect x="0" y="0" width="320" height="16" rx="2" fill="#e4e4e7" class="token-radius-target cad-inspectable" data-cad-comp="TopBar (metrics.ts)" data-cad-geo="Height: 48px · Fixed Header" data-cad-token="TOPBAR_HEIGHT = 48" data-cad-dec="Single commanding header across all 14 apps"/>
                 <circle cx="8" cy="8" r="3" fill="#5D2BC7" class="token-primary-fill"/>
                 <rect x="18" y="5" width="80" height="6" rx="1" fill="#a1a1aa"/>
                 <rect x="260" y="5" width="50" height="6" rx="1" fill="#d4d4d8"/>
@@ -2095,7 +2297,7 @@
                 <text x="249" y="41" font-family="ui-monospace, monospace" font-size="8" font-weight="600" fill="#5D2BC7" class="token-primary-text">18 QUEUE</text>
 
                 <!-- 60/40 Split Content -->
-                <rect x="0" y="52" width="190" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
+                <rect x="0" y="52" width="190" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target cad-inspectable" data-cad-comp="60% Workpool Queue Table" data-cad-geo="Width: 60% · Independent Scroll" data-cad-token="overflow-y: auto · 100vh locked" data-cad-dec="Zero whole-page scrolling"/>
                 <rect x="0" y="52" width="190" height="14" fill="#f4f4f5"/>
                 <text x="6" y="62" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">WORKPOOL QUEUE (INDEPENDENT SCROLL)</text>
                 <line x1="0" y1="80" x2="190" y2="80" stroke="#f4f4f6" stroke-width="0.8"/>
@@ -2108,7 +2310,7 @@
                 <rect x="6" y="102" width="110" height="4" rx="1" fill="#71717a"/>
                 <rect x="155" y="101" width="28" height="6" rx="1" fill="#ecfdf5"/>
 
-                <rect x="196" y="52" width="124" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
+                <rect x="196" y="52" width="124" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target cad-inspectable" data-cad-comp="40% Pinned Audit Ledger" data-cad-geo="Width: 40% · KVKK/MASAK Pinned" data-cad-token="border-left: 1px solid #e4e4e7" data-cad-dec="Compliance ledger pinned to right viewport"/>
                 <rect x="196" y="52" width="124" height="14" fill="#f4f4f5"/>
                 <text x="202" y="62" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">KVKK / AUDIT LEDGER (40%)</text>
                 <circle cx="204" cy="74" r="2" fill="#5D2BC7" class="token-primary-fill"/>
@@ -2138,7 +2340,7 @@
         </div>
 
         <!-- SPECIMEN 02: STANDARD LIST -->
-        <div class="floorplan-specimen">
+        <div class="floorplan-specimen" data-floorplan-id="02">
           <div>
             <div class="floorplan-specimen-header">
               <div>
@@ -2157,7 +2359,7 @@
                 </defs>
                 <rect width="100%" height="100%" fill="url(#blueprint-grid-2)" class="blueprint-grid-bg"/>
                 <!-- Filter Bar -->
-                <rect x="0" y="0" width="100" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
+                <rect x="0" y="0" width="100" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target cad-inspectable" data-cad-comp="Filter Bar Composite (addonBefore)" data-cad-geo="Height: 40px · 8px grid base" data-cad-token="agitoTheme.components.Input.controlHeight = 40" data-cad-dec="Strict 40px floating labels; eliminated arbitrary padding"/>
                 <rect x="6" y="6" width="50" height="4" rx="1" fill="#a1a1aa"/>
                 <rect x="106" y="0" width="60" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <rect x="112" y="6" width="35" height="4" rx="1" fill="#71717a"/>
@@ -2167,17 +2369,17 @@
                 <rect x="270" y="6" width="40" height="4" rx="1" fill="#ffffff"/>
 
                 <!-- Table Header -->
-                <rect x="0" y="24" width="320" height="16" fill="#f4f4f5" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="0" y="24" width="320" height="16" fill="#f4f4f5" stroke="#d4d4d8" stroke-width="0.8" class="cad-inspectable" data-cad-comp="High-Density Master Table Header" data-cad-geo="Height: 38px · 8px cell padding" data-cad-token="th font-weight: 600 · cellPaddingBlock: 8" data-cad-dec="Zero bespoke CSS table overrides; strictly semi-bold 600 header"/>
                 <text x="6" y="35" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">CODE</text>
                 <text x="45" y="35" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">CURRENCY ENTITY</text>
                 <text x="135" y="35" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">MODULE SCOPE</text>
                 <text x="205" y="35" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">STATUS</text>
                 <!-- Frozen Column Divider -->
-                <line x1="250" y1="24" x2="250" y2="124" stroke="#5D2BC7" stroke-width="1" stroke-dasharray="2 2" class="token-primary-stroke"/>
+                <line x1="250" y1="24" x2="250" y2="124" stroke="#5D2BC7" stroke-width="1" stroke-dasharray="2 2" class="token-primary-stroke cad-inspectable" data-cad-comp="Pinned Table Action Column" data-cad-geo="Fixed right anchor · 0.5px hairline" data-cad-token="AntD Table fixed: 'right'" data-cad-dec="18-col actuarial tables scroll horizontally without breaking actions"/>
                 <text x="256" y="35" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#5D2BC7" class="token-primary-text">ACTION (FROZEN)</text>
 
                 <!-- Rows -->
-                <rect x="0" y="40" width="320" height="20" fill="#ffffff"/>
+                <rect x="0" y="40" width="320" height="20" fill="#ffffff" class="cad-inspectable" data-cad-comp="Master Table Row (38px High-Density)" data-cad-geo="Height: 38px (14/22px text + 8px pad)" data-cad-token="agitoTheme.components.Table.cellPaddingBlock = 8" data-cad-dec="Zero bespoke CSS table overrides; strictly regular 400 in table body"/>
                 <text x="6" y="53" font-family="ui-monospace, monospace" font-size="7.5" font-weight="600" fill="#18181b">TRY</text>
                 <text x="45" y="53" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#18181b">Turkish Lira (Base)</text>
                 <text x="135" y="53" font-family="ui-sans-serif, sans-serif" font-size="7.5" fill="#71717a">Collections</text>
@@ -2227,7 +2429,7 @@
         </div>
 
         <!-- SPECIMEN 03: OBJECT -->
-        <div class="floorplan-specimen">
+        <div class="floorplan-specimen" data-floorplan-id="03">
           <div>
             <div class="floorplan-specimen-header">
               <div>
@@ -2246,7 +2448,7 @@
                 </defs>
                 <rect width="100%" height="100%" fill="url(#blueprint-grid-3)" class="blueprint-grid-bg"/>
                 <!-- Hero Banner -->
-                <rect x="0" y="0" width="320" height="28" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
+                <rect x="0" y="0" width="320" height="28" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target cad-inspectable" data-cad-comp="Level 2 Entity Header" data-cad-geo="Title: 24px/32px semi-bold 600" data-cad-token=".view-title-main · DM Sans 600" data-cad-dec="Standardized Level 2 detail hierarchy; breadcrumbs eliminated"/>
                 <text x="8" y="12" font-family="ui-monospace, monospace" font-size="6.5" fill="#71717a">POLICY RECORD</text>
                 <text x="8" y="22" font-family="ui-sans-serif, sans-serif" font-size="8.5" font-weight="600" fill="#18181b">POL-2026-89410 · Commercial Property All-Risk</text>
                 <rect x="235" y="6" width="35" height="16" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
@@ -2262,7 +2464,7 @@
                 <text x="220" y="42" font-family="ui-sans-serif, sans-serif" font-size="7" fill="#71717a">Audit Trail</text>
 
                 <!-- 3-Col Form Grid -->
-                <rect x="0" y="52" width="102" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
+                <rect x="0" y="52" width="102" height="88" rx="2" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target cad-inspectable" data-cad-comp="3-Column Actuarial Form Grid (Col 1)" data-cad-geo="3 Columns · 16px Gutters" data-cad-token="Form.itemMarginBottom = 16" data-cad-dec="Strict 3-column mathematical constraint; eliminated misaligned inputs"/>
                 <text x="6" y="65" font-family="ui-sans-serif, sans-serif" font-size="7.5" font-weight="600" fill="#18181b">Insured Entity</text>
                 <rect x="6" y="72" width="90" height="22" rx="2" fill="#fafafa" stroke="#d4d4d8" stroke-width="0.8" class="token-radius-target"/>
                 <text x="10" y="80" font-family="ui-monospace, monospace" font-size="5.5" fill="#a1a1aa">CORPORATE NAME</text>
@@ -2303,7 +2505,7 @@
         </div>
 
         <!-- SPECIMEN 04: ANALYTICAL SPLIT -->
-        <div class="floorplan-specimen">
+        <div class="floorplan-specimen" data-floorplan-id="04">
           <div>
             <div class="floorplan-specimen-header">
               <div>
@@ -2322,7 +2524,7 @@
                 </defs>
                 <rect width="100%" height="100%" fill="url(#blueprint-grid-4)" class="blueprint-grid-bg"/>
                 <!-- Left 35% Master Queue -->
-                <rect x="0" y="0" width="112" height="140" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="0" y="0" width="112" height="140" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="cad-inspectable" data-cad-comp="35% Reconciliation Queue" data-cad-geo="Width: 35% · Internal vertical scroll" data-cad-token="overflow-y: auto" data-cad-dec="Master queue selection drives right canvas without page reload"/>
                 <rect x="0" y="0" width="112" height="16" fill="#f4f4f5"/>
                 <text x="6" y="11" font-family="ui-monospace, monospace" font-size="6.5" font-weight="600" fill="#71717a">INSPECTION QUEUE (35%)</text>
 
@@ -2339,7 +2541,7 @@
                 <text x="8" y="108" font-family="ui-sans-serif, sans-serif" font-size="6" fill="#71717a">Deductible: ₺12k</text>
 
                 <!-- Right 65% Calculation Canvas -->
-                <rect x="118" y="0" width="202" height="140" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8"/>
+                <rect x="118" y="0" width="202" height="140" fill="#ffffff" stroke="#d4d4d8" stroke-width="0.8" class="cad-inspectable" data-cad-comp="65% Mathematical Variance Canvas" data-cad-geo="Width: 65% · Real-time formula ledger" data-cad-token="Zustand reactive patch state" data-cad-dec="Immediate actuarial feedback without roundtrip delay"/>
                 <rect x="118" y="0" width="202" height="16" fill="#f4f4f5"/>
                 <text x="124" y="11" font-family="ui-sans-serif, sans-serif" font-size="7" font-weight="600" fill="#18181b">Variance Calculation Canvas (65%)</text>
                 <rect x="260" y="3" width="54" height="10" rx="1.5" fill="#5D2BC7" class="token-primary-fill"/>
@@ -2376,6 +2578,35 @@
           </div>
           <div class="floorplan-meta">
             <strong>Architecture:</strong> Master-detail split layout. Selecting items on the left triggers real-time mathematical recalculation on the right canvas.
+          </div>
+        </div>
+      </div>
+
+      <!-- LIVE ARCHITECTURAL INVARIANT PROBE (CAD HUD) -->
+      <div class="cad-hud-container" id="floorplan-cad-hud">
+        <div class="cad-hud-header">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="cad-radar-beacon"></span>
+            <span class="cad-hud-tag">ARCHITECTURAL CONTROL CONTRACT PROBE</span>
+          </div>
+          <span class="cad-hud-hint" id="cad-hud-hint">HOVER OVER DIAGRAM BLUEPRINTS TO PROBE ACTIVE SYSTEM CONSTRAINTS</span>
+        </div>
+        <div class="cad-hud-grid">
+          <div class="cad-hud-box">
+            <span class="cad-hud-k">COMPONENT TARGET</span>
+            <div class="cad-hud-v" id="cad-hud-comp">AntD ConfigProvider / Global Viewport</div>
+          </div>
+          <div class="cad-hud-box">
+            <span class="cad-hud-k">GEOMETRY CONSTRAINT</span>
+            <div class="cad-hud-v" id="cad-hud-geo">1920×1080 FHD · 100vh Locked · Zero Page Scroll</div>
+          </div>
+          <div class="cad-hud-box">
+            <span class="cad-hud-k">TOKEN BINDING</span>
+            <div class="cad-hud-v" id="cad-hud-token">agitoTheme ➔ 0 CSS Overrides · DTCG core.json</div>
+          </div>
+          <div class="cad-hud-box">
+            <span class="cad-hud-k">DECISION REMOVED</span>
+            <div class="cad-hud-v" id="cad-hud-dec">Eliminated whole-page jump and unmaintainable layout drift across 14 products</div>
           </div>
         </div>
       </div>
@@ -2850,7 +3081,72 @@
             blueprintBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
           });
         }
+
+        // Floorplan Filter Switcher
+        var floorplanBtns = canvas.querySelectorAll('.floorplan-nav-btn');
+        floorplanBtns.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var fp = btn.getAttribute('data-floorplan');
+            floorplanBtns.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            canvas.setAttribute('data-active-floorplan', fp);
+          });
+        });
+
+        // Architectural Invariant CAD Probe
+        var hudComp = document.getElementById('cad-hud-comp');
+        var hudGeo = document.getElementById('cad-hud-geo');
+        var hudToken = document.getElementById('cad-hud-token');
+        var hudDec = document.getElementById('cad-hud-dec');
+        var hudHint = document.getElementById('cad-hud-hint');
+
+        var defaultHud = {
+          comp: 'AntD ConfigProvider / Global Viewport',
+          geo: '1920×1080 FHD · 100vh Locked · Zero Page Scroll',
+          token: 'agitoTheme ➔ 0 CSS Overrides · DTCG core.json',
+          dec: 'Eliminated whole-page jump and unmaintainable layout drift across 14 products'
+        };
+
+        function updateHud(comp, geo, token, dec) {
+          if (hudComp) hudComp.textContent = comp;
+          if (hudGeo) hudGeo.textContent = geo;
+          if (hudToken) hudToken.textContent = token;
+          if (hudDec) hudDec.textContent = dec;
+          if (hudHint) hudHint.textContent = 'PROBE ACTIVE: ' + comp.toUpperCase();
+        }
+
+        function resetHud() {
+          if (hudComp) hudComp.textContent = defaultHud.comp;
+          if (hudGeo) hudGeo.textContent = defaultHud.geo;
+          if (hudToken) hudToken.textContent = defaultHud.token;
+          if (hudDec) hudDec.textContent = defaultHud.dec;
+          if (hudHint) hudHint.textContent = 'HOVER OVER DIAGRAM BLUEPRINTS TO PROBE ACTIVE SYSTEM CONSTRAINTS';
+        }
+
+        var inspectables = canvas.querySelectorAll('.cad-inspectable');
+        inspectables.forEach(function(el) {
+          el.addEventListener('mouseenter', function() {
+            var comp = el.getAttribute('data-cad-comp') || defaultHud.comp;
+            var geo = el.getAttribute('data-cad-geo') || defaultHud.geo;
+            var token = el.getAttribute('data-cad-token') || defaultHud.token;
+            var dec = el.getAttribute('data-cad-dec') || defaultHud.dec;
+            updateHud(comp, geo, token, dec);
+          });
+          el.addEventListener('mouseleave', resetHud);
+        });
       }
+
+      // Specimen View Switcher (Section 01)
+      var specimenGrid = document.getElementById('specimen-divergence-grid');
+      var specimenBtns = document.querySelectorAll('.specimen-view-btn');
+      specimenBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var view = btn.getAttribute('data-specimen-view');
+          specimenBtns.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          if (specimenGrid) specimenGrid.setAttribute('data-view', view);
+        });
+      });
     })();
   </script>
 </body>
