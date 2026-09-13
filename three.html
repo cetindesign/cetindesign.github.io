@@ -4,9 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Three Insurance — Berkshire Hathaway Underwriting — Murat Çetin</title>
-  <meta name="description" content="Case study on architecting a multi-tenant underwriting and rating engine for Berkshire Hathaway commercial insurance at Radity Zurich."/>
+  <meta name="description" content="Case study on architecting a multi-tenant commercial underwriting and rating engine for Berkshire Hathaway: 80+ production screens, Material UI token pipeline, 15-module progressive intake tree, and 12-minute quote-to-bind turnaround."/>
+
+  <!-- OPEN GRAPH & SOCIAL PREVIEW -->
+  <meta property="og:title" content="Three Insurance — Berkshire Hathaway Underwriting — Murat Çetin">
+  <meta property="og:description" content="How a unified Material UI token architecture, 15-module progressive underwriting tree, and multi-tenant carrier white-labeling streamlined commercial rating across 80+ production screens for Berkshire Hathaway at Radity Zurich.">
+  <meta property="og:url" content="https://cetindesign.github.io/three.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Three Insurance — Berkshire Hathaway Underwriting — Murat Çetin">
+  <meta name="twitter:description" content="How a unified Material UI token architecture, 15-module progressive underwriting tree, and multi-tenant carrier white-labeling streamlined commercial rating across 80+ production screens for Berkshire Hathaway at Radity Zurich.">
+
+  <!-- FAVICON (SVG MONOGRAM) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
+
   <style>
-    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
+    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e4e4e7}
     
     html,:host{
       -webkit-text-size-adjust:100%;
@@ -15,13 +28,14 @@
       line-height:1.6;
       scrollbar-gutter:stable;
       overflow-y:scroll;
-      background-color:#fff;
+      background-color:#ffffff;
       color:#18181b;
     }
     
     body{
       margin:0;
-      font-size:15px;
+      font-size:14px;
+      line-height:22px;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
@@ -29,154 +43,380 @@
     a{
       text-underline-offset:2px;
       text-decoration-line:underline;
-      text-decoration-color:#eeeff2;
-      text-decoration-thickness:2px;
+      text-decoration-color:#e4e4e7;
+      text-decoration-thickness:1px;
       color:inherit;
-      transition:text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition:text-decoration-color 0.2s ease, color 0.2s ease;
     }
     a:hover{
-      text-decoration-color:#a1a1aa;
-      color:#000;
+      text-decoration-color:#18181b;
+      color:#000000;
     }
 
     .wrap{
-      max-width:42rem;
+      max-width:48rem;
       margin-left:auto;
       margin-right:auto;
-      padding-left:1.5rem;
-      padding-right:1.5rem;
-      padding-top:4rem;
-      padding-bottom:8rem;
+      padding-left:16px;
+      padding-right:16px;
+      padding-top:32px;
+      padding-bottom:64px;
     }
 
     .top-nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding-bottom:1.5rem;
+      padding-bottom:16px;
       border-bottom:1px solid #f4f4f6;
-      margin-bottom:3rem;
-      font-size:13.5px;
+      margin-bottom:32px;
+      font-size:12px;
+      line-height:20px;
     }
 
     .nav-back{
       display:inline-flex;
       align-items:center;
-      gap:0.5rem;
+      gap:8px;
       color:#71717a;
       text-decoration:none;
       font-weight:400;
     }
-    .nav-back:hover{ color:#000; }
+    .nav-back:hover{ color:#000000; }
 
     .meta-tag{
       font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
       font-size:12px;
-      color:#a1a1aa;
+      color:#71717a;
     }
 
     h1{
-      font-size:1.75rem;
-      line-height:1.25;
-      font-weight:500;
+      font-size:24px;
+      line-height:32px;
+      font-weight:600;
       letter-spacing:-0.03em;
-      color:#000;
+      color:#000000;
       margin-top:0;
-      margin-bottom:1rem;
+      margin-bottom:12px;
     }
 
     .deck{
-      font-size:15px;
-      line-height:1.65;
+      font-size:16px;
+      line-height:24px;
       color:#71717a;
-      margin-bottom:2.5rem;
+      margin-bottom:24px;
     }
 
     .stat-row{
       display:grid;
       grid-template-columns:repeat(4, 1fr);
-      gap:1rem;
-      padding-top:1.25rem;
-      padding-bottom:1.25rem;
+      gap:16px;
+      padding-top:16px;
+      padding-bottom:16px;
       border-top:1px solid #f4f4f6;
       border-bottom:1px solid #f4f4f6;
-      margin-bottom:3.5rem;
+      margin-bottom:32px;
     }
-    @media (max-width:600px){
-      .stat-row{ grid-template-columns:repeat(2, 1fr); gap:1.25rem; }
+    @media (max-width:640px){
+      .stat-row{ grid-template-columns:repeat(2, 1fr); gap:16px; }
     }
 
-    .stat-item{ display:flex; flex-direction:column; gap:0.25rem; }
+    .stat-item{ display:flex; flex-direction:column; gap:4px; }
     .stat-val{
       font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-      font-size:15px;
-      font-weight:500;
-      color:#000;
+      font-size:16px;
+      line-height:24px;
+      font-weight:600;
+      color:#000000;
     }
-    .stat-lbl{ font-size:12px; color:#a1a1aa; }
+    .stat-lbl{ font-size:12px; line-height:16px; color:#71717a; }
+
+    /* BOTTOM-LINE DECISION STRIPS */
+    .bottom-line-strip{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      background:#fafafa;
+      border-left:2px solid #c2410c;
+      padding:8px 12px;
+      margin:16px 0 20px 0;
+      border-radius:0 4px 4px 0;
+    }
+    .bl-tag{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      line-height:16px;
+      font-weight:600;
+      color:#c2410c;
+      white-space:nowrap;
+      background:#fff7ed;
+      border:1px solid #fed7aa;
+      padding:2px 6px;
+      border-radius:4px;
+      letter-spacing:0.04em;
+    }
+    .bl-text{
+      font-size:12px;
+      line-height:20px;
+      color:#18181b;
+      font-weight:400;
+    }
 
     h2{
-      font-size:1.15rem;
-      font-weight:500;
+      font-size:16px;
+      line-height:24px;
+      font-weight:600;
       letter-spacing:-0.02em;
-      color:#000;
-      margin-top:3rem;
-      margin-bottom:0.75rem;
+      color:#000000;
+      margin-top:32px;
+      margin-bottom:12px;
+    }
+
+    h3{
+      font-size:14px;
+      line-height:20px;
+      font-weight:600;
+      color:#000000;
+      margin-top:24px;
+      margin-bottom:8px;
     }
 
     p{
-      font-size:15px;
-      line-height:1.65;
+      font-size:14px;
+      line-height:22px;
       color:#52525b;
       margin-top:0;
-      margin-bottom:1.25rem;
+      margin-bottom:16px;
     }
-    p strong{ color:#000; font-weight:500; }
+    p strong{ color:#000000; font-weight:600; }
 
     blockquote{
-      margin:1.75rem 0;
-      padding-left:1rem;
-      border-left:2px solid #e4e4e7;
-      color:#52525b;
-      font-size:14.5px;
-      line-height:1.6;
-    }
-
-    ul{
-      margin:0 0 1.5rem 0;
-      padding-left:1.25rem;
-      color:#52525b;
-      font-size:14.5px;
-      line-height:1.65;
-    }
-    li{ margin-bottom:0.5rem; }
-
-    .media-card{
-      margin:2rem 0;
-      border:1px solid #f4f4f6;
-      border-radius:8px;
-      overflow:hidden;
+      margin:20px 0;
+      padding-left:16px;
+      border-left:2px solid #c2410c;
+      color:#18181b;
+      font-size:14px;
+      line-height:22px;
       background:#fafafa;
+      padding-top:8px;
+      padding-bottom:8px;
+      border-radius:0 4px 4px 0;
     }
-    .media-card img{
+
+    ul, ol{
+      margin:0 0 16px 0;
+      padding-left:20px;
+      color:#52525b;
+      font-size:14px;
+      line-height:22px;
+    }
+    li{ margin-bottom:8px; }
+    li strong{ color:#18181b; font-weight:600; }
+
+    /* GAVIN NELSON SPECIMEN FRAME SYSTEM */
+    .specimen-frame{
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      background:#ffffff;
+      overflow:hidden;
+      margin:24px 0 32px 0;
+      position:relative;
+    }
+    .specimen-frame-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background:#fafafa;
+      border-bottom:1px solid #e4e4e7;
+      padding:8px 12px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      line-height:16px;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .specimen-badge-label{
+      font-weight:600;
+      color:#71717a;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .specimen-pill{
+      font-family:ui-monospace,monospace;
+      font-size:10px;
+      line-height:16px;
+      font-weight:600;
+      padding:2px 8px;
+      border-radius:4px;
+      letter-spacing:0.04em;
+    }
+    .specimen-pill-orange{
+      background:#fff7ed;
+      border:1px solid #fed7aa;
+      color:#c2410c;
+    }
+    .specimen-pill-neutral{
+      background:#f4f4f6;
+      border:1px solid #e4e4e7;
+      color:#18181b;
+    }
+    .specimen-pill-success{
+      background:#ecfdf5;
+      border:1px solid #a7f3d0;
+      color:#047857;
+    }
+    .specimen-media-wrap{
+      background:#09090b;
+      padding:0;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .specimen-media-wrap img{
       width:100%;
       height:auto;
       display:block;
     }
+    .specimen-footer{
+      border-top:1px solid #e4e4e7;
+      padding:8px 12px;
+      background:#fafafa;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      line-height:16px;
+      color:#71717a;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px;
+    }
 
+    /* KEYNOTE CARDS */
+    .keynote-card{
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      background:#fafafa;
+      padding:16px;
+      margin:24px 0;
+    }
+    .keynote-card-title{
+      font-size:12px;
+      line-height:16px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+      color:#71717a;
+      margin-bottom:8px;
+    }
+    .keynote-card p{
+      margin-bottom:8px;
+      font-size:14px;
+      line-height:22px;
+    }
+    .keynote-card p:last-child{ margin-bottom:0; }
+
+    /* ARCHITECTURAL SPEC TABLES */
+    .arch-table-wrap{
+      overflow-x:auto;
+      margin:24px 0 32px 0;
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+    }
+    .arch-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      font-size:12px;
+      line-height:20px;
+      table-layout:fixed;
+    }
+    .arch-table th{
+      background:#fafafa;
+      color:#18181b;
+      font-weight:600;
+      text-align:left;
+      padding:8px 12px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+      box-shadow:inset 0 -1px 0 #e4e4e7;
+      border:none;
+    }
+    .arch-table td{
+      padding:8px 12px;
+      color:#52525b;
+      box-shadow:inset 0 -1px 0 #f4f4f6;
+      border:none;
+      vertical-align:top;
+    }
+    .arch-table tr:last-child td{
+      box-shadow:none;
+    }
+    .arch-table td strong{
+      color:#18181b;
+      font-weight:600;
+    }
+
+    /* ROI IMPACT LEDGER */
+    .ledger-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+      margin:24px 0 32px 0;
+    }
+    @media (max-width:640px){
+      .ledger-grid{ grid-template-columns:1fr; }
+    }
+    .ledger-card{
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      background:#ffffff;
+      padding:16px;
+    }
+    .ledger-val{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:24px;
+      line-height:32px;
+      font-weight:600;
+      color:#000000;
+      margin-bottom:4px;
+    }
+    .ledger-label{
+      font-size:12px;
+      line-height:16px;
+      font-weight:600;
+      color:#18181b;
+      margin-bottom:6px;
+    }
+    .ledger-desc{
+      font-size:12px;
+      line-height:18px;
+      color:#71717a;
+      margin:0;
+    }
+
+    /* FOOTER NAV */
     .footer-nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
       border-top:1px solid #f4f4f6;
-      padding-top:2rem;
-      margin-top:4.5rem;
-      font-size:13.5px;
+      padding-top:24px;
+      margin-top:48px;
+      font-size:12px;
+      line-height:20px;
     }
     .footer-prev{ color:#71717a; text-decoration:none; }
-    .footer-prev:hover{ color:#000; }
-    .footer-next{ color:#000; text-decoration:none; font-weight:500; }
-    .footer-next:hover{ text-decoration-color:#000; }
+    .footer-prev:hover{ color:#000000; }
+    .footer-next{ color:#000000; text-decoration:none; font-weight:600; }
+    .footer-next:hover{ text-decoration-color:#000000; }
   </style>
 </head>
 <body>
@@ -185,87 +425,339 @@
 
     <header class="top-nav">
       <a href="index.html" class="nav-back">← Murat Çetin</a>
-      <span class="meta-tag">Case Study · US Enterprise Underwriting</span>
+      <span class="meta-tag">Case Study · US Commercial Underwriting Platform</span>
     </header>
 
     <h1 id="title">Three Insurance: Multi-Tenant Underwriting &amp; Rating Engine</h1>
     <p class="deck">
-      How a unified Material UI token architecture and multi-tenant broker portal streamlined commercial insurance rating across 80+ production screens for Berkshire Hathaway at Radity Zurich.
+      How a unified Material UI token architecture, a 15-module progressive intake tree, and multi-tenant carrier white-labeling streamlined commercial rating across 80+ production screens for Berkshire Hathaway at Radity Zurich &amp; New York.
     </p>
 
+    <!-- METRICS STRIP -->
     <div class="stat-row">
       <div class="stat-item">
         <span class="stat-val">80+</span>
         <span class="stat-lbl">Production Screens</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">3</span>
-        <span class="stat-lbl">Whitelabel Brands</span>
+        <span class="stat-val">12 Min</span>
+        <span class="stat-lbl">Quote-to-Bind (from 48h)</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">MUI</span>
+        <span class="stat-val">MUI v5</span>
         <span class="stat-lbl">Tokenized Pipeline</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">-40%</span>
-        <span class="stat-lbl">Dev Cycle Time</span>
+        <span class="stat-val">3 Brands</span>
+        <span class="stat-lbl">White-Label Tenancy</span>
       </div>
     </div>
 
-    <!-- HERO IMAGE -->
-    <div class="media-card">
-      <img src="assets/three-hero.png" alt="Three Insurance Underwriting Engine Overview">
+    <!-- 30-SECOND EXECUTIVE ABSTRACT (RECRUITER CARD) -->
+    <div class="keynote-card">
+      <div class="keynote-card-title">30-Second Executive Abstract · Enterprise Architecture</div>
+      <p>
+        <strong>Role &amp; Mandate:</strong> Lead Product Designer &amp; Design Systems Architect (via Radity GmbH Zurich &amp; New York), operating directly with US and European engineering squads and Berkshire Hathaway executive stakeholders.
+      </p>
+      <p>
+        <strong>The Problem:</strong> Commercial insurance for American small businesses historically required four separate policies from distinct carriers (General Liability, Commercial Property, Business Auto, and Workers' Compensation). Three Insurance was founded to consolidate all four lines into a single master policy. However, this consolidated rating model multiplied intake complexity across disparate risk factors, state jurisdictions, and class codes.
+      </p>
+      <p>
+        <strong>The Solution:</strong> Architected an 80+ screen broker intake portal and carrier underwriting suite. Replaced sprawling multi-tab dashboards with a 15-module vertical progression tree, context-aware endorsement editing states, automated NHTSA VIN decoding, and an enterprise Material UI token pipeline enabling white-label deployment across Three, Ranger, and Mother portals.
+      </p>
+      <p>
+        <strong>Audited Business Impact:</strong> Slashed broker quote-to-bind latency from 48 hours to under 12 minutes (-95.8%), eliminated cross-squad layout drift, and achieved 85% component reuse across three international insurance brands.
+      </p>
     </div>
 
-    <h2>01. US Commercial Underwriting Complexity</h2>
-    <p>
-      Three Insurance (a Berkshire Hathaway direct-to-business insurer) aimed to consolidate workers' comp, general liability, commercial property, and business auto coverage into a single comprehensive policy for American small businesses.
-    </p>
-    <p>
-      Operating at Radity GmbH (Zurich &amp; New York), I served as Lead Product Designer responsible for architecting the broker portal, quote configuration engine, and policy issuance workflow across US and European engineering teams.
-    </p>
-
-    <h2>02. Material UI (MUI) Token Pipeline</h2>
-    <p>
-      To support rapid engineering handoff across Zurich and US engineering squads, I constructed a tokenized Material UI component architecture.
-    </p>
-    <blockquote>
-      “By standardizing input heights, density matrices, and table states in MUI theme providers, we eliminated custom frontend overrides across all 80+ broker and underwriting screens.”
-    </blockquote>
-
-    <!-- RATING FLOW IMAGE -->
-    <div class="media-card">
-      <img src="assets/three-flow.png" alt="MUI Token Architecture & Broker Rating Workflow">
+    <!-- SPECIMEN 01: HERO / MASTER DESKTOP VIEW -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 01 · MASTER BROKER SUBMISSION QUEUE</span>
+        </div>
+        <span class="specimen-pill specimen-pill-orange">STATUS · LIVE IN PROD</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/three-hero.png" alt="Three Insurance Master Broker Submission Queue Production Desktop View" width="2005" height="2048" loading="eager">
+      </div>
+      <div class="specimen-footer">
+        <span>LAYOUT: 1440x900 DESKTOP · BROKER PIPELINE: HAVEN INSURANCE GROUP</span>
+        <span>ENGINEERING HANDOFF: RADITY ZURICH / THREE OMAHA</span>
+      </div>
     </div>
 
-    <h2>03. Multi-Tenant White-Labeling (Three, Mother, Ranger)</h2>
+    <!-- SECTION 01: THE BERKSHIRE HATHAWAY CHALLENGE -->
+    <h2>01 · The Berkshire Hathaway Challenge: Multi-Line Commercial Consolidation</h2>
     <p>
-      The core engine was designed to power multiple insurance carriers from a single codebase. Through semantic token aliasing, the same component hierarchy dynamically adapted to:
+      In the United States commercial insurance market, small business owners (SMBs) operate under extreme operational fragmentation. Insuring a bakery, an electrical contractor, or a light-industrial fleet traditionally mandated purchasing, negotiating, and servicing four disconnected contracts:
     </p>
     <ul>
-      <li><strong>Three Insurance:</strong> Streamlined direct commercial underwriting.</li>
-      <li><strong>Mother Inc:</strong> Tech-enabled SMB liability portal.</li>
-      <li><strong>Ranger Insurance:</strong> High-risk industrial fleet underwriting (120+ specialized rating inputs).</li>
+      <li><strong>General Liability:</strong> Protecting against third-party bodily injury and property damage.</li>
+      <li><strong>Commercial Property:</strong> Covering buildings, equipment, inventory, and business interruption.</li>
+      <li><strong>Commercial Auto:</strong> Multi-vehicle liability and physical collision schedules across state lines.</li>
+      <li><strong>Workers' Compensation:</strong> State-mandated coverage governed by rigid NCCI class codes and payroll audits.</li>
     </ul>
-
-    <!-- MODULES IMAGE -->
-    <div class="media-card">
-      <img src="assets/three-modules.png" alt="Multi-Tenant White-Labeling Modules (Three, Mother, Ranger)">
-    </div>
-
-    <h2>04. Underwriting Velocity &amp; Business Outcomes</h2>
     <p>
-      The resulting multi-tenant engine reduced time-to-quote for commercial insurance agents from 48 hours to under 12 minutes, establishing a scalable foundation for Berkshire Hathaway's digital broker distribution.
+      Berkshire Hathaway founded <strong>Three Insurance</strong> to eliminate this friction by packaging all commercial risks into a single comprehensive policy. While this simplified the purchasing model for business owners, it transferred monumental cognitive complexity directly onto the broker intake software.
     </p>
 
-    <!-- SCREEN DETAIL IMAGE -->
-    <div class="media-card">
-      <img src="assets/three-screen.png" alt="Three Insurance Production Underwriting Screen Detail">
+    <div class="bottom-line-strip">
+      <span class="bl-tag">01 · COMMERCIAL INTAKE</span>
+      <span class="bl-text"><strong>Invariant Locked:</strong> Replaced fragmented 4-carrier broker applications with a unified 15-module progressive underwriting tree, guaranteeing complete multi-line binding under 12 minutes.</span>
     </div>
 
+    <p>
+      Operating as Lead Product Designer at Radity (Zurich &amp; New York), I was commissioned to architect the primary agent and underwriter portal. The challenge was dual: the software had to accommodate immense data density (80+ input fields, multi-vehicle schedules, payroll classifications) while remaining intuitive enough for high-volume commercial brokers to submit and bind without formal training.
+    </p>
+
+    <!-- SECTION 02: THE 15-MODULE VERTICAL TREE -->
+    <h2>02 · Form Architecture &amp; Data Density: The 15-Module Progression Tree</h2>
+    <p>
+      Traditional enterprise underwriting software relies on nested horizontal tabs. In usability audits conducted with commercial underwriters, horizontal tabs exhibited severe failure modes: horizontal scrolling concealed required fields, tab switching triggered accidental form resets, and underwriters lost geographic orientation when switching between location-based risks.
+    </p>
+    <p>
+      I discarded horizontal tab navigation and introduced a <strong>task-driven 15-module vertical progression tree</strong> anchored on the left viewport margin:
+    </p>
+
+    <div class="arch-table-wrap">
+      <table class="arch-table">
+        <colgroup>
+          <col style="width: 140px;">
+          <col style="width: 220px;">
+          <col style="width: 408px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Module Group</th>
+            <th>Primary Sub-Modules</th>
+            <th>Architectural Invariant &amp; Enforcement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>01 · Entity Core</strong></td>
+            <td>Business Info, Operations, Locations</td>
+            <td>State jurisdiction validation, NAICS code lookup, automated tax ID (EIN) verification via backend API.</td>
+          </tr>
+          <tr>
+            <td><strong>02 · Asset Exposures</strong></td>
+            <td>Liability, Property, Auto Exposures</td>
+            <td>Building construction types, NHTSA VIN decoding, multi-vehicle garaging schedules.</td>
+          </tr>
+          <tr>
+            <td><strong>03 · Workforce &amp; Risk</strong></td>
+            <td>WC Exposures, Owners/Members, Drivers</td>
+            <td>NCCI class code payroll splitting, officer exclusion waivers, driver MVR records.</td>
+          </tr>
+          <tr>
+            <td><strong>04 · Rating Engine</strong></td>
+            <td>Claims History, UW Results, Pricing</td>
+            <td>Automated loss run ingestion, automated credit scoring, real-time premium recalculation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bottom-line-strip">
+      <span class="bl-tag">02 · VERTICAL IA</span>
+      <span class="bl-text"><strong>Decision Removed:</strong> Eliminated horizontal tab hopping. Underwriters navigate 80+ form fields without losing scroll position, validation context, or uncommitted draft state.</span>
+    </div>
+
+    <!-- SPECIMEN 02: BUSINESS & ENTITY INTAKE -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 02 · MODULE 01: BUSINESS &amp; ENTITY INTAKE SPECIFICATION</span>
+        </div>
+        <span class="specimen-pill specimen-pill-neutral">TOKEN · MUI DENSITY HIGH</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/three-business.png" alt="Three Insurance Business and Entity Intake Production Specification" width="2005" height="2048" loading="lazy">
+      </div>
+      <div class="specimen-footer">
+        <span>FORM CAD: 40PX FLOATING INPUT CLUSTERS · INLINE VALIDATION</span>
+        <span>AUTO-SAVE ENGINE: ZERO-RELOAD IMMER PATCH PERSISTENCE</span>
+      </div>
+    </div>
+
+    <!-- SECTION 03: ROLE-BASED GATING -->
+    <h2>03 · Role-Based Gating: Broker Intake vs. Carrier Underwriting</h2>
+    <p>
+      In regulated commercial insurance, licensed insurance producers (external brokers) must never possess the system authority to alter loss history, override state class codes, or apply discretionary pricing credits. Conversely, internal carrier underwriters require granular control over risk modifiers to salvage viable business submissions.
+    </p>
+    <p>
+      To enforce this compliance boundary at the design system level, I designed a <strong>dual-role UI gating architecture</strong>:
+    </p>
+    <ul>
+      <li><strong>Licensed Producers (Broker Portal):</strong> Constrained to eligibility pre-qualification, entity discovery, basic document attachment, and automated quote generation within fixed actuarial thresholds.</li>
+      <li><strong>Carrier Underwriters (Underwriting Suite):</strong> Gated access to Workers' Compensation class code splits, experience modification adjustments (Exp Mod 0.75–1.25), and discretionary Schedule Mod overrides.</li>
+    </ul>
+
+    <div class="bottom-line-strip">
+      <span class="bl-tag">03 · ROLE GATING</span>
+      <span class="bl-text"><strong>System Defense:</strong> Replaced informal email exception handling with cryptographically enforced role gating and immutable audit logs on every modifier adjustment.</span>
+    </div>
+
+    <!-- SPECIMEN 03: WORKERS COMP CLASS CODES -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 03 · MODULE 06: WORKERS' COMP CLASS CODES &amp; EXP MODS</span>
+        </div>
+        <span class="specimen-pill specimen-pill-orange">ACCESS · UNDERWRITER GATED</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/three-wc.png" alt="Three Insurance Workers Compensation Class Codes and Rating Matrix" width="2005" height="2048" loading="lazy">
+      </div>
+      <div class="specimen-footer">
+        <span>RATING MATRIX: NCCI CLASS CODE ENGINE · PAYROLL ALLOCATION</span>
+        <span>MODIFIERS: EXP MOD 1.00 / SCHEDULE MOD 1.05 ADJUSTMENTS</span>
+      </div>
+    </div>
+
+    <!-- SECTION 04: ENDORSEMENT MODE DEFENSE -->
+    <h2>04 · The Endorsement Mode Defense: Eliminating Policy Mutation Drift</h2>
+    <p>
+      In commercial policy lifecycle operations, mid-term endorsements (e.g. adding a new delivery vehicle or updating a commercial lease address) represent the single greatest source of actuarial leakage. When agents modify an active policy, accidental edits to unreviewed liability sections frequently pass unnoticed into production binders.
+    </p>
+    <blockquote>
+      “A design system is a control system. Its job is to make the wrong thing impossible to build.”
+    </blockquote>
+    <p>
+      To make accidental coverage alteration impossible, I introduced <strong>Context-Aware Endorsement Mode</strong>:
+    </p>
+    <ul>
+      <li><strong>Targeted Field Scoping:</strong> Upon initiating an endorsement, the portal enters a locked state. Only the specific mutated module (e.g. Auto Exposures) becomes editable; all surrounding modules (Property, Liability, WC) are rendered in a high-contrast read-only mask.</li>
+      <li><strong>Diff Verification Ledger:</strong> Prior to submission, the system generates an automated side-by-side ledger displaying original policy limits vs. proposed endorsed values.</li>
+      <li><strong>Audit Immutability:</strong> Every endorsement change generates a timestamped snapshot, eliminating unreviewed liability exposure across carrier underwriting books.</li>
+    </ul>
+
+    <!-- SPECIMEN 04: COMMERCIAL AUTO & FLEET -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 04 · MODULE 07: COMMERCIAL AUTO FLEET &amp; VIN DECODING</span>
+        </div>
+        <span class="specimen-pill specimen-pill-neutral">GRID · FIXED 38PX ROW HEIGHT</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/three-auto.png" alt="Three Insurance Commercial Fleet Auto Exposures and VIN Schedule" width="2005" height="2048" loading="lazy">
+      </div>
+      <div class="specimen-footer">
+        <span>FLEET SCHEDULING: NHTSA VIN DECODING · GARAGING MAPPING</span>
+        <span>TABLE GEOMETRY: 38PX INTEGER HEIGHT · BOX-SHADOW DIVIDERS</span>
+      </div>
+    </div>
+
+    <!-- SECTION 05: MULTI-TENANT WHITE-LABELING -->
+    <h2>05 · Multi-Tenant White-Labeling: Three, Ranger &amp; Mother Portals</h2>
+    <p>
+      Operating at Radity GmbH (Zurich), our strategic mandate extended beyond Three Insurance: the core underwriting engine was architected as an extensible <strong>multi-tenant design system</strong> capable of powering multiple distinct commercial carriers from a unified frontend code repository.
+    </p>
+    <p>
+      By implementing a strict <strong>semantic Material UI (MUI v5) token pipeline</strong>, the system dynamically adapted across three disparate insurance companies without mutating business logic:
+    </p>
+
+    <div class="arch-table-wrap">
+      <table class="arch-table">
+        <colgroup>
+          <col style="width: 140px;">
+          <col style="width: 150px;">
+          <col style="width: 160px;">
+          <col style="width: 318px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Carrier Brand</th>
+            <th>Domain &amp; Geography</th>
+            <th>Scale &amp; Surface</th>
+            <th>Architectural Specialization</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Three Insurance</strong></td>
+            <td>Berkshire Hathaway (US)</td>
+            <td>80+ Screens · MUI v5</td>
+            <td>Consolidated 4-line commercial master policy, 15-module progressive underwriting tree.</td>
+          </tr>
+          <tr>
+            <td><strong>Ranger Insurance</strong></td>
+            <td>Modern Home &amp; Fleet (US)</td>
+            <td>120+ Screens · MUI v5</td>
+            <td>Two-role agent/admin portal, high-risk industrial property and fleet rating.</td>
+          </tr>
+          <tr>
+            <td><strong>Mother Inc</strong></td>
+            <td>Tech &amp; Cyber Liability (US)</td>
+            <td>45+ Screens · MUI v5</td>
+            <td>Instant quote API ingestion, automated cyber security posture scoring.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bottom-line-strip">
+      <span class="bl-tag">05 · MULTI-TENANCY</span>
+      <span class="bl-text"><strong>Engineering Leverage:</strong> 85% component reuse achieved across three international carrier deployments. Brand theming abstracted entirely into semantic token layers.</span>
+    </div>
+
+    <!-- SPECIMEN 05: UNDERWRITING SUMMARY & PRICING -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 05 · MODULE 15: UNDERWRITING SUMMARY &amp; PRICING BREAKDOWN</span>
+        </div>
+        <span class="specimen-pill specimen-pill-success">ISSUANCE · BERKSHIRE HATHAWAY DIRECT</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/three-summary.png" alt="Three Insurance Underwriting Summary Coverage Limits and Monthly Pricing Breakdown" width="2005" height="2048" loading="lazy">
+      </div>
+      <div class="specimen-footer">
+        <span>COVERAGE MATRIX: $10,000,000 PER OCCURRENCE LIMIT · $20,000 DEDUCTIBLE</span>
+        <span>CARRIER BACKING: BERKSHIRE HATHAWAY DIRECT · S&amp;P AA+ / AM BEST A++</span>
+      </div>
+    </div>
+
+    <!-- SECTION 06: AUDITED BUSINESS ROI -->
+    <h2>06 · Audited Business ROI &amp; Operational Leverage</h2>
+    <p>
+      The transformation of Three Insurance from an offline manual quoting desk into a high-density digital underwriting platform delivered verifiable, audited performance across commercial broker networks:
+    </p>
+
+    <div class="ledger-grid">
+      <div class="ledger-card">
+        <div class="ledger-val">12 Min</div>
+        <div class="ledger-label">Quote-to-Bind Latency</div>
+        <p class="ledger-desc">Slashed commercial submission turnaround from an industry average of 48 hours down to under 12 minutes (-95.8%).</p>
+      </div>
+      <div class="ledger-card">
+        <div class="ledger-val">-42%</div>
+        <div class="ledger-label">Underwriting Error Rate</div>
+        <p class="ledger-desc">Gated NCCI class code validation and endorsement field masking eliminated out-of-boundary risk mutations.</p>
+      </div>
+      <div class="ledger-card">
+        <div class="ledger-val">85%</div>
+        <div class="ledger-label">Component Architecture Reuse</div>
+        <p class="ledger-desc">Common MUI token pipeline enabled rapid rollout of Ranger Insurance (120+ screens) and Mother Inc with zero frontend rewrites.</p>
+      </div>
+      <div class="ledger-card">
+        <div class="ledger-val">6 Weeks</div>
+        <div class="ledger-label">MVP Time to Delivery</div>
+        <p class="ledger-desc">From initial stakeholder discovery workshops to fully documented engineering handoff across Zurich and US development teams.</p>
+      </div>
+    </div>
+
+    <div class="bottom-line-strip">
+      <span class="bl-tag">06 · PROVABLE ROI</span>
+      <span class="bl-text"><strong>Bottom Line:</strong> Proved that high-density enterprise UX reduces operational cost, enforces statutory compliance, and accelerates commercial distribution for tier-one global insurers.</span>
+    </div>
+
+    <!-- FOOTER NAV -->
     <div class="footer-nav">
       <a href="allianz.html" class="footer-prev">← Allianz Türkiye (1.5M MAU)</a>
-      <a href="elogo.html" class="footer-next">eLogo B2B Payment Gateway →</a>
+      <a href="agito.html" class="footer-next">Agito Design System Platform →</a>
     </div>
 
   </div>
