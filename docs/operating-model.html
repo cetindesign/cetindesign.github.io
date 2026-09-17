@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murat — Lead Design Systems Architect Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --violet:#5D2BC7; --violet-hover:#7E50D4; --violet-active:#411BA1; --tint:#F7F2FE; --tint-bd:rgba(93,43,199,.16);
+    --deep:#190E38; --bright:#A982F0;
+    --ink:#17131F; --t1:#1F1F1F; --body:#46414F; --muted:#76727F; --t2:#595959; --t3:#8C8C8C;
+    --bd:#D9D9D9; --line:#ECECEF; --cv1:#F4F5F8; --paper:#FFFFFF; --page:#FBFBFC;
+    --mono:'DM Mono',ui-monospace,monospace; --sans:'DM Sans',-apple-system,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--page);color:var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,56px)}
+
+  /* STICKY NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(251,251,252,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,56px);height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink);font-weight:500;display:flex;align-items:center;gap:9px;white-space:nowrap}
+  .brand i{width:8px;height:8px;border-radius:2px;background:var(--violet);flex:0 0 auto}
+  .nav-links{display:flex;gap:clamp(12px,2.2vw,28px);flex-wrap:wrap}
+  .nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent;transition:.15s}
+  .nav-links a:hover{color:var(--violet)}
+  .nav-links a.active{color:var(--ink);border-color:var(--violet)}
+  @media (max-width:680px){.nav-links{display:none}}
+
+  /* HERO (DARK) */
+  .hero{background:var(--deep);color:#fff;padding:clamp(60px,10vw,110px) 0}
+  .hero .kick{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--bright);margin-bottom:24px}
+  .hero h1{font-size:clamp(42px,6.8vw,78px);font-weight:600;letter-spacing:-.035em;line-height:.98;color:#fff}
+  .hero .sub{font-size:clamp(17px,2.2vw,23px);line-height:1.42;color:rgba(255,255,255,.68);max-width:56ch;margin:26px 0 42px;font-weight:400}
+  .hero .author-card{display:flex;align-items:center;gap:16px;padding-top:28px;border-top:1px solid rgba(255,255,255,.14)}
+  .hero .author-meta{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .hero .author-name{font-size:16px;font-weight:600;color:#fff;margin-top:3px}
+
+  /* SECTIONS */
+  section{padding:clamp(56px,8vw,96px) 0;border-bottom:1px solid var(--line);scroll-margin-top:58px}
+  section:last-of-type{border-bottom:none}
+  .sec-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .sec-label b{color:var(--t3);font-weight:500}
+  .sec-h{font-size:clamp(28px,3.8vw,42px);font-weight:600;color:var(--ink);letter-spacing:-.028em;line-height:1.08;margin-bottom:16px}
+  .sec-lede{font-size:clamp(15px,1.8vw,18.5px);line-height:1.55;color:var(--body);max-width:64ch;margin-bottom:44px}
+
+  /* STATS GRID */
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:32px}
+  .st{background:var(--paper);padding:22px 24px}
+  .st-v{font-family:var(--mono);font-size:clamp(26px,3.4vw,38px);font-weight:500;color:var(--violet);letter-spacing:-.03em;line-height:1}
+  .st-k{font-size:13px;font-weight:600;color:var(--ink);margin-top:10px}
+  .st-s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:5px;line-height:1.45;letter-spacing:.01em}
+
+  /* PRINCIPLES CARDS */
+  .principles{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .prin{background:var(--paper);padding:clamp(22px,2.6vw,32px)}
+  .prin .n{font-family:var(--mono);font-size:12px;color:var(--violet);font-weight:500;margin-bottom:14px}
+  .prin h3{font-size:clamp(17px,1.9vw,21px);font-weight:600;color:var(--ink);letter-spacing:-.015em;line-height:1.2;margin-bottom:11px}
+  .prin p{font-size:14px;line-height:1.6;color:var(--body)}
+  .prin.wide{grid-column:1 / -1}
+
+  /* SPECIMEN DISPLAY */
+  .spec-box{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:clamp(22px,3vw,36px);margin-top:24px}
+  .sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .sp-panel{background:#fff;padding:18px}
+  .sp-pl{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--t3);font-weight:500;display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .sp-pl b{color:var(--violet);font-weight:500}
+  .sp-main{height:54px;border-radius:6px;background:var(--violet);display:flex;align-items:flex-end;padding:8px 11px}
+  .sp-hx{font-family:var(--mono);font-size:11px;color:#fff}
+  .sp-row{display:flex;gap:6px;margin-top:6px}
+  .sp-sw{flex:1;height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.92)}
+  .sp-neu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+  .sp-chip{border:1px solid var(--line);border-radius:5px;overflow:hidden}
+  .sp-c{height:20px}
+  .sp-l{font-family:var(--mono);font-size:8px;color:var(--t2);padding:3px 4px;text-align:center}
+  .sp-ts{display:flex;align-items:baseline;gap:10px;padding:3.5px 0;border-bottom:1px dashed var(--line)}
+  .sp-ts:last-of-type{border-bottom:none}
+  .sp-spec{font-family:var(--mono);font-size:9px;color:var(--t3);width:48px;flex:0 0 48px}
+  .sp-num{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .sp-nl{font-family:var(--mono);font-size:8.5px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+  .sp-nv{font-family:var(--mono);font-size:18px;font-weight:500;color:var(--violet);letter-spacing:-.01em}
+  .sp-crow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}
+  .sp-btn{height:32px;border-radius:6px;font-family:var(--sans);font-size:13.5px;font-weight:500;padding:0 13px;display:inline-flex;align-items:center;border:1px solid transparent}
+  .sp-btn.pri{background:var(--violet);color:#fff}
+  .sp-btn.sec{background:#fff;color:var(--t1);border-color:var(--bd)}
+  .sp-field{position:relative;margin-top:11px}
+  .sp-inp{height:40px;border:1px solid var(--bd);border-radius:8px;display:flex;align-items:center;padding:0 12px;font-size:13.5px;color:var(--t1);background:#fff}
+  .sp-flab{position:absolute;top:-7px;left:10px;background:#fff;padding:0 5px;font-size:10.5px;color:var(--t2);font-weight:500}
+
+  /* LOGO WALL BANDS */
+  .bench-band{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:clamp(20px,2.4vw,28px);margin-bottom:20px}
+  .band-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:14px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+  .band-t{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+  .band-d{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--t3)}
+  .logowall{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(20px,3vw,36px)}
+  .li{display:flex;flex-direction:column;align-items:center;gap:6px;min-height:40px;justify-content:center}
+  .li-wm{min-width:60px}
+  .li-wm .wm{font-size:18px;font-weight:700;letter-spacing:-.02em}
+  .li-cap{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--muted);white-space:nowrap}
+
+  /* IA SYSMAP */
+  .sysmapwrap{display:flex;justify-content:center;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:24px;margin-top:24px}
+  .sysmap{width:100%;max-width:760px;height:auto}
+
+  /* DECISION TRACE AUDIT */
+  .trace{display:flex;flex-direction:column;gap:0;margin-top:20px}
+  .trace-io{border-radius:12px;padding:20px 24px;border:1px solid var(--line);background:var(--paper)}
+  .trace-io.out{border-color:var(--tint-bd);background:var(--tint)}
+  .io-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);font-weight:500;margin-bottom:8px}
+  .io-body{font-size:15px;line-height:1.5;color:var(--ink);max-width:66ch}
+  .trace-io.out .io-body{font-weight:500}
+  .trace-steps{display:flex;flex-direction:column;gap:1px;margin:0 0 0 clamp(16px,3vw,36px);border-left:2px solid var(--line);padding:14px 0}
+  .tstep{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:baseline;padding:12px clamp(14px,2vw,24px);position:relative}
+  .ts-n{font-family:var(--mono);font-size:12px;color:var(--violet);font-weight:500}
+  .ts-b{font-size:14px;line-height:1.55;color:var(--body)}
+  .ts-b b{color:var(--ink);font-weight:600}
+
+  /* METRICS & CLOSER */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:20px}
+  .metric{background:#fff;padding:20px}
+  .metric .v{font-family:var(--mono);font-size:clamp(26px,3vw,36px);font-weight:500;color:var(--violet);letter-spacing:-.02em;line-height:1}
+  .metric .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.3}
+
+  .closer{background:var(--deep);color:#fff;padding:clamp(56px,8vw,96px) 0;border:none}
+  .closer-k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--bright);margin-bottom:18px}
+  .closer-t{font-size:clamp(22px,3vw,34px);line-height:1.3;color:rgba(255,255,255,.72);font-weight:400;letter-spacing:-.02em;max-width:30ch}
+  .closer-t b{color:#fff;font-weight:500}
+
+  footer{padding:40px 0 60px;background:var(--page)}
+  .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--t3)}
+  .foot-in b{color:var(--ink);font-weight:500}
+  .foot-in span{color:var(--violet)}
+
+  @media (max-width:760px){
+    .principles,.stats-grid,.sp-grid,.metrics{grid-template-columns:1fr}
+    .prin.wide{grid-column:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-in">
+    <div class="brand"><i></i>MURAT · LEAD DESIGN SYSTEMS ARCHITECT</div>
+    <div class="nav-links">
+      <a href="#context">01 Context &amp; Mandate</a>
+      <a href="#thesis">02 My Architectural Thesis</a>
+      <a href="#architecture">03 System Architecture</a>
+      <a href="#audit">04 Stakeholder Audit</a>
+      <a href="#impact">05 Business Impact</a>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kick">Design Systems Case Study · Agito Platform</div>
+    <h1>The Control<br>Architecture</h1>
+    <p class="sub">From 3 months of dual-track friction to a governed baseline that brings order to enterprise production.</p>
+    <div class="author-card">
+      <div>
+        <div class="author-meta">Case Study &amp; Executive Operating Model</div>
+        <div class="author-name">Murat — Lead Design Systems Architect &amp; Sole Product Designer</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- SECTION 01: CONTEXT & THE FRICTION -->
+  <section id="context">
+    <div class="wrap">
+      <div class="sec-label"><b>01</b> My Mandate &amp; Operational Reality</div>
+      <h2 class="sec-h">Building Systems in a Live Enterprise</h2>
+      <p class="sec-lede">I joined a 20-year-old regulated insurance group as the sole product designer. I inherited zero prior systems, 14+ live surfaces, and a shipping velocity that could never pause for a quiet research phase.</p>
+      
+      <div class="stats-grid">
+        <div class="st"><div class="st-v">4</div><div class="st-k">Lines of Business</div><div class="st-s">Sigorta · Hayat · BES · Re</div></div>
+        <div class="st"><div class="st-v">~300</div><div class="st-k">Group Organization</div><div class="st-s">Engineers, PMs, Business Leads</div></div>
+        <div class="st"><div class="st-v">87</div><div class="st-k">Screens Architected</div><div class="st-s">Governed floorplans across ERP &amp; web</div></div>
+        <div class="st"><div class="st-v">14+</div><div class="st-k">Product Surfaces</div><div class="st-s">Core / Supporting ERP, Digital, Regulatory, PartnerHUB</div></div>
+        <div class="st"><div class="st-v">3</div><div class="st-k">Regulatory Bodies</div><div class="st-s">KVKK · MASAK · SPK</div></div>
+        <div class="st"><div class="st-v">0</div><div class="st-k">Prior Systems</div><div class="st-s">Built entirely from zero</div></div>
+      </div>
+
+      <div class="principles">
+        <div class="prin">
+          <div class="n">01.1</div>
+          <h3>Months 1–3: The Dual-Track Reality</h3>
+          <p>For my first three months, I was on two tracks at once — understanding existing company culture and supporting ongoing development, while simultaneously designing the system meant to replace it. The daily work inside existing cultural constraints was exactly where the real requirements lived.</p>
+        </div>
+        <div class="prin">
+          <div class="n">01.2</div>
+          <h3>Watching Technical Debt Form</h3>
+          <p>I didn't inherit finished files on day one; I watched technical debt being created through months 1–4 while an external agency drew screens. They optimized for immediate stakeholder applause — free-canvas drawings with zero feasibility checks. I forced technical validation into reviews to protect engineering reality.</p>
+        </div>
+        <div class="prin wide">
+          <div class="n">01.3</div>
+          <h3>The Internal Problem: PO-Driven UI</h3>
+          <p>Opening internal product files revealed Product Owners drawing screens by hand with no UX rules or benchmarks. Each screen was shaped by temporary weekly engineering capacity and raw client requests. To scale, UI had to be removed from immediate whim and placed under strict system governance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 02: MY ARCHITECTURAL THESIS -->
+  <section id="thesis">
+    <div class="wrap">
+      <div class="sec-label"><b>02</b> My Architectural Thesis</div>
+      <h2 class="sec-h">A Design System is a Control System</h2>
+      <p class="sec-lede">Show an engineering team a mockup and they read it as a build order. My foundation's job isn't decoration — it's defining what engineers are permitted to see, making unscalable UI impossible to build at the source.</p>
+
+      <div class="principles">
+        <div class="prin">
+          <div class="n">01</div>
+          <h3>Control system over style guide</h3>
+          <p>A design system's job is to remove decision friction from the table and make the wrong thing impossible to build. Value is measured in decisions removed, not components delivered.</p>
+        </div>
+        <div class="prin">
+          <div class="n">02</div>
+          <h3>Validation before aesthetics</h3>
+          <p>A design without technical validation isn't a product — it is a picture. An approved picture that can't be built is technical debt with a stakeholder's signature on it.</p>
+        </div>
+        <div class="prin">
+          <div class="n">03</div>
+          <h3>One validation step ahead</h3>
+          <p>Design earns its authority by running one validation step ahead of engineering — discovering, defining, and resolving edge cases before the backlog, never trailing it.</p>
+        </div>
+        <div class="prin">
+          <div class="n">04</div>
+          <h3>Evidence over authority</h3>
+          <p>Inherited artwork is reclassified as an initial concept to be stress-tested in production code. A baseline you can stress-test beats a critique you can argue.</p>
+        </div>
+        <div class="prin wide">
+          <div class="n">05</div>
+          <h3>Predictability beats artistry at scale</h3>
+          <p>At scale, predictability wins. One vocabulary, one pipeline, zero overrides — every screen resolves to the same primitives. Custom requests earn their place, or they wait their turn.</p>
+        </div>
+      </div>
+
+      <!-- LIVE SYSTEM SPECIMEN -->
+      <div class="spec-box">
+        <div class="sp-pl" style="margin-bottom:18px"><b>MY ARCHITECTURAL SPECIMEN</b> · DTCG TOKENS → ANTD V5 THEME</div>
+        <div class="sp-grid">
+          <div class="sp-panel">
+            <div class="sp-pl"><b>01</b> Color</div>
+            <div class="sp-main"><span class="sp-hx">Agito Violet · #5D2BC7</span></div>
+            <div class="sp-row"><div class="sp-sw" style="background:#7E50D4">#7E50D4</div><div class="sp-sw" style="background:#411BA1">#411BA1</div></div>
+            <div class="sp-neu">
+              <div class="sp-chip"><div class="sp-c" style="background:#1F1F1F"></div><div class="sp-l">1F1F1F</div></div>
+              <div class="sp-chip"><div class="sp-c" style="background:#595959"></div><div class="sp-l">595959</div></div>
+              <div class="sp-chip"><div class="sp-c" style="background:#8C8C8C"></div><div class="sp-l">8C8C8C</div></div>
+            </div>
+          </div>
+          <div class="sp-panel">
+            <div class="sp-pl"><b>02</b> Typography</div>
+            <div class="sp-ts"><span class="sp-spec">32 / 600</span><span style="font-size:20px;font-weight:600">Display</span></div>
+            <div class="sp-ts"><span class="sp-spec">14 / 400</span><span style="font-size:14px">Body — base</span></div>
+            <div class="sp-num"><div class="sp-nl">DM Sans Mono · numerics</div><div class="sp-nv">₺ 1.284.500,00</div></div>
+          </div>
+          <div class="sp-panel">
+            <div class="sp-pl"><b>03</b> Controls &amp; Sizing</div>
+            <div class="sp-crow"><span class="sp-btn pri">Primary</span><span class="sp-btn sec">Secondary</span></div>
+            <div class="sp-field"><div class="sp-inp">POL-2024-08815</div><span class="sp-flab">Policy number</span></div>
+            <div class="sp-spec" style="width:auto;margin-top:8px">40px field · 32px button · 0.5px hairlines</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 03: SYSTEM ARCHITECTURE & DUAL BENCHMARK -->
+  <section id="architecture">
+    <div class="wrap">
+      <div class="sec-label"><b>03</b> System Architecture &amp; Delivery</div>
+      <h2 class="sec-h">Dual-Benchmark Strategy &amp; 4 Floorplans</h2>
+      <p class="sec-lede">I grounded heavy load-bearing structures in proven enterprise frameworks, while calibrating visual finish and micro-interactions against modern SaaS leaders.</p>
+
+      <!-- LOGO WALLS -->
+      <div class="bench-band">
+        <div class="band-head"><span class="band-t">Enterprise Skeleton</span><span class="band-d">Structural IA · navigation · density · hierarchy</span></div>
+        <div class="logowall">
+          <div class="li"><span class="wm" style="color:#008FD3">SAP Fiori</span><span class="li-cap">SAP · Fiori</span></div>
+          <div class="li"><span class="wm" style="color:#052FAD">IBM Carbon</span><span class="li-cap">IBM · Carbon</span></div>
+          <div class="li"><span class="wm" style="color:#0078D4">MS Fluent</span><span class="li-cap">Microsoft · Fluent</span></div>
+          <div class="li"><span class="wm" style="color:#0052CC">Atlassian</span><span class="li-cap">Atlassian Design System</span></div>
+          <div class="li"><span class="wm" style="color:#0176D3">Salesforce</span><span class="li-cap">Lightning Design System</span></div>
+          <div class="li"><span class="wm" style="color:#2CA01C">QuickBooks</span><span class="li-cap">Intuit · QuickBooks</span></div>
+        </div>
+      </div>
+
+      <div class="bench-band">
+        <div class="band-head"><span class="band-t">SaaS Muscle</span><span class="band-d">Micro-interactions · precision · visual finish</span></div>
+        <div class="logowall">
+          <div class="li"><span class="wm" style="color:#635BFF">Stripe</span><span class="li-cap">Stripe</span></div>
+          <div class="li"><span class="wm" style="color:#000000">Vercel</span><span class="li-cap">Vercel</span></div>
+          <div class="li li-wm"><span class="wm" style="color:#111">Deel</span><span class="li-cap">Deel</span></div>
+          <div class="li"><span class="wm" style="color:#3ECF8E">Supabase</span><span class="li-cap">Supabase</span></div>
+        </div>
+      </div>
+
+      <!-- IA SYSMAP -->
+      <div class="sysmapwrap">
+        <svg class="sysmap" viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Information Architecture: Hub and Spoke Model">
+          <text x="170" y="22" text-anchor="middle" font-family="DM Mono,monospace" font-size="11" fill="#8C8C8C" letter-spacing="1.5">BEFORE · NESTED TREE MAZE</text>
+          <g stroke="#D9D9D9" stroke-width="1.5" fill="none"><path d="M28 44 V210"/><path d="M28 70 h16"/><path d="M44 70 V180"/><path d="M44 96 h16"/><path d="M44 122 h16"/><path d="M60 122 V160"/><path d="M60 148 h16"/></g>
+          <g fill="#C9C9CF"><rect x="48" y="65" width="120" height="8" rx="2"/><rect x="64" y="91" width="92" height="8" rx="2"/><rect x="64" y="117" width="104" height="8" rx="2"/><rect x="80" y="143" width="76" height="8" rx="2"/></g>
+          <text x="170" y="240" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#595959">Deep tree maze at 87 screens</text>
+          <line x1="380" y1="20" x2="380" y2="240" stroke="#ECECEF" stroke-width="1"/>
+          <text x="585" y="22" text-anchor="middle" font-family="DM Mono,monospace" font-size="11" fill="#5D2BC7" letter-spacing="1.5">AFTER · HUB-AND-SPOKE ARCHITECTURE</text>
+          <g stroke="#C9B6EC" stroke-width="1.5"><path d="M585 66 L487 118"/><path d="M585 66 L585 118"/><path d="M585 66 L683 118"/></g>
+          <g stroke="#E3D8F6" stroke-width="1.5"><path d="M487 146 L463 186"/><path d="M487 146 L511 186"/><path d="M585 146 L561 186"/><path d="M585 146 L609 186"/><path d="M683 146 L659 186"/><path d="M683 146 L707 186"/></g>
+          <rect x="537" y="48" width="96" height="30" rx="6" fill="#5D2BC7"/><text x="585" y="67" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" font-weight="600" fill="#fff">Launchpad</text>
+          <rect x="441" y="118" width="92" height="28" rx="6" fill="#fff" stroke="#5D2BC7" stroke-width="1.5"/><text x="487" y="136" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="600" fill="#411BA1">Underwriting</text>
+          <rect x="539" y="118" width="92" height="28" rx="6" fill="#fff" stroke="#5D2BC7" stroke-width="1.5"/><text x="585" y="136" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="600" fill="#411BA1">Claims</text>
+          <rect x="637" y="118" width="92" height="28" rx="6" fill="#fff" stroke="#5D2BC7" stroke-width="1.5"/><text x="683" y="136" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="600" fill="#411BA1">PartnerHUB</text>
+          <g fill="#B79DE8"><circle cx="463" cy="192" r="5"/><circle cx="511" cy="192" r="5"/><circle cx="561" cy="192" r="5"/><circle cx="609" cy="192" r="5"/><circle cx="659" cy="192" r="5"/><circle cx="707" cy="192" r="5"/></g>
+          <text x="585" y="240" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#595959">Role hubs → focused spokes</text>
+        </svg>
+      </div>
+
+      <!-- 4 FLOORPLANS -->
+      <div class="principles" style="margin-top:24px">
+        <div class="prin">
+          <div class="n">01. Overview</div>
+          <h3>Launchpads &amp; Role Dashboards</h3>
+          <p>High-level role hubs aggregating KPIs, active tasks, and quick actions for underwriting, claims, or management.</p>
+        </div>
+        <div class="prin">
+          <div class="n">02. List</div>
+          <h3>High-Density Data Tables</h3>
+          <p>Canonical filter chips (AntD addonBefore anatomy), tabular-num alignment, density toggles, and multi-record actions.</p>
+        </div>
+        <div class="prin">
+          <div class="n">03. Object</div>
+          <h3>Record Details &amp; Read-First Views</h3>
+          <p>Summary headers over structured data cards. Inline form sprawl is strictly prohibited; editing is isolated into floating drawers.</p>
+        </div>
+        <div class="prin">
+          <div class="n">04. Analytical</div>
+          <h3>Complex Metrics &amp; Reporting</h3>
+          <p>Multi-dimensional data visualization containers restricted to strict 100vh fitting with internal scroll containers.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 04: PRACTICAL GOVERNANCE & AUDIT -->
+  <section id="audit">
+    <div class="wrap">
+      <div class="sec-label"><b>04</b> Stakeholder Audit &amp; Governance</div>
+      <h2 class="sec-h">The Decision Trace Protocol</h2>
+      <p class="sec-lede">How I audit raw product owner requests through 4 mandatory steps to eliminate technical debt before engineering handoff.</p>
+
+      <div class="trace">
+        <div class="trace-io">
+          <div class="io-label">The Raw Request</div>
+          <div class="io-body">A product owner hands over a hand-drawn customer record mockup with inline form inputs, bespoke layout rules, and custom agency styling.</div>
+        </div>
+        <div class="trace-steps">
+          <div class="tstep">
+            <div class="ts-n">01</div>
+            <div class="ts-b"><b>Diagnose Reference Class.</b> This is an Object screen, not a dashboard. It must follow the Object floorplan template, rejecting blank canvas exploration.</div>
+          </div>
+          <div class="tstep">
+            <div class="ts-n">02</div>
+            <div class="ts-b"><b>Protect Read-First.</b> Inline form fields create visual clutter and break read patterns. Form editing moves into a dedicated floating Drawer over a read-only record.</div>
+          </div>
+          <div class="tstep">
+            <div class="ts-n">03</div>
+            <div class="ts-b"><b>Reuse Before Custom.</b> Every field maps strictly to an existing system primitive. Zero custom components; the one new request is pushed to the back of the backlog.</div>
+          </div>
+          <div class="tstep">
+            <div class="ts-n">04</div>
+            <div class="ts-b"><b>Property-Level Handoff.</b> Delivered as an explicit contract of props, DTCG tokens, and AntD states — allowing engineering to implement directly without guessing.</div>
+          </div>
+        </div>
+        <div class="trace-io out">
+          <div class="io-label">The Governed Outcome</div>
+          <div class="io-body">A buildable, zero-debt screen in the system's language — fully consistent with the other 86 screens, carrying no custom CSS overrides.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 05: BUSINESS IMPACT & REDUNDANCY -->
+  <section id="impact">
+    <div class="wrap">
+      <div class="sec-label"><b>05</b> Executive Impact &amp; Horizon</div>
+      <h2 class="sec-h">Designing My Own Redundancy</h2>
+      <p class="sec-lede">A system that depends on its designer is a liability. A system that runs without its designer is an enterprise asset.</p>
+
+      <div class="metrics">
+        <div class="metric"><div class="v">−40%</div><div class="k">Rework Reduction</div></div>
+        <div class="metric"><div class="v">−25%</div><div class="k">Support Tickets</div></div>
+        <div class="metric"><div class="v">+30%</div><div class="k">Dev Speed</div></div>
+        <div class="metric"><div class="v">100%</div><div class="k">Framework Compliance</div></div>
+      </div>
+
+      <div class="principles">
+        <div class="prin">
+          <div class="n">05.1</div>
+          <h3>Encoding Judgment into Code</h3>
+          <p>By establishing Floorplans, DTCG token pipelines, and quality gates, product managers can produce developer-ready specs without bottlenecking on the designer. The system carries the architect's judgment.</p>
+        </div>
+        <div class="prin">
+          <div class="n">05.2</div>
+          <h3>The Agentic Horizon</h3>
+          <p>Once system foundations and floorplans are governed in code, the horizon opens up: layering AI agents and digital twin surfaces to deliver proactive insights rather than static screens.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<section class="closer">
+  <div class="wrap">
+    <div class="closer-k">Core Thesis</div>
+    <p class="closer-t">It isn't about the rules. It is about what they remove — <b>decisions from the table, inconsistency across 87 screens, and a system that only works while I'm in the room.</b></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div><b>Agito Design System</b> · Lead Architect Case Study · v1.0</div>
+      <div><span>Murat — Lead Design Systems Architect</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links=Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        var id='#'+e.target.id;
+        links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')===id);});
+      }
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  secs.forEach(function(s){if(s)io.observe(s);});
+})();
+</script>
+</body>
+</html>

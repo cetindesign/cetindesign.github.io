@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agito Platform · Production-Ready Design Architecture (Figma Export Ready)</title>
+  
+  <!-- DM Sans: Strictly 400 and 600 weights only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons (Regular Line Weight Only) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      /* Agito Core System Tokens */
+      --agito-brand: #5D2BC7;
+      --agito-brand-hover: #7E50D4;
+      --agito-brand-active: #411BA1;
+      --agito-brand-subtle: #F4F0FD;
+      --agito-accent: #7C3AED;
+      --agito-brand-light: #FAF8FF;
+      --agito-brand-border: #D3C1F7;
+
+      --agito-canvas: #F7F8FA;
+      --agito-doc: #FFFFFF;
+      --agito-chrome: #F0EDF3;
+      --agito-border: #D9D9D9;
+      --agito-border-split: rgba(0, 0, 0, 0.06);
+      --agito-board-bg: #ECEAF0;
+
+      --agito-ink: #23252E;
+      --agito-ink-strong: #16171F;
+      --agito-ink-muted: #6E6E6E;
+      --agito-ink-subtle: #8C8C8C;
+
+      --agito-success-bg: #F6FFED;
+      --agito-success-border: #B7EB8F;
+      --agito-success-text: #389E0D;
+
+      --agito-warning-bg: #FFF7E6;
+      --agito-warning-border: #FFD591;
+      --agito-warning-text: #D46B08;
+
+      --agito-error-bg: #FFF1F0;
+      --agito-error-border: #FFA39E;
+      --agito-error-text: #CF1322;
+
+      /* Spacing Scale (Strict Even 8-Grid) */
+      --space-4: 4px;
+      --space-8: 8px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-20: 20px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --space-40: 40px;
+      --space-48: 48px;
+      --space-72: 72px;
+
+      /* Typography Scale (Even Only) */
+      --font-12: 12px;
+      --font-14: 14px;
+      --font-16: 16px;
+      --font-20: 20px;
+      --font-24: 24px;
+      --font-32: 32px;
+
+      --line-16: 16px;
+      --line-20: 20px;
+      --line-22: 22px;
+      --line-24: 24px;
+      --line-28: 28px;
+      --line-32: 32px;
+      --line-40: 40px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    strong, b {
+      font-weight: 600;
+    }
+
+    /* HTML TO DESIGN EXPORT RULES:
+       1. Zero page scroll clipping on outer body.
+       2. Explicit fixed integer px for all frames (1920x1080).
+       3. Pure Flexbox with fixed px children; zero fractional 1fr to guarantee clean Auto Layout.
+    */
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--agito-board-bg);
+      color: var(--agito-ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 40px 0 80px 0;
+    }
+
+    /* TOP BAR CONTROLLER (Sticky for presentation, ignored in figma export) */
+    .deck-control-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--agito-doc);
+      border-bottom: 1px solid var(--agito-border);
+      padding: 0 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .deck-control-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-badge {
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 600;
+      color: var(--agito-brand);
+      background: var(--agito-brand-subtle);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .deck-title-main {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+    }
+
+    .export-status-tag {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--agito-success-text);
+      background: var(--agito-success-bg);
+      border: 1px solid var(--agito-success-border);
+      padding: 2px 10px;
+      border-radius: 12px;
+    }
+
+    /* CANVAS STACK FOR FIGMA EXPORT */
+    .canvas-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+      width: 100%;
+    }
+
+    /* FIGMA EXPORT FRAME (STRICT 1920x1080) */
+    .figma-slide-frame {
+      width: 1920px;
+      height: 1080px;
+      min-width: 1920px;
+      min-height: 1080px;
+      max-width: 1920px;
+      max-height: 1080px;
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border);
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      padding: 56px 72px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* SLIDE CHROME HEADER (Inside Frame) */
+    .slide-chrome {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 32px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--agito-border-split);
+      padding-bottom: 12px;
+      width: 1776px;
+    }
+
+    .slide-chrome-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--agito-brand);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .slide-chrome-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--agito-ink-muted);
+    }
+
+    .slide-number-pill {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--agito-brand);
+      background: var(--agito-brand-subtle);
+      padding: 2px 10px;
+      border-radius: 12px;
+    }
+
+    /* CONTENT TYPOGRAPHY */
+    .slide-heading-main {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      margin-bottom: 12px;
+    }
+
+    .slide-subheading-lead {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      color: var(--agito-ink-muted);
+      margin-bottom: 40px;
+      width: 1300px;
+    }
+
+    /* STRICT FIXED INTEGER FLEX LAYOUTS (No 1fr, No sub-pixel) */
+    /* Content width: 1776px */
+    .col-container-2 {
+      display: flex;
+      gap: 32px;
+      width: 1776px;
+    }
+
+    .col-card-2 {
+      width: 872px; /* (1776 - 32) / 2 = 872px */
+      background: var(--agito-canvas);
+      border: 1px solid var(--agito-border);
+      border-radius: 8px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col-card-2.highlight {
+      background: var(--agito-brand-light);
+      border: 2px solid var(--agito-brand);
+    }
+
+    .col-container-3 {
+      display: flex;
+      gap: 24px;
+      width: 1776px;
+    }
+
+    .col-card-3 {
+      width: 576px; /* (1776 - 48) / 3 = 576px */
+      background: var(--agito-canvas);
+      border: 1px solid var(--agito-border);
+      border-radius: 8px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col-card-3.highlight {
+      background: var(--agito-brand-light);
+      border: 2px solid var(--agito-brand);
+    }
+
+    .col-container-4 {
+      display: flex;
+      gap: 24px;
+      width: 1776px;
+    }
+
+    .col-card-4 {
+      width: 426px; /* (1776 - 72) / 4 = 426px */
+      background: var(--agito-canvas);
+      border: 1px solid var(--agito-border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* CARD INTERNAL TYPOGRAPHY */
+    .card-title-row {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-title-row i {
+      color: var(--agito-brand);
+      font-size: 20px;
+    }
+
+    .card-lead-text {
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 400;
+      color: var(--agito-ink);
+      margin-bottom: 20px;
+    }
+
+    .bullet-spec-list {
+      list-style: none;
+      font-size: 14px;
+      line-height: 24px;
+      color: var(--agito-ink);
+    }
+
+    .bullet-spec-list li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .bullet-spec-list li i {
+      color: var(--agito-brand);
+      font-size: 16px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    /* KPI HERO METRIC STRIP */
+    .kpi-hero-bar {
+      width: 1776px;
+      background: var(--agito-brand-light);
+      border: 1px solid var(--agito-brand-border);
+      border-radius: 8px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .kpi-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .kpi-num {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: 600;
+      color: var(--agito-brand);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi-label {
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      line-height: 18px;
+      color: var(--agito-ink-muted);
+    }
+
+    .kpi-divider {
+      width: 1px;
+      height: 60px;
+      background: var(--agito-brand-border);
+    }
+
+    /* MASTER TABLE IN SLIDES (38px Standard) */
+    .matrix-table-wrap {
+      width: 1776px;
+      border: 1px solid var(--agito-border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--agito-doc);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .matrix-table th {
+      height: 38px;
+      padding: 8px 20px;
+      background: rgba(0, 0, 0, 0.04);
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      text-align: left;
+      border-bottom: 1px solid var(--agito-border);
+    }
+
+    .matrix-table td {
+      height: 38px;
+      padding: 8px 20px;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 400;
+      color: var(--agito-ink);
+      border-bottom: 1px solid var(--agito-border-split);
+    }
+
+    .matrix-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* BADGES */
+    .badge-tag {
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-green {
+      background: var(--agito-success-bg);
+      color: var(--agito-success-text);
+      border: 1px solid var(--agito-success-border);
+    }
+
+    .badge-purple {
+      background: var(--agito-brand-subtle);
+      color: var(--agito-brand);
+      border: 1px solid var(--agito-brand-border);
+    }
+
+    .badge-amber {
+      background: var(--agito-warning-bg);
+      color: var(--agito-warning-text);
+      border: 1px solid var(--agito-warning-border);
+    }
+
+    .badge-red {
+      background: var(--agito-error-bg);
+      color: var(--agito-error-text);
+      border: 1px solid var(--agito-error-border);
+    }
+
+    /* BOTTOM QUOTE CALLOUT (Inside Frame) */
+    .slide-callout-footer {
+      position: absolute;
+      bottom: 56px;
+      left: 72px;
+      width: 1776px;
+      background: var(--agito-brand-subtle);
+      border: 1px solid var(--agito-brand-border);
+      border-radius: 6px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .callout-text {
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+      color: var(--agito-brand);
+    }
+
+    .callout-sub {
+      font-size: 12px;
+      color: var(--agito-ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOP CONTROLLER (IGNORED IN FIGMA IMPORT) -->
+  <div class="deck-control-bar">
+    <div class="deck-control-left">
+      <div class="brand-badge">
+        <i class="ph ph-shield-check"></i> AGITO ARCHITECTURE
+      </div>
+      <span class="deck-title-main">CTO Alignment & Estimation Architecture Deck</span>
+      <span class="export-status-tag">HTML to Design Ready (7 Frames · 1920x1080)</span>
+    </div>
+    <div style="font-size: 12px; color: var(--agito-ink-muted);">
+      Tüm slaytlar açık DOM düzenindedir · html.to.design eklentisiyle tek seferde 7 frame olarak içe aktarılır.
+    </div>
+  </div>
+
+  <!-- CANVAS STACK: 7 EXPLICIT 1920x1080 FRAMES -->
+  <div class="canvas-stack">
+
+    <!-- ============================================================
+         SLIDE 01: EXECUTIVE PREMISE & THESIS
+         ============================================================ -->
+    <section class="figma-slide-frame" id="frame-slide-01">
+      <div class="slide-chrome">
+        <div class="slide-chrome-left">
+          <i class="ph ph-target"></i> 01 · Yönetici Özeti & Açılış İlkesi
+        </div>
+        <div class="slide-chrome-right">
+          <span>Murat Çetin · Lead Design Systems Architect</span>
+          <span class="slide-number-pill">SLIDE 01 / 07</span>
+        </div>
+      </div>
+
+      <h1 class="slide-heading-main">"1 Ekran" Dediğimizde Ne Anlıyoruz?</h1>
+      <p class="slide-subheading-lead">
+        Tasarım hanesindeki efor, Figma'da kutu çizmenin süresi değildir. Bir iş gereksiniminin yazılımcının elinde patlamadan kodlanabilir bir sözleşmeye (Production-Ready Spec) dönüştürülme maliyetidir.
+      </p>
+
+      <div class="col-container-2">
+        <div class="col-card-2">
+          <div class="card-title-row">
+            <i class="ph ph-pencil-line"></i> A. Görsel Taslak (Visual Mockup)
+          </div>
+          <p class="card-lead-text">
+            Yalnızca tek bir ideal senaryoyu (Happy Path) gösteren, ekranda kutu ve butonların statik dizilimi.
+          </p>
+          <ul class="bullet-spec-list">
+            <li><i class="ph ph-x"></i> Hata, timeout ve boş (empty) durumları tamamen tanımsızdır.</li>
+            <li><i class="ph ph-x"></i> Yetkilendirme, rol kısıtları ve MASAK denetim izleri düşünülmemiştir.</li>
+            <li><i class="ph ph-x"></i> Geliştirici kod yazarken her adımda PO'ya sormak, sprint ortasında durmak zorundadır.</li>
+            <li><i class="ph ph-x"></i> <strong>Süre Yanılsaması:</strong> 20 Dakika – 1 Saat (Geliştiriciye faturası 3 gün).</li>
+          </ul>
+        </div>
+
+        <div class="col-card-2 highlight">
+          <div class="card-title-row">
+            <i class="ph ph-cpu"></i> B. Üretime Hazır Ekran (Production-Ready)
+          </div>
+          <p class="card-lead-text">
+            Yazılımcının sıfır soruyla doğrudan koda dökebileceği deterministik etkileşim ve state mimarisi.
+          </p>
+          <ul class="bullet-spec-list">
+            <li><i class="ph ph-check"></i> 10 farklı UI state (boş, yükleniyor, hata, doğrulama, aşırı veri, 100vh kuralı).</li>
+            <li><i class="ph ph-check"></i> Ant Design token eşlemesi ve zero-override disiplini (sıfır custom CSS borcu).</li>
+            <li><i class="ph ph-check"></i> Yazılımcı için net prop kontratı; sıfır sprint ortası kesintisi ve QA güvencesi.</li>
+            <li><i class="ph ph-check"></i> <strong>Sistem Yatırımı:</strong> 1 – 2 Gün (Geliştirme süresinde %82 net tasarruf).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="slide-callout-footer">
+        <span class="callout-text">Temel Kural: "Tasarım sisteminin değeri çizilen bileşenlerle değil, mühendislik masasından kaldırılan kararlarla ölçülür."</span>
+        <span class="callout-sub">Agito Monorepo · Architecture Baseline</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 02: THE HARD NUMBERS & ROI (-82% BUILD TIME)
+         ============================================================ -->
+    <section class="figma-slide-frame" id="frame-slide-02">
+      <div class="slide-chrome">
+        <div class="slide-chrome-left">
+          <i class="ph ph-chart-line-up"></i> 02 · Sayısal Mühendislik ROI
+        </div>
+        <div class="slide-chrome-right">
+          <span>Kaynak: agito.html · In-Flight Delivery Audit</span>
+          <span class="slide-number-pill">SLIDE 02 / 07</span>
+        </div>
+      </div>
+
+      <h2 class="slide-heading-main">Frontend Geliştirme Maliyeti ve Geri Kazanılan 460 Saat</h2>
+      <p class="slide-subheading-lead">
+        Tasarım eforu maliyet değil, yazılım ekiplerinin sprint ortasında kaybolmasını önleyen bir hızlandırıcıdır. Canlıya alınan 40 ekranda ölçülen somut veriler:
+      </p>
+
+      <!-- KPI HERO STRIP -->
+      <div class="kpi-hero-bar">
+        <div class="kpi-block">
+          <div class="kpi-num">14h ➔ 2.5h</div>
+          <div class="kpi-label">Ekran Başına Geliştirme Süresi</div>
+          <div class="kpi-sub">Bespoke CSS yazımından token kontratına geçiş</div>
+        </div>
+        <div class="kpi-divider"></div>
+        <div class="kpi-block">
+          <div class="kpi-num">-%82</div>
+          <div class="kpi-label">Frontend Efor Düşüşü</div>
+          <div class="kpi-sub">Tasarımda kararların çözülmesiyle kazanılan hız</div>
+        </div>
+        <div class="kpi-divider"></div>
+        <div class="kpi-block">
+          <div class="kpi-num">460+ Saat</div>
+          <div class="kpi-label">Kazanılan Mühendislik Zamanı</div>
+          <div class="kpi-sub">İlk 40 ekranda açığa çıkan net developer kapasitesi</div>
+        </div>
+        <div class="kpi-divider"></div>
+        <div class="kpi-block">
+          <div class="kpi-num">40 / 68</div>
+          <div class="kpi-label">Canlıya Alınan Ekran</div>
+          <div class="kpi-sub">%59 tamamlanma oranı · Sıfır CSS regression</div>
+        </div>
+      </div>
+
+      <div class="col-container-2">
+        <div class="col-card-2">
+          <div class="card-title-row">
+            <i class="ph ph-clock-countdown"></i> Eski Model: Tasarımda 1 Saat, Kodda 14 Saat
+          </div>
+          <p class="card-lead-text">
+            Tasarım hızlıca telkafes çizip çıktığında ne oluyordu?
+          </p>
+          <ul class="bullet-spec-list">
+            <li><i class="ph ph-warning"></i> Yazılımcı belirsiz state'ler için sprint ortasında durup PO ile toplantı yapıyor.</li>
+            <li><i class="ph ph-warning"></i> Her ekran için ad-hoc 13px/19px margin'ler ve custom CSS sınıfları yazılıyor.</li>
+            <li><i class="ph ph-warning"></i> QA ekibi onlarca regression ve edge-case bug'ı açıyor; iş 2 sprint sarkıyor.</li>
+          </ul>
+        </div>
+
+        <div class="col-card-2 highlight">
+          <div class="card-title-row">
+            <i class="ph ph-check-circle"></i> Yeni Model: Tasarımda 1 Gün, Kodda 2.5 Saat
+          </div>
+          <p class="card-lead-text">
+            Üretime hazır tasarım kontratı teslim edildiğinde ne oluyor?
+          </p>
+          <ul class="bullet-spec-list">
+            <li><i class="ph ph-check"></i> Yazılımcı sıfır soruyla doğrudan Ant Design 6 / `agitoTheme` komponentlerini bağlıyor.</li>
+            <li><i class="ph ph-check"></i> Tek bir satır custom CSS yazılmıyor; kod derlendiği an görsel olarak doğru çıkıyor.</li>
+            <li><i class="ph ph-check"></i> Tasarımda harcanan 1 gün, yazılımcının her ekranda 11.5 saatini kurtarıyor.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="slide-callout-footer">
+        <span class="callout-text">Mühendislik Gerçeği: "Tasarım eforunu kısmak işi hızlandırmaz; faturayı yazılımcının sprint ortasındaki mesaisine öteler."</span>
+        <span class="callout-sub">Wave 1 Foundation · 40 Delivered Views</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 03: TRIBAL KNOWLEDGE COLLAPSE & PO NORMALIZATION
+         ============================================================ -->
+    <section class="figma-slide-frame" id="frame-slide-03">
+      <div class="slide-chrome">
+        <div class="slide-chrome-left">
+          <i class="ph ph-users-three"></i> 03 · Organizasyonel Gerçeklik
+        </div>
+        <div class="slide-chrome-right">
+          <span>Kaynak: agito.html · Collapse of Tribal Knowledge</span>
+          <span class="slide-number-pill">SLIDE 03 / 07</span>
+        </div>
+      </div>
+
+      <h2 class="slide-heading-main">Kabile Bilgisinin Çöküşü: PO'lar Neden Ekran Çizemez?</h2>
+      <p class="slide-subheading-lead">
+        250 kişilik bir mühendislik evinde "PO çizsin, yazılımcı koda döksün" modeli neden imkansızdır?
+      </p>
+
+      <div class="col-container-3">
+        <div class="col-card-3">
+          <div class="card-title-row">
+            <i class="ph ph-buildings"></i> 1. Eski Kabile Bilgisi Modeli
+          </div>
+          <p class="card-lead-text">
+            Şirket küçükken PO kaba bir telkafes çizerdi, masanın karşısındaki kıdemli yazılımcı da kafasındaki örtük bilgiyle boşlukları doldururdu.
+          </p>
+          <p style="font-size: 13px; line-height: 20px; color: var(--agito-ink-muted);">
+            250 mühendise ulaştığımızda bu model çöktü. Yeni katılan yazılımcılar kabile bilgisini bilmedikleri için taslakları harfiyen kopyaladı; production binlerce satır CSS çöpüyle doldu.
+          </p>
+        </div>
+
+        <div class="col-card-3">
+          <div class="card-title-row">
+            <i class="ph ph-graduation-cap"></i> 2. "PO'lara Tasarım Eğitimi" Yanılgısı
+          </div>
+          <p class="card-lead-text">
+            Yönetimin ilk refleksi: "PO'lara Figma ve grid eğitimi verelim, ekranları kendileri çizsinler" oldu.
+          </p>
+          <p style="font-size: 13px; line-height: 20px; color: var(--agito-ink-muted);">
+            Aktüer veya iş analistine piksel hizalama ve token eğitimi vermek odağı dağıttı. PO'nun uzmanlığı iş mantığı ve aktüeryal formüllerdir; arayüz geometrisi değil.
+          </p>
+        </div>
+
+        <div class="col-card-3 highlight">
+          <div class="card-title-row">
+            <i class="ph ph-funnel"></i> 3. Çözüm: Mimari Normalizasyon
+          </div>
+          <p class="card-lead-text">
+            Görsel yerleşim kararlarını PO'dan tamamen aldık. PO iş kuralını ve formülü getirir; sistem onu normalize eder.
+          </p>
+          <p style="font-size: 13px; line-height: 20px; color: var(--agito-ink);">
+            PO girdisi 4 Evrensel Şablondan (Floorplan) birine otomatik oturtulur. 0 el çizimi ekran, 0 ad-hoc margin, %100 Ant Design 6 token kontratı.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; background: var(--agito-canvas); border: 1px solid var(--agito-border); border-radius: 8px; padding: 24px 32px; width: 1776px; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <span style="font-size: 12px; font-weight: 600; color: var(--agito-ink-subtle); text-transform: uppercase;">Normalizasyon Hattı:</span>
+          <span style="font-weight: 600;">PO Figma Girişi (İş Mantığı)</span>
+          <span style="color: var(--agito-brand); font-weight: 600;">➔</span>
+          <span style="font-weight: 600;">Mimari Filtreleme (Ad-hoc geometriyi sil, 4 Şablona eşle)</span>
+          <span style="color: var(--agito-brand); font-weight: 600;">➔</span>
+          <span style="font-weight: 600; color: var(--agito-brand);">Zero-Override Ant Design 6 Kontratı (2.5 Saatte Kod)</span>
+        </div>
+        <span class="badge-tag badge-purple">Zero Tribal Knowledge</span>
+      </div>
+
+      <div class="slide-callout-footer">
+        <span class="callout-text">Sistem İlkesi: "PO'nun görevi kutu çizmek değil, iş kurallarını tanımlamaktır. Arayüzün geometrisini şablonlar ve token'lar yönetir."</span>
+        <span class="callout-sub">PO Ingestion Protocol</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 04: THE 10 BEHAVIORAL STATES OF 1 SCREEN
+         ============================================================ -->
+    <section class="figma-slide-frame" id="frame-slide-04">
+      <div class="slide-chrome">
+        <div class="slide-chrome-left">
+          <i class="ph ph-stack"></i> 04 · Buzdağının Görünmeyen Yüzü
+        </div>
+        <div class="slide-chrome-right">
+          <span>Teknik State Analizi</span>
+          <span class="slide-number-pill">SLIDE 04 / 07</span>
+        </div>
+      </div>
+
+      <h2 class="slide-heading-main">1 Ekran Aslında Kaç Ekrana Genişler?</h2>
+      <p class="slide-subheading-lead">
+        PO'nun getirdiği 1 form ve 1 tablo; koda dökülürken yazılımcının tek tek handle etmesi gereken 10 zorunlu durum kararına ayrışır:
+      </p>
+
+      <div class="col-container-4" style="margin-bottom: 24px;">
+        <div class="col-card-4">
+          <div class="card-title-row"><i class="ph ph-check-circle"></i> 1. Initial State</div>
+          <p class="card-lead-text" style="font-size: 13px; line-height: 20px;">İlk yüklemede varsayılan filtreler, 38px grid ve sıralama yönü.</p>
+        </div>
+        <div class="col-card-4">
+          <div class="card-title-row"><i class="ph ph-cursor-click"></i> 2. Batch Selection</div>
+          <p class="card-lead-text" style="font-size: 13px; line-height: 20px;">Çoklu seçimde yüzen 32px discrete bar ve sayfalar arası seçim saklama.</p>
+        </div>
+        <div class="col-card-4">
+          <div class="card-title-row"><i class="ph ph-circle-dashed"></i> 3. Empty State</div>
+          <p class="card-lead-text" style="font-size: 13px; line-height: 20px;">Veri bulunamadığında kullanıcıyı yönlendiren sıfır veri görünümü.</p>
+        </div>
+        <div class="col-card-4">
+          <div class="card-title-row"><i class="ph ph-warning-circle"></i> 4. Error State</div>
+          <p class="card-lead-text" style="font-size: 13px; line-height: 20px;">API 500 ve timeout senaryolarında inline alert ve retry mekanizması.</p>
+        </div>
+      </div>
+
+      <div class="col-container-4" style="margin-bottom: 24px;">
+        <div class="col-card-4">
+          <div class="card-title-row"><i class="ph ph-spinner"></i> 5. Loading Skeleton</div>
+          <p class="card-lead-text" style="font-size: 13px; line-height: 20px;">Veri çekilirken zıplamayı önleyen 38px hücre skeleton yerleşimi.</p>
+        </div>
+        <div class="col-card-4">
+          <div class="card-title-row"><i class="ph ph-warning"></i> 6. Validation & Dirty</div>
+          <p class="card-lead-text" style="font-size: 13px; line-height: 20px;">Form değiştiğinde kaydetmeden çıkış uyarısı ve alan doğrulama.</p>
+        </div>
+        <div class="col-card-4">
+          <div class="card-title-row"><i class="ph ph-text-align-justify"></i> 7. Extreme Data</div>
+          <p class="card-lead-text" style="font-size: 13px; line-height: 20px;">100 karakterlik unvanlar, 10.000 satırlık tablo ve ellipsis kuralları.</p>
+        </div>
+        <div class="col-card-4">
+          <div class="card-title-row"><i class="ph ph-arrows-in-cardinal"></i> 8. 100vh Viewport</div>
+          <p class="card-lead-text" style="font-size: 13px; line-height: 20px;">1920x1080 ekranda sıfır sayfa scroll'u; iç container dikey kaydırma garantisi.</p>
+        </div>
+      </div>
+
+      <div class="col-container-2">
+        <div class="col-card-2" style="padding: 16px 24px;">
+          <div class="card-title-row" style="font-size: 14px;"><i class="ph ph-lock-key"></i> 9. Yetkilendirme & Rol Kısıtı</div>
+          <p class="card-lead-text" style="font-size: 13px; margin-bottom: 0;">Kullanıcının iptal/onay yetkisi yoksa buton disable mı, tooltip mi veriyor, alan salt-okunur mu?</p>
+        </div>
+        <div class="col-card-2" style="padding: 16px 24px;">
+          <div class="card-title-row" style="font-size: 14px;"><i class="ph ph-shield-check"></i> 10. MASAK & SPK Denetim İzi</div>
+          <p class="card-lead-text" style="font-size: 13px; margin-bottom: 0;">Finansal işlemlerde geri alınamaz log onay modalı ve tabular-nums tutar standardı.</p>
+        </div>
+      </div>
+
+      <div class="slide-callout-footer">
+        <span class="callout-text">Sonuç: "Bu 10 durumu tasarımda çözmezseniz; yazılımcınız sprint ortasında 10 kez durur ve QA bu ekrana 8 ayrı Jira bug'ı açar."</span>
+        <span class="callout-sub">Actuarial State Machine Integrity</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 05: INDUSTRIAL COMPILER VS MANUAL DRAFTING (AI)
+         ============================================================ -->
+    <section class="figma-slide-frame" id="frame-slide-05">
+      <div class="slide-chrome">
+        <div class="slide-chrome-left">
+          <i class="ph ph-cpu"></i> 05 · Modern İş Akışı & Otomasyon
+        </div>
+        <div class="slide-chrome-right">
+          <span>Kaynak: agito.html · The Automation Asymmetry</span>
+          <span class="slide-number-pill">SLIDE 05 / 07</span>
+        </div>
+      </div>
+
+      <h2 class="slide-heading-main">Endüstriyel Yazılım Derleyicisi vs. Elle Çizim Atölyesi</h2>
+      <p class="slide-subheading-lead">
+        Yapay zekayı saklamıyorum, radikal bir şeffaflıkla kullanıyorum. Tasarım, 20 yıl öncesi gibi elle piksel çizen bir marangozluk faaliyeti değildir.
+      </p>
+
+      <div class="col-container-2">
+        <div class="col-card-2">
+          <div class="card-title-row">
+            <i class="ph ph-lightning"></i> Yapay Zekanın Hızlandırdığı Kısım (%80 Hız)
+          </div>
+          <p class="card-lead-text">
+            Figma'da manuel olarak kutu çizmek, pikselleri hizalamak ve form alanlarını kopyalayıp yapıştırmak en düşük değerli iştir.
+          </p>
+          <ul class="bullet-spec-list">
+            <li><i class="ph ph-check"></i> Hızlı prototip üretimi ve alternatif arayüz türetimleri.</li>
+            <li><i class="ph ph-check"></i> Tekrarlayan tablo ve form iskeletlerinin saniyeler içinde oluşturulması.</li>
+            <li><i class="ph ph-check"></i> Mekanik çizim süresinin saatlerden dakikalara indirilmesi.</li>
+            <li><i class="ph ph-check"></i> <strong>Sonuç:</strong> Çizim süresi ortadan kalkar, zaman mimariye kalır.</li>
+          </ul>
+        </div>
+
+        <div class="col-card-2 highlight">
+          <div class="card-title-row">
+            <i class="ph ph-brain"></i> İnsan Mimarının Çözdüğü Kısım (%100 Akıl)
+          </div>
+          <p class="card-lead-text">
+            Yapay zeka sigortacılık iş kurallarını bilmez; sistem bütünlüğünü ve regülasyon uyumunu kuramaz.
+          </p>
+          <ul class="bullet-spec-list">
+            <li><i class="ph ph-shield-check"></i> <strong>İş Kuralı & Regülasyon:</strong> MASAK ve SPK denetim izlerinin tasarıma yerleşimi.</li>
+            <li><i class="ph ph-shield-check"></i> <strong>State Doğrulama:</strong> Üretilen ekranın sistemdeki diğer 14 ürünle ve veri tabanıyla uyumu.</li>
+            <li><i class="ph ph-shield-check"></i> <strong>Ant Design Zero-Override:</strong> Kodun CSS override üretmeden `agitoTheme` ile derlenebilirliği.</li>
+            <li><i class="ph ph-shield-check"></i> <strong>Sonuç:</strong> Yazılımcıya giden kodun taş gibi sağlam olması.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="slide-callout-footer">
+        <span class="callout-text">Felsefe: "Yazılımda derleyici ve CI/CD kullanırken kimse 'kolaya kaçıyorsunuz' demiyor. Tasarım da bir 'industrial software compiler' gibi çalışmalıdır."</span>
+        <span class="callout-sub">Automation Asymmetry Audit</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 06: 5+2 DUAL-TRACK & UX READINESS GATE
+         ============================================================ -->
+    <section class="figma-slide-frame" id="frame-slide-06">
+      <div class="slide-chrome">
+        <div class="slide-chrome-left">
+          <i class="ph ph-kanban"></i> 06 · Operasyonel Model & Filtre
+        </div>
+        <div class="slide-chrome-right">
+          <span>Kaynak: agito.html · 5+2 Operating Cadence</span>
+          <span class="slide-number-pill">SLIDE 06 / 07</span>
+        </div>
+      </div>
+
+      <h2 class="slide-heading-main">5+2 Hafta Dual-Track ve 3 Aşamalı UX Kabul Kapısı</h2>
+      <p class="slide-subheading-lead">
+        Yazılım ekipleri tasarımı beklemez. Tasarım sprint'in 1 adım önünden koşar; plansız ve ham talepler ise kapıda elenir:
+      </p>
+
+      <div class="col-container-2" style="margin-bottom: 32px;">
+        <div class="col-card-2 highlight">
+          <div class="card-title-row">
+            <i class="ph ph-calendar-check"></i> 5+2 Hafta Dual-Track İşletim Modeli
+          </div>
+          <p class="card-lead-text">
+            Sprint içinde panikle ekran çizilmez; üretim çift hatlı rayda akar:
+          </p>
+          <ul class="bullet-spec-list">
+            <li><i class="ph ph-check"></i> <strong>5 Hafta (Taktiksel Teslimat):</strong> Yazılım ekiplerinin tam 1 sprint önünden gidilir; yazılımcı asla tasarım beklemez.</li>
+            <li><i class="ph ph-check"></i> <strong>+2 Hafta (Hardening & Konsolidasyon):</strong> Yeni ekran üretimi dondurulur; framework açıkları kapatılır, desenler merkezi UI paketine işlenir.</li>
+          </ul>
+        </div>
+
+        <div class="col-card-2">
+          <div class="card-title-row">
+            <i class="ph ph-shield-warning"></i> 3 Aşamalı UX Kabul Kapısı (Readiness Gate)
+          </div>
+          <p class="card-lead-text">
+            Tasarıma girmeden önce kilitlenen 3 değişmez kural:
+          </p>
+          <ul class="bullet-spec-list">
+            <li><i class="ph ph-check"></i> <strong>01 · Operasyonel Persona:</strong> 8 saat ekrana bakan aktüerin hangi sürtünmesi çözülüyor?</li>
+            <li><i class="ph ph-check"></i> <strong>02 · State Machine:</strong> Boş, hata, yükleniyor ve 18 kolonluk tablo sınırları hazır mı?</li>
+            <li><i class="ph ph-check"></i> <strong>03 · Şablon Sınırı:</strong> Ekran 4 evrensel şablondan birine ve 100vh kuralına uyuyor mu?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kpi-hero-bar" style="margin-bottom: 0;">
+        <div class="kpi-block" style="width: 100%; flex-direction: row; align-items: center; justify-content: space-between;">
+          <div>
+            <div class="kpi-num" style="color: var(--agito-brand);">%70 Talep Filtrelendi</div>
+            <div class="kpi-label">Gereksiz ve spekülatif backlog istekleri daha tasarıma girmeden kapıda engellendi.</div>
+          </div>
+          <span class="badge-tag badge-green" style="font-size: 14px; padding: 6px 16px;">Sıfır Tasarımcı Darboğazı</span>
+        </div>
+      </div>
+
+      <div class="slide-callout-footer">
+        <span class="callout-text">Operasyonel Sonuç: "Geliştiricinin önüne gelen her ekran bu kapıdan geçmiş, doğrulanmış ve kodlanmaya hazır bir mühendislik sözleşmesidir."</span>
+        <span class="callout-sub">Definition of Ready (DoR)</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 07: ESTIMATION TAXONOMY & THE EXECUTIVE LOCK
+         ============================================================ -->
+    <section class="figma-slide-frame" id="frame-slide-07">
+      <div class="slide-chrome">
+        <div class="slide-chrome-left">
+          <i class="ph ph-handshake"></i> 07 · Anlaşma ve Ortak Kilit
+        </div>
+        <div class="slide-chrome-right">
+          <span>Yarınki Çıkış Kuralı</span>
+          <span class="slide-number-pill">SLIDE 07 / 07</span>
+        </div>
+      </div>
+
+      <h2 class="slide-heading-main">Efor ve Teslimat Taksonomisi: Masadan Nasıl Kalkıyoruz?</h2>
+      <p class="slide-subheading-lead">
+        "Tasarım çok sürüyor" tartışmasını bitirelim. Bundan sonra PO'lar getirdikleri işin derinliğine göre efor alsın ve sistem bir sözleşmeye bağlansın:
+      </p>
+
+      <div class="matrix-table-wrap" style="margin-bottom: 32px;">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Teslimat Seviyesi</th>
+              <th style="width: 44%;">Kapsam & Karar Derinliği</th>
+              <th style="width: 20%;">Hedef Çıktı</th>
+              <th style="width: 14%;">Tipik Efor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Seviye 1: Fikir Taslağı</strong></td>
+              <td>Temel yerleşim, tekil Happy Path, hata/yükleme state'i içermez</td>
+              <td>Toplantı içi konsept tartışması</td>
+              <td><span class="badge-tag badge-green">1 – 2 Saat</span></td>
+            </tr>
+            <tr>
+              <td><strong>Seviye 2: Statik Ekran</strong></td>
+              <td>Filtre ve tablo yerleşimi, temel metinler, şablona kabaca oturtma</td>
+              <td>Görsel onay / Demo görünümü</td>
+              <td><span class="badge-tag badge-purple">0.5 – 1 Gün</span></td>
+            </tr>
+            <tr>
+              <td><strong>Seviye 3: Üretime Hazır Ekran</strong></td>
+              <td>10 State, edge-case'ler, Ant Design 6 token kontratı, 100vh kuralı</td>
+              <td>Doğrudan Sprint & Dev Handoff</td>
+              <td><span class="badge-tag badge-amber">1 – 2 Gün</span></td>
+            </tr>
+            <tr>
+              <td><strong>Seviye 4: Kompleks İş Akışı</strong></td>
+              <td>Multi-step wizard, doküman editörü, asenkron state machine</td>
+              <td>Modüler Platform Standardı</td>
+              <td><span class="badge-tag badge-red">Birkaç Gün</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-container-2">
+        <div class="col-card-2">
+          <div class="card-title-row"><i class="ph ph-check-square-offset"></i> 1. PO Gereksinim Kapısı</div>
+          <p class="card-lead-text" style="margin-bottom: 0;">
+            PO'lar tasarım formu doldururken çıktının seviyesini seçecek: Hızlı taslak isteniyorsa yarım gün; geliştiriciye sıfır bug garantili teslim isteniyorsa 1 gün efor takvime yazılacak.
+          </p>
+        </div>
+
+        <div class="col-card-2 highlight">
+          <div class="card-title-row"><i class="ph ph-shield-check"></i> 2. Mühendislik Çıkış Taahhüdü</div>
+          <p class="card-lead-text" style="margin-bottom: 0;">
+            1 gün efor verilen her ekran, yazılımcının sıfır soru ve sıfır custom CSS ile 2.5 saatte ayağa kaldırabileceği AntD token kontratıyla teslim edilecek; sprint'te sıfır blocker çıkacak.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-callout-footer">
+        <span class="callout-text">Yönetici Özeti: "Biz çizim satmıyoruz; yazılımcının sprint ortasında duvara toslamasını ve şirketin para yakmasını engelliyoruz."</span>
+        <span class="callout-sub">Agito Design System Platform · Final Commitment</span>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>

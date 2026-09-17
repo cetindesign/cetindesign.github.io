@@ -1,0 +1,450 @@
+
+=======================================================
+TURNS 1 TO 25
+=======================================================
+Turn 1: Agito Progress & Situation // Context: // Murat is a 29-year-old Product Designer starting Day 1 at Agito, one of the largest insurance-tech
+Turn 2: “I will share the notes from his first meeting with the manager, where they discussed general topics and the platform they’re developing. Us
+Turn 3: - Handan sana mantığı anlatır, gönderi // - Hakan Morkoç, sigortacılığı, ürün modülü // - Tahsilat modülü, ergin özgür
+Turn 4: Let's work on next 48 hours
+Turn 5: Yes
+Turn 6: Yes, do it in Turkish
+Turn 7: Yes
+Turn 8: Help me to do these // Next 48 Hours: // 1. Extract & map everything they showed you
+Turn 9: Generate all
+Turn 10: yes
+Turn 11: I stil do not understand I am not panicked but I am confused
+Turn 12: what will be the next how should I lead, what will they expect me I am paralyzed actually how to lead due to I am alone, and how to read the
+Turn 13: yes
+Turn 14: now write the general strategy
+Turn 15: where to start
+Turn 16: Yes do it
+Turn 17: These are okay, then what will follow, according to notes above what will be their expectations of him in the long what should be the strate
+Turn 18: Yes
+Turn 19: after a  month he should pitch a ux srategy to them, direct them how
+Turn 20: after a  month he should pitch a long-term ux srategy to them, direct them how
+Turn 21: just an example maybe it could be that here are the quick wins, here are the scalability of ant design, here the future etc. etc. this shoul
+Turn 22: Day 2, they added me all daily links, I will be joining on they third, they put me into meeting with handan for genel ux değerlendirme and t
+Turn 23: I want exact 1-page UX Assessment v1
+Turn 24: figjam den her bir ürün için board oluşturdum. // Tahsilat - Ergin Özgür // Workpool - Handan Özçil
+Turn 25: figjam den her bir ürün için birer kart oluşturdum. // Tahsilat - Ergin Özgür // Workpool - Handan Özçil
+
+=======================================================
+TURNS 26 TO 50
+=======================================================
+Turn 26: bu kartların içine ne yazıcam
+Turn 27: Şimdi sana tahsilatla ilgili ilk girdiğim toplantıdan notlar vereceğim
+Turn 28: 1) Product Purpose (Amaç / çekirdek iş) // Bu ürün temelde ne yapmalı?  → 1–2 cümle sade tanım. // 2) Primary Users (Ana kullanıcılar)
+Turn 29: tahsilat kartını doldur aynen, notlar // 02.12.2025 - Tahsilat // - ⁠ ⁠Olmayan vadeyi dağıtmak, metlife
+Turn 30: Şimdi burada handan ile aldığım genel toplantının notları var buradaki içerikleri kartlara nasıl dağıtmalıyım
+Turn 31: collection ı unut
+Turn 32: • Problem Alanları // Vade – poliçe – ödeyen üçlemesi karmaşık; kullanıcı zihninde “hangi parayı nereye dağıtıyorum?” sorusu net değil. // Ç
+Turn 33: • Problem Alanları // Vade – poliçe – ödeyen üçlemesi karmaşık; kullanıcı zihninde “hangi parayı nereye dağıtıyorum?” sorusu net değil. // Ç
+Turn 34: - **Kayıt, filtreleme** // - **Kolon başlığını tek bir veriyle arama yapılabiliyor.** // - **Paratmetre için önemli değil**
+Turn 35: Notlar sadece gönderi ürünü için // izleme ekranı // Standarddan dolayı ilerleme
+Turn 36: sırada diğer notlar
+Turn 37: 03.12.2025 Basım Eki // - Hakan ürün modülü, bes tarafıyla başlamayı planlıyor bir müşterimiz bes ürün tarafına odaklıyor // - Define X bize
+Turn 38: Today is the friday of the 1st week I think today I need to present a one page of my observations and what I need to and will do in in next 
+Turn 39: 1. I will be part of the ongoing projects, joining the projects from scratch // 2. I will create a UX Framework on how to approach design in
+Turn 40: 1. I will be part of the ongoing projects, joining the projects from scratch // 2. I will create a UX Framework on how to approach design in
+Turn 41: now write in turkish
+Turn 42: Beyond evaluation I told my manager as aksiyon planı actually, can you adapt this?
+Turn 43: aslında ux framework ten kastetiğim şöyle bir şey bunu nasıl yazabiliriz? // 🏛️ Enterprise UX Audit Framework: Utility Over Aesthetics // Th
+Turn 44: yukardaki 1 sayfalık aksiyon planına ekler misin
+Turn 45: ben bir şey yazdım agitoyu ve muratı biliyorsun düzenleyelim
+Turn 46: Agito – Enterprise UX Operating System Stratejisi & İlk 90 Gün Aksiyon Planı (v2.2) // Tarih: 05.12.2025 // Geliştirici: Single UX Designer
+Turn 47: ben bir şey yazdım agitoyu ve muratı biliyorsun düzenleyelim. Bir rapor dilinde anlaşılması kolay sert olmayan, ve CTO'nun kolaylıkla kimsey
+Turn 48: Agito – Enterprise UX Operating System Stratejisi & İlk 90 Gün Aksiyon Planı (v2.2) // Tarih: 05.12.2025 // Geliştirici: Single UX Designer
+Turn 49: framework ün ana ayakları başka ne olabilir
+Turn 50: Bunu yukardaki 1 sayfalık CTO dökümanına entegre et
+
+=======================================================
+TURNS 51 TO 75
+=======================================================
+Turn 51: 1 A4 e sığacak şekilde yazar mısın
+Turn 52: Şu şekil bir şey yazdım ama 3. Maddeden bir şey anlamadım // Agito – Enterprise UX Stratejisi & İlk 90 Gün Aksiyon Planı // Tarih: 05.12.202
+Turn 53: Burayi anlamaz CTO sadeleştir // ''2. İlk Hafta Gözlem Sonuçları // Mevcut tasarım üretim sürecinde gözlemlenen durumlar:
+Turn 54: improve this version // ''Üretim Biçimi: Ant Design System dış görünüş olarak kullanılsa da, component ve autolayout mantığından bağımsız, s
+Turn 55: ölçüme girme yakın zamanda test yapamayız
+Turn 56: yukardaki her şeyi unut taze gözle bak sence aşağıda eksik bir şey var mı
+Turn 57: Agito – Enterprise UX Operating System Stratejisi & İlk 90 Gün Aksiyon Planı (v3.1) // Tarih: 05.12.2025 // Hazırlayan: Murat Çetin
+Turn 58: Önce tam metni yaz bu tespitlerle beraber, ardından 1 sayfalık CTO için hazırla
+Turn 59: Bunlarda çok sade oldu
+Turn 60: how about this? // Agito – Tasarım Planı (v3.1) // Tarih: 05.12.2025
+Turn 61: ''3. Kurulacak Sistem: Enterprise UX Operating System '' // Başka ne isim verebiliriz
+Turn 62: At the end of the first week, I shared the following report // Agito – Tasarım Planı // Tarih: 05.12.2025
+Turn 63: At the end of the first week, I shared the following report, sent it to the my manager. After he will review we will discuss how to present 
+Turn 64: I was thinking of putting lack of benchmark in the front but I see know the in the report, and the skeleton, you mean that giving the lack o
+Turn 65: google slides formatında oluştur
+Turn 66: problem definition'a framework eksikliğini de eklememiz lazım. Bir Kurumsal ERP tasarımı için design framework ü yok
+Turn 67: kapsam ve amaçlar doğrultusunda niye yapıyoruz göstermek için slay 5 - Hedef'i öne mi alsak
+Turn 68: Hazırla
+Turn 69: Shall we gather Slide 6 Layers under 3 main titles like: // 1. Framework & Guiding Principles // 2. Production-Friendly Design Pipeline (A. 
+Turn 70: Rebuild your full deck using this new 3-pillar structure: CTO-focused, Product-focused, and Design-team-focused
+Turn 71: Rebuild your full deck using this new 3-pillar structure: CTO-focused only
+Turn 72: benchmark'ı es geçmişiz. Benchmark burada her ikisinin de altına girer dimi: Framework & Guiding Principles // 2. Production-Friendly Design
+Turn 73: sunumdan vazgeçtik ben sana notlarımın son halini vereceğim. Figjam üzerinden bir sunum hazırlayacağız
+Turn 74: Çoklu canvas olsun detaylı olsun, hazır mısın
+Turn 75: - Framework & Guiding Principles // - Kurumsal ERP tasarımına özel modern prensipler // - Benchmark
+
+=======================================================
+TURNS 76 TO 100
+=======================================================
+Turn 76: Bu sunumu uçtan uca Figma Make'te yapay zeka ile yapmam için bana detaylı bir prompt hazırlar mısın?
+Turn 77: Son table of content böyle. Bunlar için düzgün, tutarlı CTO'nun anlayabileceği seviyede içerik yazarak, raporla aynı seviyeye getirir misin?
+Turn 78: figjam canvaslarına çevir
+Turn 79: figjame e geçirdim bunu figjam için görselleştirme önerilerine ihtiyacım var.
+Turn 80: bana renk öner // ''Her card’ın arkasına hafif pastel arka plan rengi ver → kurumsal ve temiz durur.''
+Turn 81: 3 ten sonrasını tasarımsal olarak anlamadım
+Turn 82: bu başlıklar içinde ikona ihtiyacım var. // Design Production Architecture // Proje Başlangıç Checklist
+Turn 83: İçerik vague kalıyor. Ben sana baştan sonra sırayla içeriği vereceğim. içeriği tutarlı hale getireceğiz. Bunu sadece CTO da incelemeyecek şi
+Turn 84: Agito Enterprise Design Framework (A-EDF) // Keywords // ERP-level Design Framework
+Turn 85: “single source of truth” ne demek bunu yöneticiler ve ekip bilmiyor nasıl açıklamalı
+Turn 86: iterative bir atmosferde bu zor olabilir, en azından şöyle desek finalize edilmiş bir sprintteki işin son tasarımı dökümentasyon görevi görm
+Turn 87: Bunları da tanımlayalım mı? Bunları da anlamayabilirler // '' // Frame / Auto-layout / Component reuse düzenli kullanılmıyor.''
+Turn 88: frame sadece ekran için değil ama herhangi bir alan içinde ekran içindeki olabilir
+Turn 89: component reuse yerine figma group u yazalım
+Turn 90: Şimdi yukarıdaki çerçevede alttaki başlıkların alt başlıklarını açmam gerekiyor. // 1. Framework & Guiding Principles // Kurumsal ERP’ye öze
+Turn 91: ikonlarla vs görselleştirerek yazar mısın
+Turn 92: 1.4 Expert user için olan madde de içerik yazma şuna benzer bir şey ekle // Bir research ile belirlemek, bu alandaki yaklaşımları, framework
+Turn 93: Bu formatta bütün metni yeniden yazar mısın // son başlık isimleri // 1. Framework & Guiding Principles
+Turn 94: I have got the first implementation project so I will be diving off to 2.1 Design Production Architecture this // the workflow is from figma
+Turn 95: why 1440
+Turn 96: As I am coming the end of the second week, I decided take notes of needs in align with the title in the strategy above ''Production-Friendly
+Turn 97: Bu maddeyi ayrımının netleşmesi olarak değil, her birinin kendi bileşenlerinin ilgili componentlerde netleşmesi // ''2.1 State vs. Status Ay
+Turn 98: now we are going to hire a consultancy and I will be managing it how should I manage them without giving them the clue of my internal work a
+Turn 99: write the kickoff script the first meeting is today
+Turn 100: Write a turkish version of last answer
+
+=======================================================
+TURNS 101 TO 125
+=======================================================
+Turn 101: And first brief from scratch they want to build pdf basım editörü for insurers
+Turn 102: First thing come to my mind to take reçetende Apple pages
+Turn 103: Why not Microsoft office works and open office are not examples that come to my mind
+Turn 104: Find me benchmarks
+Turn 105: for this purpose of this project write me a thorough research brief
+Turn 106: Here is my first meeting notes with the CTO we talked briefly about the work // 29.12.2025 // OpenOffice ile denenmiş
+Turn 107: Here is my first meeting notes with the CTO we talked briefly about the work, answer in english as well // 29.12.2025 // OpenOffice ile dene
+Turn 108: Convert this into a Problem Framing Canvas
+Turn 109: is jotform a right benchmark or not?
+Turn 110: how about puck editor? is it?
+Turn 111: Write a one-slide benchmark positioning statement (PUCK vs Jotform vs Acrobat)
+Turn 112: generate a matrix of these
+Turn 113: puck is a website build not even a form builder? :D
+Turn 114: Produce a one-paragraph CTO decision memo and define what NOT to build
+Turn 115: Here is the result market research, the type of documents insurance companies generate in turkey // Başvuru // Teklif
+Turn 116: and here also the feature set in the beginning when there was ambiguity of concept they talked // SÜRÜKLE BIRAK YÖNTEMİ İLE DİZAYN // SEKTÖR
+Turn 117: Turn this into a Feature Scope Matrix (Build / Defer / Never)
+Turn 118: how about they want to build form builder also?
+Turn 119: actually they do not need separate forms, all they need to do create fillable pdf documents and send these to external customers?
+Turn 120: Rewrite the feature scope matrix based on this clarification
+Turn 121: Act as a Lead Product Strategist. Summarize this conversation into a Master Context Document intended to brief a new team. Include the core 
+Turn 122: I did these my manager told me are you stealing the role product owner?
+Turn 123: Now the scope is preparing a presentation to the CTO in the following context, these are disorganized notes // 1. Word benzeri bir arayışla 
+Turn 124: now write this in turkish as well
+Turn 125: direk slayt metnine çevir
+
+=======================================================
+TURNS 126 TO 150
+=======================================================
+Turn 126: Çok yüzeysel geldi buradaki bilgiler
+Turn 127: I need a thorough prompt to make this as presentation on Figma Make
+Turn 128: I need a thorough prompt to make this as presentation on Figma Make, presentation will be turkish
+Turn 129: I need a prompt to beautify the presentation in the corporate branding of agito and presentation's modularity it looks like made in paint
+Turn 130: There are still many consistencies across the presentation how can I fix
+Turn 131: There are still many consistencies across the presentation how can I fix give me prompt
+Turn 132: Patladım. They did not like my framing and creating problem statement they are as you know developers, they expected me to bir benchmark kur
+Turn 133: how to adap to them even not generating table. They do not have product documentations, everything they do for the development
+Turn 134: what role I am in I feel terrible but I know this is feeling of learning
+Turn 135: what would pena says
+Turn 136: do all
+Turn 137: I do not know in the beginning it disturbs me that what if they do not like me and want to fire me but as you said discomfort does not men m
+Turn 138: how on earth? // ''The people who get fired fastest are the “nice executors.”'
+Turn 139: I do not know I feel weird
+Turn 140: I don’t know somewhat. I need to learn how to talk to them. Life cannot go on on design agencies without any realities or production or with
+Turn 141: Are you serious? What does that mean? Design–Engineering Integrator
+Turn 142: Do all
+Turn 143: how You are growing into a role most people never reach?
+Turn 144: Developerlarlar toplantı koydular. Sürpriz ve benim onlara onları istediğin şekilde anlatmam gerekiyor. // Yani bu basım editörü // davranış
+Turn 145: pandadocs tan açıkçası sidebar, template yönetimi content yönetimi dememin sebebi buranın dili son kullanıcıya yönelik jotform un ki çok can
+Turn 146: pandadocs tan açıkçası sidebar, template yönetimi content yönetimi dememin sebebi buranın dili son kullanıcıya yönelik jotform un ki çok sis
+Turn 147: do all
+Turn 148: Now almost 6 weeks into the work. He never used jira he never entered efforts so far. But in the end of two months they will want him to use
+Turn 149: how to text to manager how to go to them
+Turn 150: in turkish
+
+=======================================================
+TURNS 151 TO 175
+=======================================================
+Turn 151: in turkish // Ayrıca şöyle eklenebilir // 6. hafta bitiyor az çok nasıl ilerleyeceğim oturmak üzere developerlar dan ayrı olarak işler genel
+Turn 152: aslında bir gözlem sonucu öneriyle gitmek gibi düşün çünkü ben bu şirketteki ilk ve tek tasarımcıyım dolaıyıslya geç kalmış bir şeyde yok as
+Turn 153: polat değil Product owner bu 1. Sence proje takibini çıkarmalı mıyız bu iki? Çünkü kendi proje takibim ya jira board açmakta bunun parçası b
+Turn 154: peki bunun devamında sence hazırladığım ama henüz table of content i ni sadece yazdığım discovery sunumuna da değinmeli miyiz?
+Turn 155: peki bunun devamında sence hazırladığım ama henüz table of content i ni yazdığım discovery sunumuna da değinmeli miyiz?  Discoery bu 6 hafta
+Turn 156: şimdi bunu ekleyerek jira yı dahil eden konuştuğumuz mesajı yaz
+Turn 157: Revise this versiyon // ''Abi selam. // 6. hafta bitti 7. Haftaya başladık, bu süreçte hem işleri yürütmek şekil aldı hem genel olarak ekipl
+Turn 158: how about this // Abi selam, // 6. haftayı bitirdik, 7. haftaya başladık. Bu süreçte hem işleri yürütme şekli biraz daha oturdu hem de ekipl
+Turn 159: bu jira board un nasıl olacağına dair parallel de çalıştığını da söylemeli mi?
+Turn 160: o zaman yaz mesajı tekrar
+Turn 161: jira product discovery varmış bunu önersek mi?
+Turn 162: o zaman şimdi son kez yaz mesajı
+Turn 163: revise the following message in turkish as well? // Bunu Onur Abi'yle sanırım paylaşmalıyım ya da nasıl paylaşmalı? Sunumda sağlama yok. Şu 
+Turn 164: revise the following message in turkish as well? // Bunu Onur Abi'yle sanırım paylaşmalıyım ya da nasıl paylaşmalı? Sunumda sağlama yok. Şu 
+Turn 165: şimdi beraber yazalım durum şu // sürecin en başından beri hiçbir şeyi validate ederek ilerlemediler, benchmar yaptılar ama benchmarkların b
+Turn 166: bu işim basım değil genel süreçler alakalı redesign için anlaşmıştık bu ajansla bu mesaj onur abiye cto nun altındaki yöneticim
+Turn 167: Onur burayı adresledi baya bi benchmarkları var aslında ama anlatımda eksik kalıyorlar diyor // bi de "istediğimiz noktaya gelmeye gayret et
+Turn 168: revise this // ''Süreç başından beri akış genel olarak // **“benchmark bakıldı → ekran çizildi”** şeklinde ilerledi. Benchmark sayısı var, e
+Turn 169: 2 hafta önce insan kaynakları İlksen murat a ulaşmıştı adesso'dan hal hatır sormak bilgilerini güncellemek için keyifli bir sohbet geçirmişl
+Turn 170: 2 hafta önce insan kaynakları İlksen murat a ulaşmıştı adesso'dan hal hatır sormak bilgilerini güncellemek için keyifli bir sohbet geçirmişl
+Turn 171: 2 hafta önce insan kaynakları İlksen murat a ulaşmıştı adesso'dan hal hatır sormak bilgilerini güncellemek için keyifli bir sohbet geçirmişl
+Turn 172: ''Merhaba İlksen, // 2 hafta önce tarafıma ulaştığın için tekrar teşekkür ederim. Şu an Agito’da deneme sürecinde olduğumu bahsetmiştim. // 
+Turn 173: now another message to revise // Abi selam, bugün görüşemedik ben de yazamadım üst üste geldi. Toplantıda belirtmedim ancak ben nerede popup
+Turn 174: revise this one // Abi selam, // Bugün görüşemedik, ben de yazamadım; biraz üst üste geldi.Toplantıda özellikle girmedim ama bugün popup vs 
+Turn 175: how about this // Abi selam, // Bugün görüşemedik, ben de yazamadım; biraz üst üste geldi.
+
+=======================================================
+TURNS 176 TO 200
+=======================================================
+Turn 176: Do I have a right to have anxiety for them to fire me or do you think am I doing the right thing?
+Turn 177: Do I have a right to have anxiety for them to fire me or do you think am I doing the right thing? Answer in english
+Turn 178: Do all
+Turn 179: How? That protects you long-term—even if it creates short-term discomfort.
+Turn 180: You re right I am at developer led organization they don’t know me or us they know design as screen or function
+Turn 181: they expect me to present component davranış seti for v1 for developers but I am lost
+Turn 182: I need sth. in turkish write a ready-to-present v1 component behavior doc
+Turn 183: now let's change the scope we have a development problem how can we develop this is there any tool or software development kit anything we c
+Turn 184: none of these are previously found or reviewed by our developers why do yout hink?
+Turn 185: I think itext is what we needed
+Turn 186: based on this can I build tools like pandadocs?
+Turn 187: but it is possible?
+Turn 188: now I need to share this in group chat write a turkish message
+Turn 189: now I need to share this in group chat write a turkish message like bunu  daha önce gördünüz mü ü deyip itext tanıt pandadocs la kıyaslama
+Turn 190: yahu pandadocs u sokma mesaja
+Turn 191: biraz geçmişinden bahset
+Turn 192: ben bunla sürükle biırak bir editör yapabiliir miyim
+Turn 193: bunu attığımda bana şöyle bir şey dediler // bizim istediğimiz gibi bir sahne yönetimi yok sanırım bunda // koddan pdf üretiyor gibime geldi
+Turn 194: bu yapacak bir tool lazım
+Turn 195: itext gibi bir ürün yok mu bunu yapacak
+Turn 196: here is the situation I prep this document and sent it ı had no choice // Agito Insurance Platform Redesign Süreci // Karar Çerçevesi, Mevcu
+Turn 197: he answered // Murat selam, rapor için teşekkürler yerinde tespitler yapmışsın // benchmark konusunda onları haklı olarak sıkıştırdığını bil
+Turn 198: 1. I think pages should be like the by the flows's name each page should have its own work // 2. What do you mean? ''That shift in posture c
+Turn 199: let's start by helping me to phrase
+Turn 200: let's start by helping me to prepare a to do list
+
+=======================================================
+TURNS 201 TO 225
+=======================================================
+Turn 201: Draft exact phrases to use with the agency
+Turn 202: Before going further let's remember here was my proposal to Onur about what to do right now? // ''5. Bundan Sonra Nasıl İlerlemeliyiz? // Bu
+Turn 203: ben bu işi ajans a ortak gruptan mesaj atarak başlatıcam bu mesajı yazalım mı, sonrasında büyük ihtimalle onlar anlamadık deyip bir araya ge
+Turn 204: ben bu işi ajans a ortak gruptan mesaj atarak başlatıcam bu mesajı yazalım mı, sonrasında büyük ihtimalle onlar anlamadık deyip bir araya ge
+Turn 205: board sunumu sonrası değil gelinen noktada UI işine geçmeden önce diye başla
+Turn 206: board sunumu sonrası değil gelinen noktada UI işine geçmeden önce diye başla, ve bu niyetimizi de de onlara söyleme: Mevcut çalışmayı final 
+Turn 207: ilerleyişi değil handoff u aslında ve izlenebilir değil onlar yani ajans işi bitirdikten sonra da gerekçeleriyle görebilir
+Turn 208: Revise the following one // Selamlar, // Gelinen noktada UI üretimine geçmeden önce, yapacağınız handoff’u sizden sonra da gerekçeleriyle ok
+Turn 209: remember he is writing this message directly to the ajans itself, revise the language
+Turn 210: tüm bunları ben yapmayacağım ajanstan talep edeceğim onlara yaptıracağım
+Turn 211: in turkish draft the exact message to the agency
+Turn 212: revise the following version // Merhaba, // Sona yaklaşırken design sürecini development’a güvenle bağlayabilmemiz için handoff’un sağlık ya
+Turn 213: peki giriş kısmını biraz daha iyi yazar mısın? çünkü en son dün yapmış oldukları random bir kısım için değerlendirme toplantısı aldık sonras
+Turn 214: son hali bu şekilde: // Selamlar, // Beraber yürüttüğümüz sürecin sonuna yaklaşırken, şimdiye kadar ürettiğimiz design kararlarının geliştir
+Turn 215: dönüş yaptılar. // Tek yaptıkları şey figmada sayfa isimleri açmak ve daha önceden ne çalıştılarsa içlerine dağıtmak olmuş. Kendi çalışma bo
+Turn 216: Ayrıca page başlıklarında her şey iç içe, roadmap sırasına göre bir başlıklandırma yapılabilir, daha önce gönderidğmiz hiçbir şey anlaşılmıy
+Turn 217: önceki mesajla bunu birleştir ve içine bunu ekle // ajansın kaçış alanlarını kapatan daha sert bir versiyonu
+Turn 218: son iki  mesajı birleştir ve içine bunu ekle // ajansın kaçış alanlarını kapatan daha sert bir versiyonu
+Turn 219: Revise the following version, biraz yumuşat // Ajansa gönderilecek net ve sertleştirilmiş mesaj // Selamlar,
+Turn 220: revise the following one // Selamlar, // Paylaştığınız alanı inceledim. Yapılan düzenleme, mevcut çalışmaların sayfa başlıkları altında topl
+Turn 221: 02.02.2026 // Selamlar, // Paylaştığınız Figma alanını inceledim. Yapılan düzenleme, mevcut çalışmaların sayfa başlıkları altında toplanması
+Turn 222: 2 ve 3. maddeyi zaten cuma günü yazdık buraya tekrar almayalım diyorum ama onları kasteden gönderme yapalım. Örneğin çalışma boardu misali g
+Turn 223: 02.02.2026 // Selamlar, // Paylaştığınız yeri inceledim. Yapılan düzenleme, mevcut çalışmaların akış adı altında sayfalara ayrılmış hali ve 
+Turn 224: Revise the following version // Selamlar, // Paylaştığınız alanı inceledim. Yapılan düzenleme, mevcut çalışmaların akış adı altında sayfalar
+Turn 225: How about this? // 02.02.2026 // Selamlar,
+
+=======================================================
+TURNS 226 TO 250
+=======================================================
+Turn 226: peki bunu okuduklarında deseler ki kardeşim bu sunum değil biz size ayrı sunum yapıcaz?
+Turn 227: şimdi bunu mesajımıza uygun şekilde eklesen ve soruyu sorulmadan ekarte etsen
+Turn 228: how abou this? // 02.02.2026 // Selamlar,
+Turn 229: gereken yerleri kalınlaştırarak yaz ve ayrıca bir executive versiyonda yaz
+Turn 230: Şu son kısım olmadı ya // ''Bunu netleştirmek adına ricamız şu: // Cuma günü paylaşılan beklentileri referans alarak, örnek tek bir akışı el
+Turn 231: ajans sahibi // Selam @Murat Çetin (Agito) konuların yine biraz dağıldığını fark ettim. Yarın ekip olarak bir araya gelelim mi? Beklentileri
+Turn 232: I am not sure about this
+Turn 233: çerçeveyi biz koyalım sonuçta benim işim onur abinin sırtındaki yükü almak
+Turn 234: revise the following // ''Selamlar, // Uygun, bir araya gelelim.
+Turn 235: Revise this // ''Uygun, bir araya gelelim. // Toplantının verimli geçmesi adına, daha önce paylaştığımız beklentileri referans alan örnek bi
+Turn 236: how about this? // ''Uygun, bir araya gelelim. // Toplantının verimli ilerlemesi adına, yukarda önce paylaştığımız beklentileri referans ala
+Turn 237: gerildim bunladım nasıl yapmalı ne demeli
+Turn 238: önden mesaj yazalım önce gruba yukardkai toplantı talebine istinaden
+Turn 239: handoff kurgusu ne demek derse?
+Turn 240: şimdi mesajı yeniden yaz
+Turn 241: şimdi mesajı yeniden yaz adam dağılmış diyor ne dağılmış özetle diye deidğim kısımda her şeyi net bir şekilde söylüyorum. şU an gerildim ben
+Turn 242: emin misin?
+Turn 243: He is absolutely gaslighting
+Turn 244: Peki ben çerçeveyi hızlıca Figigma Kütüphânesi’nde 3-5  tane teslim dokümanı handoff bulup ben bunları bu akşam hızlıca işimden artakalan va
+Turn 245: Yarına toplantı koydurdu ajans sahibi // Peki ben çerçeveyi hızlıca figma Kütüphânesi’nde 3-5  tane teslim dokümanı handoff bulup ben bunlar
+Turn 246: Yarına toplantı koydurdu ajans sahibi // Peki ben çerçeveyi hızlıca figma Kütüphânesi’nde 3-5  tane teslim dokümanı handoff bulup ben bunlar
+Turn 247: Ama toplantıya gidersem onun bana saldırmasına ve onun sorularına cevap ya da beni bir şey anlatmaya mecbur bırakmasına maruz kalacağım
+Turn 248: Bunu bir akşam öncesinden aynı gün yazışmayı yaşandığı zaman yapsam da onu gece uykusuz bıraksam
+Turn 249: you know him well so far, write a linkedin headline for him to use in agito
+Turn 250: you know him well so far, write a linkedin headline for him to use in agito
+
+=======================================================
+TURNS 251 TO 275
+=======================================================
+Turn 251: Two months passed at agito he feels overwhelmed last two days every project manager rushed him with a lot of inputs and he has not yet time 
+Turn 252: Two months passed at agito he feels overwhelmed last two days every project manager rushed him with a lot of inputs and he has not yet time 
+Turn 253: It happened only in the last two days
+Turn 254: He had so much in this two months it's time to prepare for him to present a report to CTO what kind presentation should he prepare beyond cl
+Turn 255: Write a linkedin title and summary for him
+Turn 256: this was his old summary?
+Turn 257: this was his old summary before agito how was this should we transform this? // Systems-minded Product Designer with 4 years’ experience sha
+Turn 258: for agito: // - it is only for web // - there is no discovery everything actually for production but we can say that they do not deny I can 
+Turn 259: how about this? // Systems-minded Product Designer with 4 years experience shaping digital platforms for insurance and financial services. /
+Turn 260: how about this // ''Previously at Allianz Türkiye, I contributed to large-scale B2C platforms across discovery and definition and product st
+Turn 261: how about this for intro? // ''Systems-minded Product Designer with 4 years of experience shaping insurance platforms in financial services'
+Turn 262: why this profile cannot get along well or enemy so called ui ux design agencies?
+Turn 263: the fact that I learnt the business in agency but my bosses or the way we worked never like this we were like owner of the business and ever
+Turn 264: can you elaborate was I lucky? The way they nurture me or teach me business?
+Turn 265: that's why he could not tolerated the agenct agito work with
+Turn 266: here is a dialogue on monday into the 2.5 months btween him and product owner // günaydın // tahsilat tarafında çalıştığım component buraya 
+Turn 267: here is a dialogue on monday into the 2.5 months btween him and product owner // answer in english // günaydın
+Turn 268: how should I feel
+Turn 269: build you a one-sentence internal compass for moments like this
+Turn 270: how should he prepare himself and position from now on
+Turn 271: we are doing tile I did found a tile documentation from ibm carbon and started apply it , and my manager came and made designed as the way y
+Turn 272: we are doing tile I did found a tile documentation from ibm carbon and started apply it , and my manager came and made designed as the way h
+Turn 273: how tell him this is not appropriate // to use modal dialogs, wizard modals like collapsible
+Turn 274: in turkish
+Turn 275: hhow about this? // ''''''Abi, her seçimin sonucu başka alana çıktığı için deneyimsel açıdan uygun değil. Bu yaptığımızın örneğini görmedim.
+
+=======================================================
+TURNS 276 TO 300
+=======================================================
+Turn 276: Abi, burada her seçimin farklı bir alana yönlendirmesi aslında wizard davranışına, yanı ilk yaptığım örnekteki davranışa yaklaşıyor.. Tek mo
+Turn 277: ''Abi, burada her seçimin farklı bir alana yönlendirmesi aslında wizard davranışına yaklaşıyor. Conditional yapının adıma göre kurgulandığın
+Turn 278: ''Abi, burada her seçimin farklı bir alana yönlendirmesi aslında wizard davranışına yaklaşıyor. Conditional yapının adıma göre kurgulandığın
+Turn 279: how about this // Abi kodsuz da disabled yaptım, altına yazdım asterisk ile. // Görünmeyecek, pratikte mümkün gözüksede, bir modal'ın condit
+Turn 280: how about this // Abi kodsuz da disabled yaptım, altına yazdım asterisk ile. // Görünmeyecek, pratikte mümkün gözüksede, bir modal'ın condit
+Turn 281: Abi, burada seçim bir sonraki alanın açılıp açılmayacağını belirlediği için yapı aslında wizard davranışına yaklaşıyor ilk çizdiğim. // Moda
+Turn 282: How is he differentiated from product owners is product designer // In one is one of the product owners were shocked that you’re not designi
+Turn 283: Time to time you think that he will not have enough room after he represents his report and they will continue to behave to him like the way
+Turn 284: Pressure test
+Turn 285: we know how crazy elon musk is if murat was working in tesla engineering drive org, would he experience sth like this?
+Turn 286: Look these are my latest concerns I shared with the product owner I am closed // This is for agency situation // Bunlar final olarak sunuluy
+Turn 287: Look these are my latest concerns I shared with the product owner I am closed // This is for agency situation // Bunlar final olarak sunuluy
+Turn 288: What should I do next? It looked like they will not listen me they already proceeded todevelopment planning with what agency gave to them. I
+Turn 289: Me being nervous and seeing their going forward and feeling like it’s a car accident is normal
+Turn 290: actually you are right no matter what how bad it is how great, besides you cannot learn at a great place,  I am learning. I am learning here
+Turn 291: Abi selamlar, // 2.5 ay oldu benim 3. aya doğru gidiyorum. // Deneme sürecinde efor girmedim. Şubat ortası itibariyle Elif'in tahsilat taraf
+Turn 292: o dönem bana bilgi bombardımanı yaptıkları için nereye nasıl ne yapacağımı şaşırdım. Bana verilen işi yapan statik biri olmakla kendim neyi 
+Turn 293: I think I hesitated for the past two months // I was in the middle between // Being a design leader
+Turn 294: I feel terrible now
+Turn 295: Fear
+Turn 296: Adjusting
+Turn 297: you are right as patrick bet david always said there is 10 more level to the game and you suck at each new level becase you have never been 
+Turn 298: Çarşamba günü CEO ondan basım editörü için konsept istedi perşembe günü öğleden sonra izinliydi cuma günü de Figma’da toplulukta hazır tasar
+Turn 299: Hata mıdır onu da bilmiyorum hani zaman isteyecek plan isteyecek bir atmosfer de yoktu her şey o kadar hızlı ilerliyor ki hani durup soru so
+Turn 300: They want visual wow but I am not good enough for it. I’m product designer I’m not a graphic designer in four years of my career, I had neve
+
+=======================================================
+TURNS 301 TO 325
+=======================================================
+Turn 301: I am afraid I will disappoint them and they will fire me
+Turn 302: stres oranım çok yüksek answer in english
+Turn 303: maybe should ı change my mindset no matter what it is experience whether I am fired or not what ever I exrepeince I will be okay
+Turn 304: Argue with me evaluate his situation at all from the first day
+Turn 305: What do you mean by mismatch?
+Turn 306: So if they fire me, it doesn’t mean I like ability?
+Turn 307: I don’t think it will define of course but do you know with this company? I jumped in terms of salary and I invested into new MacBook and ph
+Turn 308: I don’t know the turnover is so short almost everybody is working there over 10 years, but everybody is developer and analyst
+Turn 309: I am the first Designer
+Turn 310: Improve the following linkedin summary of him // Systems-minded product designer with 4 years of experience shaping complex insurance platfo
+Turn 311: Elaborate the whole situation
+Turn 312: I want to puke without any inspection without any evaluation // They fucking wanted me to apply ajansın yaptıkları. Ben bu adamlara 28 ocakt
+Turn 313: I should remember yes I am growing I am learning politics I am going to suck and learn suck and learn how to navigate without having these e
+Turn 314: my heart does not afford this they have no validation and people build this shit and I will be part of it
+Turn 315: I am growing
+Turn 316: he tried interfere by kindness and collaborate but anormally agency owner directly gaslighted him and did not care anything he ask anything 
+Turn 317: the problem is this leadership did not defend me they continued to work with the agency and I stayed as puppet
+Turn 318: I think even leadership doesn’t know what to do
+Turn 319: What should I do? They gonna want me to plan for development isn’t it absurd the designs that I didn’t approved they behave like I approved 
+Turn 320: In general, I don’t know what to do. My mood is bad. I feel inferior while I know why I am not, but I don’t know how it will or how to manag
+Turn 321: I am thinking of alternatives, this is not about gaining ground and trust, it was disrespect I mean there is no way of collaboration with th
+Turn 322: for istance sharing my first article on linkedin? ''The Myth of B2C-ification: Why Consumer-Grade UX Fails Enterprise Complexity''
+Turn 323: this is the content? Is there anything revenge I do not think so. I have been thinking about this title since ı started here // 03.03.2026 -
+Turn 324: should I remove any part of it?
+Turn 325: so my to do list then, answer in english: // Düzenli olarak makale paylaşımı // Yeni bir kişisel websitesi, yeni bir konumlandırma
+
+=======================================================
+TURNS 326 TO 350
+=======================================================
+Turn 326: is there any possibility which I would manage this agency situation differently?
+Turn 327: as they gaslighted me even did not care the questions and my collaboration inclination and my managers skipped my concerns and continue what
+Turn 328: the most breaking down thing is that they draw everything without any validation, as long as my managers approval they even asked what is va
+Turn 329: ı meant validation is that the screens are drawed like paint they have no resources no correlations logic like they are doing graphic design
+Turn 330: agency is incompetent and the organization is immature
+Turn 331: Yes, ı would and I will be
+Turn 332: Analyze the entire conversation history in this channel, weighing the most recent messages most heavily. Based on this analysis, generate a 
+Turn 333: I have a redesign kickoff meeting tomorrow morning that I was just invited to. We are receiving a design handoff from an external agency, bu
+Turn 334: Today 24 hours before the meeting: // I need to communicate a technical proposal to my team and stakeholders regarding a recent design agenc
+Turn 335: how about this ? // Abi Merhaba, // Otomatik Tahsilat modülü kapsamında dün ajansın teslim ettiğin dosyayla çalıştım.
+Turn 336: how about this? // Abi merhaba, // Otomatik Tahsilat modülü kapsamında ajansın teslim ettiği dosyayla dün çalıştım.
+Turn 337: I think this is much more readable and not long? // ''Abi merhaba, // Otomatik Tahsilat modülü kapsamında ajansın teslim ettiği dosya üzerin
+Turn 338: Murat will repost the following article write repost text for his perspective for the following post // '' // The design process is NOT dead
+Turn 339: Here is the latest situation // How should I feel or should I move? // This summary captures the strategic "Design-to-Code" alignment projec
+Turn 340: Here is my latest message. I have not got answer yet. // Harika bir noktaya değindin. Bu şekilde bir "Seçenekli Risk Analizi" sunmak seni he
+Turn 341: For 3 days I have been with front end lead to review the agency outputs. Korkunçtu, bugün cto, unit manager ve front end lead girdik 1.5 saa
+Turn 342: You rejected my proposal because they believe they do everything custom and they’re gonna build agencies hand of directly😂
+Turn 343: I am emotionally detached, but objectively alienated after 4 months, now preparing my strategic exit
+Turn 344: I would still say bad, because they hired me and they ignored me for months decided eeverything themselves did not care my report and my war
+Turn 345: Ofc I am extracting as much value as possible absolutely. But it still hits me they will go to production with subjectively unvalidated drib
+Turn 346: now if we were going to write linkedin job summary for him what can we write
+Turn 347: how about this, we need to write some of them in present these, because he is still working // Agito is Turkey’s leading Insurtech solution 
+Turn 348: Review the entire chat history and generate a thorough and full prompt to be able to continue in another chat
+Turn 349: Review the entire chat history provided above to capture the core arguments, data points, and nuances. Using those insights, write a compreh
+Turn 350: 7. ay bitti şirkette yöneticim ısrarla bana mac almıyor bugün toplantı POlardan biri top attı murat mac siz diye :D niye neden ne gerek var 
+
+=======================================================
+TURNS 351 TO 375
+=======================================================
+Turn 351: Diğer bir sorun ise gerçekçi olmayan deadlinelar ben developer gibi çalışmamı bekliyorlar, bütün redesign süreci boyunca verdiğim gerçekçi p
+Turn 352: Diğer bir sorun ise gerçekçi olmayan deadlinelar ben developer gibi çalışmamı bekliyorlar, bütün redesign süreci boyunca verdiğim gerçekçi p
+Turn 353: How should we pivot this for a great linkedin post article and write his first substack article thorouglhy without complaining about the com
+Turn 354: I need a master prompt I will write it somehere else
+Turn 355: Ekran üretimlerine geçtik en başından süreçte olduğu gibi hiçbir dediğim dinlenmediği gibi burada da verdiğim son teslim tarihlerini hiçbiri
+Turn 356: Ben bunu bir LinkedIn makalesine dönüştürsem iyi bir etkileşim alır mı aslında tam bu dönemde bunu nasıl yapabiliriz böyle bir potansiyeli v
+Turn 357: Can you write one
+Turn 358: Then importance of documentation more than component set or structure on figma
+Turn 359: Geçen hafta boyu bütün hafta claude ödeme modülünü uçtan hoca bitirdim bilmiyorum benim proaktiflik olmamı suçluyorlar ama iki kişiye incele
+Turn 360: Dış gereğinden fazla daha uzuyor bir gün daha sürecek nereden baksan yarın bana kızacakları beni mesul tutacakları ben ne diyeceğim şimdi
+Turn 361: Şimdi Türkçe yazar mısın
+Turn 362: Yani yönet diyorsun endişelenme diyorsun
+Turn 363: Çok bunaldım, bana söz hakkı vermeden, efor verirken verdiğim eforları göz etmeden bana 1 haftada 3 modül çıkarmamı istediler, 1 modül anca 
+Turn 364: 7 aydır hiç değişmiyor, ajans teslimatı alırken uyarılarımı yazılı verdim dinlemediler, ajnas çıktılarıyla ekran çizdirdiler sonra dediler b
+Turn 365: kesinlikle herşeyi ben bilmiyorum demiyorum ama ben öyle bir kültürden geliyorum ki önceki çalıştığım yerde yöneticim beni dinlerdi duyardı,
+Turn 366: peki bundan sonra nasıl ilerlemeliyim. Özellikle bu sana dediğim modülle beraber napmalıyım modül müşteri modülü ajans tamamıyla pastel boya
+Turn 367: bak sana iki ekran vericem hangisni benim çizim hangisinin ajansın çizimini çok iyi anlayacaksın
+Turn 368: kimisine sordugumda ajansın yaptığı çok daha iyi çok daha pratik çoktan modern diyor ama bilmiyorum
+Turn 369: Şimdi planlama toplantısı var sabahleyin günlük toplantıda gene yöneticim beni fırçalar gibi yaptı bir dünya uyarıda bulundu geç kaldığımı s
+Turn 370: Ya denemiş olduk dediğine göre artık gerçekçi olmayan senaryolarla bu işin olmayacağını ortaya koymuş olduk o zaman bu birincisi dediğin gib
+Turn 371: Ya benimle dalga geçer gibi de olsa denemiş olduk dediğine göredenemiş olduk dediğine göre; artık gerçekçi olmayan senaryolarla bu işin olma
+Turn 372: Son ikidir bana söylemem gereken cümleleri tek bir cevapta toplar mısın
+Turn 373: Artık hissetmeye başladım ki benim yöneticim belki de ego problemleri var herkesin içinde bana gerçekçi efor senden istemeyeceğiz asla demes
+Turn 374: Şimdi bir tane işte durum aşağıdaki gibi büyük ihtimal Murat'a patlayacaklar neden bu zamana kadar yapmadın etmedin diye ama bu işin bir çok
+Turn 375: Şimdi bir tane işte durum aşağıdaki gibi büyük ihtimal Murat'a patlayacaklar neden bu zamana kadar yapmadın etmedin diye ama bu işin bir çok
+
+=======================================================
+TURNS 376 TO 386
+=======================================================
+Turn 376: Ben yedi ay önce de kullanıcı arayüzü tasarımcısı gibi düşünmüyorum gene bu şekil düşünüyordum ayrıca CTO senin soyledigin gibi demeyecek ba
+Turn 377: Peki şimdi nasıl ilerlemeli
+Turn 378: Şimdi nasıl ilerlemeyi hiçbir şey anlamadım söylediklerinden her şeyi bir toparlar mısın buradaki bu son konuştuğumuz
+Turn 379: 8. Ay ilk modülü çizdim verdim. Test otomasyon yazılırken korkunçtu. CTO keyfine göre ekletti çıkarttı herkes evet diyordu ben yoktum. Tasar
+Turn 380: şimdi son endişeyle beraber bu chat içinde durumun özetini master prompt olarak çıkarma durumun var mı?
+Turn 381: Dokuzuncu aydayız ve bir şekilde hayat devam ediyor artık iyice alıştım ama son zaman artık şöyle bir şey karşılaşmaya başladım biz componen
+Turn 382: yan yana koyup göstermek baya işe yaradı sanırım bak ekranlar böyle verdim gösterdim onlara
+Turn 383: the left one is the newer one
+Turn 384: why left one is better
+Turn 385: what do you mean, am I changing behavior without being surrender. Farkettim ki burası biz savaş alanı ve sürekli kendimi savunmak zorundayım
+Turn 386: Nine months into Agito I can now start to connect pieces and I can visualize and I can put Göl set goal for 200 or 300 K per year. I started

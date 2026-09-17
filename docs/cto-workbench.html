@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agito Design System · In-Flight Redesign & Pattern Extraction Workbench</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *:before, *:after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f4f4f6;
+      color: #18181b;
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 32px;
+    }
+
+    /* WIDE 1920PX WORKBENCH CANVAS CONTAINER */
+    .workbench-canvas {
+      max-width: 1920px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 8px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+    }
+
+    /* TOP EXECUTIVE HEADER */
+    .wb-header {
+      padding: 24px 32px;
+      border-bottom: 1px solid #e4e4e7;
+      background: #fafafa;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .wb-brand-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .wb-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #5D2BC7;
+    }
+
+    .wb-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #5D2BC7;
+    }
+
+    .wb-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111827;
+      letter-spacing: -0.02em;
+    }
+
+    .wb-subtitle {
+      font-size: 13px;
+      color: #71717a;
+    }
+
+    /* TIME BUDGET BADGE (HERO HOOK) */
+    .time-budget-card {
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 6px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .tb-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tb-label {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #71717a;
+      text-transform: uppercase;
+    }
+
+    .tb-val-alert {
+      font-size: 16px;
+      font-weight: 600;
+      color: #5D2BC7;
+    }
+
+    .tb-progress-bar-wrap {
+      width: 140px;
+      height: 8px;
+      background: #f4f4f6;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      margin-top: 4px;
+    }
+
+    .tb-bar-draw {
+      width: 8%;
+      background: #d97706;
+      height: 100%;
+    }
+
+    .tb-bar-arch {
+      width: 92%;
+      background: #5D2BC7;
+      height: 100%;
+    }
+
+    /* 3-COLUMN WORKBENCH GRID */
+    .wb-grid {
+      display: grid;
+      grid-template-columns: 480px 1fr 580px;
+      min-height: 980px;
+      border-bottom: 1px solid #e4e4e7;
+    }
+
+    .wb-col {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .wb-col-border {
+      border-right: 1px solid #e4e4e7;
+    }
+
+    .col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f4f4f6;
+    }
+
+    .col-badge {
+      display: inline-flex;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-danger {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    .badge-violet {
+      background: #f5f3ff;
+      color: #5D2BC7;
+      border: 1px solid #ddd6fe;
+    }
+
+    .badge-success {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+    }
+
+    .col-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+      margin-top: 4px;
+    }
+
+    .col-desc {
+      font-size: 12px;
+      color: #71717a;
+    }
+
+    /* COLUMN 1: LEGACY MOCKUP CONTAINER */
+    .legacy-canvas {
+      background: #fdfdfd;
+      border: 1px dashed #fca5a5;
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legacy-callout {
+      background: #fff5f5;
+      border-left: 3px solid #ef4444;
+      padding: 8px 12px;
+      font-size: 11.5px;
+      color: #991b1b;
+      line-height: 1.4;
+    }
+
+    .legacy-wireframe-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      padding: 12px;
+    }
+
+    .legacy-field-cluster {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .legacy-fake-input {
+      background: #fafafa;
+      border: 1px solid #d1d5db;
+      border-radius: 3px;
+      padding: 6px 8px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .legacy-fake-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+    }
+
+    .legacy-fake-table th, .legacy-fake-table td {
+      border: 1px solid #e5e7eb;
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    .legacy-fake-table th {
+      background: #f3f4f6;
+      font-weight: 600;
+    }
+
+    /* COLUMN 2: DECOMPOSITION & TIME LEDGER */
+    .engine-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .engine-card {
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.2s;
+    }
+
+    .engine-card:hover {
+      border-color: #5D2BC7;
+    }
+
+    .ec-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ec-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: #18181b;
+    }
+
+    .ec-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #5D2BC7;
+      background: #f5f3ff;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .ec-desc {
+      font-size: 12.5px;
+      color: #52525b;
+      line-height: 1.45;
+    }
+
+    .ec-detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .ec-detail-list li {
+      font-size: 11.5px;
+      color: #71717a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ec-detail-list li::before {
+      content: "•";
+      color: #5D2BC7;
+      font-weight: bold;
+    }
+
+    /* COLUMN 3: 100VH PRODUCTION UI CONTRACT */
+    .prod-viewport {
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .prod-window-bar {
+      height: 32px;
+      background: #fafafa;
+      border-bottom: 1px solid #e4e4e7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+
+    .prod-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .prod-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d4d4d8;
+    }
+
+    .prod-header-row {
+      padding: 12px 16px;
+      border-bottom: 1px solid #f4f4f6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .prod-title-h1 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .prod-btn-cluster {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-32-secondary {
+      height: 32px;
+      padding: 0 12px;
+      background: #ffffff;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #18181b;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-32-primary {
+      height: 32px;
+      padding: 0 12px;
+      background: #5D2BC7;
+      border: 1px solid #5D2BC7;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #ffffff;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 40PX FILTER BAR */
+    .prod-filter-bar {
+      height: 44px;
+      background: #fafafa;
+      border-bottom: 1px solid #e4e4e7;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 8px;
+    }
+
+    .prod-input-composite {
+      height: 32px;
+      background: #ffffff;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      padding: 0 10px;
+      font-size: 11.5px;
+      color: #71717a;
+      width: 220px;
+      display: flex;
+      align-items: center;
+    }
+
+    .prod-chip {
+      height: 28px;
+      padding: 0 8px;
+      background: #f4f4f6;
+      border: 1px solid #e4e4e7;
+      border-radius: 4px;
+      font-size: 11px;
+      color: #52525b;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* 38PX DENSE TABLE */
+    .prod-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .prod-table th {
+      height: 38px;
+      background: #fafafa;
+      border-bottom: 1px solid #e4e4e7;
+      padding: 0 12px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #18181b;
+      text-align: left;
+    }
+
+    .prod-table td {
+      height: 38px;
+      border-bottom: 1px solid #f4f4f6;
+      padding: 0 12px;
+      color: #27272a;
+      font-weight: 400; /* STRICT 400 */
+    }
+
+    .prod-table tr:hover td {
+      background-color: #faf5ff;
+    }
+
+    .td-num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .prod-tag {
+      font-size: 10.5px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: 400;
+      display: inline-block;
+    }
+
+    .tag-active {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+    }
+
+    .tag-pending {
+      background: #fffbeb;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+
+    /* FOOTER COMPARISON SUMMARY */
+    .wb-footer {
+      padding: 20px 32px;
+      background: #111827;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .wf-metric {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .wf-metric-label {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #9ca3af;
+      text-transform: uppercase;
+    }
+
+    .wf-metric-val {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .wf-metric-sub {
+      font-size: 11.5px;
+      color: #a1a1aa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="workbench-canvas">
+
+    <!-- TOP HEADER -->
+    <header class="wb-header">
+      <div class="wb-brand-block">
+        <div class="wb-meta-pill">
+          <span class="wb-meta-dot"></span>
+          Agito Design System · In-Flight Pattern Extraction
+        </div>
+        <h1 class="wb-title">Bir Ekranın Anatomisi: Eski Monolitten Koda Hazır Ant Design 6 Kontratına</h1>
+        <p class="wb-subtitle">Neden 1 Gün Sürüyor? Çizim Süresi: 30 dk (%7) | Mimari Çözümleme, Veri Montajı & State Modellemesi: 6 Saat (%93)</p>
+      </div>
+
+      <div class="time-budget-card">
+        <div class="tb-stat">
+          <span class="tb-label">Tek Ekran Efor Analizi</span>
+          <span class="tb-val-alert">1 Gün (6.5 Saat Net Odak)</span>
+          <div class="tb-progress-bar-wrap" title="30 dk Çizim, 6 Saat Çözümleme">
+            <div class="tb-bar-draw"></div>
+            <div class="tb-bar-arch"></div>
+          </div>
+        </div>
+        <div style="font-size:11px; color:#71717a; border-left:1px solid #e4e4e7; padding-left:16px;">
+          <div><strong style="color:#d97706;">%7 Çizim:</strong> Layout yerleşimi</div>
+          <div><strong style="color:#5D2BC7;">%93 Mühendislik:</strong> Tablo kolonları, form bağımlılıkları &amp; PO açıklarını kapatma</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3-COLUMN WORKBENCH -->
+    <main class="wb-grid">
+
+      <!-- COLUMN 1: LEGACY & PO INPUT -->
+      <section class="wb-col wb-col-border">
+        <div class="col-header">
+          <div>
+            <span class="col-badge badge-danger">GİRDİ ANALİZİ · EKSİK &amp; MONOLİTİK</span>
+            <h2 class="col-title">01. Eski Sistem &amp; PO Telkafesi</h2>
+            <p class="col-desc">İş mantığı var, mimari ve operatör ergonomisi sıfır</p>
+          </div>
+        </div>
+
+        <div class="legacy-canvas">
+          <div class="legacy-callout">
+            <strong>Kritik Tespit:</strong> PO sadece "Mutlu Yol"u (Happy Path) çizer. Tabloda veri null gelirse, servis gecikirse veya 18 kolon sığmazsa sistemin ne yapacağı tanımsızdır.
+          </div>
+
+          <div class="legacy-wireframe-card">
+            <div style="font-size:11px; font-weight:600; color:#374151; margin-bottom:8px;">Poliçe Arama &amp; Tahsilat (PO Çizimi)</div>
+            
+            <div class="legacy-field-cluster">
+              <div class="legacy-fake-input">TCKN / Vergi No...</div>
+              <div class="legacy-fake-input">Poliçe Tipi Seçin...</div>
+              <div class="legacy-fake-input">Başlangıç Tarihi...</div>
+              <div class="legacy-fake-input">Bitiş Tarihi...</div>
+            </div>
+
+            <table class="legacy-fake-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Müşteri</th>
+                  <th>Tutar</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>9912</td>
+                  <td>Ahmet Yılmaz...</td>
+                  <td>24.500 TL</td>
+                  <td style="color:#2563eb;">Detay</td>
+                </tr>
+                <tr>
+                  <td>9913</td>
+                  <td>Tekstil San....</td>
+                  <td>142.000 TL</td>
+                  <td style="color:#2563eb;">Detay</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <ul style="font-size:11.5px; color:#b91c1c; list-style:none; display:flex; flex-direction:column; gap:6px; margin-top:4px;">
+            <li>✕ <strong>28 Dağınık Alan:</strong> Gruplanmamış, klavye akışı (Tab sırası) yok.</li>
+            <li>✕ <strong>Sıfır State Tanımı:</strong> Empty, loading veya hata durumu yok.</li>
+            <li>✕ <strong>Yazılım Tuzağı:</strong> Doğrudan koda verilirse 14 saat efor + 6 QA bug'ı.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- COLUMN 2: DECOMPOSITION & TIME LEDGER -->
+      <section class="wb-col wb-col-border" style="background:#fafafa;">
+        <div class="col-header">
+          <div>
+            <span class="col-badge badge-violet">MİMARİ DÖNÜŞÜM · GÜNÜN 6 SAATİ</span>
+            <h2 class="col-title">02. Masadaki Ağır İşçilik</h2>
+            <p class="col-desc">Kütüphane canlı pişerken içerik montajı ve kural ayıklama</p>
+          </div>
+        </div>
+
+        <div class="engine-stack">
+
+          <!-- KART 1: TABLO İŞÇİLİĞİ -->
+          <div class="engine-card">
+            <div class="ec-top">
+              <span class="ec-tag">A. AKTÜERYAL TABLO KOLON MONTAJI</span>
+              <span class="ec-time">~45 DAKİKA</span>
+            </div>
+            <p class="ec-desc">Şablon hazır olsa bile 16 kolonlu tablonun tek tek veri formatı, hizalaması ve kolon kuralları kurulur.</p>
+            <ul class="ec-detail-list">
+              <li>16 kolonun veri tipleri (Tabular para <code>₺XX.XXX,00</code>, tarih, status pill).</li>
+              <li>Kolon bazlı genişlik kilitlemeleri (min-width, metin taşma <code>...</code> kuralları).</li>
+              <li>Hücre yüksekliklerinin 38px / 8px katı padding ritmine bağlanması.</li>
+            </ul>
+          </div>
+
+          <!-- KART 2: FORM & FİLTRE -->
+          <div class="engine-card">
+            <div class="ec-top">
+              <span class="ec-tag">B. FORM VE FİLTRE BLOKLARININ KURGUSU</span>
+              <span class="ec-time">~1.5 SAAT</span>
+            </div>
+            <p class="ec-desc">PO'nun getirdiği 28 dağınık alanın 40px standart form bileşenlerine dizilmesi ve mantıksal gruplanması.</p>
+            <ul class="ec-detail-list">
+              <li>Koşullu alanlar (Örn: "Bireysel ise TCKN, Kurumsal ise Vergi No aç").</li>
+              <li>Klavyeden el kaldırmayan sekansiyel <code>Tab</code> sırası mimarisi.</li>
+              <li>32px composite arama trigger'ı ile ekranın 100vh alanını koruma.</li>
+            </ul>
+          </div>
+
+          <!-- KART 3: PO HATALARINI AYIKLAMA -->
+          <div class="engine-card">
+            <div class="ec-top">
+              <span class="ec-tag">C. PO EKSİKLERİNİ &amp; STATE'LERİ ÇÖZME</span>
+              <span class="ec-time">~2 SAAT</span>
+            </div>
+            <p class="ec-desc">Geliştiricinin kafasından uydurmak zorunda kalacağı tüm boşlukları tasarımda kapatma.</p>
+            <ul class="ec-detail-list">
+              <li>8 Durumlu State Exhaustion: Empty, Skeleton Loading, 18-col Overflow, Validation.</li>
+              <li>Servis hata verdiğinde veya kayıt bulunamadığında operatörün yönlendirilmesi.</li>
+              <li>PO ile toplantı: Eksik bırakılan iş kurallarının netleştirilmesi.</li>
+            </ul>
+          </div>
+
+          <!-- KART 4: KÜTÜPHANE BESLEME -->
+          <div class="engine-card">
+            <div class="ec-top">
+              <span class="ec-tag">D. DESİGN LİBRARY &amp; TOKEN SENKRONİZASYONU</span>
+              <span class="ec-time">~1 SAAT</span>
+            </div>
+            <p class="ec-desc">Henüz sistemin inşaat aşamasındayız (Wave 1). Çıkan yeni pattern'ler kütüphaneye geri yazılır.</p>
+            <ul class="ec-detail-list">
+              <li>Ekranda kullanılan yeni bir durum varsa Figma kütüphanesine eklenir.</li>
+              <li>Ant Design 6 <code>core.json</code> token eşleşmesi kontrol edilir (0 Custom CSS kuralı).</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- COLUMN 3: 100VH PRODUCTION UI CONTRACT -->
+      <section class="wb-col">
+        <div class="col-header">
+          <div>
+            <span class="col-badge badge-success">NİHAİ KONTRAT · 0 SIKINTI</span>
+            <h2 class="col-title">03. Koda Hazır Sistem Ekranı</h2>
+            <p class="col-desc">1920x1080 Full HD, FP-01 Master-Detail, 100vh Runtime</p>
+          </div>
+        </div>
+
+        <div class="prod-viewport">
+          <div class="prod-window-bar">
+            <div class="prod-dots">
+              <div class="prod-dot"></div>
+              <div class="prod-dot"></div>
+              <div class="prod-dot"></div>
+            </div>
+            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:#71717a;">AGITO CORE · FP-01 MASTER-DETAIL (1920x1080)</span>
+            <span></span>
+          </div>
+
+          <!-- HEADER -->
+          <div class="prod-header-row">
+            <div>
+              <div style="font-size:10px; font-family:'JetBrains Mono',monospace; color:#5D2BC7; font-weight:600;">POLİÇE YÖNETİMİ · TAHAKKUK</div>
+              <h3 class="prod-title-h1">Aktüeryal Havuz ve Poliçe Listesi</h3>
+            </div>
+            <div class="prod-btn-cluster">
+              <button type="button" class="btn-32-secondary">Dışa Aktar</button>
+              <button type="button" class="btn-32-primary">+ Yeni Poliçe</button>
+            </div>
+          </div>
+
+          <!-- 40PX FILTER STRIP -->
+          <div class="prod-filter-bar">
+            <div class="prod-input-composite">Poliçe No / TCKN Ara...</div>
+            <div class="prod-chip">Durum: Yürürlükte ✕</div>
+            <div class="prod-chip">Dönem: 2024-Q3 ✕</div>
+            <span style="font-size:10px; color:#5D2BC7; font-weight:600; margin-left:auto; font-family:'JetBrains Mono',monospace;">FİLTRELERİ SIFIRLA</span>
+          </div>
+
+          <!-- STRICT 38PX TABLE -->
+          <table class="prod-table">
+            <thead>
+              <tr>
+                <th>Poliçe No</th>
+                <th>Sigortalı / TCKN</th>
+                <th>Ürün Grubu</th>
+                <th class="td-num">Net Prim</th>
+                <th>Durum</th>
+                <th>İşlem</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-family:'JetBrains Mono',monospace; font-size:11px;">POL-2024-8819</td>
+                <td>Ahmet Yılmaz (381***)</td>
+                <td>Anadolu Hayat BES</td>
+                <td class="td-num">₺24.500,00</td>
+                <td><span class="prod-tag tag-active">Yürürlükte</span></td>
+                <td style="color:#5D2BC7; font-weight:600; font-size:11px;">İncele ↗</td>
+              </tr>
+              <tr style="background:#faf5ff;">
+                <td style="font-family:'JetBrains Mono',monospace; font-size:11px;">POL-2024-8820</td>
+                <td>Tekstil Sanayi A.Ş.</td>
+                <td>Kobi Ticari Yangın</td>
+                <td class="td-num">₺142.850,00</td>
+                <td><span class="prod-tag tag-active">Yürürlükte</span></td>
+                <td style="color:#5D2BC7; font-weight:600; font-size:11px;">İncele ↗</td>
+              </tr>
+              <tr>
+                <td style="font-family:'JetBrains Mono',monospace; font-size:11px;">POL-2024-8821</td>
+                <td>Mehmet Demir (109***)</td>
+                <td>Tamamlayıcı Sağlık</td>
+                <td class="td-num">₺8.400,00</td>
+                <td><span class="prod-tag tag-pending">Onay Bekliyor</span></td>
+                <td style="color:#5D2BC7; font-weight:600; font-size:11px;">İncele ↗</td>
+              </tr>
+              <tr>
+                <td style="font-family:'JetBrains Mono',monospace; font-size:11px;">POL-2024-8822</td>
+                <td>Ayşe Kaya (442***)</td>
+                <td>Kasko Genişletilmiş</td>
+                <td class="td-num">₺19.200,00</td>
+                <td><span class="prod-tag tag-active">Yürürlükte</span></td>
+                <td style="color:#5D2BC7; font-weight:600; font-size:11px;">İncele ↗</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- FOOTER STRIP -->
+          <div style="padding:10px 16px; background:#fafafa; border-top:1px solid #e4e4e7; font-size:11px; color:#71717a; display:flex; justify-content:space-between; align-items:center;">
+            <span>Toplam 14.820 Kayıt · Sayfa Başına 25</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#5D2BC7;">Ant Design 6 · 0 Override</span>
+          </div>
+        </div>
+
+        <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:6px; padding:12px; font-size:11.5px; color:#065f46; display:flex; flex-direction:column; gap:4px;">
+          <strong>Geliştirici Kazancı:</strong>
+          <div>• Yazılımcı CSS yazmaz, sadece AntD component'lerini API'ye bağlar.</div>
+          <div>• Geliştirme süresi 14 saatten <strong>2.5 saate düşer (-%82)</strong>.</div>
+          <div>• Sıfır QA bug'ı ile doğrudan sprint tamamlanır.</div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER COMPARISON BANNER -->
+    <footer class="wb-footer">
+      <div class="wf-metric">
+        <span class="wf-metric-label">Senaryo A (PO Çizimini Direkt Koda Vermek)</span>
+        <span class="wf-metric-val" style="color:#f87171;">22 Saat Kayıp</span>
+        <span class="wf-metric-sub">0h Tasarım + 14h Geliştirme + 8h QA &amp; Bugfix + Sürekli CSS Borcu</span>
+      </div>
+
+      <div class="wf-metric">
+        <span class="wf-metric-label">Senaryo B (1 Günlük Mimari Çözümleme ile Teslim)</span>
+        <span class="wf-metric-val" style="color:#34d399;">8.5 Saat Toplam</span>
+        <span class="wf-metric-sub">6h Tasarım &amp; State + 2.5h Geliştirme + 0h CSS Düzeltmesi</span>
+      </div>
+
+      <div class="wf-metric">
+        <span class="wf-metric-label">Şirket Verimlilik Kaldıracı</span>
+        <span class="wf-metric-val" style="color:#a78bfa;">-%61 Net Tasarruf</span>
+        <span class="wf-metric-sub">Tasarımcının 1 günü, mühendislik ekibinin 2 haftalık borcunu siler.</span>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

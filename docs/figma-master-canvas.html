@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agito Platform · Master Architecture Canvas (html.to.design Ready)</title>
+  
+  <!-- DM Sans: Strictly 400 and 600 weights only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons (Regular Line Weight Only) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      /* Brand Tokens */
+      --agito-brand: #5D2BC7;
+      --agito-brand-hover: #7E50D4;
+      --agito-brand-active: #411BA1;
+      --agito-brand-subtle: #F4F0FD;
+      --agito-brand-border: #D8CBEF;
+      --agito-brand-light: #FAF8FF;
+      --agito-accent: #7C3AED;
+
+      /* Neutrals & Surfaces */
+      --agito-ink: #23252E;
+      --agito-ink-strong: #16171F;
+      --agito-ink-muted: #6B7280;
+      --agito-ink-subtle: #8C8C8C;
+      --agito-ink-disabled: #BFBFBF;
+
+      --agito-doc: #FFFFFF;
+      --agito-canvas: #F7F8FA;
+      --agito-chrome: #F0EDF3;
+      --agito-board-bg: #ECEAF0;
+
+      --agito-border: #D9D9D9;
+      --agito-border-secondary: #F0F0F0;
+      --agito-border-card: #E5E7EB;
+      --agito-border-split: rgba(0, 0, 0, 0.06);
+
+      /* Semantics */
+      --agito-success: #389E0D;
+      --agito-success-bg: #F6FFED;
+      --agito-success-border: #B7EB8F;
+      --agito-success-dot: #52C41A;
+
+      --agito-warning: #D46B08;
+      --agito-warning-bg: #FFF7E6;
+      --agito-warning-border: #FFD591;
+      --agito-warning-dot: #FAAD14;
+
+      --agito-error: #CF1322;
+      --agito-error-bg: #FFF1F0;
+      --agito-error-border: #FFA39E;
+      --agito-error-dot: #FF4D4F;
+
+      --agito-draft-bg: #F5F5F5;
+      --agito-draft-border: #D9D9D9;
+      --agito-draft-text: #595959;
+
+      /* Spacing Scale (Strictly Even 8-Grid) */
+      --agito-space-4: 4px;
+      --agito-space-8: 8px;
+      --agito-space-12: 12px;
+      --agito-space-16: 16px;
+      --agito-space-20: 20px;
+      --agito-space-24: 24px;
+      --agito-space-32: 32px;
+      --agito-space-40: 40px;
+      --agito-space-48: 48px;
+      --agito-space-64: 64px;
+
+      /* Typography Scale (Strictly Even Numbers) */
+      --agito-font-12: 12px;
+      --agito-font-14: 14px;
+      --agito-font-16: 16px;
+      --agito-font-20: 20px;
+      --agito-font-24: 24px;
+      --agito-font-32: 32px;
+
+      --agito-line-16: 16px;
+      --agito-line-20: 20px;
+      --agito-line-22: 22px;
+      --agito-line-24: 24px;
+      --agito-line-28: 28px;
+      --agito-line-32: 32px;
+      --agito-line-40: 40px;
+
+      /* Geometries */
+      --agito-radius-button: 6px;
+      --agito-radius-card: 8px;
+      --agito-radius-pill: 9999px;
+      --agito-control-h-default: 32px;
+      --agito-control-h-lg: 40px;
+      --agito-header-h: 56px;
+      --agito-rail-w: 56px;
+
+      /* Elevations */
+      --agito-shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04);
+      --agito-shadow-frame: 0 8px 32px rgba(0, 0, 0, 0.06);
+    }
+
+    /* 1. RESET & AGITO BASE */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    strong, b {
+      font-weight: 600;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--agito-board-bg);
+      color: var(--agito-ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: var(--agito-space-48);
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* 2. TUVAL BOARD KAPSAYICISI (html.to.design 1:1 Canvas) */
+    .canvas-board {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: var(--agito-space-64);
+      width: max-content;
+    }
+
+    /* 3. ÇERÇEVE ORTAK STANDARTLARI */
+    .figma-frame {
+      height: 1080px;
+      min-height: 1080px;
+      max-height: 1080px;
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border);
+      border-radius: var(--agito-radius-card);
+      box-shadow: var(--agito-shadow-frame);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .frame-800 {
+      width: 800px;
+      min-width: 800px;
+      max-width: 800px;
+    }
+
+    .frame-1920 {
+      width: 1920px;
+      min-width: 1920px;
+      max-width: 1920px;
+      background: var(--agito-canvas);
+    }
+
+    /* 4. ÇERÇEVE ÜST ŞERİDİ (CHROME HEADER) */
+    .frame-chrome-header {
+      height: 64px;
+      min-height: 64px;
+      border-bottom: 1px solid var(--agito-border-card);
+      padding: 0 var(--agito-space-24);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--agito-doc);
+      flex-shrink: 0;
+    }
+
+    .frame-chrome-title-group {
+      display: flex;
+      align-items: center;
+      gap: var(--agito-space-12);
+    }
+
+    .frame-number-badge {
+      height: 24px;
+      padding: 0 var(--agito-space-8);
+      border-radius: var(--agito-radius-button);
+      font-size: var(--agito-font-12);
+      line-height: var(--agito-line-24);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--agito-space-4);
+    }
+
+    .badge-amber {
+      background: var(--agito-warning-bg);
+      color: var(--agito-warning);
+      border: 1px solid var(--agito-warning-border);
+    }
+
+    .badge-violet {
+      background: var(--agito-brand-subtle);
+      color: var(--agito-brand);
+      border: 1px solid var(--agito-brand-border);
+    }
+
+    .badge-green {
+      background: var(--agito-success-bg);
+      color: var(--agito-success);
+      border: 1px solid var(--agito-success-border);
+    }
+
+    .badge-red {
+      background: var(--agito-error-bg);
+      color: var(--agito-error);
+      border: 1px solid var(--agito-error-border);
+    }
+
+    .frame-chrome-title {
+      font-size: var(--agito-font-14);
+      line-height: var(--agito-line-22);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+    }
+
+    .frame-chrome-meta {
+      font-size: var(--agito-font-12);
+      line-height: var(--agito-line-20);
+      font-weight: 400;
+      color: var(--agito-ink-muted);
+    }
+
+    .frame-content-scroll {
+      padding: var(--agito-space-24);
+      display: flex;
+      flex-direction: column;
+      gap: var(--agito-space-16);
+      overflow-y: auto;
+      height: 1016px;
+    }
+
+    /* KART VE MODÜL ŞABLONLARI (Fixed Integer Px) */
+    .content-box-752 {
+      width: 752px;
+      background: var(--agito-canvas);
+      border: 1px solid var(--agito-border-card);
+      border-radius: var(--agito-radius-card);
+      padding: var(--agito-space-16);
+      display: flex;
+      flex-direction: column;
+      gap: var(--agito-space-12);
+      flex-shrink: 0;
+    }
+
+    .content-box-752.white {
+      background: var(--agito-doc);
+      box-shadow: var(--agito-shadow-card);
+    }
+
+    .box-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .box-title-sm {
+      font-size: var(--agito-font-14);
+      line-height: var(--agito-line-22);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      display: flex;
+      align-items: center;
+      gap: var(--agito-space-8);
+    }
+
+    .box-body-text {
+      font-size: var(--agito-font-14);
+      line-height: var(--agito-line-22);
+      font-weight: 400;
+      color: var(--agito-ink);
+    }
+
+    /* PO WIREFRAME SKETCH RECONSTRUCTION */
+    .po-wireframe-canvas {
+      width: 718px;
+      height: 240px;
+      border: 1px dashed var(--agito-border);
+      background: var(--agito-chrome);
+      border-radius: var(--agito-radius-button);
+      padding: var(--agito-space-12);
+      display: flex;
+      flex-direction: column;
+      gap: var(--agito-space-8);
+    }
+
+    .po-wf-bar {
+      height: 36px;
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border);
+      border-radius: var(--agito-radius-button);
+      padding: 0 var(--agito-space-8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: var(--agito-font-12);
+      color: var(--agito-ink-muted);
+    }
+
+    .po-wf-table-mock {
+      height: 168px;
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border);
+      border-radius: var(--agito-radius-button);
+      padding: var(--agito-space-8);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: var(--agito-font-12);
+      color: var(--agito-ink);
+    }
+
+    /* MINI TABLE FOR SPECS (38px Standard) */
+    .dense-spec-table {
+      width: 718px;
+      border-collapse: collapse;
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border-card);
+      border-radius: var(--agito-radius-button);
+      overflow: hidden;
+    }
+
+    .dense-spec-table th {
+      height: 32px;
+      padding: 0 var(--agito-space-8);
+      background: rgba(0, 0, 0, 0.04);
+      font-size: var(--agito-font-12);
+      line-height: var(--agito-line-20);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      text-align: left;
+      border-bottom: 1px solid var(--agito-border-card);
+    }
+
+    .dense-spec-table td {
+      height: 32px;
+      padding: 0 var(--agito-space-8);
+      font-size: var(--agito-font-12);
+      line-height: var(--agito-line-20);
+      font-weight: 400;
+      color: var(--agito-ink);
+      border-bottom: 1px solid var(--agito-border-card);
+    }
+
+    .dense-spec-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* FRAME 03: FULL ENTERPRISE APP SHELL */
+    .app-shell-root {
+      display: flex;
+      width: 1920px;
+      height: 1016px;
+      overflow: hidden;
+    }
+
+    .app-rail {
+      width: var(--agito-rail-w);
+      background: var(--agito-chrome);
+      border-right: 1px solid var(--agito-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--agito-space-12) 0;
+      flex-shrink: 0;
+      justify-content: space-between;
+    }
+
+    .rail-top-cluster {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--agito-space-12);
+      width: 100%;
+    }
+
+    .app-logo-badge {
+      width: 32px;
+      height: 32px;
+      background: var(--agito-brand);
+      border-radius: var(--agito-radius-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--agito-doc);
+      font-weight: 600;
+      font-size: var(--agito-font-16);
+    }
+
+    .rail-icon-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--agito-radius-card);
+      color: var(--agito-ink-subtle);
+      background: transparent;
+      border: none;
+      font-size: var(--agito-font-20);
+    }
+
+    .rail-icon-btn.active {
+      background: var(--agito-brand);
+      color: var(--agito-doc);
+    }
+
+    .app-main-view {
+      width: 1864px;
+      display: flex;
+      flex-direction: column;
+      height: 1016px;
+      overflow: hidden;
+      background: var(--agito-canvas);
+    }
+
+    .app-topbar {
+      height: var(--agito-header-h);
+      background: var(--agito-chrome);
+      border-bottom: 1px solid var(--agito-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--agito-space-24);
+      flex-shrink: 0;
+    }
+
+    .app-view-body {
+      padding: var(--agito-space-24) var(--agito-space-32);
+      display: flex;
+      flex-direction: column;
+      gap: var(--agito-space-16);
+      overflow-y: auto;
+      height: 960px;
+    }
+
+    /* KPI METRIC CARDS (Locked Benchmark) */
+    .kpi-row-1800 {
+      width: 1800px;
+      display: flex;
+      gap: var(--agito-space-24);
+      flex-shrink: 0;
+    }
+
+    .kpi-card-item {
+      width: 584px; /* (1800 - 48) / 3 = 584px */
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border-card);
+      border-radius: var(--agito-radius-card);
+      padding: var(--agito-space-16) var(--agito-space-20);
+      display: flex;
+      flex-direction: column;
+      gap: var(--agito-space-4);
+      box-shadow: var(--agito-shadow-card);
+    }
+
+    .kpi-label-text {
+      font-size: var(--agito-font-12);
+      line-height: var(--agito-line-16);
+      font-weight: 600;
+      color: var(--agito-ink-muted);
+    }
+
+    .kpi-value-text {
+      font-size: var(--agito-font-24);
+      line-height: var(--agito-line-32);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+    }
+
+    /* 32PX FILTER BAR */
+    .filter-dock-1800 {
+      width: 1800px;
+      height: var(--agito-control-h-default);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .filter-left-cluster {
+      display: flex;
+      align-items: center;
+      gap: var(--agito-space-8);
+    }
+
+    .filter-addon-box {
+      display: flex;
+      align-items: center;
+      height: var(--agito-control-h-default);
+      border: 1px solid var(--agito-border);
+      border-radius: var(--agito-radius-button);
+      background: var(--agito-doc);
+      overflow: hidden;
+    }
+
+    .filter-addon-tag {
+      background: rgba(0, 0, 0, 0.02);
+      border-right: 1px solid var(--agito-border);
+      padding: 0 var(--agito-space-12);
+      font-size: var(--agito-font-12);
+      color: var(--agito-ink-muted);
+      height: var(--agito-control-h-default);
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+    }
+
+    .filter-addon-val {
+      padding: 0 var(--agito-space-12);
+      font-size: var(--agito-font-14);
+      color: var(--agito-ink);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: var(--agito-space-8);
+    }
+
+    .btn-32 {
+      height: var(--agito-control-h-default);
+      padding: 0 var(--agito-space-16);
+      border-radius: var(--agito-radius-button);
+      font-size: var(--agito-font-14);
+      line-height: var(--agito-line-22);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--agito-space-8);
+      cursor: pointer;
+    }
+
+    .btn-32.primary {
+      background: var(--agito-brand);
+      border: 1px solid var(--agito-brand);
+      color: var(--agito-doc);
+      font-weight: 600;
+    }
+
+    .btn-32.secondary {
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border);
+      color: var(--agito-ink);
+      font-weight: 400;
+    }
+
+    .btn-32.danger {
+      background: var(--agito-error-bg);
+      border: 1px solid var(--agito-error-border);
+      color: var(--agito-error);
+      font-weight: 600;
+    }
+
+    /* 38PX MASTER TABLE */
+    .master-table-card {
+      width: 1800px;
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border-secondary);
+      border-radius: var(--agito-radius-card);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .data-table-38 {
+      width: 1800px;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .data-table-38 th {
+      height: 38px;
+      padding: 0 var(--agito-space-8);
+      background: rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid var(--agito-border);
+      font-size: var(--agito-font-14);
+      line-height: var(--agito-line-22);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      text-align: left;
+    }
+
+    .data-table-38 td {
+      height: 38px;
+      padding: 0 var(--agito-space-8);
+      border-bottom: 1px solid var(--agito-border-secondary);
+      font-size: var(--agito-font-14);
+      line-height: var(--agito-line-22);
+      font-weight: 400;
+      color: var(--agito-ink);
+    }
+
+    .data-table-38 tr.selected-row {
+      background: var(--agito-brand-subtle);
+    }
+
+    /* PAGINATION FOOTER (56px) */
+    .pagination-bar-56 {
+      width: 1800px;
+      height: 56px;
+      padding: var(--agito-space-12) var(--agito-space-16);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: none;
+      flex-shrink: 0;
+    }
+
+    /* BATCH ACTION TOOLBAR (32px Floating Discrete Row) */
+    .batch-toolbar-32 {
+      width: 1800px;
+      height: var(--agito-control-h-default);
+      display: flex;
+      align-items: center;
+      gap: var(--agito-space-16);
+      margin-top: var(--agito-space-8);
+      flex-shrink: 0;
+    }
+
+    .batch-badge-pill {
+      height: 24px;
+      padding: 0 var(--agito-space-8);
+      border-radius: var(--agito-radius-pill);
+      background: var(--agito-brand);
+      color: var(--agito-doc);
+      font-size: var(--agito-font-12);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .status-pill {
+      height: 22px;
+      padding: 0 var(--agito-space-8);
+      border-radius: var(--agito-radius-pill);
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--agito-font-12);
+      font-weight: 400;
+    }
+
+    .dot-ind {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MASTER TUVAL BOARD (3648px x 1080px) -->
+  <main class="canvas-board">
+
+    <!-- ============================================================
+         FRAME 01: 01_PO_HAM_GEREKSINIM (800x1080)
+         ============================================================ -->
+    <section class="figma-frame frame-800" id="01_PO_HAM_GEREKSINIM" data-name="01_PO_HAM_GEREKSINIM">
+      <header class="frame-chrome-header">
+        <div class="frame-chrome-title-group">
+          <span class="frame-number-badge badge-amber">
+            <i class="ph ph-warning-circle"></i> 01 · HAM GİRDİ
+          </span>
+          <h2 class="frame-chrome-title">PO Gereksinim Talebi & Ham Telkafe</h2>
+        </div>
+        <span class="frame-chrome-meta">800 × 1080 · Unfiltered Jira Input</span>
+      </header>
+
+      <div class="frame-content-scroll">
+        <!-- 1. JIRA BİLETİ -->
+        <article class="content-box-752">
+          <div class="box-header-row">
+            <span class="box-title-sm"><i class="ph ph-ticket"></i> JIRA: AGT-2104 · Tahsilat ve Poliçe Onay Havuzu</span>
+            <span class="frame-number-badge badge-red">Blocker / Sprint Tıkanıklığı</span>
+          </div>
+          <p class="box-body-text" style="font-family: inherit; font-size: 13px; line-height: 20px; background: var(--agito-doc); padding: 12px; border: 1px solid var(--agito-border-card); border-radius: 6px;">
+            <strong>Açıklama:</strong> Acentelerden gelen ve provizyon/limit aşımına takılan poliçeler bir tabloda listelensin. Kullanıcılar satırları tek tek ya da çoklu seçip üstteki "Toplu Onayla" butonuna basabilsin. Tabloda poliçe no, acente, müşteri, tutar ve durum görünsün; arama ve filtreleme yapılabilsin.<br><br>
+            <em style="color: var(--agito-ink-muted);">Not: Ekran çok acil. Basit bir tablo zaten; acente bazlı filtreleyip 50-100 poliçeyi tek tıkla geçirebilmeliyiz.</em>
+          </p>
+        </article>
+
+        <!-- 2. PO ACEMİ TELKAFESİ -->
+        <div class="content-box-752">
+          <div class="box-header-row">
+            <span class="box-title-sm"><i class="ph ph-pencil-line"></i> PO Telkafesi (Wireframe Eskizi)</span>
+            <span style="font-size: 12px; color: var(--agito-error); font-weight: 600;">[13px / 17px Standart Dışı Geometri]</span>
+          </div>
+          <div class="po-wireframe-canvas">
+            <div class="po-wf-bar">
+              <span>[Acente Ara...] [Durum Seç ▼]</span>
+              <span style="color: var(--agito-error); font-weight: 600;">[Toplu Onayla (Yeşil)] [Reddet (Kırmızı)]</span>
+            </div>
+            <div class="po-wf-table-mock">
+              <div style="font-weight: 600; border-bottom: 1px solid var(--agito-border); padding-bottom: 4px; display: flex; justify-content: space-between;">
+                <span>[x] Poliçe No</span>
+                <span>Müşteri Adı</span>
+                <span>Tutar (Ham Float)</span>
+                <span>Durum</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                <span>[x] 2026-POL-01</span>
+                <span>Ahmet Yılmaz</span>
+                <span style="color: var(--agito-error);">14520.5</span>
+                <span>Beklemede</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                <span>[ ] 2026-POL-02</span>
+                <span>Demir Çelik A.Ş.</span>
+                <span style="color: var(--agito-error);">3500.8901</span>
+                <span>Beklemede</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 11px; border-top: 1px solid var(--agito-border); padding-top: 4px;">
+                <span>Toplam: 4.280 Kayıt</span>
+                <span>Sayfa: &lt; 1 [2] 3 4 &gt;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. MİMARİ VE TASARIM HATALARI DENETİMİ -->
+        <div class="content-box-752" style="background: var(--agito-error-bg); border-color: var(--agito-error-border);">
+          <div class="box-title-sm" style="color: var(--agito-error);">
+            <i class="ph ph-warning-octagon"></i> Bu Telkafedeki 5 Ölümcül Sistem Hatası
+          </div>
+          <table class="dense-spec-table" style="background: var(--agito-doc);">
+            <thead>
+              <tr>
+                <th style="width: 180px;">HATA BOYUTU</th>
+                <th style="width: 250px;">TELKAFEDEKİ YANILGI</th>
+                <th style="width: 288px;">SİSTEMİK RİSK & PATLAMA NOKTASI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Sayfalama Kaybı</strong></td>
+                <td>Sayfa 1'den 2'ye geçince seçimler unutuluyor</td>
+                <td>Toplu onayda sadece son sayfadaki poliçeler işlenir; finansal açık doğar.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Ham Float Tutar</strong></td>
+                <td>Locale ve basamak ayracı yok (`14520.5`)</td>
+                <td>Rakamlar hizalanmaz; operatör 14 bin ile 140 bini ayırt edemez.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Tanımsız State</strong></td>
+                <td>Loading, Error, Empty durumları yok</td>
+                <td>Servis gecikmesinde mükerrer onay tıklaması (double-submit) yaşanır.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Inline Edit İsteği</strong></td>
+                <td>Hücreye çift tıklayıp düzenleme talebi</td>
+                <td>50 satırda dirty state patlar; MASAK audit trail logu tutulamaz.</td>
+              </tr>
+              <tr>
+                <td><strong>5. 100vh İflası</strong></td>
+                <td>Sayfa düzeyinde sonsuz scroll</td>
+                <td>Tablo uzadıkça pagination ve işlem butonları ekran dışına kaçar.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FRAME 02: 02_MIMARI_KARAR_MATRISI (800x1080)
+         ============================================================ -->
+    <section class="figma-frame frame-800" id="02_MIMARI_KARAR_MATRISI" data-name="02_MIMARI_KARAR_MATRISI">
+      <header class="frame-chrome-header">
+        <div class="frame-chrome-title-group">
+          <span class="frame-number-badge badge-violet">
+            <i class="ph ph-shield-check"></i> 02 · MİMARİ KARAR
+          </span>
+          <h2 class="frame-chrome-title">Mühendislik Karar Matrisi & State Sözleşmesi</h2>
+        </div>
+        <span class="frame-number-badge badge-green">
+          <i class="ph ph-lock-key"></i> KİLİTLENDİ
+        </span>
+      </header>
+
+      <div class="frame-content-scroll">
+        <!-- KARAR 01 -->
+        <article class="content-box-752 white">
+          <div class="box-header-row">
+            <span class="box-title-sm"><i class="ph ph-arrows-in-cardinal"></i> Karar 01 · 100vh Viewport Fitting</span>
+            <span class="frame-number-badge badge-green">Zero Page Scroll</span>
+          </div>
+          <p class="box-body-text">
+            1920x1080 çözünürlükte sayfa scroll'u kesinlikle yasaklandı (`overflow: hidden`). Kaydırma yalnızca tablo içi container'a hapsedildi (`overflow-y: auto`). Filtre barı ve pagination her an ekranda sabit.
+          </p>
+        </article>
+
+        <!-- KARAR 02 -->
+        <article class="content-box-752 white">
+          <div class="box-header-row">
+            <span class="box-title-sm"><i class="ph ph-rows"></i> Karar 02 · 38px Hücre Standardı & İkili Weight</span>
+            <span class="frame-number-badge badge-violet">th: 600 · td: 400</span>
+          </div>
+          <p class="box-body-text">
+            AntD default 55px padding elendi. 14/22px tipografi + 8px üst/alt dolgu = tam 38px hücre yüksekliği kilitlendi. Başlıklar 600 semi-bold, tüm gövde hücreleri strictly 400 regular; sıfır tek sayılı değer.
+          </p>
+        </article>
+
+        <!-- KARAR 03 -->
+        <article class="content-box-752 white">
+          <div class="box-header-row">
+            <span class="box-title-sm"><i class="ph ph-check-square-offset"></i> Karar 03 · Cross-Page Batch Selection</span>
+            <span class="frame-number-badge badge-violet">preserveSelectedRowKeys</span>
+          </div>
+          <p class="box-body-text">
+            Sayfa değişiminde seçimlerin silinmesi engellendi. Seçili ID'ler üst Zustand store'da tutulur. Sayfalama footer'ı altında discrete 32px Toplu İşlem Barı açılarak kümülatif tutar anlık hesaplanır.
+          </p>
+        </article>
+
+        <!-- KARAR 04 -->
+        <article class="content-box-752 white">
+          <div class="box-header-row">
+            <span class="box-title-sm"><i class="ph ph-currency-circle-dollar"></i> Karar 04 · Tabular-Nums Para Birimi</span>
+            <span class="frame-number-badge badge-green">Zero ₺ Symbol</span>
+          </div>
+          <p class="box-body-text">
+            Tablolarda TL sembolü yasağı konuldu. Sayılar `font-variant-numeric: tabular-nums` ile sağa hizalandı, binlik nokta / ondalık virgül standardı bağlandı (`145.250,00`). Basamak zikzakları sıfırlandı.
+          </p>
+        </article>
+
+        <!-- KARAR 05 -->
+        <article class="content-box-752 white">
+          <div class="box-header-row">
+            <span class="box-title-sm"><i class="ph ph-sidebar-simple"></i> Karar 05 · 592px Drawer Mutasyon İzolasyonu</span>
+            <span class="frame-number-badge badge-red">Inline Edit Yasak</span>
+          </div>
+          <p class="box-body-text">
+            Tablo hücrelerinde doğrudan düzenleme yasaklandı. Tüm veri giriş ve güncellemeleri sağdan açılan 592px izole AntD Drawer (`Template 02`) içine hapsedildi; liste bağlamı arkada görünür tutuldu.
+          </p>
+        </article>
+
+        <!-- KARAR 06 -->
+        <article class="content-box-752 white">
+          <div class="box-header-row">
+            <span class="box-title-sm"><i class="ph ph-code"></i> Karar 06 · Ant Design Zero-Override Disiplini</span>
+            <span class="frame-number-badge badge-green">agitoTheme Runtime</span>
+          </div>
+          <p class="box-body-text">
+            Tek bir satır ad-hoc CSS veya `!important` yazılmadı. DTCG `core.json` token'ları `ConfigProvider` üzerinden doğrudan Ant Design 5 algoritmasına derlendi; yazılımcının ekranı 2.5 saatte kurması sağlandı.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FRAME 03: 03_URETIME_HAZIR_EKRAN (1920x1080)
+         ============================================================ -->
+    <section class="figma-frame frame-1920" id="03_URETIME_HAZIR_EKRAN" data-name="03_URETIME_HAZIR_EKRAN">
+      <header class="frame-chrome-header">
+        <div class="frame-chrome-title-group">
+          <span class="frame-number-badge badge-green">
+            <i class="ph ph-check-circle"></i> 03 · ÜRETİME HAZIR EKRAN
+          </span>
+          <h2 class="frame-chrome-title">Sigorta Tahsilat Sistemi · Operasyonel Onay Kuyruğu (Template 01.2 Worklist)</h2>
+        </div>
+        <span class="frame-chrome-meta">1920 × 1080 · Full HD 100vh · Zero-Override Ant Design v5 Engine</span>
+      </header>
+
+      <div class="app-shell-root">
+        <!-- SOL RAY (56px) -->
+        <aside class="app-rail">
+          <div class="rail-top-cluster">
+            <div class="app-logo-badge">A</div>
+            <button class="rail-icon-btn" title="Dashboard"><i class="ph ph-squares-four"></i></button>
+            <button class="rail-icon-btn active" title="Tahsilat"><i class="ph ph-credit-card"></i></button>
+            <button class="rail-icon-btn" title="Poliçeler"><i class="ph ph-file-text"></i></button>
+            <button class="rail-icon-btn" title="İş Akışı"><i class="ph ph-git-fork"></i></button>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%;">
+            <button class="rail-icon-btn" title="Ayarlar"><i class="ph ph-gear"></i></button>
+          </div>
+        </aside>
+
+        <!-- ANA GÖRÜNÜM (1864px) -->
+        <div class="app-main-view">
+          <!-- TOPBAR (56px) -->
+          <header class="app-topbar">
+            <div style="display: flex; align-items: center; gap: var(--agito-space-12);">
+              <div style="width: 360px; height: 36px; background: var(--agito-doc); border: 1px solid var(--agito-border); border-radius: var(--agito-radius-card); display: flex; align-items: center; padding: 0 var(--agito-space-12); gap: var(--agito-space-8);">
+                <i class="ph ph-magnifying-glass" style="color: var(--agito-ink-muted);"></i>
+                <input type="text" placeholder="Poliçe no, tc kimlik veya müşteri adı ile ara..." style="border: none; outline: none; font-family: inherit; font-size: 14px; width: 300px; background: transparent;">
+              </div>
+              <div style="height: 36px; padding: 0 var(--agito-space-12); background: var(--agito-doc); border: 1px solid var(--agito-border); border-radius: var(--agito-radius-card); display: inline-flex; align-items: center; gap: var(--agito-space-8); font-size: 14px; font-weight: 600;">
+                <i class="ph ph-buildings"></i>
+                <span>Agito Sigorta A.Ş.</span>
+                <i class="ph ph-caret-down" style="font-size: 12px; color: var(--agito-ink-muted);"></i>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--agito-space-12);">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--agito-brand-subtle); display: flex; align-items: center; justify-content: center; color: var(--agito-brand); font-weight: 600; font-size: 14px;">
+                MÇ
+              </div>
+            </div>
+          </header>
+
+          <!-- EKRAN GÖVDESİ (1800px İçerik) -->
+          <div class="app-view-body">
+            <!-- BAŞLIK & AKSİYON -->
+            <div style="width: 1800px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;">
+              <div>
+                <h1 style="font-size: var(--agito-font-24); line-height: var(--agito-line-32); font-weight: 600; color: var(--agito-ink-strong);">
+                  Tahsilat ve Borç Kayıtları
+                </h1>
+                <span style="font-size: var(--agito-font-12); color: var(--agito-ink-muted);">Provizyon ve onay havuzundaki operasyonel kayıtlar listelenmektedir.</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--agito-space-8);">
+                <button class="btn-32 secondary"><i class="ph ph-export"></i><span>Dışa Aktar</span></button>
+                <button class="btn-32 primary"><i class="ph ph-plus"></i><span>Yeni Tahsilat Girişi</span></button>
+              </div>
+            </div>
+
+            <!-- KPI KARAR METRİKLERİ (Tahsilat Benchmark) -->
+            <div class="kpi-row-1800">
+              <div class="kpi-card-item">
+                <span class="kpi-label-text">Aylık Toplam Tahsilat</span>
+                <span class="kpi-value-text tabular-nums">1.332.486,12</span>
+                <span style="font-size: 12px; color: var(--agito-success); font-weight: 600;">%12 geçen aya göre artış</span>
+              </div>
+              <div class="kpi-card-item">
+                <span class="kpi-label-text">Onay Bekleyen İşlem Adedi</span>
+                <span class="kpi-value-text tabular-nums">2.093</span>
+                <span style="font-size: 12px; color: var(--agito-warning); font-weight: 600;">24 işlem provizyon sınırında</span>
+              </div>
+              <div class="kpi-card-item">
+                <span class="kpi-label-text">Mutabakat Tamamlanma Oranı</span>
+                <span class="kpi-value-text tabular-nums">%98,4</span>
+                <span style="font-size: 12px; color: var(--agito-success); font-weight: 600;">Otomatik eşleşme etkin</span>
+              </div>
+            </div>
+
+            <!-- 32PX FİLTRE DOCK -->
+            <div class="filter-dock-1800">
+              <div class="filter-left-cluster">
+                <button class="btn-32 secondary" style="font-size: 12px;"><i class="ph ph-funnel"></i><span>Filtrele</span></button>
+                
+                <div class="filter-addon-box">
+                  <span class="filter-addon-tag">Poliçe / Belge No</span>
+                  <span class="filter-addon-val">POL-2026-849 <i class="ph ph-x" style="font-size: 12px; cursor: pointer;"></i></span>
+                </div>
+
+                <div class="filter-addon-box">
+                  <span class="filter-addon-tag">Müşteri / Sigortalı</span>
+                  <span class="filter-addon-val" style="color: var(--agito-ink-muted);">Arama yapın...</span>
+                </div>
+
+                <div class="filter-addon-box">
+                  <span class="filter-addon-tag">Vade Tarihi</span>
+                  <span class="filter-addon-val" style="color: var(--agito-ink-muted);">Tarih seçiniz <i class="ph ph-calendar-blank"></i></span>
+                </div>
+
+                <div class="filter-addon-box">
+                  <span class="filter-addon-tag">İşlem Durumu</span>
+                  <span class="filter-addon-val">Onay Bekliyor <i class="ph ph-caret-down"></i></span>
+                </div>
+              </div>
+              <button class="btn-32 secondary" style="font-size: 12px; color: var(--agito-ink-muted);"><span>Temizle</span></button>
+            </div>
+
+            <!-- 38PX MASTER TABLO -->
+            <div class="master-table-card">
+              <table class="data-table-38">
+                <thead>
+                  <tr>
+                    <th style="width: 48px; text-align: center;"><input type="checkbox" checked></th>
+                    <th style="width: 140px;">REFERANS NO</th>
+                    <th style="width: 280px;">SİGORTALI / MÜŞTERİ</th>
+                    <th style="width: 180px;">TAHSİLAT TİPİ</th>
+                    <th style="width: 140px;">VADE TARİHİ</th>
+                    <th style="width: 150px;">DURUM</th>
+                    <th style="width: 180px; text-align: right;">KALAN TUTAR</th>
+                    <th style="width: 180px; text-align: right;">TOPLAM TUTAR</th>
+                    <th style="width: 200px;">İŞLEM TARİHİ</th>
+                    <th style="width: 64px; text-align: center;"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Satır 1 (Seçili) -->
+                  <tr class="selected-row">
+                    <td style="text-align: center;"><input type="checkbox" checked></td>
+                    <td style="color: var(--agito-brand); font-weight: 600;">REF-2026-0891</td>
+                    <td>Acme Lojistik ve Taşımacılık A.Ş.</td>
+                    <td>Doğrudan Borçlandırma (DBS)</td>
+                    <td class="tabular-nums">12.10.2026</td>
+                    <td>
+                      <span class="status-pill">
+                        <span class="dot-ind" style="background: var(--agito-warning-dot);"></span>
+                        <span>Onay Bekliyor</span>
+                      </span>
+                    </td>
+                    <td style="text-align: right;" class="tabular-nums">45.250,00</td>
+                    <td style="text-align: right;" class="tabular-nums">45.250,00</td>
+                    <td class="tabular-nums">08.09.2026 14:32</td>
+                    <td style="text-align: center;"><i class="ph ph-dots-three-vertical" style="cursor: pointer;"></i></td>
+                  </tr>
+
+                  <!-- Satır 2 (Seçili) -->
+                  <tr class="selected-row">
+                    <td style="text-align: center;"><input type="checkbox" checked></td>
+                    <td style="color: var(--agito-brand); font-weight: 600;">REF-2026-0892</td>
+                    <td>Borusan Otomotiv İthalat Tic.</td>
+                    <td>Havale / EFT</td>
+                    <td class="tabular-nums">15.10.2026</td>
+                    <td>
+                      <span class="status-pill">
+                        <span class="dot-ind" style="background: var(--agito-warning-dot);"></span>
+                        <span>Onay Bekliyor</span>
+                      </span>
+                    </td>
+                    <td style="text-align: right;" class="tabular-nums">32.250,00</td>
+                    <td style="text-align: right;" class="tabular-nums">32.250,00</td>
+                    <td class="tabular-nums">08.09.2026 11:15</td>
+                    <td style="text-align: center;"><i class="ph ph-dots-three-vertical" style="cursor: pointer;"></i></td>
+                  </tr>
+
+                  <!-- Satır 3 -->
+                  <tr>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="color: var(--agito-brand); font-weight: 600;">REF-2026-0893</td>
+                    <td>Tekno Depolama Çözümleri A.Ş.</td>
+                    <td>Kredi Kartı</td>
+                    <td class="tabular-nums">20.10.2026</td>
+                    <td>
+                      <span class="status-pill">
+                        <span class="dot-ind" style="background: var(--agito-success-dot);"></span>
+                        <span>Tahsil Edildi</span>
+                      </span>
+                    </td>
+                    <td style="text-align: right;" class="tabular-nums">0,00</td>
+                    <td style="text-align: right;" class="tabular-nums">112.900,00</td>
+                    <td class="tabular-nums">07.09.2026 16:45</td>
+                    <td style="text-align: center;"><i class="ph ph-dots-three-vertical" style="cursor: pointer;"></i></td>
+                  </tr>
+
+                  <!-- Satır 4 -->
+                  <tr>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="color: var(--agito-brand); font-weight: 600;">REF-2026-0894</td>
+                    <td>Ege Kimya Sanayi ve Tic. Ltd.</td>
+                    <td>Virman</td>
+                    <td class="tabular-nums">22.10.2026</td>
+                    <td>
+                      <span class="status-pill">
+                        <span class="dot-ind" style="background: var(--agito-draft-text);"></span>
+                        <span>Taslak</span>
+                      </span>
+                    </td>
+                    <td style="text-align: right;" class="tabular-nums">18.400,00</td>
+                    <td style="text-align: right;" class="tabular-nums">18.400,00</td>
+                    <td class="tabular-nums">06.09.2026 09:20</td>
+                    <td style="text-align: center;"><i class="ph ph-dots-three-vertical" style="cursor: pointer;"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- SAYFALAMA FOOTER (Bordersız 56px) -->
+            <footer class="pagination-bar-56">
+              <span style="font-size: 14px; color: var(--agito-ink-muted);">
+                Toplam <strong>2.093</strong> kayıttan <strong>1–4</strong> arası listeleniyor
+              </span>
+              <div style="display: flex; align-items: center; gap: var(--agito-space-8);">
+                <button class="btn-32 secondary" style="width: 32px; padding: 0; justify-content: center;"><i class="ph ph-caret-left"></i></button>
+                <button class="btn-32 primary" style="width: 32px; padding: 0; justify-content: center;">1</button>
+                <button class="btn-32 secondary" style="width: 32px; padding: 0; justify-content: center;">2</button>
+                <button class="btn-32 secondary" style="width: 32px; padding: 0; justify-content: center;">3</button>
+                <button class="btn-32 secondary" style="width: 32px; padding: 0; justify-content: center;"><i class="ph ph-caret-right"></i></button>
+              </div>
+            </footer>
+
+            <!-- TOPLU İŞLEM BARI (Batch Action Toolbar - 32px Floating Discrete Row) -->
+            <div class="batch-toolbar-32">
+              <div class="batch-badge-pill">
+                <i class="ph ph-check"></i>
+                <span>2 Seçildi</span>
+              </div>
+              <span style="font-size: 14px; font-weight: 600; color: var(--agito-ink-strong);">
+                Toplam Seçili Tutar: <span class="tabular-nums" style="color: var(--agito-brand);">77.500,00</span>
+              </span>
+              <div style="display: flex; align-items: center; gap: var(--agito-space-8); margin-left: auto;">
+                <button class="btn-32 primary"><i class="ph ph-check-circle"></i><span>Seçilenleri Onayla</span></button>
+                <button class="btn-32 danger"><i class="ph ph-x-circle"></i><span>Toplu Reddet</span></button>
+                <button class="btn-32 secondary"><i class="ph ph-user-switch"></i><span>Yeniden Ata</span></button>
+                <button class="btn-32 secondary" style="color: var(--agito-ink-muted);"><span>Seçimi Temizle</span></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

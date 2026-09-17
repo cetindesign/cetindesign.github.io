@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agito Platform · Design Execution System & Estimation Architecture</title>
+  
+  <!-- DM Sans: Strictly 400 and 600 weights only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons (Regular Line Weight Only) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      /* Agito Brand Tokens */
+      --agito-brand: #5D2BC7;
+      --agito-brand-hover: #7E50D4;
+      --agito-brand-active: #411BA1;
+      --agito-brand-subtle: #F4F0FD;
+      --agito-brand-border: #D8CBEF;
+      --agito-brand-light: #FAF8FF;
+      --agito-accent: #7C3AED;
+
+      /* Neutral Surfaces */
+      --agito-ink: #23252E;
+      --agito-ink-strong: #16171F;
+      --agito-ink-muted: #6B7280;
+      --agito-ink-subtle: #8C8C8C;
+      --agito-ink-disabled: #BFBFBF;
+
+      --agito-doc: #FFFFFF;
+      --agito-canvas: #F7F8FA;
+      --agito-chrome: #F0EDF3;
+      --agito-board-bg: #ECEAF0;
+
+      --agito-border: #D9D9D9;
+      --agito-border-secondary: #F0F0F0;
+      --agito-border-card: #E5E7EB;
+      --agito-border-split: rgba(0, 0, 0, 0.06);
+
+      /* Semantic Statuses */
+      --agito-success: #389E0D;
+      --agito-success-bg: #F6FFED;
+      --agito-success-border: #B7EB8F;
+
+      --agito-warning: #D46B08;
+      --agito-warning-bg: #FFF7E6;
+      --agito-warning-border: #FFD591;
+
+      --agito-error: #CF1322;
+      --agito-error-bg: #FFF1F0;
+      --agito-error-border: #FFA39E;
+
+      /* Spacing Scale (Strictly Even 8-Grid) */
+      --space-4: 4px;
+      --space-8: 8px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-20: 20px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --space-40: 40px;
+      --space-48: 48px;
+      --space-64: 64px;
+
+      /* Typography Scale (Strictly Even Numbers) */
+      --font-12: 12px;
+      --font-14: 14px;
+      --font-16: 16px;
+      --font-20: 20px;
+      --font-24: 24px;
+      --font-32: 32px;
+
+      --line-16: 16px;
+      --line-20: 20px;
+      --line-22: 22px;
+      --line-24: 24px;
+      --line-28: 28px;
+      --line-32: 32px;
+      --line-40: 40px;
+
+      /* Geometries */
+      --radius-button: 6px;
+      --radius-card: 8px;
+      --radius-pill: 9999px;
+      --control-h: 32px;
+
+      /* Shadows */
+      --shadow-subtle: 0 1px 2px rgba(16, 24, 40, 0.04);
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    /* BASE RESET */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    strong, b {
+      font-weight: 600;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--agito-board-bg);
+      color: var(--agito-ink);
+      -webkit-font-smoothing: antialiased;
+      padding: var(--space-48) var(--space-24);
+      display: flex;
+      justify-content: center;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* MAIN EXECUTIVE WORKBENCH (Fixed 1440px Width) */
+    .workbench-container {
+      width: 1440px;
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TOP HEADER BAR */
+    .wb-header {
+      padding: var(--space-24) var(--space-40);
+      background: var(--agito-chrome);
+      border-bottom: 1px solid var(--agito-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wb-badge-pill {
+      font-size: var(--font-12);
+      line-height: var(--line-20);
+      font-weight: 600;
+      color: var(--agito-brand);
+      background: var(--agito-brand-subtle);
+      border: 1px solid var(--agito-brand-border);
+      padding: 2px var(--space-8);
+      border-radius: var(--radius-button);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wb-title {
+      font-size: var(--font-24);
+      line-height: var(--line-32);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      margin-top: var(--space-4);
+    }
+
+    .wb-meta-block {
+      text-align: right;
+      font-size: var(--font-12);
+      color: var(--agito-ink-muted);
+      line-height: var(--line-20);
+    }
+
+    .wb-meta-author {
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+    }
+
+    /* WORKBENCH BODY */
+    .wb-body {
+      padding: var(--space-40);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-48);
+    }
+
+    /* SECTION 1: THE PROCESS DIAGRAM & AI LEVERAGE */
+    .section-block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-16);
+    }
+
+    .section-eyebrow {
+      font-size: var(--font-12);
+      line-height: var(--line-16);
+      font-weight: 600;
+      color: var(--agito-brand);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title {
+      font-size: var(--font-20);
+      line-height: var(--line-28);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+    }
+
+    .section-lead {
+      font-size: var(--font-14);
+      line-height: var(--line-22);
+      color: var(--agito-ink-muted);
+      max-width: 1100px;
+    }
+
+    /* 9-STEP PROCESS CHAIN (Visual Pipeline) */
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(9, 136px);
+      gap: var(--space-16);
+      margin-top: var(--space-8);
+      position: relative;
+    }
+
+    .pipeline-step-card {
+      background: var(--agito-canvas);
+      border: 1px solid var(--agito-border-card);
+      border-radius: var(--radius-card);
+      padding: var(--space-16) var(--space-12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      min-height: 172px;
+      justify-content: flex-start;
+    }
+
+    .pipeline-step-card.ai-accelerated {
+      background: var(--agito-brand-light);
+      border: 1.5px solid var(--agito-brand);
+      box-shadow: 0 0 0 1px var(--agito-brand-border);
+    }
+
+    .step-badge-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--agito-doc);
+      border: 1px solid var(--agito-border);
+      font-size: var(--font-12);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-8);
+    }
+
+    .pipeline-step-card.ai-accelerated .step-badge-num {
+      background: var(--agito-brand);
+      border-color: var(--agito-brand);
+      color: var(--agito-doc);
+    }
+
+    .step-name-text {
+      font-size: var(--font-12);
+      line-height: var(--line-16);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      margin-bottom: var(--space-8);
+    }
+
+    .step-desc-text {
+      font-size: 11px;
+      line-height: var(--line-16);
+      color: var(--agito-ink-muted);
+      font-weight: 400;
+    }
+
+    .ai-pill-tag {
+      margin-top: auto;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--agito-brand);
+      background: var(--agito-brand-subtle);
+      border: 1px solid var(--agito-brand-border);
+      padding: 2px 6px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .human-pill-tag {
+      margin-top: auto;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--agito-ink-muted);
+      background: rgba(0, 0, 0, 0.04);
+      padding: 2px 6px;
+      border-radius: var(--radius-pill);
+    }
+
+    /* PROCESS CORE CALLOUT BANNER */
+    .callout-banner {
+      background: var(--agito-brand-subtle);
+      border: 1px solid var(--agito-brand-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-16) var(--space-24);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-24);
+    }
+
+    .callout-lead-quote {
+      font-size: var(--font-14);
+      line-height: var(--line-22);
+      font-weight: 600;
+      color: var(--agito-brand);
+    }
+
+    .callout-sub-note {
+      font-size: var(--font-12);
+      line-height: var(--line-16);
+      color: var(--agito-ink-muted);
+      text-align: right;
+    }
+
+    /* SECTION 2: 1 SCREEN EXPANDS INTO 10 DECISIONS */
+    .state-grid-10 {
+      display: grid;
+      grid-template-columns: repeat(5, 256px);
+      gap: var(--space-16);
+      margin-top: var(--space-8);
+    }
+
+    .state-item-card {
+      background: var(--agito-canvas);
+      border: 1px solid var(--agito-border-card);
+      border-radius: var(--radius-card);
+      padding: var(--space-16);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+
+    .state-card-header {
+      font-size: var(--font-14);
+      line-height: var(--line-20);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+
+    .state-card-header i {
+      color: var(--agito-brand);
+      font-size: 18px;
+    }
+
+    .state-card-desc {
+      font-size: var(--font-12);
+      line-height: var(--line-18);
+      color: var(--agito-ink);
+      font-weight: 400;
+    }
+
+    /* SECTION 3: ESTIMATION TAXONOMY MATRIX TABLE */
+    .matrix-table-wrap {
+      border: 1px solid var(--agito-border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--agito-doc);
+      margin-top: var(--space-8);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .matrix-table th {
+      height: 38px;
+      padding: var(--space-8) var(--space-20);
+      background: rgba(0, 0, 0, 0.04);
+      font-size: var(--font-14);
+      line-height: var(--line-22);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      text-align: left;
+      border-bottom: 1px solid var(--agito-border);
+    }
+
+    .matrix-table td {
+      height: 48px;
+      padding: var(--space-8) var(--space-20);
+      font-size: var(--font-14);
+      line-height: var(--line-22);
+      font-weight: 400;
+      color: var(--agito-ink);
+      border-bottom: 1px solid var(--agito-border-split);
+    }
+
+    .matrix-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .matrix-table tr:hover td {
+      background: var(--agito-canvas);
+    }
+
+    .badge-effort {
+      font-size: var(--font-12);
+      line-height: var(--line-20);
+      font-weight: 600;
+      padding: 2px var(--space-12);
+      border-radius: var(--radius-pill);
+      display: inline-block;
+      text-align: center;
+    }
+
+    .badge-hours {
+      background: var(--agito-success-bg);
+      color: var(--agito-success);
+      border: 1px solid var(--agito-success-border);
+    }
+
+    .badge-halfday {
+      background: var(--agito-brand-subtle);
+      color: var(--agito-brand);
+      border: 1px solid var(--agito-brand-border);
+    }
+
+    .badge-production {
+      background: var(--agito-warning-bg);
+      color: var(--agito-warning);
+      border: 1px solid var(--agito-warning-border);
+    }
+
+    .badge-workflow {
+      background: var(--agito-error-bg);
+      color: var(--agito-error);
+      border: 1px solid var(--agito-error-border);
+    }
+
+    /* SECTION 4: THE OPERATING PROPOSAL (CLOSING AGREEMENT) */
+    .proposal-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-24);
+      margin-top: var(--space-8);
+    }
+
+    .proposal-card {
+      background: var(--agito-canvas);
+      border: 1px solid var(--agito-border-card);
+      border-radius: var(--radius-card);
+      padding: var(--space-24);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-12);
+    }
+
+    .proposal-card.highlight {
+      background: var(--agito-brand-light);
+      border: 2px solid var(--agito-brand);
+    }
+
+    .proposal-title {
+      font-size: var(--font-16);
+      line-height: var(--line-24);
+      font-weight: 600;
+      color: var(--agito-ink-strong);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+
+    .proposal-title i {
+      color: var(--agito-brand);
+      font-size: 20px;
+    }
+
+    .proposal-body {
+      font-size: var(--font-14);
+      line-height: var(--line-22);
+      color: var(--agito-ink);
+      font-weight: 400;
+    }
+
+    /* FOOTER STRIP */
+    .wb-footer {
+      padding: var(--space-20) var(--space-40);
+      background: var(--agito-chrome);
+      border-top: 1px solid var(--agito-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: var(--font-12);
+      color: var(--agito-ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="workbench-container">
+
+    <!-- EXECUTIVE HEADER -->
+    <header class="wb-header">
+      <div>
+        <span class="wb-badge-pill">
+          <i class="ph ph-shield-check"></i> AGITO DESIGN SYSTEMS PLATFORM · EXECUTIVE BRIEF
+        </span>
+        <h1 class="wb-title">The Design Execution System & Estimation Taxonomy</h1>
+      </div>
+      <div class="wb-meta-block">
+        <div>Author: <span class="wb-meta-author">Murat Çetin</span></div>
+        <div>Role: <strong>Lead Design Systems Architect</strong></div>
+        <div>Standard: <strong>Ant Design 6 · Zero-Override Engine</strong></div>
+      </div>
+    </header>
+
+    <div class="wb-body">
+
+      <!-- ============================================================
+           SECTION 1: THE PROCESS DIAGRAM & AI LEVERAGE
+           ============================================================ -->
+      <section class="section-block">
+        <div class="section-eyebrow">
+          <i class="ph ph-git-fork"></i> 01 · Process Architecture & AI Automation
+        </div>
+        <h2 class="section-title">From Requirement to Code: The 9-Step Verification Rail</h2>
+        <p class="section-lead">
+          Visual drafting is merely one mechanical sub-step within a 9-step systems pipeline. AI accelerates the mechanical drafting, but human systems architecture resolves the business and runtime constraints.
+        </p>
+
+        <!-- 9-STEP PIPELINE CARDS -->
+        <div class="pipeline-grid">
+          
+          <!-- Step 1 -->
+          <div class="pipeline-step-card">
+            <div class="step-badge-num">1</div>
+            <div class="step-name-text">Business Requirement</div>
+            <div class="step-desc-text">Raw operator goals, transaction intent & actuarial rules.</div>
+            <span class="human-pill-tag">PO Ingestion</span>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="pipeline-step-card">
+            <div class="step-badge-num">2</div>
+            <div class="step-name-text">Understand Workflow</div>
+            <div class="step-desc-text">End-to-end task boundaries across 14 monolith modules.</div>
+            <span class="human-pill-tag">Architecture</span>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="pipeline-step-card">
+            <div class="step-badge-num">3</div>
+            <div class="step-name-text">Define Info & Hierarchy</div>
+            <div class="step-desc-text">Mandatory vs optional data, audit attributes & density.</div>
+            <span class="human-pill-tag">Architecture</span>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="pipeline-step-card ai-accelerated">
+            <div class="step-badge-num">4</div>
+            <div class="step-name-text">Explore Alternatives</div>
+            <div class="step-desc-text">Rapid exploration of layout permutations & patterns.</div>
+            <span class="ai-pill-tag"><i class="ph ph-lightning"></i> AI Accelerated</span>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="pipeline-step-card">
+            <div class="step-badge-num">5</div>
+            <div class="step-name-text">Define Interaction & States</div>
+            <div class="step-desc-text">Resolving 10 mandatory runtime & error boundaries.</div>
+            <span class="human-pill-tag">State Machine</span>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="pipeline-step-card">
+            <div class="step-badge-num">6</div>
+            <div class="step-name-text">Map to Components</div>
+            <div class="step-desc-text">Binding to canonical floorplans & DTCG tokens.</div>
+            <span class="human-pill-tag">AntD 6 Engine</span>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="pipeline-step-card ai-accelerated">
+            <div class="step-badge-num">7</div>
+            <div class="step-name-text">Assemble Interface</div>
+            <div class="step-desc-text">Pixel assembly, mock data injection & token wiring.</div>
+            <span class="ai-pill-tag"><i class="ph ph-lightning"></i> AI Accelerated</span>
+          </div>
+
+          <!-- Step 8 -->
+          <div class="pipeline-step-card">
+            <div class="step-badge-num">8</div>
+            <div class="step-name-text">Validate & Stress-Test</div>
+            <div class="step-desc-text">100vh viewport check, Turkish casing, MASAK logs.</div>
+            <span class="human-pill-tag">Governance</span>
+          </div>
+
+          <!-- Step 9 -->
+          <div class="pipeline-step-card">
+            <div class="step-badge-num">9</div>
+            <div class="step-name-text">Development Handoff</div>
+            <div class="step-desc-text">Zero-CSS prop contract; 2.5h implementation target.</div>
+            <span class="human-pill-tag">Production Ready</span>
+          </div>
+
+        </div>
+
+        <!-- PROCESS CALLOUT BANNER -->
+        <div class="callout-banner">
+          <div>
+            <div class="callout-lead-quote">
+              "AI accelerates several steps. It does not remove the steps."
+            </div>
+            <div style="font-size: 13px; color: var(--agito-ink); margin-top: 4px;">
+              AI reduces mechanical UI drafting by ~80%, freeing architectural time to prevent multi-sprint engineering rework.
+            </div>
+          </div>
+          <div class="callout-sub-note">
+            Core Thesis: <strong>Decisions Removed from the Table</strong><br>
+            Not Components Manually Drawn.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 2: 1 SCREEN EXPANDS INTO 10 BEHAVIORAL DECISIONS
+           ============================================================ -->
+      <section class="section-block">
+        <div class="section-eyebrow">
+          <i class="ph ph-stack"></i> 02 · State Machine Anatomy
+        </div>
+        <h2 class="section-title">Why "1 Screen" Represents 10 Behavioral Decisions</h2>
+        <p class="section-lead">
+          A static visual mockup shows only the happy path. A production-ready design resolves the full behavioral state machine before frontend development begins:
+        </p>
+
+        <div class="state-grid-10">
+          
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-check-circle"></i> 1. Initial State</div>
+            <div class="state-card-desc">Default filter parameters, initial sort order, 38px grid metrics.</div>
+          </div>
+
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-cursor-click"></i> 2. Batch Selection</div>
+            <div class="state-card-desc">Floating 32px discrete bar & cross-page selection persistence.</div>
+          </div>
+
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-circle-dashed"></i> 3. Empty State</div>
+            <div class="state-card-desc">Zero search results guidance & actionable recovery triggers.</div>
+          </div>
+
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-warning-circle"></i> 4. Error / Timeout</div>
+            <div class="state-card-desc">API 500 exceptions, timeout alerts & retry mechanisms.</div>
+          </div>
+
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-spinner"></i> 5. Loading Skeleton</div>
+            <div class="state-card-desc">38px cell skeleton layout preventing layout shift (CLS).</div>
+          </div>
+
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-warning"></i> 6. Validation & Dirty</div>
+            <div class="state-card-desc">Dirty state tracking, unsaved changes alert, inline feedback.</div>
+          </div>
+
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-text-align-justify"></i> 7. Extreme Data Bounds</div>
+            <div class="state-card-desc">100-character titles, 10k table rows & ellipsis handling.</div>
+          </div>
+
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-arrows-in-cardinal"></i> 8. 100vh Viewport</div>
+            <div class="state-card-desc">Zero page scroll on 1080p monitors; internal table scroll.</div>
+          </div>
+
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-lock-key"></i> 9. Permission Bounds</div>
+            <div class="state-card-desc">Role-gated action buttons (disabled vs tooltip vs hidden).</div>
+          </div>
+
+          <div class="state-item-card">
+            <div class="state-card-header"><i class="ph ph-shield-check"></i> 10. Audit Trail & Lock</div>
+            <div class="state-card-desc">MASAK/SPK irreversible confirmation modal & tabular amounts.</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 3: ESTIMATION TAXONOMY MATRIX
+           ============================================================ -->
+      <section class="section-block">
+        <div class="section-eyebrow">
+          <i class="ph ph-table"></i> 03 · Estimation & Delivery Taxonomy
+        </div>
+        <h2 class="section-title">The Objective Measurement Model: What Are We Estimating?</h2>
+        <p class="section-lead">
+          Design duration is not arbitrary. It directly reflects the architectural depth and reliability contract required by engineering:
+        </p>
+
+        <div class="matrix-table-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th style="width: 24%;">Deliverable Tier</th>
+                <th style="width: 44%;">Scope & Decision Depth</th>
+                <th style="width: 18%;">Handed-Off Output</th>
+                <th style="width: 14%; text-align: right;">Typical Effort</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Level 1: Rough Visual Concept</strong></td>
+                <td>Exploratory draft, single happy path, no error states, layout wireframe.</td>
+                <td>Discussion Mockup</td>
+                <td style="text-align: right;"><span class="badge-effort badge-hours">Hours</span></td>
+              </tr>
+              <tr>
+                <td><strong>Level 2: Refined Static Screen</strong></td>
+                <td>Mapped to floorplan, realistic dummy data, standardized form fields.</td>
+                <td>Visual Approval Artifact</td>
+                <td style="text-align: right;"><span class="badge-effort badge-halfday">~0.5 – 1 Day</span></td>
+              </tr>
+              <tr>
+                <td><strong>Level 3: Production-Ready Screen</strong></td>
+                <td>10 behavioral states, edge-case bounds, AntD 6 tokens, zero-override contract.</td>
+                <td>Development-Ready Spec</td>
+                <td style="text-align: right;"><span class="badge-effort badge-production">1 – 2+ Days</span></td>
+              </tr>
+              <tr>
+                <td><strong>Level 4: Complex Workflow / Module</strong></td>
+                <td>Multi-step wizard, interactive canvas editor, asynchronous state machine.</td>
+                <td>Modular Subsystem</td>
+                <td style="text-align: right;"><span class="badge-effort badge-workflow">Several Days</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="font-size: 13px; line-height: 20px; color: var(--agito-ink-muted); margin-top: var(--space-4);">
+          <em>"The exact time varies by complexity, but this is the objective distinction I'm making. A 1-day estimate represents a Level 3 production contract."</em>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 4: THE OPERATING PROPOSAL (CLOSING AGREEMENT)
+           ============================================================ -->
+      <section class="section-block">
+        <div class="section-eyebrow">
+          <i class="ph ph-handshake"></i> 04 · The Operational Proposal
+        </div>
+        <h2 class="section-title">Proposed Working Protocol: Explicit Estimation Model</h2>
+        <p class="section-lead">
+          Moving forward, let us eliminate subjective time debates by establishing an objective estimation agreement between Product, Design, and Engineering:
+        </p>
+
+        <div class="proposal-grid-2">
+          
+          <div class="proposal-card">
+            <div class="proposal-title">
+              <i class="ph ph-check-square-offset"></i> 1. Explicit Intake Categorization
+            </div>
+            <p class="proposal-body">
+              For each incoming requirement, Product Owners and Engineering specify the deliverable tier up front:
+            </p>
+            <ul style="font-size: 13px; line-height: 22px; padding-left: 20px; color: var(--agito-ink-muted);">
+              <li>If the squad only needs visual exploration for an ideation meeting: <strong>Level 1 (Hours).</strong></li>
+              <li>If the squad demands a production-ready screen with zero downstream rework: <strong>Level 3 (1–2 Days).</strong></li>
+            </ul>
+          </div>
+
+          <div class="proposal-card highlight">
+            <div class="proposal-title">
+              <i class="ph ph-shield-check"></i> 2. Downstream Rework Prevention
+            </div>
+            <p class="proposal-body">
+              Any screen delivered under a Level 3 estimate provides an infrastructure guarantee:
+            </p>
+            <ul style="font-size: 13px; line-height: 22px; padding-left: 20px; color: var(--agito-ink);">
+              <li>Engineers build the screen directly using Ant Design primitives in <strong>under 2.5 hours (-82% build time)</strong>.</li>
+              <li>Zero styling overrides (`!important`), zero sprint-interruption questions, zero missing edge-case QA bugs.</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- WORKBENCH FOOTER -->
+    <footer class="wb-footer">
+      <div>Agito Design Systems Platform · Single Source of Truth (`AGITO-SPEC.md`)</div>
+      <div>100% Zero-Override Discipline · DTCG Tokens Compiled via Style Dictionary</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
