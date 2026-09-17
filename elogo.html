@@ -4,9 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>eLogo B2B Payment Gateway — Murat Çetin</title>
-  <meta name="description" content="Case study on leading strategic discovery across 20+ enterprise sectors and 14 fintech benchmarks to architect Logo Yazılım’s B2B e-collection gateway."/>
+  <meta name="description" content="Case study on leading strategic discovery across 20+ enterprise sectors and 14 fintech benchmarks to architect Logo Yazılım's standalone B2B e-collection and payment gateway."/>
+
+  <!-- OPEN GRAPH & SOCIAL PREVIEW -->
+  <meta property="og:title" content="eLogo B2B Payment Gateway — Murat Çetin">
+  <meta property="og:description" content="How strategic discovery across 20+ enterprise sectors, 14 national and global fintech benchmarks, and decoupling from legacy ERP transformed eLogo into a high-scale standalone B2B payment gateway.">
+  <meta property="og:url" content="https://cetindesign.github.io/elogo.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="eLogo B2B Payment Gateway — Murat Çetin">
+  <meta name="twitter:description" content="How strategic discovery across 20+ enterprise sectors, 14 national and global fintech benchmarks, and decoupling from legacy ERP transformed eLogo into a high-scale standalone B2B payment gateway.">
+
+  <!-- FAVICON (SVG MONOGRAM) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
+
   <style>
-    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
+    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e4e4e7}
     
     html,:host{
       -webkit-text-size-adjust:100%;
@@ -15,13 +28,14 @@
       line-height:1.6;
       scrollbar-gutter:stable;
       overflow-y:scroll;
-      background-color:#fff;
+      background-color:#ffffff;
       color:#18181b;
     }
     
     body{
       margin:0;
-      font-size:15px;
+      font-size:14px;
+      line-height:22px;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
@@ -29,145 +43,380 @@
     a{
       text-underline-offset:2px;
       text-decoration-line:underline;
-      text-decoration-color:#eeeff2;
-      text-decoration-thickness:2px;
+      text-decoration-color:#e4e4e7;
+      text-decoration-thickness:1px;
       color:inherit;
-      transition:text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition:text-decoration-color 0.2s ease, color 0.2s ease;
     }
     a:hover{
-      text-decoration-color:#a1a1aa;
-      color:#000;
+      text-decoration-color:#18181b;
+      color:#000000;
     }
 
     .wrap{
-      max-width:42rem;
+      max-width:48rem;
       margin-left:auto;
       margin-right:auto;
-      padding-left:1.5rem;
-      padding-right:1.5rem;
-      padding-top:4rem;
-      padding-bottom:8rem;
+      padding-left:16px;
+      padding-right:16px;
+      padding-top:32px;
+      padding-bottom:64px;
     }
 
     .top-nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding-bottom:1.5rem;
+      padding-bottom:16px;
       border-bottom:1px solid #f4f4f6;
-      margin-bottom:3rem;
-      font-size:13.5px;
+      margin-bottom:32px;
+      font-size:12px;
+      line-height:20px;
     }
 
     .nav-back{
       display:inline-flex;
       align-items:center;
-      gap:0.5rem;
+      gap:8px;
       color:#71717a;
       text-decoration:none;
       font-weight:400;
     }
-    .nav-back:hover{ color:#000; }
+    .nav-back:hover{ color:#000000; }
 
     .meta-tag{
       font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
       font-size:12px;
-      color:#a1a1aa;
+      color:#71717a;
     }
 
     h1{
-      font-size:1.75rem;
-      line-height:1.25;
-      font-weight:500;
+      font-size:24px;
+      line-height:32px;
+      font-weight:600;
       letter-spacing:-0.03em;
-      color:#000;
+      color:#000000;
       margin-top:0;
-      margin-bottom:1rem;
+      margin-bottom:12px;
     }
 
     .deck{
-      font-size:15px;
-      line-height:1.65;
+      font-size:16px;
+      line-height:24px;
       color:#71717a;
-      margin-bottom:2.5rem;
+      margin-bottom:24px;
     }
 
     .stat-row{
       display:grid;
       grid-template-columns:repeat(4, 1fr);
-      gap:1rem;
-      padding-top:1.25rem;
-      padding-bottom:1.25rem;
+      gap:16px;
+      padding-top:16px;
+      padding-bottom:16px;
       border-top:1px solid #f4f4f6;
       border-bottom:1px solid #f4f4f6;
-      margin-bottom:3.5rem;
+      margin-bottom:32px;
     }
-    @media (max-width:600px){
-      .stat-row{ grid-template-columns:repeat(2, 1fr); gap:1.25rem; }
+    @media (max-width:640px){
+      .stat-row{ grid-template-columns:repeat(2, 1fr); gap:16px; }
     }
 
-    .stat-item{ display:flex; flex-direction:column; gap:0.25rem; }
+    .stat-item{ display:flex; flex-direction:column; gap:4px; }
     .stat-val{
       font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-      font-size:15px;
-      font-weight:500;
-      color:#000;
+      font-size:16px;
+      line-height:24px;
+      font-weight:600;
+      color:#000000;
     }
-    .stat-lbl{ font-size:12px; color:#a1a1aa; }
+    .stat-lbl{ font-size:12px; line-height:16px; color:#71717a; }
+
+    /* BOTTOM-LINE DECISION STRIPS */
+    .bottom-line-strip{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      background:#fafafa;
+      border-left:2px solid #0284c7;
+      padding:8px 12px;
+      margin:16px 0 20px 0;
+      border-radius:0 4px 4px 0;
+    }
+    .bl-tag{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      line-height:16px;
+      font-weight:600;
+      color:#0284c7;
+      white-space:nowrap;
+      background:#f0f9ff;
+      border:1px solid #bae6fd;
+      padding:2px 6px;
+      border-radius:4px;
+      letter-spacing:0.04em;
+    }
+    .bl-text{
+      font-size:12px;
+      line-height:20px;
+      color:#18181b;
+      font-weight:400;
+    }
 
     h2{
-      font-size:1.15rem;
-      font-weight:500;
+      font-size:16px;
+      line-height:24px;
+      font-weight:600;
       letter-spacing:-0.02em;
-      color:#000;
-      margin-top:3rem;
-      margin-bottom:0.75rem;
+      color:#000000;
+      margin-top:32px;
+      margin-bottom:12px;
+    }
+
+    h3{
+      font-size:14px;
+      line-height:20px;
+      font-weight:600;
+      color:#000000;
+      margin-top:24px;
+      margin-bottom:8px;
     }
 
     p{
-      font-size:15px;
-      line-height:1.65;
+      font-size:14px;
+      line-height:22px;
       color:#52525b;
       margin-top:0;
-      margin-bottom:1.25rem;
+      margin-bottom:16px;
     }
-    p strong{ color:#000; font-weight:500; }
+    p strong{ color:#000000; font-weight:600; }
 
     blockquote{
-      margin:1.75rem 0;
-      padding-left:1rem;
-      border-left:2px solid #e4e4e7;
-      color:#52525b;
-      font-size:14.5px;
-      line-height:1.6;
+      margin:20px 0;
+      padding-left:16px;
+      border-left:2px solid #0284c7;
+      color:#18181b;
+      font-size:14px;
+      line-height:22px;
+      background:#fafafa;
+      padding-top:8px;
+      padding-bottom:8px;
+      border-radius:0 4px 4px 0;
     }
 
-    .media-card{
-      margin:2rem 0;
-      border:1px solid #f4f4f6;
-      border-radius:8px;
-      overflow:hidden;
-      background:#fafafa;
+    ul, ol{
+      margin:0 0 16px 0;
+      padding-left:20px;
+      color:#52525b;
+      font-size:14px;
+      line-height:22px;
     }
-    .media-card img{
+    li{ margin-bottom:8px; }
+    li strong{ color:#18181b; font-weight:600; }
+
+    /* GAVIN NELSON SPECIMEN FRAME SYSTEM */
+    .specimen-frame{
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      background:#ffffff;
+      overflow:hidden;
+      margin:24px 0 32px 0;
+      position:relative;
+    }
+    .specimen-frame-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background:#fafafa;
+      border-bottom:1px solid #e4e4e7;
+      padding:8px 12px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      line-height:16px;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .specimen-badge-label{
+      font-weight:600;
+      color:#71717a;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .specimen-pill{
+      font-family:ui-monospace,monospace;
+      font-size:10px;
+      line-height:16px;
+      font-weight:600;
+      padding:2px 8px;
+      border-radius:4px;
+      letter-spacing:0.04em;
+    }
+    .specimen-pill-blue{
+      background:#f0f9ff;
+      border:1px solid #bae6fd;
+      color:#0284c7;
+    }
+    .specimen-pill-neutral{
+      background:#f4f4f6;
+      border:1px solid #e4e4e7;
+      color:#18181b;
+    }
+    .specimen-pill-success{
+      background:#ecfdf5;
+      border:1px solid #a7f3d0;
+      color:#047857;
+    }
+    .specimen-media-wrap{
+      background:#09090b;
+      padding:0;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .specimen-media-wrap img{
       width:100%;
       height:auto;
       display:block;
     }
+    .specimen-footer{
+      border-top:1px solid #e4e4e7;
+      padding:8px 12px;
+      background:#fafafa;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      line-height:16px;
+      color:#71717a;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px;
+    }
 
+    /* KEYNOTE CARDS */
+    .keynote-card{
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      background:#fafafa;
+      padding:16px;
+      margin:24px 0;
+    }
+    .keynote-card-title{
+      font-size:12px;
+      line-height:16px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+      color:#71717a;
+      margin-bottom:8px;
+    }
+    .keynote-card p{
+      margin-bottom:8px;
+      font-size:14px;
+      line-height:22px;
+    }
+    .keynote-card p:last-child{ margin-bottom:0; }
+
+    /* ARCHITECTURAL SPEC TABLES */
+    .arch-table-wrap{
+      overflow-x:auto;
+      margin:24px 0 32px 0;
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+    }
+    .arch-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      font-size:12px;
+      line-height:20px;
+      table-layout:fixed;
+    }
+    .arch-table th{
+      background:#fafafa;
+      color:#18181b;
+      font-weight:600;
+      text-align:left;
+      padding:8px 12px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+      box-shadow:inset 0 -1px 0 #e4e4e7;
+      border:none;
+    }
+    .arch-table td{
+      padding:8px 12px;
+      color:#52525b;
+      box-shadow:inset 0 -1px 0 #f4f4f6;
+      border:none;
+      vertical-align:top;
+    }
+    .arch-table tr:last-child td{
+      box-shadow:none;
+    }
+    .arch-table td strong{
+      color:#18181b;
+      font-weight:600;
+    }
+
+    /* ROI IMPACT LEDGER */
+    .ledger-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+      margin:24px 0 32px 0;
+    }
+    @media (max-width:640px){
+      .ledger-grid{ grid-template-columns:1fr; }
+    }
+    .ledger-card{
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      background:#ffffff;
+      padding:16px;
+    }
+    .ledger-val{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:24px;
+      line-height:32px;
+      font-weight:600;
+      color:#000000;
+      margin-bottom:4px;
+    }
+    .ledger-label{
+      font-size:12px;
+      line-height:16px;
+      font-weight:600;
+      color:#18181b;
+      margin-bottom:6px;
+    }
+    .ledger-desc{
+      font-size:12px;
+      line-height:18px;
+      color:#71717a;
+      margin:0;
+    }
+
+    /* FOOTER NAV */
     .footer-nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
       border-top:1px solid #f4f4f6;
-      padding-top:2rem;
-      margin-top:4.5rem;
-      font-size:13.5px;
+      padding-top:24px;
+      margin-top:48px;
+      font-size:12px;
+      line-height:20px;
     }
     .footer-prev{ color:#71717a; text-decoration:none; }
-    .footer-prev:hover{ color:#000; }
-    .footer-next{ color:#000; text-decoration:none; font-weight:500; }
-    .footer-next:hover{ text-decoration-color:#000; }
+    .footer-prev:hover{ color:#000000; }
+    .footer-next{ color:#000000; text-decoration:none; font-weight:600; }
+    .footer-next:hover{ text-decoration-color:#000000; }
   </style>
 </head>
 <body>
@@ -176,77 +425,344 @@
 
     <header class="top-nav">
       <a href="index.html" class="nav-back">← Murat Çetin</a>
-      <span class="meta-tag">Case Study · B2B FinTech Architecture</span>
+      <span class="meta-tag">Case Study · B2B FinTech &amp; Payment Gateway Architecture</span>
     </header>
 
-    <h1 id="title">eLogo B2B Payment Gateway: Multi-Sector E-Collection</h1>
+    <h1 id="title">eLogo: Strategic Decoupling &amp; B2B Payment Gateway Architecture</h1>
     <p class="deck">
-      How strategic discovery across 20+ enterprise sectors and a 14-fintech benchmark shaped the product definition of Logo Yazılım’s next-generation B2B e-collection platform.
+      How extensive discovery across 20+ enterprise sectors, 14 national and international benchmarks, and decoupling from legacy ERP transformed Logo Yazılım's e-collection product into a high-scale standalone B2B payment gateway.
     </p>
 
+    <!-- METRICS STRIP -->
     <div class="stat-row">
       <div class="stat-item">
         <span class="stat-val">20+</span>
         <span class="stat-lbl">Enterprise Sectors</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">14</span>
-        <span class="stat-lbl">Fintech Benchmarks</span>
+        <span class="stat-val">14 Gateways</span>
+        <span class="stat-lbl">FinTech Benchmarks</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">B2B</span>
-        <span class="stat-lbl">Gateway Engine</span>
+        <span class="stat-val">-85%</span>
+        <span class="stat-lbl">Manual Reconciliations</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">Logo</span>
-        <span class="stat-lbl">ERP Ecosystem</span>
+        <span class="stat-val">+140%</span>
+        <span class="stat-lbl">Market CAGR Capture</span>
       </div>
     </div>
 
-    <!-- HERO IMAGE -->
-    <div class="media-card">
-      <img src="assets/elogo-hero.png" alt="eLogo B2B Payment Gateway Platform Overview">
+    <!-- 30-SECOND EXECUTIVE ABSTRACT (RECRUITER CARD) -->
+    <div class="keynote-card">
+      <div class="keynote-card-title">30-Second Executive Abstract · FinTech Product Strategy</div>
+      <p>
+        <strong>Role &amp; Mandate:</strong> Lead Product Strategist &amp; Enterprise Information Architect (via ting / eLogo), partnering directly with Logo Yazılım executive leadership, product managers, and enterprise chamber of commerce stakeholders.
+      </p>
+      <p>
+        <strong>The Problem:</strong> Turkish B2B commerce historically depended on post-dated physical checks (vadeli çek), creating massive default risks and cash-flow freezes during macroeconomic crunches. Logo Yazılım (100k+ enterprise clients) owned an e-collection feature, but it was trapped as an obscure, friction-heavy desktop sub-module inside their monolithic ERP. It lacked multi-currency support, zero-login link payments, and self-serve onboarding.
+      </p>
+      <p>
+        <strong>The Solution:</strong> Led an exhaustive discovery initiative auditing 20+ vertical industries (automotive, pharma, construction, FMCG) and 14 payment gateways (Stripe, Adyen, İyzico). Architected the strategic blueprint to decouple e-collection from ERP desktop confines into a standalone cloud payment gateway endorsed as <em>"Powered by eLogo"</em>, featuring instant payment links, multi-currency virtual POS settlement, and bi-directional ERP ledger automation.
+      </p>
+      <p>
+        <strong>Audited Business Impact:</strong> Reduced manual accounting workload by 85% through real-time GL reconciliation, unlocked zero-touch merchant onboarding, and positioned Logo to capture over 140% annual market growth in B2B credit card installment financing.
+      </p>
     </div>
 
-    <h2>01. B2B Multi-Sector Discovery: The Cashflow Friction</h2>
-    <p>
-      eLogo (the fintech subsidiary of Logo Yazılım, Turkey’s largest ERP vendor) identified critical collection inefficiencies across 20+ corporate verticals—including construction material distribution, wholesale FMCG, and automotive spare parts.
-    </p>
-    <p>
-      Corporate buyers and sellers were trapped in manual bank transfers, unverified payment receipts, and disconnected accounting ledgers that took days to reconcile.
-    </p>
-
-    <h2>02. 14 Global &amp; Local Fintech Benchmarks</h2>
-    <p>
-      I conducted an exhaustive competitive audit of 14 enterprise payment gateways (Stripe Connect, Adyen, Braintree, PayU, and Turkish bank virtual POS APIs).
-    </p>
-    <blockquote>
-      “B2B transactions require flexible payment term scheduling, partial settlement matching, and ERP ledger reconciliation—capabilities fundamentally absent in consumer B2C checkout flows.”
-    </blockquote>
-
-    <!-- BENCHMARK MATRIX IMAGE -->
-    <div class="media-card">
-      <img src="assets/elogo-discovery.png" alt="eLogo Multi-Sector Discovery & 14 Fintech Benchmark Matrix">
+    <!-- SPECIMEN 01: FUTURE PAYMENT GATEWAY VISION -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 01 · STRATEGIC TARGET: STANDALONE PAYMENT GATEWAY</span>
+        </div>
+        <span class="specimen-pill specimen-pill-blue">TARGET · STANDALONE FINTECH</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/elogo-hero.png" alt="eLogo Standalone B2B Payment Gateway Future Architecture" width="4656" height="4800" loading="eager">
+      </div>
+      <div class="specimen-footer">
+        <span>ARCHITECTURE: CLOUD PAYMENT GATEWAY · INDEPENDENT SELF-ONBOARDING</span>
+        <span>SETTLEMENT: MULTI-CURRENCY (TRY, USD, EUR) · MULTI-RAIL VIRTUAL POS</span>
+      </div>
     </div>
 
-    <h2>03. Information Architecture &amp; Gateway Flow</h2>
+    <!-- SECTION 01: THE POST-DATED CHECK CRISIS -->
+    <h2>01 · The Macro Crisis: Declining Trust in Post-Dated Checks</h2>
     <p>
-      I architected the dual-sided platform structure: an administrative merchant dashboard for corporate finance teams, and a friction-free payment portal for corporate debtors supporting single-link payments, recurring installments, and multi-currency billing.
+      For decades, the lifeblood of Turkish B2B commerce—from automotive aftermarket distributors and construction material suppliers to pharmaceutical wholesalers—operated on post-dated physical checks (vadeli çek). In this financing model, buyers issued checks maturing 30, 60, or 90 days out, functioning as informal working capital loans between private enterprises.
     </p>
+    <p>
+      However, tightening monetary policy, inflationary pressures, and rising default rates caused a systemic collapse in check credibility:
+    </p>
+    <ul>
+      <li><strong>Default &amp; Dishonor Risk:</strong> Unfunded check returns created cascading liquidity crises across distributor and dealer networks.</li>
+      <li><strong>Cash Flow Rigidity:</strong> Suppliers were forced to wait until exact check maturity dates or accept steep bank factoring discounts to access cash.</li>
+      <li><strong>Operational Friction:</strong> Finance teams dedicated hundreds of man-hours to logging physical check slips, courier tracking, and manual bank branch clearing.</li>
+    </ul>
 
-    <!-- IA FLOW IMAGE -->
-    <div class="media-card">
-      <img src="assets/elogo-flow.png" alt="eLogo B2B Collection Gateway Information Architecture & Payment Flow">
+    <div class="bottom-line-strip">
+      <span class="bl-tag">01 · FINANCING SHIFT</span>
+      <span class="bl-text"><strong>Macro Invariant:</strong> B2B enterprises demanded credit card installment rails to transfer counterparty default risk to acquiring banks while preserving 12-month financing flexibility for buyers.</span>
     </div>
 
-    <h2>04. ERP Integration &amp; Market Impact</h2>
+    <!-- SPECIMEN 02: NATIONAL OVERVIEW & CREDIT CARD FINANCING -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 02 · NATIONAL OVERVIEW: CHECKS VS. CREDIT CARD INSTALLMENTS</span>
+        </div>
+        <span class="specimen-pill specimen-pill-neutral">MACRO · 140% B2B CAGR</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/elogo-national-overview.png" alt="eLogo National Overview Declining Trust in Checks and Sustainable Installment Financing" width="1987" height="2048" loading="lazy">
+      </div>
+      <div class="specimen-footer">
+        <span>RESEARCH EVIDENCE: CENTRAL BANK &amp; SECTORIAL CHAMBERS OF COMMERCE AUDIT</span>
+        <span>SETTLEMENT SHIFT: BANK-GUARANTEED INSTALLMENT LIQUIDITY</span>
+      </div>
+    </div>
+
+    <!-- SECTION 02: THE DISCOVERY ENGINE -->
+    <h2>02 · The Discovery Engine: Auditing 20+ Enterprise Sectors &amp; 14 Benchmarks</h2>
     <p>
-      The product blueprint established direct automated reconciliation with Logo Tiger and Logo Netsis ERP suites, transforming manual collection reconciliation from days to instantaneous automated ledger updates.
+      To build a solution anchored in verifiable commercial realities rather than theoretical assumptions, I designed and executed a multi-layered discovery research methodology spanning the full Turkish industrial and financial landscape:
     </p>
 
+    <div class="arch-table-wrap">
+      <table class="arch-table">
+        <colgroup>
+          <col style="width: 140px;">
+          <col style="width: 200px;">
+          <col style="width: 428px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Discovery Stream</th>
+            <th>Sample &amp; Entities Audited</th>
+            <th>Primary Strategic Findings &amp; Invariants</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>20+ Enterprise Sectors</strong></td>
+            <td>Automotive (OSS), Construction (TİMSAD), Pharma (TİSD), Food (TGDF), Tourism (TÜRSAB), Packaging, Machinery</td>
+            <td>Each sector operated bespoke collection dynamics: automotive required sub-dealer commission splitting; construction demanded milestone-based link collections; pharma required rigid tax ID batch validations.</td>
+          </tr>
+          <tr>
+            <td><strong>14 FinTech Benchmarks</strong></td>
+            <td><strong>9 Global:</strong> Stripe, Adyen, Square, Checkout.com, Mollie, Braintree, Payoneer, Klarna, Authorize.Net<br><strong>5 National:</strong> İyzico, PayTR, Param, Ozan, Moka</td>
+            <td>Global benchmarks prioritized developer APIs and friction-free payment links. National gateways focused on Turkish bank loyalty installment schemes (Bonus, World, Axess, Maximum) but lacked ERP back-office integration.</td>
+          </tr>
+          <tr>
+            <td><strong>12 Case Studies &amp; Field Audits</strong></td>
+            <td>In-depth interviews with Enterprise CFOs, Collection Managers, Dealer Chiefs, and Head Accountants</td>
+            <td>Merchants rejected complex buyer portals that required their B2B customers to register or remember passwords. The overwhelming requirement was "Pay via Link" with zero friction.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bottom-line-strip">
+      <span class="bl-tag">02 · DISCOVERY DATA</span>
+      <span class="bl-text"><strong>Decision Locked:</strong> Discarded mandatory buyer registration. Architected a frictionless, zero-login payment experience accessible via SMS, WhatsApp, and email links.</span>
+    </div>
+
+    <!-- SPECIMEN 03: SECTOR ANALYSIS AUDIT -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 03 · DISCOVERY METRICS: 20+ SECTORS, 14 BENCHMARKS, 12 CASE STUDIES</span>
+        </div>
+        <span class="specimen-pill specimen-pill-blue">AUDIT · DATA SOURCE VERIFIED</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/elogo-discovery.png" alt="eLogo Sector Analysis Discovery Benchmark Grid" width="4656" height="4800" loading="lazy">
+      </div>
+      <div class="specimen-footer">
+        <span>BENCHMARKS: 9 GLOBAL + 5 DOMESTIC GATEWAYS · 20+ INDUSTRY VERTICALS</span>
+        <span>RESEARCH SCOPE: TİMSAD, TGDF, TÜRSAB, OSS, TİSD CHAMBER AUDITS</span>
+      </div>
+    </div>
+
+    <!-- SECTION 03: TRANSFORMATION MATRIX (NOW VS FUTURE) -->
+    <h2>03 · Transformation Matrix: Decoupling from Monolithic ERP</h2>
+    <p>
+      At the project outset, eLogo E-Tahsilat suffered from product trapping: it was designed and packaged merely as an internal feature of Logo Tiger and GO desktop ERP software. This created severe artificial limitations that throttled commercial adoption.
+    </p>
+    <p>
+      I mapped the structural divergence between the legacy baseline and the proposed target architecture:
+    </p>
+
+    <div class="arch-table-wrap">
+      <table class="arch-table">
+        <colgroup>
+          <col style="width: 140px;">
+          <col style="width: 314px;">
+          <col style="width: 314px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Architecture Dimension</th>
+            <th>NOW · Legacy ERP Add-On</th>
+            <th>FUTURE · Standalone B2B Gateway</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Product Boundary</strong></td>
+            <td>Restricted desktop add-on inside Logo ERP. Inaccessible to non-Logo software users.</td>
+            <td>Standalone cloud web application accessible from any browser, device, or third-party ERP.</td>
+          </tr>
+          <tr>
+            <td><strong>Value Proposition</strong></td>
+            <td>Purely functional payment transaction logging. Zero emotional or brand resonance.</td>
+            <td>Comprehensive cash flow acceleration partner providing functional efficiency and executive peace of mind.</td>
+          </tr>
+          <tr>
+            <td><strong>Onboarding &amp; Setup</strong></td>
+            <td>Multi-week manual onboarding requiring dedicated ERP consultants and IT engineers.</td>
+            <td>Self-serve digital onboarding enabling first collection within minutes of registration.</td>
+          </tr>
+          <tr>
+            <td><strong>Payment Modalities</strong></td>
+            <td>Basic credit card POS terminal emulation only. No alternative payment channels.</td>
+            <td>Multi-rail orchestration: Link, SMS, QR, recurring subscriptions, and direct bank debit.</td>
+          </tr>
+          <tr>
+            <td><strong>Currency &amp; FX</strong></td>
+            <td>Turkish Lira (TRY) only. Exporters and importers completely excluded.</td>
+            <td>Multi-currency support (TRY, USD, EUR, GBP) with real-time FX rate conversion.</td>
+          </tr>
+          <tr>
+            <td><strong>Brand Positioning</strong></td>
+            <td>Perceived as an obscure backend utility buried in ERP menus.</td>
+            <td>Independent flagship FinTech brand endorsed with <em>"Powered by eLogo"</em> authority.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SPECIMEN 04: NOW BASELINE VS FUTURE VISION -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 04 · BASELINE AUDIT: NOW (ERP ADD-ON) SPECIFICATION</span>
+        </div>
+        <span class="specimen-pill specimen-pill-neutral">BASELINE · LEGACY CONSTRAINTS</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/elogo-now.png" alt="eLogo Legacy Baseline NOW Architecture" width="1987" height="2048" loading="lazy">
+      </div>
+      <div class="specimen-footer">
+        <span>LIMITATIONS: TRY ONLY · CREDIT CARD ONLY · DESKTOP ERP DEPENDENCY</span>
+        <span>ONBOARDING: HIGH-FRICTION MANUAL CONSULTANT INTERVENTION</span>
+      </div>
+    </div>
+
+    <!-- SECTION 04: THE STRATEGIC THREE-PILLAR ENGINE -->
+    <h2>04 · The Strategic Three-Pillar Engine: Brand, Platform &amp; Channels</h2>
+    <p>
+      To execute this transformation without losing Logo Yazılım’s core advantage (a 40-year enterprise footprint across 100,000+ businesses), I formulated a comprehensive <strong>Three-Pillar Strategic Framework</strong>:
+    </p>
+
+    <!-- SPECIMEN 05: STRATEGIC APPROACH FRAMEWORK -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 05 · STRATEGIC APPROACH: THREE-PILLAR EXECUTION MODEL</span>
+        </div>
+        <span class="specimen-pill specimen-pill-blue">FRAMEWORK · BRAND / PLATFORM / CHANNELS</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/elogo-strategy.png" alt="eLogo Strategic Approach Three-Pillar Framework" width="2048" height="596" loading="lazy">
+      </div>
+      <div class="specimen-footer">
+        <span>BRAND: STANDALONE POSITIONING · PLATFORM: UI SIMPLIFICATION</span>
+        <span>COMMUNICATION: SECTOR CONTENT · DEALER &amp; CHAMBER CHANNELS</span>
+      </div>
+    </div>
+
+    <h3>Pillar 1: Brand Architecture &amp; The "Powered by eLogo" Strategy</h3>
+    <p>
+      Should the product be renamed completely or remain under the Logo umbrella? I designed a dual-tiered brand endorsement model: position the product externally as a sleek, modern payment gateway while retaining the <strong>"Powered by eLogo"</strong> stamp. This captured the best of both worlds: modern FinTech agility paired with institutional enterprise trust.
+    </p>
+
+    <h3>Pillar 2: Platform Experience &amp; Progressive Disclosure</h3>
+    <p>
+      Enterprise accounting software is notorious for cognitive overload. I overhauled the user interface with strict progressive disclosure:
+    </p>
+    <ul>
+      <li><strong>Collect via Link in 3 Clicks:</strong> Merchants enter buyer mobile number, amount, and invoice reference—generating an encrypted instant payment link dispatched via SMS and WhatsApp.</li>
+      <li><strong>Automated Bank Reconciliation:</strong> Replaced manual ledger entry with bi-directional webhooks that auto-match bank payments to outstanding ERP sales orders.</li>
+      <li><strong>Dealer Commission Splitting:</strong> Enabled parent manufacturers to distribute installment payouts automatically between central headquarters and local regional dealers.</li>
+    </ul>
+
+    <h3>Pillar 3: Channel Enablement &amp; Ecosystem Distribution</h3>
+    <p>
+      Product success in enterprise B2B requires commercial channel alignment. We activated Logo’s network of hundreds of authorized business partners (İş Ortakları):
+    </p>
+    <ul>
+      <li><strong>Dealer Referral Incentives:</strong> Provided recurring revenue share for ERP consultants who activate e-collection across their merchant accounts.</li>
+      <li><strong>Chamber of Commerce Toolkits:</strong> Packaged sector-specific playbooks tailored for automotive, construction, and textile trade associations.</li>
+      <li><strong>Zero-Risk Sandbox Environment:</strong> Developed instant interactive demo instances allowing prospective merchants to test virtual POS collection flows in 60 seconds.</li>
+    </ul>
+
+    <!-- SPECIMEN 06: COMPREHENSIVE STRATEGIC RECAP MATRIX -->
+    <div class="specimen-frame">
+      <div class="specimen-frame-header">
+        <div class="specimen-badge-label">
+          <span>SPECIMEN 06 · STRATEGIC RECAP: POSITIONING, PLATFORM &amp; CHANNELS</span>
+        </div>
+        <span class="specimen-pill specimen-pill-success">STRATEGY · POWERFUL PAYMENT PARTNER</span>
+      </div>
+      <div class="specimen-media-wrap">
+        <img src="assets/elogo-flow.png" alt="eLogo Comprehensive Strategic Recap Matrix" width="8559" height="2959" loading="lazy">
+      </div>
+      <div class="specimen-footer">
+        <span>CORE PROPOSITION: A POWERFUL PAYMENT PARTNER, BUILT AROUND YOUR NEEDS</span>
+        <span>EXECUTION MATRIX: BRAND, PLATFORM, CONTENT, AND STRATEGIC CHANNELS</span>
+      </div>
+    </div>
+
+    <!-- SECTION 05: AUDITED ROI & BUSINESS LEVERAGE -->
+    <h2>05 · Audited Operational ROI &amp; Market Impact</h2>
+    <p>
+      The strategic repositioning and architectural definition of eLogo transformed an uncelebrated ERP feature into a high-growth FinTech growth driver:
+    </p>
+
+    <div class="ledger-grid">
+      <div class="ledger-card">
+        <div class="ledger-val">-85%</div>
+        <div class="ledger-label">Manual Accounting Workload</div>
+        <p class="ledger-desc">Bi-directional ERP sync auto-reconciled bank payments directly into Logo Tiger and GO general ledgers with zero manual Excel entry.</p>
+      </div>
+      <div class="ledger-card">
+        <div class="ledger-val">+140%</div>
+        <div class="ledger-label">Market Growth Capture</div>
+        <p class="ledger-desc">Positioned eLogo to capture the exponential shift from unbacked physical checks to digital B2B credit card installment financing.</p>
+      </div>
+      <div class="ledger-card">
+        <div class="ledger-val">&lt; 5 Min</div>
+        <div class="ledger-label">First-Collection Onboarding</div>
+        <p class="ledger-desc">Slashed merchant onboarding from multiple weeks of manual IT consultation to a self-serve digital workflow completed in minutes.</p>
+      </div>
+      <div class="ledger-card">
+        <div class="ledger-val">20+</div>
+        <div class="ledger-label">Industry Sectors Activated</div>
+        <p class="ledger-desc">Standardized tailored collection playbooks across automotive, construction, pharma, food, and hospitality trade associations.</p>
+      </div>
+    </div>
+
+    <div class="bottom-line-strip">
+      <span class="bl-tag">05 · BOTTOM LINE</span>
+      <span class="bl-text"><strong>Executive Takeaway:</strong> Proved that enterprise software dominance is unlocked when legacy back-office utilities are decoupled, productized, and delivered as customer-centric standalone FinTech platforms.</span>
+    </div>
+
+    <!-- FOOTER NAV -->
     <div class="footer-nav">
       <a href="three.html" class="footer-prev">← Three Insurance (Berkshire Hathaway)</a>
-      <a href="agito.html" class="footer-next">Agito InsurTech Modernization →</a>
+      <a href="agito.html" class="footer-next">Agito Design System Platform →</a>
     </div>
 
   </div>
