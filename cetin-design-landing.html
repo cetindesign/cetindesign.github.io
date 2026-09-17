@@ -144,7 +144,7 @@
       .md\:-mx-28{margin-left:-7rem;margin-right:-7rem}
     }
 
-    /* GAVIN NELSON BLUR-TO-FOCUS CASCADE ENGINE */
+    /* GAVIN NELSON BLUR-TO-FOCUS CASCADE ENGINE (EXACT 0.75s SPRING + 8px BLUR) */
     @keyframes gavinBlurMount {
       0% {
         opacity: 0;
@@ -161,8 +161,8 @@
     @keyframes gavinItemSlide {
       0% {
         opacity: 0;
-        filter: blur(4px);
-        transform: translate3d(0, 12px, 0);
+        filter: blur(6px);
+        transform: translate3d(0, 14px, 0);
       }
       100% {
         opacity: 1;
@@ -172,40 +172,40 @@
     }
 
     .mount-avatar {
-      animation: gavinBlurMount 0.44s cubic-bezier(0.16, 1, 0.3, 1) 0.02s both;
+      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.00s both;
     }
     .mount-header {
-      animation: gavinBlurMount 0.44s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
     }
     .mount-nav {
-      animation: gavinBlurMount 0.44s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
+      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
     }
 
     .stagger-child {
       opacity: 0;
-      animation: gavinItemSlide 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: gavinItemSlide 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       will-change: transform, opacity, filter;
     }
 
-    /* INITIAL PANE STAGGER DELAYS (PURE CSS INSTANT CASCADE) */
-    #project-container-box > .stagger-child:nth-of-type(1) { animation-delay: 0.20s; }
-    #project-container-box > .stagger-child:nth-of-type(2) { animation-delay: 0.25s; }
-    #project-container-box > .stagger-child:nth-of-type(3) { animation-delay: 0.30s; }
-    #project-container-box > .stagger-child:nth-of-type(4) { animation-delay: 0.35s; }
+    /* INITIAL PANE STAGGER DELAYS (EXACT 0.08s FRAMER MOTION STAGGER CASCADE) */
+    #project-container-box > .stagger-child:nth-of-type(1) { animation-delay: 0.24s; }
+    #project-container-box > .stagger-child:nth-of-type(2) { animation-delay: 0.32s; }
+    #project-container-box > .stagger-child:nth-of-type(3) { animation-delay: 0.40s; }
+    #project-container-box > .stagger-child:nth-of-type(4) { animation-delay: 0.48s; }
 
-    #pane-explorations .stagger-child:nth-child(1) { animation-delay: 0.20s; }
-    #pane-explorations .stagger-child:nth-child(2) { animation-delay: 0.25s; }
-    #pane-explorations .stagger-child:nth-child(3) { animation-delay: 0.30s; }
+    #pane-explorations .stagger-child:nth-child(1) { animation-delay: 0.24s; }
+    #pane-explorations .stagger-child:nth-child(2) { animation-delay: 0.32s; }
+    #pane-explorations .stagger-child:nth-child(3) { animation-delay: 0.40s; }
 
-    #pane-operating .stagger-child:nth-child(1) { animation-delay: 0.20s; }
-    #pane-operating .stagger-child:nth-child(2) { animation-delay: 0.24s; }
-    #pane-operating .stagger-child:nth-child(3) { animation-delay: 0.28s; }
-    #pane-operating .stagger-child:nth-child(4) { animation-delay: 0.32s; }
-    #pane-operating .stagger-child:nth-child(5) { animation-delay: 0.36s; }
-    #pane-operating .stagger-child:nth-child(6) { animation-delay: 0.40s; }
+    #pane-operating .stagger-child:nth-child(1) { animation-delay: 0.24s; }
+    #pane-operating .stagger-child:nth-child(2) { animation-delay: 0.30s; }
+    #pane-operating .stagger-child:nth-child(3) { animation-delay: 0.36s; }
+    #pane-operating .stagger-child:nth-child(4) { animation-delay: 0.42s; }
+    #pane-operating .stagger-child:nth-child(5) { animation-delay: 0.48s; }
+    #pane-operating .stagger-child:nth-child(6) { animation-delay: 0.54s; }
 
-    #pane-about .stagger-child:nth-child(1) { animation-delay: 0.20s; }
-    #pane-about .stagger-child:nth-child(2) { animation-delay: 0.26s; }
+    #pane-about .stagger-child:nth-child(1) { animation-delay: 0.24s; }
+    #pane-about .stagger-child:nth-child(2) { animation-delay: 0.34s; }
 
     .nav-tab-item {
       font-weight: 500;
@@ -226,7 +226,7 @@
       opacity: 0;
       pointer-events: none;
       visibility: hidden;
-      transition: opacity 0.15s ease-out, visibility 0.15s ease-out;
+      transition: opacity 0.2s ease-out, visibility 0.2s ease-out, filter 0.2s ease-out, transform 0.2s ease-out;
     }
 
     .section-tab-pane.active {
@@ -240,7 +240,8 @@
       bottom: -1px;
       height: 2px;
       background-color: #18181b;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 9999px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       pointer-events: none;
     }
   </style>
@@ -306,7 +307,7 @@
                     </div>
 
                     <!-- 01. AGITO -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="trackLiquid(this)" onmouseleave="untrackLiquid()">
+                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event)" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="agito.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Agito Enterprise InsurTech Modernization</span>
@@ -316,7 +317,7 @@
                     </span>
 
                     <!-- 02. ALLIANZ -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="trackLiquid(this)" onmouseleave="untrackLiquid()">
+                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event)" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="allianz.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Allianz Türkiye Ecosystem</span>
@@ -326,7 +327,7 @@
                     </span>
 
                     <!-- 03. THREE INSURANCE -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="trackLiquid(this)" onmouseleave="untrackLiquid()">
+                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event)" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="three.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Three Insurance Underwriting</span>
@@ -336,7 +337,7 @@
                     </span>
 
                     <!-- 04. ELOGO -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="trackLiquid(this)" onmouseleave="untrackLiquid()">
+                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event)" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="elogo.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">eLogo B2B Payment Gateway</span>
@@ -459,6 +460,9 @@
     var box = document.getElementById('project-container-box');
     var indicator = document.getElementById('tab-sliding-indicator');
     var navBar = document.getElementById('nav-tabs-bar');
+    var currentHoverItem = null;
+    var currentTabKey = 'work';
+    var isSwitchingTab = false;
 
     function updateIndicator(targetTab) {
       if (!indicator || !navBar || !targetTab) return;
@@ -469,19 +473,67 @@
       indicator.style.transform = 'translate3d(' + (tabRect.left - navRect.left) + 'px, 0, 0)';
     }
 
-    function trackLiquid(item) {
-      if (!liquidEl || !box) return;
-      var itemRect = item.getBoundingClientRect();
+    function trackLiquidMouseMove(e) {
+      if (!liquidEl || !box || !currentHoverItem) return;
+      var itemRect = currentHoverItem.getBoundingClientRect();
       var boxRect = box.getBoundingClientRect();
 
+      var width = itemRect.width;
+      var height = itemRect.height;
+      var top = itemRect.top - boxRect.top;
+      var left = itemRect.left - boxRect.left;
+
+      // Normalized cursor coordinates relative to item center (-1 to 1)
+      var centerX = itemRect.left + width / 2;
+      var centerY = itemRect.top + height / 2;
+      var normX = Math.max(-1, Math.min(1, (e.clientX - centerX) / (width / 2)));
+      var normY = Math.max(-1, Math.min(1, (e.clientY - centerY) / (height / 2)));
+
+      // 3D Tilt calculation (exact Gavin Nelson physics)
+      var aspect = Math.max(1, width / height);
+      var tiltX = -normY * Math.min(1.6, 0.7 + 0.18 * aspect);
+      var tiltY = 0.8 * normX;
+
+      // S-curve magnetic shift
+      var sCurve = function(val) {
+        var abs = Math.abs(val);
+        return Math.sign(val) * (1 - Math.pow(1 - abs, 0.5));
+      };
+      var shiftX = 12 * sCurve(normX);
+      var shiftY = 8 * sCurve(normY);
+
+      // Transform origin based on cursor percentage
+      var originX = 30 + 40 * Math.max(0, Math.min(1, (e.clientX - itemRect.left) / width));
+      var originY = 30 + 40 * Math.max(0, Math.min(1, (e.clientY - itemRect.top) / height));
+
       liquidEl.style.opacity = '1';
-      liquidEl.style.width = itemRect.width + 'px';
-      liquidEl.style.height = itemRect.height + 'px';
-      liquidEl.style.transform = 'translate3d(' + (itemRect.left - boxRect.left) + 'px, ' + (itemRect.top - boxRect.top) + 'px, 0)';
+      liquidEl.style.width = width + 'px';
+      liquidEl.style.height = height + 'px';
+      liquidEl.style.transformOrigin = originX + '% ' + originY + '%';
+      liquidEl.style.transform = 'translate3d(' + (left + shiftX) + 'px, ' + (top + shiftY) + 'px, 0) rotateX(' + tiltX.toFixed(2) + 'deg) rotateY(' + tiltY.toFixed(2) + 'deg)';
+
+      // Apply subtle parallax to text inside current item
+      var textSpan = currentHoverItem.querySelector('.inline-flex.transform-gpu');
+      if (textSpan) {
+        textSpan.style.transform = 'translate3d(' + (shiftX * 0.35).toFixed(2) + 'px, ' + (shiftY * 0.35).toFixed(2) + 'px, 0)';
+      }
     }
 
-    function untrackLiquid() {
-      if (liquidEl) liquidEl.style.opacity = '0';
+    function handleItemEnter(item, e) {
+      currentHoverItem = item;
+      trackLiquidMouseMove(e);
+    }
+
+    function handleItemLeave(item) {
+      if (currentHoverItem === item) {
+        var textSpan = item.querySelector('.inline-flex.transform-gpu');
+        if (textSpan) textSpan.style.transform = 'translate3d(0, 0, 0)';
+        currentHoverItem = null;
+        if (liquidEl) {
+          liquidEl.style.opacity = '0';
+          liquidEl.style.transform = liquidEl.style.transform.replace(/rotateX\([^)]+\)\s*rotateY\([^)]+\)/, 'rotateX(0deg) rotateY(0deg)');
+        }
+      }
     }
 
     function updateUrlQuery(tabKey) {
@@ -500,13 +552,14 @@
       items.forEach(function(item, idx) {
         item.style.animation = 'none';
         item.offsetHeight; /* trigger DOM reflow */
-        item.style.animation = '';
-        item.style.animationDelay = (idx * 0.045 + 0.04) + 's';
+        item.style.animation = 'gavinItemSlide 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+        item.style.animationDelay = (idx * 0.06 + 0.04) + 's';
       });
     }
 
     function selectTab(tabKey, tabElem, evt, skipPush) {
       if (evt) evt.preventDefault();
+      if (currentTabKey === tabKey && !evt) return;
 
       document.querySelectorAll('.nav-tab-item').forEach(function(el) {
         el.classList.remove('text-black');
@@ -519,21 +572,42 @@
         updateIndicator(tabElem);
       }
 
-      document.querySelectorAll('.section-tab-pane').forEach(function(pane) {
-        pane.classList.remove('active');
-      });
-
+      var currentActivePane = document.querySelector('.section-tab-pane.active');
       var targetPane = document.getElementById('pane-' + tabKey);
-      if (targetPane) {
+
+      if (currentActivePane && currentActivePane !== targetPane) {
+        // Gavin Nelson AnimatePresence exit transition (fade + blur)
+        currentActivePane.style.transition = 'opacity 0.2s cubic-bezier(0.4, 0, 1, 1), filter 0.2s cubic-bezier(0.4, 0, 1, 1), transform 0.2s cubic-bezier(0.4, 0, 1, 1)';
+        currentActivePane.style.opacity = '0';
+        currentActivePane.style.filter = 'blur(6px)';
+        currentActivePane.style.transform = 'translate3d(0, -4px, 0)';
+
+        setTimeout(function() {
+          currentActivePane.classList.remove('active');
+          currentActivePane.style.opacity = '';
+          currentActivePane.style.filter = '';
+          currentActivePane.style.transform = '';
+          currentActivePane.style.transition = '';
+
+          if (targetPane) {
+            targetPane.classList.add('active');
+            triggerPaneStagger(targetPane);
+          }
+        }, 150);
+      } else if (targetPane && !currentActivePane) {
         targetPane.classList.add('active');
         triggerPaneStagger(targetPane);
       }
+
+      currentTabKey = tabKey;
 
       if (!skipPush) {
         updateUrlQuery(tabKey);
       }
 
-      untrackLiquid();
+      if (currentHoverItem) {
+        handleItemLeave(currentHoverItem);
+      }
     }
 
     function selectTabDirect(tabKey, evt, skipPush) {
@@ -562,7 +636,7 @@
     });
 
     window.addEventListener('DOMContentLoaded', function() {
-      setTimeout(initFromUrl, 30);
+      setTimeout(initFromUrl, 20);
     });
 
     window.addEventListener('resize', function() {
