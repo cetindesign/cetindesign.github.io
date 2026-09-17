@@ -3,8 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Murat Çetin, Designer</title>
-  <meta name="description" content="The website and design portfolio of Murat Çetin."/>
+  <title>Murat Çetin — Lead Product Designer &amp; Design Systems Architect</title>
+  <meta name="description" content="I make complex enterprise products easier to build, operate, and evolve. Lead Design Systems Architect at Agito."/>
+  
+  <!-- OPEN GRAPH & SOCIAL PREVIEW -->
+  <meta property="og:title" content="Murat Çetin — Lead Product Designer &amp; Design Systems Architect">
+  <meta property="og:description" content="I make complex enterprise products easier to build, operate, and evolve. Lead Design Systems Architect at Agito.">
+  <meta property="og:url" content="https://cetindesign.github.io/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Murat Çetin — Lead Product Designer &amp; Design Systems Architect">
+  <meta name="twitter:description" content="I make complex enterprise products easier to build, operate, and evolve. Lead Design Systems Architect at Agito.">
+
+  <!-- FAVICON (SVG MONOGRAM) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
   <style>
     *,:before,:after,::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#3b82f680;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
     *,:before,:after{box-sizing:border-box;border:0 solid #e5e7eb}
@@ -132,8 +144,35 @@
       .md\:-mx-28{margin-left:-7rem;margin-right:-7rem}
     }
 
+    /* GAVIN NELSON BLUR-TO-FOCUS STAGGERED ENTRANCE ANIMATION */
+    @keyframes gavinBlurMount {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(16px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+      }
+    }
+
+    .mount-stagger-1 {
+      animation: gavinBlurMount 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
+    }
+    .mount-stagger-2 {
+      animation: gavinBlurMount 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    }
+    .mount-stagger-3 {
+      animation: gavinBlurMount 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+    }
+    .mount-stagger-4 {
+      animation: gavinBlurMount 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+    }
+
     .nav-tab-item {
-      font-weight: 500 !important;
+      font-weight: 500;
       transition: color 0.15s ease;
       user-select: none;
     }
@@ -149,16 +188,19 @@
     .section-tab-pane {
       grid-area: 1 / 1;
       opacity: 0;
+      filter: blur(4px);
       pointer-events: none;
       visibility: hidden;
-      transform: none !important;
-      transition: opacity 0.15s ease-out, visibility 0.15s ease-out;
+      transform: translateY(6px);
+      transition: opacity 0.16s ease-out, filter 0.16s ease-out, transform 0.16s ease-out, visibility 0.16s ease-out;
     }
 
     .section-tab-pane.active {
       opacity: 1;
+      filter: blur(0px);
       pointer-events: auto;
       visibility: visible;
+      transform: translateY(0);
     }
 
     #tab-sliding-indicator {
@@ -179,7 +221,7 @@
         <div class="flex flex-col justify-start max-w-2xl px-8 py-24">
 
           <!-- AVATAR (GAVIN NELSON EXACT: w-8 h-8 rounded-full mb-8) -->
-          <div class="grid w-8 h-8 mb-8 group">
+          <div class="grid w-8 h-8 mb-8 group mount-stagger-1">
             <a aria-label="Go to the homepage" href="cetin-design-landing.html" class="block h-8 w-8 rounded-full bg-[#5D2BC7] text-white flex items-center justify-center font-medium text-xs no-underline hover:no-underline">
               M
             </a>
@@ -188,18 +230,20 @@
           <div class="flex flex-col gap-12 origin-left">
 
             <!-- TITLE & SUBTITLE (GAVIN NELSON STYLE) -->
-            <div class="flex w-fit transform-gpu flex-col gap-1 will-change-transform">
-              <h1 class="inline font-medium text-black">Murat Çetin</h1>
-              <h2 class="text-zinc-500">
-                <span>Lead Product Designer &amp; Design Systems Architect at </span>
-                <a href="https://agito.com.tr" target="_blank" rel="noopener noreferrer" class="text-black">Agito</a>
+            <div class="flex w-fit transform-gpu flex-col gap-2 will-change-transform mount-stagger-2">
+              <h1 class="inline font-medium text-black text-xl tracking-tight">Murat Çetin</h1>
+              <p class="text-zinc-600 text-[15px] font-normal leading-relaxed max-w-xl">
+                I make complex enterprise products easier to build, operate, and evolve.
+              </p>
+              <h2 class="text-zinc-400 text-xs font-mono">
+                Lead Design Systems Architect at <a href="https://agito.com.tr" target="_blank" rel="noopener noreferrer" class="text-zinc-700 hover:text-black font-normal">Agito</a> · High-Stakes Decision Governance
               </h2>
             </div>
 
             <div class="flex flex-col gap-12">
 
               <!-- NAV TABS -->
-              <nav id="nav-tabs-bar" aria-label="Portfolio sections" class="relative flex w-full transform-gpu items-center gap-6 overflow-x-auto pb-1 will-change-transform">
+              <nav id="nav-tabs-bar" aria-label="Portfolio sections" class="relative flex w-full transform-gpu items-center gap-6 overflow-x-auto pb-1 will-change-transform mount-stagger-3">
                 <div id="tab-sliding-indicator"></div>
                 <a class="nav-tab-item relative shrink-0 pb-1 text-black no-underline hover:no-underline cursor-pointer" onclick="selectTab('work', this, event)">
                   Work
@@ -216,7 +260,7 @@
               </nav>
 
               <!-- CONTENT STACK -->
-              <div class="tabs-content-stack">
+              <div class="tabs-content-stack mount-stagger-4">
 
                 <!-- TAB 1: WORK -->
                 <div id="pane-work" class="section-tab-pane active">
@@ -295,18 +339,42 @@
 
                 <!-- TAB 3: OPERATING MODEL -->
                 <div id="pane-operating" class="section-tab-pane">
-                  <div class="flex flex-col gap-8">
-                    <div class="flex flex-col gap-1">
-                      <span class="font-medium text-black">01. A Design System is a Control System</span>
-                      <p class="text-zinc-500">Its primary job is to make the wrong thing impossible to build. Value is measured in decisions removed from the table, not components delivered in Figma.</p>
+                  <div class="flex flex-col gap-8 text-black">
+                    <div class="flex flex-col gap-1.5">
+                      <span class="font-medium text-black">01. Systems Over Screens</span>
+                      <p class="text-zinc-500 text-sm leading-relaxed">
+                        Don’t ask: "How should this screen look?" Ask: "What system produces this screen, and what governance produces that system?" True leverage is in designing the generative engine, not painting individual pixels.
+                      </p>
                     </div>
-                    <div class="flex flex-col gap-1">
-                      <span class="font-medium text-black">02. Zero-Override Discipline in Ant Design</span>
-                      <p class="text-zinc-500">Allowing custom CSS overrides breaks the contract between design and engineering. In complex platforms, all variance is governed through Design Tokens.</p>
+                    <div class="flex flex-col gap-1.5">
+                      <span class="font-medium text-black">02. Decision Ownership</span>
+                      <p class="text-zinc-500 text-sm leading-relaxed">
+                        A design system is a control system: its job is to make the wrong thing impossible to build. Value is measured in decisions permanently removed from the table, not components delivered in Figma.
+                      </p>
                     </div>
-                    <div class="flex flex-col gap-1">
-                      <span class="font-medium text-black">03. Manufacturing Tolerances in Software Architecture</span>
-                      <p class="text-zinc-500">Applying physical industrial design principles to regulated enterprise software: strict tolerances, standardized sub-assemblies, and absolute ergonomic clarity.</p>
+                    <div class="flex flex-col gap-1.5">
+                      <span class="font-medium text-black">03. Technical Fluency Without Ego</span>
+                      <p class="text-zinc-500 text-sm leading-relaxed">
+                        No throwaway redlines or speculative drawings. Bridging design directly into engineering contracts through DTCG tokens, Ant Design v5 composition, and deterministic DOM structures that QA test suites can automate flawlessly.
+                      </p>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <span class="font-medium text-black">04. Delivery Economics (Time × Money × Risk × Scale)</span>
+                      <p class="text-zinc-500 text-sm leading-relaxed">
+                        Instead of "this button is inconsistent," think: "If we don't standardize this pattern, every squad will implement it differently, inflating frontend cycle time and creating exponential maintenance debt."
+                      </p>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <span class="font-medium text-black">05. Self-Serve Federated Leverage</span>
+                      <p class="text-zinc-500 text-sm leading-relaxed">
+                        A sole architect across 14+ products cannot survive as a ticket-drawing factory. Turning design into an internal assembly kit where Product Owners compose pre-validated user stories autonomously without breaking the system.
+                      </p>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <span class="font-medium text-black">06. Rejecting Design Theater &amp; The Automation Asymmetry</span>
+                      <p class="text-zinc-500 text-sm leading-relaxed">
+                        Enterprise platforms have no time for decorative empathy posters or 6-week discovery slides. While engineering equips itself with automated compilers, it often treats design as a manual drawing sweatshop. I turn design into a high-velocity generative compiler—eliminating engineering and test costs before a single line of backend code is committed.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -314,18 +382,18 @@
                 <!-- TAB 4: ABOUT (GAVIN NELSON 1:1 CLEAN CONNECT SECTION) -->
                 <div id="pane-about" class="section-tab-pane">
                   <div class="flex flex-col gap-8 text-black">
-                    <div class="flex flex-col gap-4 text-zinc-600">
+                    <div class="flex flex-col gap-4 text-zinc-600 text-[15px] leading-relaxed">
                       <p>
-                        I'm a Lead Product Designer &amp; Design Systems Architect based in Turkey. I specialize in design systems engineering, design token pipelines, and complex B2B platforms in regulated InsurTech &amp; FinTech environments.
+                        I operate where the cost of architectural decisions is high. In regulated enterprise software (InsurTech &amp; FinTech), my focus is turning organizational ambiguity, conflicting stakeholder incentives, and complex business logic into scalable product platforms.
                       </p>
                       <p>
-                        Currently, I serve as the sole design authority across 10 core enterprise modules at <a href="https://agito.com.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Agito</a> (powering 35% of the national InsurTech market), leading platform modernization and our Ant Design v5 token compilation pipeline.
+                        Currently, I serve as Lead Design Systems Architect and sole design authority at <a href="https://agito.com.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Agito</a> (powering 35% of Turkey’s private insurance sector), where I established our Ant Design v5 Control System to govern an initial 68-screen foundation and scale across a multi-wave roadmap of 14+ products.
                       </p>
                       <p>
-                        Previously, I led cross-squad product design strategy for <a href="https://www.allianz.com.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Allianz Türkiye</a> (Allianz’ım ecosystem, 1.5M MAU, $24M+ written premium impact across 5 squads) and architected US multi-tenant underwriting systems for Berkshire Hathaway’s <a href="https://threeinsurance.com" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Three Insurance</a> at <a href="https://radity.com" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Radity</a> in Zurich.
+                        Previously, I led cross-squad UX strategy for <a href="https://www.allianz.com.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Allianz Türkiye</a> (1.5M MAU ecosystem, $24M+ written premium impact across 5 squads) and architected commercial underwriting platforms for Berkshire Hathaway’s <a href="https://threeinsurance.com" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Three Insurance</a> at <a href="https://radity.com" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Radity</a> in Zurich.
                       </p>
                       <p>
-                        I hold a Master of Arts (MA) in Industrial Design from <a href="https://yasar.edu.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Yaşar University</a>, where my research focused on interface usability tolerances and trust dynamics in digital banking systems.
+                        I hold a Master of Arts (MA) in Industrial Design from <a href="https://yasar.edu.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Yaşar University</a>, researching interface tolerances and trust dynamics in high-stakes transactional banking.
                       </p>
                     </div>
 
@@ -384,7 +452,17 @@
       if (liquidEl) liquidEl.style.opacity = '0';
     }
 
-    function selectTab(tabKey, tabElem, evt) {
+    function updateUrlQuery(tabKey) {
+      if (window.history && window.history.pushState) {
+        var newUrl = tabKey === 'work' ? window.location.pathname : window.location.pathname + '?section=' + encodeURIComponent(tabKey);
+        var currentParam = new URLSearchParams(window.location.search).get('section') || 'work';
+        if (currentParam !== tabKey) {
+          window.history.pushState({ tab: tabKey }, '', newUrl);
+        }
+      }
+    }
+
+    function selectTab(tabKey, tabElem, evt, skipPush) {
       if (evt) evt.preventDefault();
 
       document.querySelectorAll('.nav-tab-item').forEach(function(el) {
@@ -407,24 +485,40 @@
         targetPane.classList.add('active');
       }
 
+      if (!skipPush) {
+        updateUrlQuery(tabKey);
+      }
+
       untrackLiquid();
     }
 
-    function selectTabDirect(tabKey, evt) {
+    function selectTabDirect(tabKey, evt, skipPush) {
       if (evt) evt.preventDefault();
       var tabItems = document.querySelectorAll('.nav-tab-item');
       var keys = ['work', 'explorations', 'operating', 'about'];
       var idx = keys.indexOf(tabKey);
       if (idx !== -1 && tabItems[idx]) {
-        selectTab(tabKey, tabItems[idx], evt);
+        selectTab(tabKey, tabItems[idx], evt, skipPush);
       }
     }
 
-    window.addEventListener('DOMContentLoaded', function() {
-      var activeTab = document.querySelector('.nav-tab-item.text-black');
-      if (activeTab) {
-        setTimeout(function() { updateIndicator(activeTab); }, 30);
+    function initFromUrl() {
+      var params = new URLSearchParams(window.location.search);
+      var section = params.get('section');
+      if (section && ['work', 'explorations', 'operating', 'about'].indexOf(section) !== -1) {
+        selectTabDirect(section, null, true);
+      } else {
+        var activeTab = document.querySelector('.nav-tab-item.text-black');
+        if (activeTab) updateIndicator(activeTab);
       }
+    }
+
+    window.addEventListener('popstate', function() {
+      initFromUrl();
+    });
+
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(initFromUrl, 30);
     });
 
     window.addEventListener('resize', function() {

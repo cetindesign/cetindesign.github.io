@@ -144,8 +144,35 @@
       .md\:-mx-28{margin-left:-7rem;margin-right:-7rem}
     }
 
+    /* GAVIN NELSON BLUR-TO-FOCUS STAGGERED ENTRANCE ANIMATION */
+    @keyframes gavinBlurMount {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(16px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+      }
+    }
+
+    .mount-stagger-1 {
+      animation: gavinBlurMount 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
+    }
+    .mount-stagger-2 {
+      animation: gavinBlurMount 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    }
+    .mount-stagger-3 {
+      animation: gavinBlurMount 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+    }
+    .mount-stagger-4 {
+      animation: gavinBlurMount 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+    }
+
     .nav-tab-item {
-      font-weight: 500 !important;
+      font-weight: 500;
       transition: color 0.15s ease;
       user-select: none;
     }
@@ -161,16 +188,19 @@
     .section-tab-pane {
       grid-area: 1 / 1;
       opacity: 0;
+      filter: blur(4px);
       pointer-events: none;
       visibility: hidden;
-      transform: none !important;
-      transition: opacity 0.15s ease-out, visibility 0.15s ease-out;
+      transform: translateY(6px);
+      transition: opacity 0.16s ease-out, filter 0.16s ease-out, transform 0.16s ease-out, visibility 0.16s ease-out;
     }
 
     .section-tab-pane.active {
       opacity: 1;
+      filter: blur(0px);
       pointer-events: auto;
       visibility: visible;
+      transform: translateY(0);
     }
 
     #tab-sliding-indicator {
@@ -191,7 +221,7 @@
         <div class="flex flex-col justify-start max-w-2xl px-8 py-24">
 
           <!-- AVATAR (GAVIN NELSON EXACT: w-8 h-8 rounded-full mb-8) -->
-          <div class="grid w-8 h-8 mb-8 group">
+          <div class="grid w-8 h-8 mb-8 group mount-stagger-1">
             <a aria-label="Go to the homepage" href="cetin-design-landing.html" class="block h-8 w-8 rounded-full bg-[#5D2BC7] text-white flex items-center justify-center font-medium text-xs no-underline hover:no-underline">
               M
             </a>
@@ -200,7 +230,7 @@
           <div class="flex flex-col gap-12 origin-left">
 
             <!-- TITLE & SUBTITLE (GAVIN NELSON STYLE) -->
-            <div class="flex w-fit transform-gpu flex-col gap-2 will-change-transform">
+            <div class="flex w-fit transform-gpu flex-col gap-2 will-change-transform mount-stagger-2">
               <h1 class="inline font-medium text-black text-xl tracking-tight">Murat Çetin</h1>
               <p class="text-zinc-600 text-[15px] font-normal leading-relaxed max-w-xl">
                 I make complex enterprise products easier to build, operate, and evolve.
@@ -213,7 +243,7 @@
             <div class="flex flex-col gap-12">
 
               <!-- NAV TABS -->
-              <nav id="nav-tabs-bar" aria-label="Portfolio sections" class="relative flex w-full transform-gpu items-center gap-6 overflow-x-auto pb-1 will-change-transform">
+              <nav id="nav-tabs-bar" aria-label="Portfolio sections" class="relative flex w-full transform-gpu items-center gap-6 overflow-x-auto pb-1 will-change-transform mount-stagger-3">
                 <div id="tab-sliding-indicator"></div>
                 <a class="nav-tab-item relative shrink-0 pb-1 text-black no-underline hover:no-underline cursor-pointer" onclick="selectTab('work', this, event)">
                   Work
@@ -230,7 +260,7 @@
               </nav>
 
               <!-- CONTENT STACK -->
-              <div class="tabs-content-stack">
+              <div class="tabs-content-stack mount-stagger-4">
 
                 <!-- TAB 1: WORK -->
                 <div id="pane-work" class="section-tab-pane active">
@@ -422,7 +452,17 @@
       if (liquidEl) liquidEl.style.opacity = '0';
     }
 
-    function selectTab(tabKey, tabElem, evt) {
+    function updateUrlQuery(tabKey) {
+      if (window.history && window.history.pushState) {
+        var newUrl = tabKey === 'work' ? window.location.pathname : window.location.pathname + '?section=' + encodeURIComponent(tabKey);
+        var currentParam = new URLSearchParams(window.location.search).get('section') || 'work';
+        if (currentParam !== tabKey) {
+          window.history.pushState({ tab: tabKey }, '', newUrl);
+        }
+      }
+    }
+
+    function selectTab(tabKey, tabElem, evt, skipPush) {
       if (evt) evt.preventDefault();
 
       document.querySelectorAll('.nav-tab-item').forEach(function(el) {
@@ -445,24 +485,40 @@
         targetPane.classList.add('active');
       }
 
+      if (!skipPush) {
+        updateUrlQuery(tabKey);
+      }
+
       untrackLiquid();
     }
 
-    function selectTabDirect(tabKey, evt) {
+    function selectTabDirect(tabKey, evt, skipPush) {
       if (evt) evt.preventDefault();
       var tabItems = document.querySelectorAll('.nav-tab-item');
       var keys = ['work', 'explorations', 'operating', 'about'];
       var idx = keys.indexOf(tabKey);
       if (idx !== -1 && tabItems[idx]) {
-        selectTab(tabKey, tabItems[idx], evt);
+        selectTab(tabKey, tabItems[idx], evt, skipPush);
       }
     }
 
-    window.addEventListener('DOMContentLoaded', function() {
-      var activeTab = document.querySelector('.nav-tab-item.text-black');
-      if (activeTab) {
-        setTimeout(function() { updateIndicator(activeTab); }, 30);
+    function initFromUrl() {
+      var params = new URLSearchParams(window.location.search);
+      var section = params.get('section');
+      if (section && ['work', 'explorations', 'operating', 'about'].indexOf(section) !== -1) {
+        selectTabDirect(section, null, true);
+      } else {
+        var activeTab = document.querySelector('.nav-tab-item.text-black');
+        if (activeTab) updateIndicator(activeTab);
       }
+    }
+
+    window.addEventListener('popstate', function() {
+      initFromUrl();
+    });
+
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(initFromUrl, 30);
     });
 
     window.addEventListener('resize', function() {
