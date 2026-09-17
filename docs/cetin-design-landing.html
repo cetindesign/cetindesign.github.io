@@ -145,7 +145,7 @@
     }
 
     /* GAVIN NELSON BLUR-TO-FOCUS CASCADE ENGINE (EXACT 0.75s SPRING + 8px BLUR) */
-    @keyframes gavinRootMount {
+    @keyframes gavinBlurIn {
       0% {
         opacity: 0;
         filter: blur(8px);
@@ -156,10 +156,10 @@
       }
     }
 
-    @keyframes gavinBlurMount {
+    @keyframes gavinSpringUp {
       0% {
         opacity: 0;
-        filter: blur(8px);
+        filter: blur(6px);
         transform: translate3d(0, 16px, 0);
       }
       100% {
@@ -169,35 +169,20 @@
       }
     }
 
-    @keyframes gavinItemSlide {
-      0% {
-        opacity: 0;
-        filter: blur(6px);
-        transform: translate3d(0, 14px, 0);
-      }
-      100% {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translate3d(0, 0, 0);
-      }
+    .home-container {
+      animation: gavinBlurIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    .mount-root-container {
-      animation: gavinRootMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.00s both;
+    .header-motion {
+      animation: gavinSpringUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
     }
-    .mount-avatar {
-      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.00s both;
-    }
-    .mount-header {
-      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
-    }
-    .mount-nav {
-      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+
+    .nav-motion {
+      animation: gavinSpringUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
     }
 
     .stagger-child {
-      opacity: 0;
-      animation: gavinItemSlide 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation: gavinSpringUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
       will-change: transform, opacity, filter;
     }
 
@@ -222,9 +207,12 @@
     #pane-about .stagger-child:nth-child(2) { animation-delay: 0.34s; }
 
     .nav-tab-item {
-      font-weight: 500;
+      font-weight: 400;
       transition: color 0.15s ease;
       user-select: none;
+    }
+    .nav-tab-item:hover {
+      color: #000;
     }
 
     .tabs-content-stack {
@@ -253,9 +241,9 @@
       position: absolute;
       bottom: -1px;
       height: 2px;
-      background-color: #18181b;
+      background-color: #eeeff2;
       border-radius: 9999px;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), width 0.32s cubic-bezier(0.16, 1, 0.3, 1);
       pointer-events: none;
     }
   </style>
@@ -267,30 +255,25 @@
       <div class="md:min-w-[512px] md:w-full md:max-w-2xl md:mx-auto">
         <div class="flex flex-col justify-start max-w-2xl px-8 py-24">
 
-          <!-- AVATAR (GAVIN NELSON EXACT: w-8 h-8 rounded-full mb-8) -->
-          <div class="grid w-8 h-8 mb-8 group mount-avatar">
+          <!-- AVATAR (GAVIN NELSON EXACT: static in layout, no entrance animation) -->
+          <div class="grid w-8 h-8 mb-8 group">
             <a aria-label="Go to the homepage" href="cetin-design-landing.html" class="block h-8 w-8 rounded-full bg-[#5D2BC7] text-white flex items-center justify-center font-medium text-xs no-underline hover:no-underline">
               M
             </a>
           </div>
 
-          <div class="flex flex-col gap-12 origin-left mount-root-container">
+          <div class="flex flex-col gap-12 origin-left home-container">
 
-            <!-- TITLE & SUBTITLE (GAVIN NELSON STYLE) -->
-            <div class="flex w-fit transform-gpu flex-col gap-2 will-change-transform mount-header">
-              <h1 class="inline font-medium text-black text-xl tracking-tight">Murat Çetin</h1>
-              <p class="text-zinc-600 text-[15px] font-normal leading-relaxed max-w-xl">
-                I make complex enterprise products easier to build, operate, and evolve.
-              </p>
-              <h2 class="text-zinc-400 text-xs font-mono">
-                Lead Design Systems Architect at <a href="https://agito.com.tr" target="_blank" rel="noopener noreferrer" class="text-zinc-700 hover:text-black font-normal">Agito</a> · High-Stakes Decision Governance
-              </h2>
+            <!-- TITLE & SUBTITLE (GAVIN NELSON EXACT: flex w-fit transform-gpu flex-col gap-1) -->
+            <div class="flex w-fit transform-gpu flex-col gap-1 will-change-transform header-motion">
+              <h1 class="inline font-medium text-black">Murat Çetin</h1>
+              <h2 class="text-zinc-400"><span>Lead Design Systems Architect at </span><a href="https://agito.com.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Agito</a></h2>
             </div>
 
             <div class="flex flex-col gap-12">
 
               <!-- NAV TABS -->
-              <nav id="nav-tabs-bar" aria-label="Portfolio sections" class="relative flex w-full transform-gpu items-center gap-6 overflow-x-auto pb-1 will-change-transform mount-nav">
+              <nav id="nav-tabs-bar" aria-label="Portfolio sections" class="relative flex w-full transform-gpu items-center gap-6 overflow-x-auto pb-1 will-change-transform nav-motion">
                 <div id="tab-sliding-indicator"></div>
                 <a class="nav-tab-item relative shrink-0 pb-1 text-black no-underline hover:no-underline cursor-pointer" onclick="selectTab('work', this, event)">
                   Work
@@ -325,7 +308,7 @@
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="agito.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Agito Enterprise InsurTech Modernization</span>
-                          <span class="font-normal text-zinc-400 text-xs">2024–Present</span>
+                          <span class="font-normal text-zinc-400">2024–Present</span>
                         </span>
                       </a>
                     </span>
@@ -335,7 +318,7 @@
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="allianz.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Allianz Türkiye Ecosystem</span>
-                          <span class="font-normal text-zinc-400 text-xs">2023–2024</span>
+                          <span class="font-normal text-zinc-400">2023–2024</span>
                         </span>
                       </a>
                     </span>
@@ -345,7 +328,7 @@
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="three.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Three Insurance Underwriting</span>
-                          <span class="font-normal text-zinc-400 text-xs">2022–2023</span>
+                          <span class="font-normal text-zinc-400">2022–2023</span>
                         </span>
                       </a>
                     </span>
@@ -355,7 +338,7 @@
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="elogo.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">eLogo B2B Payment Gateway</span>
-                          <span class="font-normal text-zinc-400 text-xs">2020–2021</span>
+                          <span class="font-normal text-zinc-400">2020–2021</span>
                         </span>
                       </a>
                     </span>
@@ -566,7 +549,7 @@
       items.forEach(function(item, idx) {
         item.style.animation = 'none';
         item.offsetHeight; /* trigger DOM reflow */
-        item.style.animation = 'gavinItemSlide 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+        item.style.animation = 'gavinSpringUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both';
         item.style.animationDelay = (idx * 0.06 + 0.04) + 's';
       });
     }
