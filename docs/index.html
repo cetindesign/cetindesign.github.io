@@ -350,19 +350,24 @@
                 <div id="pane-explorations" class="section-tab-pane">
                   <div class="flex flex-col gap-6">
                     <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/fragility-of-agile.html" class="font-medium text-black hover:underline">01. The Fragility of Agile: Cultural and Linguistic Roots of UX Disintegration ↗</a>
-                      <p class="text-zinc-500 text-sm">How Conway's Law, power distance, and linguistic deference in hierarchical organizations quietly break Agile user experience at enterprise scale.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 6 min read</span>
+                      <a href="explorations/sole-designer-at-scale.html" class="font-medium text-black hover:underline">01. How a Sole Designer Governs 14 Enterprise Products Without Becoming the Bottleneck ↗</a>
+                      <p class="text-zinc-500 text-sm">How to replace design ticket factories with canonical floorplans, PO readiness gates, and automated token compilers across 14 enterprise platforms.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Sep 2025 · 7 min read</span>
                     </div>
                     <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/myth-of-b2c-ification.html" class="font-medium text-black hover:underline">02. The Myth of B2C-ification: Why Consumer-Grade UX Fails Enterprise Complexity ↗</a>
-                      <p class="text-zinc-500 text-sm">Why enterprise core software is a dynamic policy engine, and why information density and zero page scroll are ergonomic features, not bugs.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Feb 2025 · 5 min read</span>
+                      <a href="explorations/why-enterprise-figma-kits-fail.html" class="font-medium text-black hover:underline">02. Why Enterprise Figma Kits Fail in Production (And the Bridge to Real Code) ↗</a>
+                      <p class="text-zinc-500 text-sm">Why static component stickers cause catastrophic engineering debt, and how DTCG Style Dictionary pipelines terminated a $180k/yr agency retainer.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Oct 2025 · 6 min read</span>
                     </div>
                     <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/design-systems-vs-tokens.html" class="font-medium text-black hover:underline">03. Design Systems vs. Design Tokens: Architecture Over Aesthetics ↗</a>
-                      <p class="text-zinc-500 text-sm">Why a Figma UI kit is not a design system: DTCG tokens, Style Dictionary pipelines, and deterministic control systems over static component stickers.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 4 min read</span>
+                      <a href="explorations/designing-for-8-hour-operator.html" class="font-medium text-black hover:underline">03. Designing for the 8-Hour Operator: Tables, Density, and Zero-Scroll Layouts ↗</a>
+                      <p class="text-zinc-500 text-sm">Why consumer whitespace breaks back-office speed: 100vh canvas locking, 38px cell / 8px padding integer defense, and tabular data ergonomics.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Nov 2025 · 6 min read</span>
+                    </div>
+                    <div class="flex flex-col gap-1 stagger-child">
+                      <a href="explorations/design-systems-not-ui-kits.html" class="font-medium text-black hover:underline">04. A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules ↗</a>
+                      <p class="text-zinc-500 text-sm">A design system is a control system: binary font weights (400/600), automated pre-commit deny rules, and measuring ROI in decisions removed from the table.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2025 · 5 min read</span>
                     </div>
                   </div>
                 </div>
@@ -371,40 +376,76 @@
                 <div id="pane-operating" class="section-tab-pane">
                   <div class="flex flex-col gap-8 text-black">
                     <div class="flex flex-col gap-1.5 stagger-child">
-                      <span class="font-medium text-black">01. Systems Over Screens</span>
+                      <div class="flex items-center justify-between">
+                        <span class="font-medium text-black">01. Infrastructure Before Screens</span>
+                        <span class="text-[11px] font-mono text-zinc-400">Agito</span>
+                      </div>
                       <p class="text-zinc-500 text-sm leading-relaxed">
-                        Don’t ask: "How should this screen look?" Ask: "What system produces this screen, and what governance produces that system?" True leverage is in designing the generative engine, not painting individual pixels.
+                        Never start by drawing components in Figma. Build the token pipeline, enforce zero-override component discipline, and lock layout constraints in code first. If the infrastructure does not prevent bad UI, painting screens only scales technical debt.
                       </p>
+                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
+                        Proof: 14+ enterprise products, 40+ production views, 0 custom CSS overrides, 0 !important rules.
+                      </div>
                     </div>
                     <div class="flex flex-col gap-1.5 stagger-child">
-                      <span class="font-medium text-black">02. Decision Ownership</span>
+                      <div class="flex items-center justify-between">
+                        <span class="font-medium text-black">02. Make the Wrong Thing Impossible to Build</span>
+                        <span class="text-[11px] font-mono text-zinc-400">Agito</span>
+                      </div>
                       <p class="text-zinc-500 text-sm leading-relaxed">
-                        A design system is a control system: its job is to make the wrong thing impossible to build. Value is measured in decisions permanently removed from the table, not components delivered in Figma.
+                        A design system is a control system. Its primary job is not to provide aesthetic options, but to eliminate failure modes. Every token, component constraint, and lint rule exists to take subjective, error-prone decisions off the engineering table.
                       </p>
+                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
+                        Proof: Automated Style Dictionary DTCG pipeline, binary 400/600 font weights, strict even-pixel 8-grid.
+                      </div>
                     </div>
                     <div class="flex flex-col gap-1.5 stagger-child">
-                      <span class="font-medium text-black">03. Technical Fluency Without Ego</span>
+                      <div class="flex items-center justify-between">
+                        <span class="font-medium text-black">03. Design for the Cockpit, Not the Storefront</span>
+                        <span class="text-[11px] font-mono text-zinc-400">Three / Berkshire</span>
+                      </div>
                       <p class="text-zinc-500 text-sm leading-relaxed">
-                        No throwaway redlines or speculative drawings. Bridging design directly into engineering contracts through DTCG tokens, Ant Design v5 composition, and deterministic DOM structures that QA test suites can automate flawlessly.
+                        Consumer patterns collapse under transactional enterprise volume. Back-office operators process claims, policies, and finances for 8 hours a day. Information density, zero page scroll, subpixel-aligned tables, and keyboard ergonomics are non-negotiable ergonomic safety requirements.
                       </p>
+                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
+                        Proof: 15-module progressive underwriting tree, quote-to-bind reduced from 48h to 12m (-95.8%).
+                      </div>
                     </div>
                     <div class="flex flex-col gap-1.5 stagger-child">
-                      <span class="font-medium text-black">04. Delivery Economics (Time × Money × Risk × Scale)</span>
+                      <div class="flex items-center justify-between">
+                        <span class="font-medium text-black">04. Platform Over Ticket Factory</span>
+                        <span class="text-[11px] font-mono text-zinc-400">Agito</span>
+                      </div>
                       <p class="text-zinc-500 text-sm leading-relaxed">
-                        Instead of "this button is inconsistent," think: "If we don't standardize this pattern, every squad will implement it differently, inflating frontend cycle time and creating exponential maintenance debt."
+                        A sole designer governing 14 products cannot survive as a reactive mock-up sweatshop. Transform design into self-serve canonical floorplans, pre-validated form patterns, and strict PO readiness gates where squads assemble screens autonomously.
                       </p>
+                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
+                        Proof: 4 Canonical Floorplans reduced developer implementation time from 14h to 2.5h per screen (-82%).
+                      </div>
                     </div>
                     <div class="flex flex-col gap-1.5 stagger-child">
-                      <span class="font-medium text-black">05. Self-Serve Federated Leverage</span>
+                      <div class="flex items-center justify-between">
+                        <span class="font-medium text-black">05. Code is the Single Source of Truth</span>
+                        <span class="text-[11px] font-mono text-zinc-400">Three &amp; Agito</span>
+                      </div>
                       <p class="text-zinc-500 text-sm leading-relaxed">
-                        A sole architect across 14+ products cannot survive as a ticket-drawing factory. Turning design into an internal assembly kit where Product Owners compose pre-validated user stories autonomously without breaking the system.
+                        Figma is a disposable canvas; production code is the contract. If a token or component does not compile into the repository, it does not exist. Parity is achieved when Figma consumes tokens generated from code, never the reverse.
                       </p>
+                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
+                        Proof: 85% component architecture reuse across 3 international insurance platforms (Three, Ranger, Agito).
+                      </div>
                     </div>
                     <div class="flex flex-col gap-1.5 stagger-child">
-                      <span class="font-medium text-black">06. Rejecting Design Theater &amp; The Automation Asymmetry</span>
+                      <div class="flex items-center justify-between">
+                        <span class="font-medium text-black">06. Decisions Removed Over Components Delivered</span>
+                        <span class="text-[11px] font-mono text-zinc-400">Agito</span>
+                      </div>
                       <p class="text-zinc-500 text-sm leading-relaxed">
-                        Enterprise platforms have no time for decorative empathy posters or 6-week discovery slides. While engineering equips itself with automated compilers, it often treats design as a manual drawing sweatshop. I turn design into a high-velocity generative compiler—eliminating engineering and test costs before a single line of backend code is committed.
+                        Design ROI is measured in architectural debt prevented, sprint arguments eliminated, and vendor dependency terminated—not Dribbble likes or Figma component counts. A robust control system pays for itself in engineering velocity.
                       </p>
+                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
+                        Proof: Terminated $180k/yr agency retainer, zero sprint-interruption regressions across 14 squads.
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Enterprise Figma Kits Fail in Production — Murat Çetin</title>
+  <meta name="description" content="Why disconnected agency mockups create hundreds of hours of frontend debt, and how compiling W3C DTCG tokens directly into native UI engines enforces zero-override production stability."/>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
+  
+  <style>
+    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
+    html,:host{
+      -webkit-text-size-adjust:100%;
+      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.6;
+      scrollbar-gutter:stable;
+      overflow-y:scroll;
+      background-color:#fff;
+      color:#18181b;
+    }
+    body{ margin:0; font-size:15px; -webkit-font-smoothing:antialiased; }
+    a{
+      text-underline-offset:2px;
+      text-decoration-line:underline;
+      text-decoration-color:#eeeff2;
+      text-decoration-thickness:2px;
+      color:inherit;
+      transition:text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    a:hover{ text-decoration-color:#a1a1aa; color:#000; }
+    .wrap{
+      max-width:42rem;
+      margin-left:auto;
+      margin-right:auto;
+      padding-left:1.5rem;
+      padding-right:1.5rem;
+      padding-top:4rem;
+      padding-bottom:8rem;
+    }
+    .top-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding-bottom:1.5rem;
+      border-bottom:1px solid #f4f4f6;
+      margin-bottom:3rem;
+      font-size:13.5px;
+    }
+    .nav-back{
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      color:#71717a;
+      text-decoration:none;
+      font-weight:400;
+    }
+    .nav-back:hover{ color:#000; }
+    .meta-tag{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:12px;
+      color:#a1a1aa;
+    }
+    h1{
+      font-size:1.75rem;
+      line-height:1.25;
+      font-weight:600;
+      letter-spacing:-0.03em;
+      color:#000;
+      margin-top:0;
+      margin-bottom:1rem;
+    }
+    .deck{
+      font-size:15px;
+      line-height:1.65;
+      color:#71717a;
+      margin-bottom:2.5rem;
+    }
+    h2{
+      font-size:1.15rem;
+      font-weight:600;
+      letter-spacing:-0.02em;
+      color:#000;
+      margin-top:3rem;
+      margin-bottom:0.75rem;
+    }
+    p{
+      font-size:15px;
+      line-height:1.65;
+      color:#52525b;
+      margin-top:0;
+      margin-bottom:1.25rem;
+    }
+    p strong{ color:#000; font-weight:600; }
+    blockquote{
+      margin:1.75rem 0;
+      padding-left:1rem;
+      border-left:2px solid #e4e4e7;
+      color:#52525b;
+      font-size:14.5px;
+      line-height:1.6;
+    }
+    .footer-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-top:1px solid #f4f4f6;
+      margin-top:4rem;
+      padding-top:2rem;
+      font-size:14px;
+    }
+    .footer-prev, .footer-next{
+      color:#71717a;
+      text-decoration:none;
+    }
+    .footer-prev:hover, .footer-next:hover{ color:#000; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-nav">
+      <a href="../index.html" class="nav-back">← Murat Çetin</a>
+      <span class="meta-tag">Essay · Feb 2025 · 5 min read</span>
+    </div>
+
+    <h1>Why Enterprise Figma Kits Fail in Production (And the Bridge to Real Code)</h1>
+    <p class="deck">
+      Why disconnected agency mockups create hundreds of hours of frontend debt, and how compiling W3C DTCG tokens directly into native UI engines enforces zero-override production stability.
+    </p>
+
+    <h2>The Figma-Deep vs. Code-Deep Disconnect</h2>
+    <p>
+      Enterprises regularly invest hundreds of thousands of dollars in external agency UI kits, only to watch frontend engineering abandon them within two quarters. The root cause is not visual quality; it is structural feasibility.
+    </p>
+    <p>
+      External design agencies optimize for static visual beauty on 1440px desktop canvases. They introduce bespoke paddings (13px, 19px), arbitrary hex colors, and custom widgets detached from production component frameworks. When developers attempt to translate these drawings into Ant Design, MUI, or React primitives, they discover that every single component requires manual CSS overrides.
+    </p>
+    <blockquote>
+      “A design deliverable that cannot be cleanly mapped into the production UI framework is not an asset; it is technical debt with a stakeholder's signature.”
+    </blockquote>
+
+    <h2>The Cost of the Agency Retainer</h2>
+    <p>
+      At Agito, our initial codebase audit revealed that implementing agency mockups across 14 enterprise core products required an estimated <strong>1,200 hours of bespoke CSS hacking</strong>, driving a 3x development delay while burning ~$180,000 annually in recurring third-party retainers.
+    </p>
+    <p>
+      To resolve this sustainably, we dismantled the outsourced agency model and established a strict <strong>Zero-Override Architecture</strong>:
+    </p>
+    <p>
+      <strong>1. Token Compilation via Style Dictionary:</strong> We established <code>packages/tokens/src/core.json</code> adhering strictly to the W3C DTCG specification. Running our build pipeline automatically generates TypeScript union types, root CSS custom properties, and Ant Design <code>ConfigProvider</code> theme objects simultaneously.
+    </p>
+    <p>
+      <strong>2. Algorithmic State Derivation:</strong> Designers no longer hand-pick hover, focus, or active hex colors. Interactive states are computed algorithmically using Ant Design’s palette calculation engine (<code>@ant-design/colors</code>), guaranteeing mathematical consistency across light and dark surfaces.
+    </p>
+    <p>
+      <strong>3. Zero Ad-Hoc Overrides:</strong> Component styling is restricted entirely to theme token composition. By prohibiting <code>!important</code> and ad-hoc class overrides across 40+ production views, we achieved zero UI regressions during major framework upgrades.
+    </p>
+
+    <h2>True Parity is Built in Code</h2>
+    <p>
+      When design tokens are treated as compiled executables rather than static documentation swatches, the friction between design and frontend disappears. The design system ceases to be a decorative drawing library and becomes an unshakeable production contract.
+    </p>
+
+    <div class="footer-nav">
+      <a href="sole-designer-at-scale.html" class="footer-prev">← Sole Designer at Scale</a>
+      <a href="designing-for-8-hour-operator.html" class="footer-next">Designing for the 8-Hour Operator →</a>
+    </div>
+  </div>
+</body>
+</html>

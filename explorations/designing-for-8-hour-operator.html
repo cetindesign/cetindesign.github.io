@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Designing for the 8-Hour Operator — Murat Çetin</title>
+  <meta name="description" content="Why consumer-grade whitespace paralyses core transactional workflows, and why 100vh viewport fitting and integer table ergonomics are vital operational features."/>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
+  
+  <style>
+    *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
+    html,:host{
+      -webkit-text-size-adjust:100%;
+      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.6;
+      scrollbar-gutter:stable;
+      overflow-y:scroll;
+      background-color:#fff;
+      color:#18181b;
+    }
+    body{ margin:0; font-size:15px; -webkit-font-smoothing:antialiased; }
+    a{
+      text-underline-offset:2px;
+      text-decoration-line:underline;
+      text-decoration-color:#eeeff2;
+      text-decoration-thickness:2px;
+      color:inherit;
+      transition:text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    a:hover{ text-decoration-color:#a1a1aa; color:#000; }
+    .wrap{
+      max-width:42rem;
+      margin-left:auto;
+      margin-right:auto;
+      padding-left:1.5rem;
+      padding-right:1.5rem;
+      padding-top:4rem;
+      padding-bottom:8rem;
+    }
+    .top-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding-bottom:1.5rem;
+      border-bottom:1px solid #f4f4f6;
+      margin-bottom:3rem;
+      font-size:13.5px;
+    }
+    .nav-back{
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      color:#71717a;
+      text-decoration:none;
+      font-weight:400;
+    }
+    .nav-back:hover{ color:#000; }
+    .meta-tag{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:12px;
+      color:#a1a1aa;
+    }
+    h1{
+      font-size:1.75rem;
+      line-height:1.25;
+      font-weight:600;
+      letter-spacing:-0.03em;
+      color:#000;
+      margin-top:0;
+      margin-bottom:1rem;
+    }
+    .deck{
+      font-size:15px;
+      line-height:1.65;
+      color:#71717a;
+      margin-bottom:2.5rem;
+    }
+    h2{
+      font-size:1.15rem;
+      font-weight:600;
+      letter-spacing:-0.02em;
+      color:#000;
+      margin-top:3rem;
+      margin-bottom:0.75rem;
+    }
+    p{
+      font-size:15px;
+      line-height:1.65;
+      color:#52525b;
+      margin-top:0;
+      margin-bottom:1.25rem;
+    }
+    p strong{ color:#000; font-weight:600; }
+    blockquote{
+      margin:1.75rem 0;
+      padding-left:1rem;
+      border-left:2px solid #e4e4e7;
+      color:#52525b;
+      font-size:14.5px;
+      line-height:1.6;
+    }
+    .footer-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-top:1px solid #f4f4f6;
+      margin-top:4rem;
+      padding-top:2rem;
+      font-size:14px;
+    }
+    .footer-prev, .footer-next{
+      color:#71717a;
+      text-decoration:none;
+    }
+    .footer-prev:hover, .footer-next:hover{ color:#000; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-nav">
+      <a href="../index.html" class="nav-back">← Murat Çetin</a>
+      <span class="meta-tag">Essay · Feb 2025 · 6 min read</span>
+    </div>
+
+    <h1>Designing for the 8-Hour Operator: Tables, Density, and Zero-Scroll Layouts</h1>
+    <p class="deck">
+      Why consumer-grade whitespace paralyses core transactional workflows, and why 100vh viewport fitting and integer table ergonomics are vital operational features.
+    </p>
+
+    <h2>The Consumer Cockpit Misconception</h2>
+    <p>
+      In recent years, design trends have pushed consumer B2C conventions into core enterprise software. Designers replace high-density data grids with spacious cards, pastel chips, and generous whitespace inspired by consumer e-commerce.
+    </p>
+    <p>
+      While whitespace signals luxury and ease in consumer discovery apps, in an operational ledger it is friction. An underwriter, claims adjuster, or actuarial specialist does not browse leisurely—they execute 300+ high-stakes transactions across an 8-hour workday on 1920x1080 workstation displays. Pushing critical data below the fold forces endless scrolling, degrades short-term memory, and increases transactional error rates.
+    </p>
+    <blockquote>
+      “Whitespace in consumer apps creates leisure. Whitespace in transactional software creates cognitive fatigue: it hides critical ledger columns, forces repetitive page scrolling, and degrades operational throughput.”
+    </blockquote>
+
+    <h2>The Ergonomics of 100vh Viewport Fitting</h2>
+    <p>
+      In our enterprise floorplan architecture at Agito, we enforce <strong>Zero Page-Level Scrolling</strong>:
+    </p>
+    <p>
+      <strong>1. Fixed Global Chrome:</strong> The global navigation rail, top header bar, contextual filterbar (32px), and pagination footer remain anchored within the 1080px viewport height (<code>overflow: hidden</code> on the view container). Internal scrolling is restricted strictly to the inner table container.
+    </p>
+    <p>
+      <strong>2. The 38px Integer Table Cell:</strong> Standardizing on 14px/22px typography paired with exact 8px top and bottom paddings produces a deterministic 38px cell height across headers and body rows.
+    </p>
+    <p>
+      <strong>3. Box-Model & Subpixel Defense:</strong> In HTML/CSS tables, using <code>border-collapse: separate</code> with <code>box-shadow: inset 0 -1px 0</code> ensures dividers occupy 0px of box-model height. Paired with <code>vertical-align: top</code>, this eliminates subpixel padding compression (7.5px) and baseline metric shifts in Figma Auto Layout importers.
+    </p>
+    <p>
+      <strong>4. Tabular Numerals & Zero-Symbol Ledgers:</strong> Currency columns eliminate repetitive currency symbols (₺, $, €) in favor of strictly right-aligned <code>tabular-nums</code> formatting (<code>1.284.500,00</code>), allowing the operator’s eye to scan decimal points vertically with zero visual noise.
+    </p>
+
+    <h2>Eliminating the Double-Overlay Anti-Pattern</h2>
+    <p>
+      High-density workflows must also manage complex data hierarchies without disorienting the user. Opening a modal or a second drawer on top of an existing drawer (Double-Overlay) breaks keyboard focus traps and destroys background visual anchoring.
+    </p>
+    <p>
+      We enforce a strict mutation escalation rule: atomic actions (≤5 fields) live in a 520px Modal; complex forms (6–15 fields) open in a 592px Right Drawer; deep relational records (50+ rows) are promoted to a <strong>Level 3 Sub-Page</strong> (full-canvas table drilldown) with explicit back-navigation.
+    </p>
+
+    <div class="footer-nav">
+      <a href="why-enterprise-figma-kits-fail.html" class="footer-prev">← Why Enterprise Figma Kits Fail</a>
+      <a href="design-systems-not-ui-kits.html" class="footer-next">A Design System is Not a UI Kit →</a>
+    </div>
+  </div>
+</body>
+</html>
