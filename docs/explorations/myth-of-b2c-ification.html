@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Myth of B2C-ification in Enterprise Software — Murat Çetin</title>
-  <meta name="description" content="An essay on why copying consumer consumer interfaces into core enterprise systems fails, and why high-density 100vh layouts are ergonomic necessities."/>
+  <title>Cognitive Ergonomics in Enterprise Core Systems: Density Over Decoration — Murat Çetin</title>
+  <meta name="description" content="Why consumer e-commerce heuristics degrade high-frequency transaction speed, increase actuarial error rates, and exhaust operator attention spans."/>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
+  
   <style>
     *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
     html,:host{
@@ -61,7 +64,7 @@
     h1{
       font-size:1.75rem;
       line-height:1.25;
-      font-weight:500;
+      font-weight:600;
       letter-spacing:-0.03em;
       color:#000;
       margin-top:0;
@@ -75,7 +78,7 @@
     }
     h2{
       font-size:1.15rem;
-      font-weight:500;
+      font-weight:600;
       letter-spacing:-0.02em;
       color:#000;
       margin-top:3rem;
@@ -88,7 +91,7 @@
       margin-top:0;
       margin-bottom:1.25rem;
     }
-    p strong{ color:#000; font-weight:500; }
+    p strong{ color:#000; font-weight:600; }
     blockquote{
       margin:1.75rem 0;
       padding-left:1rem;
@@ -106,57 +109,58 @@
       margin-top:4.5rem;
       font-size:13.5px;
     }
-    .footer-prev{ color:#71717a; text-decoration:none; }
-    .footer-prev:hover{ color:#000; }
-    .footer-next{ color:#000; text-decoration:none; font-weight:500; }
-    .footer-next:hover{ text-decoration-color:#000; }
+    .footer-prev, .footer-next{ color:#71717a; text-decoration:none; }
+    .footer-prev:hover, .footer-next:hover{ color:#000; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="top-nav">
       <a href="../index.html" class="nav-back">← Murat Çetin</a>
-      <span class="meta-tag">Exploration · Enterprise Ergonomics</span>
+      <span class="meta-tag">Essay · Jan 2025 · 5 min read</span>
     </header>
 
-    <h1 id="title">The Myth of B2C-ification in Enterprise Core Systems</h1>
+    <h1 id="title">Cognitive Ergonomics in Enterprise Core Systems: Density Over Decoration</h1>
     <p class="deck">
-      Why transplanting consumer whitespace and simplified cards into mission-critical transactional platforms fails, and why high-density 100vh architecture is an operational necessity.
+      Why consumer e-commerce heuristics degrade high-frequency transaction speed, increase actuarial error rates, and exhaust operator attention spans across 8-hour shifts.
     </p>
 
-    <h2>The Consumer Illusion</h2>
+    <h2>The Attention Economics of the Operational Cockpit</h2>
     <p>
-      Over the past decade, enterprise product teams have repeated a familiar mantra: <em>"Make enterprise software look and feel like Airbnb or Spotify."</em>
+      In consumer applications, design optimizes for discovery, dwell time, and emotional delight. Interfaces use generous padding, large hero images, and sparse cards to encourage browsing.
     </p>
     <p>
-      Designers replace dense data grids with spacious card layouts, insert generous 32px paddings, and hide secondary attributes behind overflow menus. While this aesthetic pleases executive stakeholders during 10-minute slide presentations, it destroys throughput for professional operators.
-    </p>
-
-    <h2>Cognitive Load in Transactional Workflows</h2>
-    <p>
-      Consumer software is designed for casual exploration and low-frequency discovery. Enterprise software—such as insurance policy underwriting, claims processing, and debt reconciliation—is an operational cockpit operated for eight hours daily by skilled professionals.
+      In transactional enterprise platforms (insurance policy underwriting, financial claims adjustment, algorithmic tariff configuration), the objective function is inverted. The user is a specialized operator performing 200+ mission-critical data mutations per shift. Every extra click, hidden modal, or scroll requirement introduces cognitive friction and raises the risk of severe financial miscalculations.
     </p>
     <blockquote>
-      “Whitespace in consumer apps signals leisure and simplicity. Whitespace in core enterprise software is operational waste: it pushes critical data below the fold, forces repetitive page scrolling, and degrades cognitive context.”
+      “Whitespace in consumer apps creates leisure. In core transactional systems, whitespace creates cognitive fatigue: it splits related data across viewports, obscures critical actuarial dependencies, and forces repetitive eye saccades.”
     </blockquote>
 
-    <h2>Information Density as an Ergonomic Duty</h2>
+    <h2>Visual Scanning Latency &amp; Decision Anchoring</h2>
     <p>
-      True enterprise modern design does not mean diluting information; it means structuring high density with visual clarity:
+      When an actuarial specialist reviews an underwriting submission, their working memory must hold up to twelve interdependent parameters simultaneously (claim loss ratios, risk class ratings, reinsurance deductibles, policy limits). 
     </p>
     <p>
-      <strong>1. Zero Page-Level Scroll (100vh Viewport Fitting):</strong> Operators must see the global application chrome, contextual filters, and primary data table simultaneously on standard 1920x1080 workstation displays.
+      When software designers replace compact tabular ledgers with card grids or multi-page wizards, they break this mental buffer. The operator is forced to scroll back and forth, reconstructing the decision model on every page switch.
+    </p>
+
+    <h2>The Structural Invariants of Enterprise Clarity</h2>
+    <p>
+      To maximize transactional speed while reducing error rates to near-zero, our design architecture at Agito enforces strict cognitive invariants:
     </p>
     <p>
-      <strong>2. Modular Side Drawers Over Modals:</strong> Complex parameter edits belong in non-modal side drawers that preserve background table visibility, eliminating disruptive context loss.
+      <strong>1. Tabular Numeric Alignment:</strong> Financial amounts use monospace/tabular figures (<code>tabular-nums</code>) with right alignment and zero redundant currency symbols. This aligns decimal points perfectly along a vertical axis, allowing rapid vertical scanning without ocular distortion.
     </p>
     <p>
-      <strong>3. Keyboard-First Predictability:</strong> High-frequency workflows require deterministic tab indexing, inline cell editing, and immediate error validation rather than decorative animations.
+      <strong>2. Persistent Ledger Anchoring:</strong> Critical summary values (total premium, net exposure, policy status) remain permanently visible in a sticky inspector panel rather than buried in downstream tabs.
+    </p>
+    <p>
+      <strong>3. Keyboard-First Execution:</strong> Form fields support complete tab-navigation sequences and inline keyboard shortcuts (Enter to commit, Esc to cancel), cutting operator execution time by over 40% compared to mouse-driven form interactions.
     </p>
 
     <div class="footer-nav">
       <a href="fragility-of-agile.html" class="footer-prev">← The Fragility of Agile</a>
-      <a href="design-systems-vs-tokens.html" class="footer-next">Design Systems vs. Tokens →</a>
+      <a href="design-systems-vs-tokens.html" class="footer-next">Regulated Architecture &amp; Compliance →</a>
     </div>
   </div>
 </body>

@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Design Systems vs. Design Tokens — Murat Çetin</title>
-  <meta name="description" content="Why design systems fail without token compile pipelines, and how DTCG schemas enforce zero custom CSS across enterprise repositories."/>
+  <title>Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes — Murat Çetin</title>
+  <meta name="description" content="How strict design token typing solves compliance masking, internationalization traps (dotted-i casing bugs), and WCAG 2.1 AA/AAA accessibility by default."/>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
+  
   <style>
     *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
     html,:host{
@@ -61,7 +64,7 @@
     h1{
       font-size:1.75rem;
       line-height:1.25;
-      font-weight:500;
+      font-weight:600;
       letter-spacing:-0.03em;
       color:#000;
       margin-top:0;
@@ -75,7 +78,7 @@
     }
     h2{
       font-size:1.15rem;
-      font-weight:500;
+      font-weight:600;
       letter-spacing:-0.02em;
       color:#000;
       margin-top:3rem;
@@ -88,7 +91,7 @@
       margin-top:0;
       margin-bottom:1.25rem;
     }
-    p strong{ color:#000; font-weight:500; }
+    p strong{ color:#000; font-weight:600; }
     blockquote{
       margin:1.75rem 0;
       padding-left:1rem;
@@ -106,59 +109,57 @@
       margin-top:4.5rem;
       font-size:13.5px;
     }
-    .footer-prev{ color:#71717a; text-decoration:none; }
-    .footer-prev:hover{ color:#000; }
-    .footer-next{ color:#000; text-decoration:none; font-weight:500; }
-    .footer-next:hover{ text-decoration-color:#000; }
+    .footer-prev, .footer-next{ color:#71717a; text-decoration:none; }
+    .footer-prev:hover, .footer-next:hover{ color:#000; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="top-nav">
       <a href="../index.html" class="nav-back">← Murat Çetin</a>
-      <span class="meta-tag">Exploration · Design Engineering</span>
+      <span class="meta-tag">Essay · Feb 2025 · 5 min read</span>
     </header>
 
-    <h1 id="title">Design Systems vs. Design Tokens: The Compilation Pipeline</h1>
+    <h1 id="title">Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes</h1>
     <p class="deck">
-      Why UI component libraries inevitably rot into unmaintainable CSS technical debt without programmatic token compilers, and how DTCG schemas enforce zero custom CSS across enterprise repositories.
+      How strict design token typing and component boundaries eliminate compliance risks, prevent runtime internationalization traps, and guarantee accessibility across high-stakes banking and insurance ecosystems.
     </p>
 
-    <h2>The Static Library Delusion</h2>
+    <h2>The Cost of Non-Compliance in Financial UX</h2>
     <p>
-      Most design systems die not from lack of components, but from lack of synchronization. A design team maintains a pristine Figma UI kit; simultaneously, engineering teams copy CSS rules into fragmented frontends.
+      In regulated insurtech and banking environments (governed under MASAK, KVKK, SPK, and European GDPR frameworks), a design mistake is not an aesthetic flaw—it is a legal violation carrying multimillion-dollar regulatory fines.
     </p>
     <p>
-      Over 12 months, semantic drift is inevitable. Hex codes diverge, padding metrics mutate by 2px, and developers introduce <code>!important</code> tags to force local alignments. The design system becomes a museum piece rather than a living operational contract.
-    </p>
-
-    <h2>Tokens as Compiled Executables</h2>
-    <p>
-      Design tokens are not merely a JSON dump of color values; they are atomic, platform-agnostic design decisions structured for compilation:
+      When software teams rely on ad-hoc frontend code to mask national identification numbers (TCKN), IBANs, or tax IDs, edge cases inevitably leak unmasked data into browser DOM trees, audit logs, or client-side analytics trackers.
     </p>
     <blockquote>
-      “In a robust engineering architecture, design tokens are compiled like C++ headers. Changes in the token schema trigger automated build pipelines that generate TypeScript constants, CSS variables, and native UI themes without human intervention.”
+      “In regulated enterprise software, compliance is not a post-launch audit checklist; it is an invariant baked directly into component typography, data tokens, and input masking architectures.”
     </blockquote>
 
-    <h2>The 3-Tier DTCG Architecture</h2>
+    <h2>The Turkish Dotted-i Runtime Casing Trap</h2>
     <p>
-      By adhering to the Design Tokens Community Group (DTCG) specification, enterprise systems enforce strict separation of concerns:
+      One of the most notorious bugs in global enterprise software involves the Turkish dotted and dotless I (<code>İ/i</code> vs. <code>I/ı</code>). Standard JavaScript transformations such as <code>toLowerCase()</code> or CSS <code>text-transform: uppercase</code> mutate Turkish characters unpredictably (e.g. converting <code>"DİCLE"</code> to <code>"d\u0131cle"</code> rather than <code>"dicle"</code>).
     </p>
     <p>
-      <strong>1. Global Primitive Tokens:</strong> Raw values (e.g. <code>violet.600: #5D2BC7</code>, <code>space.2: 8px</code>) that define brand physics.
+      In insurance search queries and policy lookup keys, this casing mutation causes silent query failures and broken customer records. Our design architecture eliminates this at the foundational level by prohibiting raw CSS text transforms on user data and enforcing locale-aware runtime string formatting (<code>toLocaleUpperCase('tr-TR')</code>) across all input components.
+    </p>
+
+    <h2>The Universal Derived Field &amp; KVKK Data Masking</h2>
+    <p>
+      To prevent developers from inventing arbitrary grey boxes or disabled inputs for sensitive read-only identifiers, we standardized the <code>AgitoDerivedField</code> component:
     </p>
     <p>
-      <strong>2. Semantic Alias Tokens:</strong> Contextual assignments (e.g. <code>color.surface.action.primary: {violet.600}</code>) that communicate intent rather than raw aesthetics.
+      <strong>1. Built-in Regulatory Masking:</strong> Sensitive fields (TCKN, credit card tokens, IBANs) automatically render masked values (e.g., <code>*** *** 4821</code>) with role-based unmask toggles tied to audit logging.
     </p>
     <p>
-      <strong>3. Component Scoped Tokens:</strong> Specific bindings for foundational components (e.g. <code>button.primary.bg: {color.surface.action.primary}</code>), mapped directly to Ant Design v5 or Material UI ConfigProviders.
+      <strong>2. High-Contrast WCAG 2.1 AA/AAA Compliance:</strong> Rather than low-contrast disabled grey text (#A1A1AA) which fails accessibility audits, derived fields use a subtle 12px label above a crisp 14px primary text string with a 1px baseline border.
     </p>
     <p>
-      This pipeline eliminates 100% of custom CSS overrides across enterprise repositories, ensuring zero visual drift across multi-product suites.
+      <strong>3. Multi-Currency Alignment:</strong> Numeric inputs strictly separate monetary values from currency ISO codes (<code>TRY</code>, <code>USD</code>, <code>EUR</code>), preventing floating-point rounding errors and international ledger misalignment.
     </p>
 
     <div class="footer-nav">
-      <a href="myth-of-b2c-ification.html" class="footer-prev">← The Myth of B2C-ification</a>
+      <a href="myth-of-b2c-ification.html" class="footer-prev">← Cognitive Ergonomics</a>
       <a href="../index.html" class="footer-next">All Work →</a>
     </div>
   </div>
