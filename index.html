@@ -391,103 +391,139 @@
                   </div>
                 </div>
 
-                <!-- TAB 3: OPERATING MODEL -->
+                <!-- TAB 3: OPERATING MODEL (LAWS OF UX CARD GRID ARCHITECTURE) -->
                 <div id="pane-operating" class="section-tab-pane">
-                  <div class="flex flex-col gap-8 text-black">
+                  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1rem;" class="text-black">
 
-                    <!-- 01. INFRASTRUCTURE BEFORE SCREENS -->
-                    <div class="flex flex-col gap-2 stagger-child">
-                      <div class="flex items-center justify-between">
-                        <span class="font-medium text-black">01. Infrastructure Before Screens</span>
-                        <span class="text-[11px] font-mono text-zinc-400">Agito &amp; Radity</span>
+                    <!-- CARD 01 -->
+                    <div style="border:1px solid #e4e4e7; border-radius:8px; padding:1.25rem; background:#ffffff; display:flex; flex-direction:column; justify-content:space-between; gap:1rem; transition:border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);" onmouseenter="this.style.borderColor='#18181b'" onmouseleave="this.style.borderColor='#e4e4e7'" class="stagger-child">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">01</span>
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px;">Agito &amp; Radity</span>
+                        </div>
+                        <span class="font-medium text-black text-sm">Infrastructure Before Screens</span>
+                        <p class="text-zinc-500 text-xs leading-relaxed" style="margin:0;">
+                          Never start with Figma mockups. Token compilers and layout invariants must be locked in code before a single screen is drawn.
+                        </p>
+                        <div style="font-size:11.5px; line-height:1.5; color:#71717a; padding-top:0.25rem; border-top:1px solid #f4f4f6;" class="flex flex-col gap-1">
+                          <div><strong class="text-black font-semibold">Anti-Pattern:</strong> Unconstrained stickers scaling design debt.</div>
+                          <div><strong class="text-black font-semibold">Protocol:</strong> W3C DTCG token contracts &amp; zero-override theme.</div>
+                          <div><strong class="text-black font-semibold">Proof:</strong> 14+ platforms, 0 custom CSS, 0 !important.</div>
+                        </div>
                       </div>
-                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
-                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Drawing unconstrained Figma mockups before token contracts and layout invariants exist in code, compounding technical debt across every sprint.</p>
-                        <p><strong class="text-black font-semibold">The Protocol:</strong> Zero free-form UI design. Foundational W3C DTCG token compilers and zero-override component theme invariants must be locked in code before a single screen is drawn.</p>
-                      </div>
-                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
-                        <span>Proof: 14+ enterprise platforms, 0 custom CSS overrides, 0 !important rules.</span>
-                        <a href="explorations/why-enterprise-figma-kits-fail.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 02 ↗</a>
+                      <div style="border-top:1px solid #f4f4f6; padding-top:0.75rem;" class="flex items-center justify-between">
+                        <a href="explorations/why-enterprise-figma-kits-fail.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Read Exploration 02 ↗</a>
                       </div>
                     </div>
 
-                    <!-- 02. MAKE THE WRONG THING IMPOSSIBLE TO BUILD -->
-                    <div class="flex flex-col gap-2 stagger-child">
-                      <div class="flex items-center justify-between">
-                        <span class="font-medium text-black">02. Make the Wrong Thing Impossible to Build</span>
-                        <span class="text-[11px] font-mono text-zinc-400">Agito &amp; Three</span>
+                    <!-- CARD 02 -->
+                    <div style="border:1px solid #e4e4e7; border-radius:8px; padding:1.25rem; background:#ffffff; display:flex; flex-direction:column; justify-content:space-between; gap:1rem; transition:border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);" onmouseenter="this.style.borderColor='#18181b'" onmouseleave="this.style.borderColor='#e4e4e7'" class="stagger-child">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">02</span>
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px;">Agito &amp; Three</span>
+                        </div>
+                        <span class="font-medium text-black text-sm">Make the Wrong Thing Impossible to Build</span>
+                        <p class="text-zinc-500 text-xs leading-relaxed" style="margin:0;">
+                          A design system is a control system. Its primary job is not aesthetic freedom, but systematically eliminating failure modes.
+                        </p>
+                        <div style="font-size:11.5px; line-height:1.5; color:#71717a; padding-top:0.25rem; border-top:1px solid #f4f4f6;" class="flex flex-col gap-1">
+                          <div><strong class="text-black font-semibold">Anti-Pattern:</strong> Treating systems as optional sticker sheets.</div>
+                          <div><strong class="text-black font-semibold">Protocol:</strong> Hard-deny AST gates &amp; authority constraints.</div>
+                          <div><strong class="text-black font-semibold">Proof:</strong> Style Dictionary DTCG, role-based UW gating.</div>
+                        </div>
                       </div>
-                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
-                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Treating design systems as optional sticker sheets and relying on human sprint reviews to catch visual and regulatory violations.</p>
-                        <p><strong class="text-black font-semibold">The Protocol:</strong> A design system is a control system. Hard-deny pre-commit linter gates, binary 400/600 typography constraints, and UI-level underwriting authority bounds eliminate failure modes by definition.</p>
-                      </div>
-                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
-                        <span>Proof: Automated Style Dictionary pipeline, role-based underwriting authority gating.</span>
-                        <a href="explorations/design-systems-not-ui-kits.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 04 ↗</a>
-                      </div>
-                    </div>
-
-                    <!-- 03. DESIGN FOR THE COCKPIT, NOT THE STOREFRONT -->
-                    <div class="flex flex-col gap-2 stagger-child">
-                      <div class="flex items-center justify-between">
-                        <span class="font-medium text-black">03. Design for the Cockpit, Not the Storefront</span>
-                        <span class="text-[11px] font-mono text-zinc-400">Three &amp; eLogo</span>
-                      </div>
-                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
-                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Applying consumer B2C whitespace and infinite scroll cards to back-office systems, causing severe visual saccade fatigue for 8-hour operators.</p>
-                        <p><strong class="text-black font-semibold">The Protocol:</strong> Strict 100vh locked canvas, subpixel-aligned 38px integer table cells (border-collapse: separate + inset shadow), monospaced tabular numbers, and zero page scrolling.</p>
-                      </div>
-                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
-                        <span>Proof: 15-module progressive underwriting tree, -95.8% quote-to-bind latency, -85% manual load.</span>
-                        <a href="explorations/designing-for-8-hour-operator.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 03 ↗</a>
+                      <div style="border-top:1px solid #f4f4f6; padding-top:0.75rem;" class="flex items-center justify-between">
+                        <a href="explorations/design-systems-not-ui-kits.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Read Exploration 04 ↗</a>
                       </div>
                     </div>
 
-                    <!-- 04. PLATFORM ENABLEMENT OVER TICKET FACTORY -->
-                    <div class="flex flex-col gap-2 stagger-child">
-                      <div class="flex items-center justify-between">
-                        <span class="font-medium text-black">04. Platform Enablement Over Ticket Factory</span>
-                        <span class="text-[11px] font-mono text-zinc-400">Allianz &amp; Agito</span>
+                    <!-- CARD 03 -->
+                    <div style="border:1px solid #e4e4e7; border-radius:8px; padding:1.25rem; background:#ffffff; display:flex; flex-direction:column; justify-content:space-between; gap:1rem; transition:border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);" onmouseenter="this.style.borderColor='#18181b'" onmouseleave="this.style.borderColor='#e4e4e7'" class="stagger-child">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">03</span>
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px;">Three &amp; eLogo</span>
+                        </div>
+                        <span class="font-medium text-black text-sm">Design for the Cockpit, Not the Storefront</span>
+                        <p class="text-zinc-500 text-xs leading-relaxed" style="margin:0;">
+                          Back-office operators work 8-hour shifts. Tabular density, 100vh canvas locking, and subpixel table cells are safety requirements.
+                        </p>
+                        <div style="font-size:11.5px; line-height:1.5; color:#71717a; padding-top:0.25rem; border-top:1px solid #f4f4f6;" class="flex flex-col gap-1">
+                          <div><strong class="text-black font-semibold">Anti-Pattern:</strong> Consumer whitespace causing saccade fatigue.</div>
+                          <div><strong class="text-black font-semibold">Protocol:</strong> 100vh locked canvas &amp; 38px integer box-model.</div>
+                          <div><strong class="text-black font-semibold">Proof:</strong> -95.8% quote-to-bind latency, -85% manual load.</div>
+                        </div>
                       </div>
-                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
-                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Design operating as a centralized ticket-drawing service, creating an operational bottleneck that delays engineering sprints.</p>
-                        <p><strong class="text-black font-semibold">The Protocol:</strong> Convert design into a self-serve platform. Product Owners supply structured domain schemas verified against a strict UX Readiness Gate and 4 Canonical Floorplans.</p>
-                      </div>
-                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
-                        <span>Proof: 5 squads orchestrated across 1.5M MAU, 5.4M deflection, -82% developer time.</span>
-                        <a href="explorations/sole-designer-at-scale.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 01 ↗</a>
-                      </div>
-                    </div>
-
-                    <!-- 05. BOUNDED CONTEXTS & SAFE ESCAPE HATCHES -->
-                    <div class="flex flex-col gap-2 stagger-child">
-                      <div class="flex items-center justify-between">
-                        <span class="font-medium text-black">05. Bounded Contexts &amp; Safe Escape Hatches</span>
-                        <span class="text-[11px] font-mono text-zinc-400">Three &amp; Radity</span>
-                      </div>
-                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
-                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Systemic dogmatism that forces high-density core ledgers and expressive consumer portals into a single rigid template, breaking multi-brand platforms.</p>
-                        <p><strong class="text-black font-semibold">The Protocol:</strong> Strict invariant discipline for transactional operator cockpits, paired with encapsulated sub-themes and safe escape hatches for consumer frontends without polluting core tokens.</p>
-                      </div>
-                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
-                        <span>Proof: 85% component architecture reuse with isolated micro-frontend theming across 3 platforms.</span>
-                        <a href="explorations/design-systems-vs-tokens.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 07 ↗</a>
+                      <div style="border-top:1px solid #f4f4f6; padding-top:0.75rem;" class="flex items-center justify-between">
+                        <a href="explorations/designing-for-8-hour-operator.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Read Exploration 03 ↗</a>
                       </div>
                     </div>
 
-                    <!-- 06. DECISIONS REMOVED OVER COMPONENTS DELIVERED -->
-                    <div class="flex flex-col gap-2 stagger-child">
-                      <div class="flex items-center justify-between">
-                        <span class="font-medium text-black">06. Decisions Removed Over Components Delivered</span>
-                        <span class="text-[11px] font-mono text-zinc-400">Allianz &amp; Agito</span>
+                    <!-- CARD 04 -->
+                    <div style="border:1px solid #e4e4e7; border-radius:8px; padding:1.25rem; background:#ffffff; display:flex; flex-direction:column; justify-content:space-between; gap:1rem; transition:border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);" onmouseenter="this.style.borderColor='#18181b'" onmouseleave="this.style.borderColor='#e4e4e7'" class="stagger-child">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">04</span>
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px;">Allianz &amp; Agito</span>
+                        </div>
+                        <span class="font-medium text-black text-sm">Platform Enablement Over Ticket Factory</span>
+                        <p class="text-zinc-500 text-xs leading-relaxed" style="margin:0;">
+                          Transform design from a centralized ticket bottleneck into a self-serve platform with canonical floorplans and PO gates.
+                        </p>
+                        <div style="font-size:11.5px; line-height:1.5; color:#71717a; padding-top:0.25rem; border-top:1px solid #f4f4f6;" class="flex flex-col gap-1">
+                          <div><strong class="text-black font-semibold">Anti-Pattern:</strong> Design queues blocking engineering velocity.</div>
+                          <div><strong class="text-black font-semibold">Protocol:</strong> 4 Canonical Floorplans &amp; PO UX Readiness Gate.</div>
+                          <div><strong class="text-black font-semibold">Proof:</strong> 5 squads / 1.5M MAU, -82% developer time.</div>
+                        </div>
                       </div>
-                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
-                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Measuring design system ROI in component volume and Figma vanity metrics rather than architectural debt prevented and business latency eliminated.</p>
-                        <p><strong class="text-black font-semibold">The Protocol:</strong> System value is measured strictly in sprint arguments eliminated, compliance risks mitigated, vendor dependencies terminated, and developer velocity gained.</p>
+                      <div style="border-top:1px solid #f4f4f6; padding-top:0.75rem;" class="flex items-center justify-between">
+                        <a href="explorations/sole-designer-at-scale.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Read Exploration 01 ↗</a>
                       </div>
-                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
-                        <span>Proof: $180k/yr agency retainer terminated, $24M digital premium volume, zero UI regressions.</span>
-                        <a href="explorations/fragility-of-agile.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 05 ↗</a>
+                    </div>
+
+                    <!-- CARD 05 -->
+                    <div style="border:1px solid #e4e4e7; border-radius:8px; padding:1.25rem; background:#ffffff; display:flex; flex-direction:column; justify-content:space-between; gap:1rem; transition:border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);" onmouseenter="this.style.borderColor='#18181b'" onmouseleave="this.style.borderColor='#e4e4e7'" class="stagger-child">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">05</span>
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px;">Three &amp; Radity</span>
+                        </div>
+                        <span class="font-medium text-black text-sm">Bounded Contexts &amp; Safe Escape Hatches</span>
+                        <p class="text-zinc-500 text-xs leading-relaxed" style="margin:0;">
+                          Core operator cockpits require strict invariant discipline, while consumer portals operate in encapsulated sub-themes.
+                        </p>
+                        <div style="font-size:11.5px; line-height:1.5; color:#71717a; padding-top:0.25rem; border-top:1px solid #f4f4f6;" class="flex flex-col gap-1">
+                          <div><strong class="text-black font-semibold">Anti-Pattern:</strong> Forcing ledgers and portals into one rigid mold.</div>
+                          <div><strong class="text-black font-semibold">Protocol:</strong> Invariant kernel + isolated sub-theme tokens.</div>
+                          <div><strong class="text-black font-semibold">Proof:</strong> 85% component reuse across 3 platforms.</div>
+                        </div>
+                      </div>
+                      <div style="border-top:1px solid #f4f4f6; padding-top:0.75rem;" class="flex items-center justify-between">
+                        <a href="explorations/design-systems-vs-tokens.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Read Exploration 07 ↗</a>
+                      </div>
+                    </div>
+
+                    <!-- CARD 06 -->
+                    <div style="border:1px solid #e4e4e7; border-radius:8px; padding:1.25rem; background:#ffffff; display:flex; flex-direction:column; justify-content:space-between; gap:1rem; transition:border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);" onmouseenter="this.style.borderColor='#18181b'" onmouseleave="this.style.borderColor='#e4e4e7'" class="stagger-child">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">06</span>
+                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px;">Allianz &amp; Agito</span>
+                        </div>
+                        <span class="font-medium text-black text-sm">Decisions Removed Over Components Delivered</span>
+                        <p class="text-zinc-500 text-xs leading-relaxed" style="margin:0;">
+                          Design ROI is measured in architectural debt prevented, sprint arguments eliminated, and vendor dependencies terminated.
+                        </p>
+                        <div style="font-size:11.5px; line-height:1.5; color:#71717a; padding-top:0.25rem; border-top:1px solid #f4f4f6;" class="flex flex-col gap-1">
+                          <div><strong class="text-black font-semibold">Anti-Pattern:</strong> Measuring value in Figma vanity counts.</div>
+                          <div><strong class="text-black font-semibold">Protocol:</strong> Value in prevented debt &amp; velocity gained.</div>
+                          <div><strong class="text-black font-semibold">Proof:</strong> $180k agency saved, $24M premium impact.</div>
+                        </div>
+                      </div>
+                      <div style="border-top:1px solid #f4f4f6; padding-top:0.75rem;" class="flex items-center justify-between">
+                        <a href="explorations/fragility-of-agile.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Read Exploration 05 ↗</a>
                       </div>
                     </div>
 
