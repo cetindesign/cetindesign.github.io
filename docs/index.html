@@ -394,78 +394,103 @@
                 <!-- TAB 3: OPERATING MODEL -->
                 <div id="pane-operating" class="section-tab-pane">
                   <div class="flex flex-col gap-8 text-black">
-                    <div class="flex flex-col gap-1.5 stagger-child">
+
+                    <!-- 01. INFRASTRUCTURE BEFORE SCREENS -->
+                    <div class="flex flex-col gap-2 stagger-child">
                       <div class="flex items-center justify-between">
                         <span class="font-medium text-black">01. Infrastructure Before Screens</span>
                         <span class="text-[11px] font-mono text-zinc-400">Agito &amp; Radity</span>
                       </div>
-                      <p class="text-zinc-500 text-sm leading-relaxed">
-                        Never start by drawing components in Figma. Build the token pipeline, enforce zero-override component discipline, and lock layout constraints in code first. If the infrastructure does not prevent bad UI, painting screens only scales technical debt.
-                      </p>
-                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
-                        Proof: 14+ enterprise platforms, W3C DTCG token contracts, 0 custom CSS overrides, 0 !important rules.
+                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
+                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Drawing unconstrained Figma mockups before token contracts and layout invariants exist in code, compounding technical debt across every sprint.</p>
+                        <p><strong class="text-black font-semibold">The Protocol:</strong> Zero free-form UI design. Foundational W3C DTCG token compilers and zero-override component theme invariants must be locked in code before a single screen is drawn.</p>
+                      </div>
+                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
+                        <span>Proof: 14+ enterprise platforms, 0 custom CSS overrides, 0 !important rules.</span>
+                        <a href="explorations/why-enterprise-figma-kits-fail.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 02 ↗</a>
                       </div>
                     </div>
-                    <div class="flex flex-col gap-1.5 stagger-child">
+
+                    <!-- 02. MAKE THE WRONG THING IMPOSSIBLE TO BUILD -->
+                    <div class="flex flex-col gap-2 stagger-child">
                       <div class="flex items-center justify-between">
                         <span class="font-medium text-black">02. Make the Wrong Thing Impossible to Build</span>
                         <span class="text-[11px] font-mono text-zinc-400">Agito &amp; Three</span>
                       </div>
-                      <p class="text-zinc-500 text-sm leading-relaxed">
-                        A design system is a control system. Its primary job is not to provide aesthetic options, but to eliminate failure modes. Every token, component constraint, and lint rule exists to take subjective, error-prone decisions off the engineering table.
-                      </p>
-                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
-                        Proof: Automated Style Dictionary DTCG pipeline, binary 400/600 font weights, role-based underwriting authority gating.
+                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
+                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Treating design systems as optional sticker sheets and relying on human sprint reviews to catch visual and regulatory violations.</p>
+                        <p><strong class="text-black font-semibold">The Protocol:</strong> A design system is a control system. Hard-deny pre-commit linter gates, binary 400/600 typography constraints, and UI-level underwriting authority bounds eliminate failure modes by definition.</p>
+                      </div>
+                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
+                        <span>Proof: Automated Style Dictionary pipeline, role-based underwriting authority gating.</span>
+                        <a href="explorations/design-systems-not-ui-kits.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 04 ↗</a>
                       </div>
                     </div>
-                    <div class="flex flex-col gap-1.5 stagger-child">
+
+                    <!-- 03. DESIGN FOR THE COCKPIT, NOT THE STOREFRONT -->
+                    <div class="flex flex-col gap-2 stagger-child">
                       <div class="flex items-center justify-between">
                         <span class="font-medium text-black">03. Design for the Cockpit, Not the Storefront</span>
                         <span class="text-[11px] font-mono text-zinc-400">Three &amp; eLogo</span>
                       </div>
-                      <p class="text-zinc-500 text-sm leading-relaxed">
-                        Consumer patterns collapse under transactional enterprise volume. Back-office operators process claims, policies, and finances for 8 hours a day. Information density, zero page scroll, subpixel-aligned tables, and keyboard ergonomics are non-negotiable ergonomic safety requirements.
-                      </p>
-                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
-                        Proof: 15-module progressive underwriting tree, 38px integer table defense, -95.8% quote-to-bind latency, -85% manual reconciliation.
+                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
+                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Applying consumer B2C whitespace and infinite scroll cards to back-office systems, causing severe visual saccade fatigue for 8-hour operators.</p>
+                        <p><strong class="text-black font-semibold">The Protocol:</strong> Strict 100vh locked canvas, subpixel-aligned 38px integer table cells (border-collapse: separate + inset shadow), monospaced tabular numbers, and zero page scrolling.</p>
+                      </div>
+                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
+                        <span>Proof: 15-module progressive underwriting tree, -95.8% quote-to-bind latency, -85% manual load.</span>
+                        <a href="explorations/designing-for-8-hour-operator.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 03 ↗</a>
                       </div>
                     </div>
-                    <div class="flex flex-col gap-1.5 stagger-child">
+
+                    <!-- 04. PLATFORM ENABLEMENT OVER TICKET FACTORY -->
+                    <div class="flex flex-col gap-2 stagger-child">
                       <div class="flex items-center justify-between">
                         <span class="font-medium text-black">04. Platform Enablement Over Ticket Factory</span>
                         <span class="text-[11px] font-mono text-zinc-400">Allianz &amp; Agito</span>
                       </div>
-                      <p class="text-zinc-500 text-sm leading-relaxed">
-                        Governing 14 products cannot survive as a reactive mock-up sweatshop. Transform design into self-serve canonical floorplans, pre-validated form patterns, and strict PO readiness gates where autonomous squads assemble screens safely without designer bottleneck.
-                      </p>
-                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
-                        Proof: 5 squads orchestrated across 1.5M MAU, 5.4M customer deflection, 4 Canonical Floorplans (-82% dev time).
+                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
+                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Design operating as a centralized ticket-drawing service, creating an operational bottleneck that delays engineering sprints.</p>
+                        <p><strong class="text-black font-semibold">The Protocol:</strong> Convert design into a self-serve platform. Product Owners supply structured domain schemas verified against a strict UX Readiness Gate and 4 Canonical Floorplans.</p>
+                      </div>
+                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
+                        <span>Proof: 5 squads orchestrated across 1.5M MAU, 5.4M deflection, -82% developer time.</span>
+                        <a href="explorations/sole-designer-at-scale.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 01 ↗</a>
                       </div>
                     </div>
-                    <div class="flex flex-col gap-1.5 stagger-child">
+
+                    <!-- 05. BOUNDED CONTEXTS & SAFE ESCAPE HATCHES -->
+                    <div class="flex flex-col gap-2 stagger-child">
                       <div class="flex items-center justify-between">
                         <span class="font-medium text-black">05. Bounded Contexts &amp; Safe Escape Hatches</span>
                         <span class="text-[11px] font-mono text-zinc-400">Three &amp; Radity</span>
                       </div>
-                      <p class="text-zinc-500 text-sm leading-relaxed">
-                        Dogmatism breaks systems. Core operator cockpits require strict invariant discipline, while expressive marketing or customer portals operate in encapsulated sub-themes. A resilient architecture provides clear boundaries and safe escape hatches without polluting foundational tokens.
-                      </p>
-                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
-                        Proof: 85% component architecture reuse with isolated micro-frontend theming across 3 international insurance platforms.
+                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
+                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Systemic dogmatism that forces high-density core ledgers and expressive consumer portals into a single rigid template, breaking multi-brand platforms.</p>
+                        <p><strong class="text-black font-semibold">The Protocol:</strong> Strict invariant discipline for transactional operator cockpits, paired with encapsulated sub-themes and safe escape hatches for consumer frontends without polluting core tokens.</p>
+                      </div>
+                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
+                        <span>Proof: 85% component architecture reuse with isolated micro-frontend theming across 3 platforms.</span>
+                        <a href="explorations/design-systems-vs-tokens.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 07 ↗</a>
                       </div>
                     </div>
-                    <div class="flex flex-col gap-1.5 stagger-child">
+
+                    <!-- 06. DECISIONS REMOVED OVER COMPONENTS DELIVERED -->
+                    <div class="flex flex-col gap-2 stagger-child">
                       <div class="flex items-center justify-between">
                         <span class="font-medium text-black">06. Decisions Removed Over Components Delivered</span>
                         <span class="text-[11px] font-mono text-zinc-400">Allianz &amp; Agito</span>
                       </div>
-                      <p class="text-zinc-500 text-sm leading-relaxed">
-                        Design ROI is measured in architectural debt prevented, sprint arguments eliminated, and vendor dependency terminated—not Dribbble likes or Figma component counts. A robust control system pays for itself in engineering velocity.
-                      </p>
-                      <div class="text-[12px] font-mono text-zinc-400 pt-0.5">
-                        Proof: $24M digital premium volume, $180k/yr agency retainer terminated, zero sprint-interruption regressions across 14 squads.
+                      <div class="text-xs text-zinc-500 flex flex-col gap-1 leading-relaxed">
+                        <p><strong class="text-black font-semibold">Anti-Pattern:</strong> Measuring design system ROI in component volume and Figma vanity metrics rather than architectural debt prevented and business latency eliminated.</p>
+                        <p><strong class="text-black font-semibold">The Protocol:</strong> System value is measured strictly in sprint arguments eliminated, compliance risks mitigated, vendor dependencies terminated, and developer velocity gained.</p>
+                      </div>
+                      <div class="flex items-center justify-between pt-1 text-[12px] font-mono text-zinc-400">
+                        <span>Proof: $180k/yr agency retainer terminated, $24M digital premium volume, zero UI regressions.</span>
+                        <a href="explorations/fragility-of-agile.html" class="text-black underline decoration-zinc-200 hover:decoration-black font-sans text-xs">Read Exploration 05 ↗</a>
                       </div>
                     </div>
+
                   </div>
                 </div>
 
