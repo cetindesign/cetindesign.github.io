@@ -30,7 +30,7 @@
     }
     a:hover{ text-decoration-color:#a1a1aa; color:#000; }
     .wrap{
-      max-width:42rem;
+      max-width:44rem;
       margin-left:auto;
       margin-right:auto;
       padding-left:1.5rem;
@@ -78,6 +78,7 @@
     }
     h2{
       font-size:1.15rem;
+      line-height:1.4;
       font-weight:600;
       letter-spacing:-0.02em;
       color:#000;
@@ -99,6 +100,57 @@
       color:#52525b;
       font-size:14.5px;
       line-height:1.6;
+    }
+    .spec-box{
+      background:#fafafa;
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      padding:1.25rem 1.5rem;
+      margin:1.75rem 0;
+      font-size:13.5px;
+      line-height:1.6;
+    }
+    .spec-header{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:11.5px;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      color:#71717a;
+      margin-bottom:0.75rem;
+      font-weight:600;
+    }
+    .spec-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      margin:1.5rem 0;
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      overflow:hidden;
+      font-size:13px;
+    }
+    .spec-table th{
+      background:#fafafa;
+      color:#18181b;
+      font-weight:600;
+      text-align:left;
+      padding:10px 14px;
+      border-bottom:1px solid #e4e4e7;
+      line-height:1.4;
+    }
+    .spec-table td{
+      padding:10px 14px;
+      border-bottom:1px solid #f4f4f6;
+      color:#52525b;
+      line-height:1.5;
+      vertical-align:top;
+    }
+    .spec-table tr:last-child td{
+      border-bottom:none;
+    }
+    .spec-table td strong{
+      color:#000;
+      font-weight:600;
     }
     .footer-nav{
       display:flex;
@@ -123,45 +175,92 @@
       <span class="meta-tag">Essay · Oct 2024 · 7 min read</span>
     </div>
 
-    <h1>Scaling Design Architecture Across 14 Enterprise Products (Without the Bottleneck)</h1>
+    <h1>Scaling Design Architecture Across 14 Enterprise Products Without the Bottleneck</h1>
     <p class="deck">
-      Why expanding design headcount often accelerates UI entropy, and how turning design into a governed self-serve compiler enables 14 engineering squads to build autonomously at enterprise scale.
+      Why expanding design headcount often accelerates UI entropy, and how turning design into a governed self-serve specification engine enables 14 engineering squads to build autonomously at enterprise scale.
     </p>
 
-    <h2>The Linear Scaling Fallacy in Enterprise UX</h2>
+    <h2>The Linear Scaling Fallacy in Enterprise Software</h2>
     <p>
-      In high-growth organizations, leadership intuitively treats design scaling as a head-count math problem: <em>"If we have 14 squads, we need 14 embedded designers."</em> In transactional enterprise software, this assumption creates an architectural disaster.
+      In high-growth tech organizations, leadership instinctively treats design scaling as a head-count math equation: <em>"If we have 14 engineering squads, we need 14 embedded designers."</em> In complex, regulated enterprise software (InsurTech, FinTech, ERP), this assumption consistently produces architectural fragmentation.
     </p>
     <p>
-      Under Conway's Law, when 14 independent designers operate without a unified runtime contract, they produce 14 divergent table behaviors, 40 bespoke form layouts, and thousands of lines of unmaintainable ad-hoc CSS overrides. The organization spends millions hiring designers, only to drown in UI fragmentation and sprint-level engineering drag.
+      Under Conway's Law, when 14 independent designers operate without a strict runtime contract, they produce 14 divergent table behaviors, dozens of bespoke form layouts, and thousands of lines of unmaintainable ad-hoc CSS overrides. The organization spends hundreds of thousands of dollars hiring designers, only to drown in UI regressions, cross-squad inconsistency, and sprint-level delivery drag.
     </p>
     <blockquote>
-      “Local optimization is global degradation. Scaling a design function is not about hiring more pixel painters; it is about establishing enforceable infrastructure so that squads produce consistent software autonomously.”
+      “Local optimization is global degradation. Scaling design across a multi-product enterprise is not about hiring more pixel painters; it is about establishing enforceable architectural infrastructure so that engineering squads produce consistent software autonomously.”
     </blockquote>
 
     <h2>The Ticket Factory vs. The Federated Platform</h2>
     <p>
-      When design operates as a centralized ticket-drawing service, it immediately becomes the operational bottleneck. Sprints get delayed, Product Owners grow frustrated, and developers begin guessing edge cases out of necessity.
+      When design operates as a centralized mock-up service, it immediately becomes the primary operational bottleneck. Sprints get delayed waiting for Figma files, Product Owners grow frustrated, and developers begin guessing edge cases out of sheer necessity.
     </p>
     <p>
-      To break this trap at Agito—where 14 enterprise insurtech core systems serve 35% of the national insurance market—I shifted the design function from a <strong>service bottleneck</strong> into a <strong>self-serve federated platform</strong>:
-    </p>
-    <p>
-      <strong>1. The 4 Canonical Floorplans:</strong> Rather than drawing free-form canvases, all incoming business requirements are mapped directly into four pre-validated structural blueprints: Master-Detail List Report, Multi-Step Guided Flow, Document Workspace, and Analytics & Inspector.
-    </p>
-    <p>
-      <strong>2. The PO UX Readiness Gate:</strong> Product Owners no longer submit speculative wireframes. They provide structured business schemas and rule matrices. If a requirement cannot fit into the canonical taxonomy, the ambiguity is resolved at the requirements gate before a single pixel is touched.
-    </p>
-    <p>
-      <strong>3. Code-Enforced Token Governance:</strong> Constraints are not polite recommendations in Figma; they are enforced in the Style Dictionary pipeline (`core.json` ➔ Ant Design `ConfigProvider`). If a developer attempts to add a raw hex color or custom padding, the pre-commit linting gate rejects the build.
+      To break this trap across complex enterprise portfolios—such as orchestrating 5 squads across Health, Life/Pension, and Motor at Allianz Türkiye (1.5M MAU), or governing 14 core insurtech platforms powering 35% of Turkey’s private insurance sector at Agito—design must transform from a <strong>service bottleneck</strong> into a <strong>self-serve federated platform</strong>:
     </p>
 
-    <h2>The Delivery Economics of the Platform Model</h2>
+    <div class="spec-box">
+      <div class="spec-header">Architecture Specification: The 4 Canonical Floorplans</div>
+      <p style="margin-bottom:0.75rem;">All transactional business requirements across 14 enterprise core systems map strictly to four pre-validated layout blueprints:</p>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th style="width:28%;">Canonical Floorplan</th>
+            <th style="width:38%;">Core InsurTech / FinTech Domain Mapping</th>
+            <th style="width:34%;">Architectural Invariant</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Master-Detail List</strong></td>
+            <td>Underwriting referral worklists, claims triage registers, policy queues.</td>
+            <td>Strict 100vh canvas; 38px row height; zero page scroll; sticky pagination.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Guided Multi-Step Flow</strong></td>
+            <td>FNOL (First Notice of Loss) filing, commercial quote inception wizards.</td>
+            <td>15-module progressive vertical state tree; atomic step validation.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Document Workspace</strong></td>
+            <td>Policy endorsement diff views, reinsurance treaty structuring, contract builders.</td>
+            <td>Dual-pane canvas; left-hand document tree; right-hand sticky inspector.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Analytics &amp; Inspector</strong></td>
+            <td>Actuarial rating trace trees, loss ratio heatmaps, risk exposure cockpits.</td>
+            <td>High-density tabular grids; keyboard-driven data filtering; split ledgers.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>The Product Owner UX Readiness Gate</h2>
     <p>
-      Transitioning from a drawing sweatshop to a self-serve control architecture eliminated an annual $180,000 external agency retainer while slashing frontend development cycle time from 14 hours down to 2.5 hours per screen (-82%).
+      In a mature federated platform, Product Owners do not submit speculative wireframe requests. Instead, they provide structured domain requirements verified against a <strong>UX Readiness Gate</strong> before any engineering sprint begins:
     </p>
     <p>
-      When the system carries the architect's judgment into code, the organization moves faster with zero designer bottleneck—because the system makes the wrong thing impossible to build.
+      <strong>1. Domain Entity &amp; Floorplan Binding:</strong> Every PRD must declare its target canonical floorplan and state transitions (e.g., *Draft ➔ Underwriting Review ➔ Bound ➔ Endorsement*). Free-form layout requests are rejected at the gate.
+    </p>
+    <p>
+      <strong>2. Data Density &amp; Modal Invariant:</strong> If an entity contains 1 to 5 fields, it is assigned a standard 400px modal. If it contains 6 to 15 fields, it is assigned a 592px slide-over drawer. If it exceeds 15 fields or contains relational sub-tables, it is promoted to a dedicated Level 3 canvas page. Double-overlay modals are architecturally prohibited.
+    </p>
+    <p>
+      <strong>3. Token &amp; Zero-Override Compliance:</strong> Components are composed exclusively from the design system's Ant Design v5 `ConfigProvider` token architecture. Ad-hoc CSS classes and raw hex codes are rejected during pre-commit checks.
+    </p>
+
+    <h2>The Macro Financial ROI of Platform Design</h2>
+    <p>
+      Transitioning from a centralized ticket-drawing service to a federated specification engine delivered measurable business and operational returns:
+    </p>
+    <p>
+      <strong>1. Agency Retainer Termination:</strong> Terminated a legacy $180,000/year external design agency retainer by establishing in-house system governance.
+    </p>
+    <p>
+      <strong>2. -82% Screen Development Latency:</strong> By eliminating repetitive layout debates and providing pre-composed floorplans, developer implementation time dropped from 14 hours down to 2.5 hours per screen.
+    </p>
+    <p>
+      <strong>3. Zero Sprint Regressions Across 14 Squads:</strong> Product squads now assemble production-grade enterprise screens autonomously with zero design review delays—because the system makes the wrong thing impossible to build.
     </p>
 
     <div class="footer-nav">

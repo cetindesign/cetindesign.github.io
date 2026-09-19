@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes — Murat Çetin</title>
-  <meta name="description" content="How strict design token typing solves compliance masking, internationalization traps (dotted-i casing bugs), and WCAG 2.1 AA/AAA accessibility by default."/>
+  <meta name="description" content="How strict design token contracts and component specifications enforce compliance masking, internationalization traps, and regulatory invariants."/>
   
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
   
@@ -30,7 +30,7 @@
     }
     a:hover{ text-decoration-color:#a1a1aa; color:#000; }
     .wrap{
-      max-width:42rem;
+      max-width:44rem;
       margin-left:auto;
       margin-right:auto;
       padding-left:1.5rem;
@@ -78,6 +78,7 @@
     }
     h2{
       font-size:1.15rem;
+      line-height:1.4;
       font-weight:600;
       letter-spacing:-0.02em;
       color:#000;
@@ -100,67 +101,118 @@
       font-size:14.5px;
       line-height:1.6;
     }
+    .spec-box{
+      background:#fafafa;
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      padding:1.25rem 1.5rem;
+      margin:1.75rem 0;
+      font-size:13px;
+      line-height:1.55;
+    }
+    .spec-header{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:11.5px;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      color:#71717a;
+      margin-bottom:0.75rem;
+      font-weight:600;
+    }
+    pre{
+      margin:0;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:12.5px;
+      line-height:1.5;
+      color:#18181b;
+      overflow-x:auto;
+    }
     .footer-nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
       border-top:1px solid #f4f4f6;
+      margin-top:4rem;
       padding-top:2rem;
-      margin-top:4.5rem;
-      font-size:13.5px;
+      font-size:14px;
     }
-    .footer-prev, .footer-next{ color:#71717a; text-decoration:none; }
+    .footer-prev, .footer-next{
+      color:#71717a;
+      text-decoration:none;
+    }
     .footer-prev:hover, .footer-next:hover{ color:#000; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header class="top-nav">
+    <div class="top-nav">
       <a href="../index.html" class="nav-back">← Murat Çetin</a>
       <span class="meta-tag">Essay · Feb 2025 · 5 min read</span>
-    </header>
+    </div>
 
-    <h1 id="title">Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes</h1>
+    <h1>Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes</h1>
     <p class="deck">
-      How strict design token typing and component boundaries eliminate compliance risks, prevent runtime internationalization traps, and guarantee accessibility across high-stakes banking and insurance ecosystems.
+      How strict design token contracts and component specifications enforce compliance masking, internationalization traps, and regulatory invariants by default.
     </p>
 
-    <h2>The Cost of Non-Compliance in Financial UX</h2>
+    <h2>The Cost of Regulatory Ambiguity</h2>
     <p>
-      In regulated insurtech and banking environments (governed under MASAK, KVKK, SPK, and European GDPR frameworks), a design mistake is not an aesthetic flaw—it is a legal violation carrying multimillion-dollar regulatory fines.
+      In regulated enterprise domains—spanning banking, insurance (MASAK, KVKK, SPK in Turkey; FADP in Switzerland; GDPR in Europe)—compliance cannot be treated as an afterthought or a disclaimer text tacked onto the bottom of a form.
     </p>
     <p>
-      When software teams rely on ad-hoc frontend code to mask national identification numbers (TCKN), IBANs, or tax IDs, edge cases inevitably leak unmasked data into browser DOM trees, audit logs, or client-side analytics trackers.
+      If a design system does not provide built-in patterns for Personally Identifiable Information (PII) masking, role-based unmasking audit logs, and bi-temporal date tracking, engineering teams inevitably invent ad-hoc workarounds. A single exposed national ID number (TCKN) or unmasked IBAN on an unauthorized screen can result in millions of dollars in regulatory fines.
     </p>
     <blockquote>
-      “In regulated enterprise software, compliance is not a post-launch audit checklist; it is an invariant baked directly into component typography, data tokens, and input masking architectures.”
+      “Regulatory compliance is a design architecture problem. When PII masking, accessibility contrast ratios, and multi-locale casing rules are embedded into foundational component primitives, compliance becomes the default outcome rather than an expensive manual audit.”
     </blockquote>
 
-    <h2>The Turkish Dotted-i Runtime Casing Trap</h2>
+    <h2>The Derived Field Pattern (`AgitoDerivedField`)</h2>
     <p>
-      One of the most notorious bugs in global enterprise software involves the Turkish dotted and dotless I (<code>İ/i</code> vs. <code>I/ı</code>). Standard JavaScript transformations such as <code>toLowerCase()</code> or CSS <code>text-transform: uppercase</code> mutate Turkish characters unpredictably (e.g. converting <code>"DİCLE"</code> to <code>"d\u0131cle"</code> rather than <code>"dicle"</code>).
+      In back-office drawers and modal sheets, unchangeable primary keys and parent record context fields must never be presented as disabled text inputs, greyed-out boxes, or lock icons. Disabled inputs imply transient unreachability and confuse keyboard navigation.
     </p>
     <p>
-      In insurance search queries and policy lookup keys, this casing mutation causes silent query failures and broken customer records. Our design architecture eliminates this at the foundational level by prohibiting raw CSS text transforms on user data and enforcing locale-aware runtime string formatting (<code>toLocaleUpperCase('tr-TR')</code>) across all input components.
+      Instead, we architected the <strong>Derived Read-Only Field</strong> primitive:
     </p>
 
-    <h2>The Universal Derived Field &amp; KVKK Data Masking</h2>
+    <div class="spec-box">
+      <div class="spec-header">Component Specification: PII Masking &amp; Derived Field Contract</div>
+      <pre><code>[DERIVED READ-ONLY FIELD SPECIFICATION]
+- Anatomy: 12px subtle label above (var(--agito-color-text-secondary)),
+           14px high-contrast value below (var(--agito-color-text-primary)),
+           0.5px bottom hairline divider.
+- Interaction: Zero tab-stop overhead; native clipboard copy support.
+- Masking Behavior:
+  * TCKN (National ID): Displayed strictly as "123*****890" (First 3, Last 3 visible).
+  * IBAN: Displayed strictly as "TR** **** **** **** **** **12 34".
+  * Credit Card: Displayed strictly as "**** **** **** 4821".
+- Audit Invariant:
+  * Unmasking action requires explicit role authorization and triggers an immutable audit log entry.</code></pre>
+    </div>
+
+    <h2>The Multi-Locale Runtime Trap: The Turkish Dotted-i</h2>
     <p>
-      To prevent developers from inventing arbitrary grey boxes or disabled inputs for sensitive read-only identifiers, we standardized the <code>AgitoDerivedField</code> component:
+      Internationalization bugs frequently break enterprise search and database indexing due to string transformations. In the Turkish alphabet, lowercase 'i' capitalizes to 'İ' (dotted), while uppercase 'I' lowercases to 'ı' (dotless).
     </p>
     <p>
-      <strong>1. Built-in Regulatory Masking:</strong> Sensitive fields (TCKN, credit card tokens, IBANs) automatically render masked values (e.g., <code>*** *** 4821</code>) with role-based unmask toggles tied to audit logging.
+      When frontend frameworks run naive JavaScript `.toUpperCase()`, the Turkish string `dicle` transforms to `DİCLE` in Turkish runtimes but `DICLE` in default US English environments. This silent 1-character discrepancy breaks database lookups and search filtering across banking and insurance ledgers. The design system enforces locale-aware string transformations (`toLocaleUpperCase('tr-TR')`) across all search inputs and filter bars by contract.
+    </p>
+
+    <h2>Global Medical Data Privacy: Prepared360 (Switzerland)</h2>
+    <p>
+      This regulatory discipline proved essential in international healthcare environments at Radity. For **Prepared360** (serving Zurich University Hospital and Swiss clinical institutions), we architected a 360-degree peer review and accreditation platform under Swiss FADP and European medical privacy mandates.
     </p>
     <p>
-      <strong>2. High-Contrast WCAG 2.1 AA/AAA Compliance:</strong> Rather than low-contrast disabled grey text (#A1A1AA) which fails accessibility audits, derived fields use a subtle 12px label above a crisp 14px primary text string with a 1px baseline border.
+      The interface required strict cryptographic anonymization: clinical evaluations and peer scores were decoupled from physician identities at the presentation layer, preventing retaliatory bias while maintaining an immutable audit trail for hospital accreditation boards.
     </p>
+
+    <h2>Accessibility and Bi-Temporal Certainty</h2>
     <p>
-      <strong>3. Multi-Currency Alignment:</strong> Numeric inputs strictly separate monetary values from currency ISO codes (<code>TRY</code>, <code>USD</code>, <code>EUR</code>), preventing floating-point rounding errors and international ledger misalignment.
+      By enforcing WCAG 2.1 AA/AAA 4.5:1 contrast ratios on all text tokens and structuring financial records with <strong>Bi-Temporal timestamps</strong> (distinguishing *Effective Policy Date* from *System Transaction Record Date*), the design platform ensures legal certainty and operational transparency across all regulated enterprise products.
     </p>
 
     <div class="footer-nav">
       <a href="myth-of-b2c-ification.html" class="footer-prev">← Cognitive Ergonomics</a>
-      <a href="../index.html" class="footer-next">All Work →</a>
+      <a href="sole-designer-at-scale.html" class="footer-next">Scaling Across 14 Products →</a>
     </div>
   </div>
 </body>

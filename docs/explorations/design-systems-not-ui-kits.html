@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A Design System is Not a UI Kit — Murat Çetin</title>
-  <meta name="description" content="Why design systems that rely on polite human guidelines fail, and how automated linting, binary tokens, and hard deny constraints eliminate arbitrary choices."/>
+  <title>A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules — Murat Çetin</title>
+  <meta name="description" content="A design system is a control system. Why measuring design value in decisions removed from the table creates resilient enterprise architecture."/>
   
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
   
@@ -30,7 +30,7 @@
     }
     a:hover{ text-decoration-color:#a1a1aa; color:#000; }
     .wrap{
-      max-width:42rem;
+      max-width:44rem;
       margin-left:auto;
       margin-right:auto;
       padding-left:1.5rem;
@@ -78,6 +78,7 @@
     }
     h2{
       font-size:1.15rem;
+      line-height:1.4;
       font-weight:600;
       letter-spacing:-0.02em;
       color:#000;
@@ -99,6 +100,32 @@
       color:#52525b;
       font-size:14.5px;
       line-height:1.6;
+    }
+    .spec-box{
+      background:#fafafa;
+      border:1px solid #e4e4e7;
+      border-radius:6px;
+      padding:1.25rem 1.5rem;
+      margin:1.75rem 0;
+      font-size:13px;
+      line-height:1.55;
+    }
+    .spec-header{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:11.5px;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      color:#71717a;
+      margin-bottom:0.75rem;
+      font-weight:600;
+    }
+    pre{
+      margin:0;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:12.5px;
+      line-height:1.5;
+      color:#18181b;
+      overflow-x:auto;
     }
     .footer-nav{
       display:flex;
@@ -125,40 +152,62 @@
 
     <h1>A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules</h1>
     <p class="deck">
-      Why design systems that rely on polite human guidelines fail, and how automated linting, binary tokens, and hard deny constraints eliminate arbitrary choices.
+      A design system is a control system. Its job is to make the wrong thing impossible to build. Why measuring design value in decisions removed from the table eliminates enterprise failure modes.
     </p>
 
-    <h2>The Failure of Polite Documentation</h2>
+    <h2>The False Measure of Design Systems</h2>
     <p>
-      The industry is filled with beautiful Storybook playgrounds and Figma sticker sheets that describe themselves as design systems. Yet, when you inspect the production codebase of the companies that built them, you find hundreds of raw hex values, random margin overrides, and fragmented layout wrappers.
+      In many software organizations, design system success is mistakenly measured in component volume: <em>"We built 80 button variants, 45 modal layouts, and 12 badge styles."</em>
     </p>
     <p>
-      The reason is simple: <strong>documentation does not govern; constraints govern.</strong> Asking a frontend engineer or Product Owner to remember an 80-page design guideline in the middle of a pressured sprint is an organizational failure.
+      In high-stakes enterprise software, delivering more options is not a feature; it is an organizational failure. Every optional variant, open-ended dropdown, and unconstrained style choice increases cognitive load for developers and invites UI fragmentation.
     </p>
     <blockquote>
-      “A design system is a control system. Its job is to make the wrong thing impossible to build. Design value is measured in decisions permanently removed from the table, not components delivered in Figma.”
+      “Design value is measured in decisions removed from the table, not components delivered. If a proposed design system change does not make a specific failure mode impossible to build, it is merely visual decoration, not an architectural control.”
     </blockquote>
 
-    <h2>The Mechanics of Enforceable Architecture</h2>
+    <h2>The Architectural Control Contract</h2>
     <p>
-      In a true control system, rules are enforced by the compilation pipeline, linter, and type checker before code ever reaches production:
-    </p>
-    <p>
-      <strong>1. Binary Font Weights (Strict 400 and 600):</strong> We completely removed 500 (medium) and 700 (bold) weights from our typography token scale. By eliminating intermediate weights, all visual contrast is binary and mathematically predictable across tables, forms, and headers.
-    </p>
-    <p>
-      <strong>2. Strict Even-Pixel Invariant (The 8-Grid):</strong> All font sizes (12, 14, 16, 20, 24) and spacing steps (4, 8, 12, 16, 20, 24, 32, 40) must be even numbers. Odd numbers (13px, 15px, 7px) are rejected by pre-commit hooks, eliminating visual jitter and subpixel rounding bugs.
-    </p>
-    <p>
-      <strong>3. Automated Hard Deny Rules:</strong> Our CI/CD pipeline runs automated regex checks that immediately fail pull requests containing <code>!important</code>, raw hex codes, fill-weight icons, or custom CSS classes outside the governed theme configuration.
-    </p>
-    <p>
-      <strong>4. The Universal Derived Field:</strong> To prevent developers from creating arbitrary disabled grey boxes for read-only values, we built <code>AgitoDerivedField</code>—a standardized 40px component featuring an underline border, subtle label, and built-in privacy masking (KVKK/MASAK compliance).
+      A true enterprise design system functions as a set of strict architectural invariants. Rather than relying on human goodwill or lengthy Figma documentation guidelines, rules are baked directly into the system specification and acceptance criteria:
     </p>
 
-    <h2>Decisions Removed from the Engineering Floor</h2>
+    <div class="spec-box">
+      <div class="spec-header">System Acceptance Criteria: Hard Deny Architectural Invariants</div>
+      <pre><code>[HARD DENY SPECIFICATION]
+1. Typography Invariant:
+   - Font weights are strictly BINARY: 400 (Regular) and 600 (Semi-bold).
+   - Weights 500 (Medium) and 700 (Bold) are PROHIBITED across all viewports.
+2. Styling Invariants:
+   - ZERO raw hex codes outside :root / core.json tokens.
+   - ZERO !important rules in production CSS.
+   - ZERO linear or radial gradients (flat surfaces only).
+   - ZERO fill-weight icons (Phosphor line weight only).
+3. Overlay &amp; Navigation Invariants:
+   - Double-overlays (modal on drawer, modal on modal) are PROHIBITED.
+   - Entities exceeding 15 fields MUST promote to Level 3 Canvas Sub-Pages.
+   - Level 1 &amp; Level 2 views MUST use back button links; breadcrumbs reserved for Level 4+.</code></pre>
+    </div>
+
+    <h2>Domain-Level Governance: Underwriting Authority &amp; Endorsement Gating</h2>
     <p>
-      When the system enforces its own physics, engineering teams no longer debate button paddings or border radiuses in pull request reviews. The system guarantees that every squad builds correct, accessible, and compliant software by default.
+      Systemic control extends beyond visual styling into core enterprise business logic:
+    </p>
+    <p>
+      <strong>1. Underwriting Authority Delegation (Three Insurance):</strong> In multi-line commercial underwriting for Berkshire Hathaway, external brokers and junior underwriters operate within strictly defined schedule rating caps (e.g., maximum 15% discretionary credit). Rather than relying on backend validation errors after form submission, the design system enforces authority thresholds at the component level—disabling out-of-bounds controls and routing to an Underwriting Referral Worklist automatically.
+    </p>
+    <p>
+      <strong>2. Mid-Term Endorsement Mode Defense:</strong> When an underwriter modifies an in-force commercial policy mid-term, opening all coverage modules introduces catastrophic accidental alteration risk. The system enforces an *Endorsement Mode*: only the explicitly requested module (e.g., adding an insured vehicle) becomes editable; all other policy sections are locked with inline diff badges.
+    </p>
+
+    <h2>Measuring the Real ROI of Control</h2>
+    <p>
+      When design operates as an enforceable control system:
+    </p>
+    <p>
+      <strong>1. Design QA Overhead Drops to Zero:</strong> Because invalid styling, illegal padding, and unapproved font weights fail pre-commit linting gates automatically, designers stop policing pixels in sprint reviews.
+    </p>
+    <p>
+      <strong>2. Millions in Leakage Prevented:</strong> By embedding underwriting authority bounds and compliance masking directly into component contracts, the platform eliminates multimillion-dollar operational and regulatory leakage before code reaches production.
     </p>
 
     <div class="footer-nav">
