@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Why Enterprise Figma Kits Fail in Production (And the Bridge to Real Code) — Murat Çetin</title>
-  <meta name="description" content="Why static component stickers cause catastrophic engineering debt, and how W3C DTCG design token contracts bridge Figma and production code."/>
+  <meta name="description" content="Why static component stickers cause catastrophic engineering debt, and how W3C DTCG token compilers bridge design and production code."/>
   
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
   
@@ -152,26 +152,26 @@
 
     <h1>Why Enterprise Figma Kits Fail in Production (And the Bridge to Real Code)</h1>
     <p class="deck">
-      Why static component libraries create catastrophic engineering debt, and how W3C Design Token contracts transform Figma from a drawing board into a synchronized production specification engine.
+      Why static component libraries create catastrophic engineering debt, and how W3C Design Token compilers transform design decisions into synchronized production contracts.
     </p>
 
     <h2>The Static Library Mirage</h2>
     <p>
-      Almost every enterprise organization attempts to solve design fragmentation by purchasing or commissioning a monolithic Figma UI kit. External agencies deliver 500 beautifully styled components across 80 artboards, leadership checks off the "Design System" initiative, and within three quarters the system collapses in production.
+      Almost every enterprise organization attempts to solve design fragmentation by purchasing or commissioning an agency UI kit. External agencies deliver 500 beautifully styled components in Figma, leadership declares the design system complete, and within three quarters the system collapses in production.
     </p>
     <p>
       The failure is structural: <strong>Figma is a static canvas; enterprise software is a dynamic state machine.</strong>
     </p>
     <p>
-      A Figma component cannot simulate back-pressure, race conditions, role-based field permissions, localization text expansion, or 10,000-row table virtualization. When engineers inspect a design sticker, they find hardcoded pixel coordinates, arbitrary 13px paddings, and no semantic link to actual framework tokens. Developers are forced to interpret intent, introducing ad-hoc CSS overrides and compounding architectural debt across every sprint.
+      A Figma component cannot simulate data back-pressure, race conditions, role-based field permissions, localization text expansion, or 10,000-row table virtualization. When engineers inspect a design sticker, they find hardcoded pixel coordinates, arbitrary 13px paddings, and no link to framework tokens. Developers are forced to interpret intent, introducing ad-hoc CSS overrides that compound technical debt across every sprint.
     </p>
     <blockquote>
       “A design system does not live in Figma. A design system lives in the shared contract between design intent and production runtime. If a decision cannot be compiled into code invariants, it is not a system; it is an illustration.”
     </blockquote>
 
-    <h2>The Multi-Tenant Semantic Token Contract</h2>
+    <h2>The Multi-Tenant W3C Token Contract</h2>
     <p>
-      To build resilient multi-brand architectures—such as governing Material UI v5 across Three Insurance (Berkshire Hathaway, 80+ screens), Ranger Insurance (120+ screens commercial property/auto), and Mother (cyber insurance) at Radity—design tokens must be structured as strict W3C Design Token Community Group (DTCG) data contracts:
+      To build resilient multi-brand architectures—such as governing Material UI v5 across Three Insurance (Berkshire Hathaway, 80+ screens), Ranger Insurance (120+ screens), and Mother (cyber insurance) at Radity in Zurich—design tokens must be structured as strict W3C Design Token Community Group (DTCG) data contracts:
     </p>
 
     <div class="spec-box">
@@ -198,9 +198,9 @@
 }</code></pre>
     </div>
 
-    <h2>From Drawing Board to Automated Compilation</h2>
+    <h2>Automated Compilation: From Variables to Runtime</h2>
     <p>
-      When design tokens are treated as machine-readable data contracts, the bridge between Figma and code becomes automated:
+      When design tokens are treated as machine-readable data contracts, the bridge between design and code becomes automated:
     </p>
     <p>
       <strong>1. Variables API to Token Pipeline:</strong> Design decisions made in Figma publish directly to `core.json` via the Figma Variables REST API. Designers cannot invent rogue color hexes or unapproved pixel gaps.
@@ -209,15 +209,15 @@
       <strong>2. Multi-Target Compilation:</strong> A Style Dictionary build pipeline transforms `core.json` into framework-native deliverables: CSS Custom Properties (`:root`), TypeScript strict union types, and Ant Design v5 `ConfigProvider` theme structures (`agitoTheme`).
     </p>
     <p>
-      <strong>3. Zero Ad-Hoc Overrides:</strong> Component styling is restricted entirely to theme token composition. By prohibiting `!important` and ad-hoc class overrides across 40+ production views, we achieved zero UI regressions during major framework upgrades.
+      <strong>3. Multi-Brand Token Encapsulation:</strong> Core tokens remain locked at the platform level, while brand-specific themes (e.g., Berkshire Hathaway vs. Ranger) override only semantic color palettes, achieving an 85% component reuse rate across three international platforms with zero frontend rewrites.
     </p>
 
-    <h2>The Economics of Elimination</h2>
+    <h2>The Financial Return of Code-First Tokens</h2>
     <p>
       At Agito, replacing an external agency UI kit with an automated DTCG token pipeline eliminated an annual $180,000 agency retainer and purged 1,200 hours of technical debt previously spent untangling conflicting CSS rules.
     </p>
     <p>
-      In multi-tenant international architectures, this token pipeline enabled an 85% component reuse rate across three distinct insurance brands with zero frontend rewrites. When the system governs the contract, design moves at the speed of code.
+      When the token pipeline carries design decisions into code, the design system ceases to be an expense center and becomes a predictable engineering multiplier.
     </p>
 
     <div class="footer-nav">

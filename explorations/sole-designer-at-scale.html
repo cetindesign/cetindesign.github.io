@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Scaling Design Architecture Across 14 Enterprise Products Without the Bottleneck — Murat Çetin</title>
-  <meta name="description" content="How turning design into a governed self-serve platform enables 14 engineering squads to ship high-velocity enterprise software without operational design bottlenecks."/>
+  <meta name="description" content="Why expanding design headcount accelerates UI entropy, and how a governed self-serve floorplan platform enables 14 autonomous engineering squads."/>
   
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
   
@@ -107,8 +107,8 @@
       border-radius:6px;
       padding:1.25rem 1.5rem;
       margin:1.75rem 0;
-      font-size:13.5px;
-      line-height:1.6;
+      font-size:13px;
+      line-height:1.55;
     }
     .spec-header{
       font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
@@ -123,14 +123,14 @@
       width:100%;
       border-collapse:separate;
       border-spacing:0;
-      margin:1.5rem 0;
+      margin:1rem 0 0 0;
       border:1px solid #e4e4e7;
       border-radius:6px;
       overflow:hidden;
       font-size:13px;
     }
     .spec-table th{
-      background:#fafafa;
+      background:#f4f4f5;
       color:#18181b;
       font-weight:600;
       text-align:left;
@@ -177,44 +177,46 @@
 
     <h1>Scaling Design Architecture Across 14 Enterprise Products Without the Bottleneck</h1>
     <p class="deck">
-      Why expanding design headcount often accelerates UI entropy, and how turning design into a governed self-serve specification engine enables 14 engineering squads to build autonomously at enterprise scale.
+      Why expanding design headcount accelerates UI entropy, and how turning design into a governed self-serve floorplan engine enables 14 engineering squads to build autonomously at enterprise scale.
     </p>
 
-    <h2>The Linear Scaling Fallacy in Enterprise Software</h2>
+    <h2>Brooks’s Law in Enterprise Design</h2>
     <p>
-      In high-growth tech organizations, leadership instinctively treats design scaling as a head-count math equation: <em>"If we have 14 engineering squads, we need 14 embedded designers."</em> In complex, regulated enterprise software (InsurTech, FinTech, ERP), this assumption consistently produces architectural fragmentation.
+      In high-growth enterprise software, product leadership instinctively treats design scaling as a head-count equation: <em>"If we have 14 engineering squads, we need 14 embedded product designers."</em>
     </p>
     <p>
-      Under Conway's Law, when 14 independent designers operate without a strict runtime contract, they produce 14 divergent table behaviors, dozens of bespoke form layouts, and thousands of lines of unmaintainable ad-hoc CSS overrides. The organization spends hundreds of thousands of dollars hiring designers, only to drown in UI regressions, cross-squad inconsistency, and sprint-level delivery drag.
+      In complex B2B platforms, adding more designers to a fragmented system produces the exact failure mode described by Fred Brooks: communication overhead grows quadratically while architectural consistency collapses. Fourteen independent designers working in isolation inevitably create 14 divergent table behaviors, dozens of bespoke modal flows, and conflicting form validation rules.
+    </p>
+    <p>
+      The organization spends immense capital hiring designers, only to discover that design has become the primary bottleneck slowing down sprint delivery.
     </p>
     <blockquote>
-      “Local optimization is global degradation. Scaling design across a multi-product enterprise is not about hiring more pixel painters; it is about establishing enforceable architectural infrastructure so that engineering squads produce consistent software autonomously.”
+      “Scaling a design function is not about multiplying the number of people drawing screens; it is about establishing a deterministic platform architecture so that product squads assemble correct software autonomously.”
     </blockquote>
 
-    <h2>The Ticket Factory vs. The Federated Platform</h2>
+    <h2>The Self-Serve Floorplan Taxonomy</h2>
     <p>
-      When design operates as a centralized mock-up service, it immediately becomes the primary operational bottleneck. Sprints get delayed waiting for Figma files, Product Owners grow frustrated, and developers begin guessing edge cases out of sheer necessity.
+      To govern 14 core enterprise insurance platforms at Agito—serving 35% of the national insurance sector—we replaced the traditional ticket-drawing queue with a <strong>Canonical Floorplan Taxonomy</strong>.
     </p>
     <p>
-      To break this trap across complex enterprise portfolios—such as orchestrating 5 squads across Health, Life/Pension, and Motor at Allianz Türkiye (1.5M MAU), or governing 14 core insurtech platforms powering 35% of Turkey’s private insurance sector at Agito—design must transform from a <strong>service bottleneck</strong> into a <strong>self-serve federated platform</strong>:
+      Instead of designing every new feature from a blank canvas, all transactional requirements across policy, claims, and underwriting must map strictly to one of four pre-validated structural blueprints:
     </p>
 
     <div class="spec-box">
       <div class="spec-header">Architecture Specification: The 4 Canonical Floorplans</div>
-      <p style="margin-bottom:0.75rem;">All transactional business requirements across 14 enterprise core systems map strictly to four pre-validated layout blueprints:</p>
       <table class="spec-table">
         <thead>
           <tr>
             <th style="width:28%;">Canonical Floorplan</th>
-            <th style="width:38%;">Core InsurTech / FinTech Domain Mapping</th>
-            <th style="width:34%;">Architectural Invariant</th>
+            <th style="width:38%;">Core InsurTech Domain Mapping</th>
+            <th style="width:34%;">Layout Invariant</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>1. Master-Detail List</strong></td>
             <td>Underwriting referral worklists, claims triage registers, policy queues.</td>
-            <td>Strict 100vh canvas; 38px row height; zero page scroll; sticky pagination.</td>
+            <td>Strict 100vh canvas; 38px row height; zero page scroll; bottom sticky pagination.</td>
           </tr>
           <tr>
             <td><strong>2. Guided Multi-Step Flow</strong></td>
@@ -237,30 +239,27 @@
 
     <h2>The Product Owner UX Readiness Gate</h2>
     <p>
-      In a mature federated platform, Product Owners do not submit speculative wireframe requests. Instead, they provide structured domain requirements verified against a <strong>UX Readiness Gate</strong> before any engineering sprint begins:
+      To enforce this architecture upstream, we instituted a formalized <strong>UX Readiness Gate</strong> for Product Owners before any engineering sprint is scheduled:
     </p>
     <p>
-      <strong>1. Domain Entity &amp; Floorplan Binding:</strong> Every PRD must declare its target canonical floorplan and state transitions (e.g., *Draft ➔ Underwriting Review ➔ Bound ➔ Endorsement*). Free-form layout requests are rejected at the gate.
+      <strong>1. Entity &amp; Floorplan Declaration:</strong> Every Product Requirement Document (PRD) must declare its target floorplan and entity state transitions. If a requirement cannot be expressed within the canonical taxonomy, the ambiguity is resolved at the requirements phase rather than during active development.
     </p>
     <p>
-      <strong>2. Data Density &amp; Modal Invariant:</strong> If an entity contains 1 to 5 fields, it is assigned a standard 400px modal. If it contains 6 to 15 fields, it is assigned a 592px slide-over drawer. If it exceeds 15 fields or contains relational sub-tables, it is promoted to a dedicated Level 3 canvas page. Double-overlay modals are architecturally prohibited.
+      <strong>2. Modal &amp; Drawer Density Invariant:</strong> Entities containing 1 to 5 fields receive a 400px centered modal. Entities with 6 to 15 fields receive a 592px slide-over drawer. Entities with more than 15 fields or nested tables must be promoted to a Level 3 full-canvas sub-page. Double-overlay dialogs are architecturally prohibited.
     </p>
     <p>
-      <strong>3. Token &amp; Zero-Override Compliance:</strong> Components are composed exclusively from the design system's Ant Design v5 `ConfigProvider` token architecture. Ad-hoc CSS classes and raw hex codes are rejected during pre-commit checks.
+      <strong>3. Autonomous Engineering Assembly:</strong> Because developers consume pre-composed floorplans from the shared component library, they assemble production views directly from domain schemas without waiting for custom Figma mock-ups.
     </p>
 
-    <h2>The Macro Financial ROI of Platform Design</h2>
+    <h2>Throughput Velocity and Squad Autonomy</h2>
     <p>
-      Transitioning from a centralized ticket-drawing service to a federated specification engine delivered measurable business and operational returns:
+      Decoupling feature development from design headcount transformed the organization's delivery velocity:
     </p>
     <p>
-      <strong>1. Agency Retainer Termination:</strong> Terminated a legacy $180,000/year external design agency retainer by establishing in-house system governance.
+      <strong>1. -82% Screen Development Time:</strong> Eliminating speculative layout exploration reduced average developer implementation time from 14 hours down to 2.5 hours per screen.
     </p>
     <p>
-      <strong>2. -82% Screen Development Latency:</strong> By eliminating repetitive layout debates and providing pre-composed floorplans, developer implementation time dropped from 14 hours down to 2.5 hours per screen.
-    </p>
-    <p>
-      <strong>3. Zero Sprint Regressions Across 14 Squads:</strong> Product squads now assemble production-grade enterprise screens autonomously with zero design review delays—because the system makes the wrong thing impossible to build.
+      <strong>2. Zero Design Bottleneck:</strong> Fourteen transactional engineering squads now ship features in parallel with zero waiting time for visual assets, while the entire portfolio maintains unified architectural cohesion.
     </p>
 
     <div class="footer-nav">
