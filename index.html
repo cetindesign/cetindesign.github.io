@@ -250,6 +250,68 @@
       transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), width 0.32s cubic-bezier(0.16, 1, 0.3, 1);
       pointer-events: none;
     }
+
+    /* FLOATING WORK SHOWCASE (DESKTOP DYNAMIC HOVER PREVIEW) */
+    .work-floating-preview {
+      display: none;
+      position: absolute;
+      left: calc(100% + 2.5rem);
+      top: -0.5rem;
+      width: 360px;
+      height: 235px;
+      pointer-events: none;
+      z-index: 30;
+      opacity: 0;
+      transform: translate3d(0, 10px, 0) scale(0.96);
+      filter: blur(6px);
+      transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (min-width: 1120px) {
+      .work-floating-preview {
+        display: block;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      .work-floating-preview {
+        width: 420px;
+        height: 275px;
+      }
+    }
+
+    .work-floating-preview.visible {
+      opacity: 1;
+      filter: blur(0px);
+    }
+
+    .work-preview-card {
+      width: 100%;
+      height: 100%;
+      background: #fafafa;
+      border: 1px solid #e4e4e7;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0,0,0,0.03);
+      position: relative;
+    }
+
+    .work-preview-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      opacity: 0;
+      transform: scale(1.05);
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .work-preview-img.active {
+      opacity: 1;
+      transform: scale(1);
+    }
   </style>
 </head>
 <body>
@@ -297,7 +359,7 @@
               <div class="tabs-content-stack">
 
                 <!-- TAB 1: WORK -->
-                <div id="pane-work" class="section-tab-pane active">
+                <div id="pane-work" class="section-tab-pane active" style="position:relative;">
                   <div class="relative -mt-2 flex z-10 w-fit shrink-0 cursor-pointer flex-col gap-2 -mx-4" id="project-container-box">
 
                     <!-- LIQUID GLASS SPOTLIGHT -->
@@ -308,7 +370,7 @@
                     </div>
 
                     <!-- 01. AGITO -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event)" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
+                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'agito')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="agito.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Agito Enterprise InsurTech Modernization</span>
@@ -318,7 +380,7 @@
                     </span>
 
                     <!-- 02. ALLIANZ -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event)" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
+                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'allianz')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="allianz.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Allianz Türkiye Ecosystem</span>
@@ -328,7 +390,7 @@
                     </span>
 
                     <!-- 03. ELOGO -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event)" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
+                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'elogo')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="elogo.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">eLogo B2B Payment Gateway</span>
@@ -338,7 +400,7 @@
                     </span>
 
                     <!-- 04. THREE INSURANCE -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event)" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
+                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'three')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
                       <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="three.html">
                         <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
                           <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Three Insurance Underwriting</span>
@@ -347,6 +409,16 @@
                       </a>
                     </span>
 
+                  </div>
+
+                  <!-- FLOATING WORK SHOWCASE (DESKTOP DYNAMIC HOVER PREVIEW) -->
+                  <div id="work-floating-preview" class="work-floating-preview" aria-hidden="true">
+                    <div class="work-preview-card">
+                      <img id="work-preview-img-agito" src="assets/agito-hero.png" alt="Agito Preview" class="work-preview-img active" />
+                      <img id="work-preview-img-allianz" src="assets/allianz-hero.png" alt="Allianz Preview" class="work-preview-img" />
+                      <img id="work-preview-img-elogo" src="assets/elogo-strategy.png" alt="eLogo Preview" class="work-preview-img" />
+                      <img id="work-preview-img-three" src="assets/three-hero.png" alt="Three Insurance Preview" class="work-preview-img" />
+                    </div>
                   </div>
                 </div>
 
@@ -643,9 +715,46 @@
       }
     }
 
-    function handleItemEnter(item, e) {
+    var previewEl = document.getElementById('work-floating-preview');
+    var previewImages = {
+      agito: document.getElementById('work-preview-img-agito'),
+      allianz: document.getElementById('work-preview-img-allianz'),
+      elogo: document.getElementById('work-preview-img-elogo'),
+      three: document.getElementById('work-preview-img-three')
+    };
+
+    function showProjectPreview(projectId, itemElem) {
+      if (!previewEl) return;
+      Object.keys(previewImages).forEach(function(key) {
+        if (previewImages[key]) {
+          if (key === projectId) {
+            previewImages[key].classList.add('active');
+          } else {
+            previewImages[key].classList.remove('active');
+          }
+        }
+      });
+      if (itemElem && box) {
+        var itemRect = itemElem.getBoundingClientRect();
+        var boxRect = box.getBoundingClientRect();
+        var offsetY = Math.max(-10, Math.min(120, itemRect.top - boxRect.top - 15));
+        previewEl.style.transform = 'translate3d(0, ' + offsetY + 'px, 0) scale(1)';
+      }
+      previewEl.classList.add('visible');
+    }
+
+    function hideProjectPreview() {
+      if (!previewEl) return;
+      previewEl.classList.remove('visible');
+      previewEl.style.transform = 'translate3d(0, 10px, 0) scale(0.96)';
+    }
+
+    function handleItemEnter(item, e, projectId) {
       currentHoverItem = item;
       trackLiquidMouseMove(e);
+      if (projectId) {
+        showProjectPreview(projectId, item);
+      }
     }
 
     function handleItemLeave(item) {
@@ -657,6 +766,7 @@
           liquidEl.style.opacity = '0';
           liquidEl.style.transform = liquidEl.style.transform.replace(/rotateX\([^)]+\)\s*rotateY\([^)]+\)/, 'rotateX(0deg) rotateY(0deg)');
         }
+        hideProjectPreview();
       }
     }
 
@@ -732,6 +842,7 @@
       if (currentHoverItem) {
         handleItemLeave(currentHoverItem);
       }
+      hideProjectPreview();
     }
 
     function selectTabDirect(tabKey, evt, skipPush) {
