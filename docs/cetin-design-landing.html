@@ -282,11 +282,11 @@
                 <a class="nav-tab-item relative shrink-0 pb-1 text-black no-underline hover:no-underline cursor-pointer" onclick="selectTab('work', this, event)">
                   Work
                 </a>
-                <a class="nav-tab-item relative shrink-0 pb-1 text-zinc-400 no-underline hover:no-underline cursor-pointer" onclick="selectTab('explorations', this, event)">
-                  Explorations
-                </a>
                 <a class="nav-tab-item relative shrink-0 pb-1 text-zinc-400 no-underline hover:no-underline cursor-pointer" onclick="selectTab('operating', this, event)">
                   Operating Model
+                </a>
+                <a class="nav-tab-item relative shrink-0 pb-1 text-zinc-400 no-underline hover:no-underline cursor-pointer" onclick="selectTab('explorations', this, event)">
+                  Explorations
                 </a>
                 <a class="nav-tab-item relative shrink-0 pb-1 text-zinc-400 no-underline hover:no-underline cursor-pointer" onclick="selectTab('about', this, event)">
                   About
@@ -350,48 +350,7 @@
                   </div>
                 </div>
 
-                <!-- TAB 2: EXPLORATIONS & ESSAYS -->
-                <div id="pane-explorations" class="section-tab-pane">
-                  <div class="flex flex-col gap-6">
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/sole-designer-at-scale.html" class="font-semibold text-black hover:underline">01. Scaling Design Architecture Across 14 Enterprise Products Without the Bottleneck ↗</a>
-                      <p class="text-zinc-500 text-sm">Brooks’s Law in UX: How canonical floorplans and PO readiness gates decouple engineering throughput from design headcount.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Oct 2024 · 7 min read</span>
-                    </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/why-enterprise-figma-kits-fail.html" class="font-semibold text-black hover:underline">02. Why Enterprise Figma Kits Fail in Production (And the Bridge to Real Code) ↗</a>
-                      <p class="text-zinc-500 text-sm">Why static component stickers cause engineering debt, and how W3C DTCG token compilers terminated a $180k/yr agency retainer.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Nov 2024 · 6 min read</span>
-                    </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/designing-for-8-hour-operator.html" class="font-semibold text-black hover:underline">03. Designing for the 8-Hour Operator: Tables, Density, and Zero-Scroll Layouts ↗</a>
-                      <p class="text-zinc-500 text-sm">Ocular ergonomics and subpixel physics: 100vh canvas locking, 38px cell integer box-model, and tabular scanning velocity.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 6 min read</span>
-                    </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/design-systems-not-ui-kits.html" class="font-semibold text-black hover:underline">04. A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules ↗</a>
-                      <p class="text-zinc-500 text-sm">Control engineering in UI: binary font weights (400/600), hard-deny invariants, and underwriting authority gating.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Jan 2025 · 5 min read</span>
-                    </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/fragility-of-agile.html" class="font-semibold text-black hover:underline">05. The Fragility of Agile: Cultural and Linguistic Roots of UX Disintegration ↗</a>
-                      <p class="text-zinc-500 text-sm">Conway’s Law and multi-squad friction: how we unified 5 divergent squads across 1.5M MAU at Allianz Türkiye.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 6 min read</span>
-                    </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/myth-of-b2c-ification.html" class="font-semibold text-black hover:underline">06. Cognitive Ergonomics in Enterprise Core Systems: Density Over Decoration ↗</a>
-                      <p class="text-zinc-500 text-sm">Cognitive psychology and trust ergonomics: why frictionless flows trigger anxiety in irreversible $24M financial transfers.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Jan 2025 · 5 min read</span>
-                    </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/design-systems-vs-tokens.html" class="font-semibold text-black hover:underline">07. Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes ↗</a>
-                      <p class="text-zinc-500 text-sm">Legal certainty at component level: PII masking contracts, Turkish dotted-i casing traps, and Swiss medical privacy.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Feb 2025 · 5 min read</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- TAB 3: OPERATING MODEL (LAWS OF UX CARD ARCHITECTURE - STACKED) -->
+                <!-- TAB 2: OPERATING MODEL (LAWS OF UX CARD ARCHITECTURE - STACKED) -->
                 <div id="pane-operating" class="section-tab-pane">
                   <div style="display:flex; flex-direction:column; gap:1rem;" class="text-black">
 
@@ -533,6 +492,47 @@
                       </div>
                     </div>
 
+                  </div>
+                </div>
+
+                <!-- TAB 3: EXPLORATIONS & ESSAYS -->
+                <div id="pane-explorations" class="section-tab-pane">
+                  <div class="flex flex-col gap-6">
+                    <div class="flex flex-col gap-1 stagger-child">
+                      <a href="explorations/sole-designer-at-scale.html" class="font-semibold text-black hover:underline">01. Scaling Design Architecture Across 14 Enterprise Products Without the Bottleneck ↗</a>
+                      <p class="text-zinc-500 text-sm">Brooks’s Law in UX: How canonical floorplans and PO readiness gates decouple engineering throughput from design headcount.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Oct 2024 · 7 min read</span>
+                    </div>
+                    <div class="flex flex-col gap-1 stagger-child">
+                      <a href="explorations/why-enterprise-figma-kits-fail.html" class="font-semibold text-black hover:underline">02. Why Enterprise Figma Kits Fail in Production (And the Bridge to Real Code) ↗</a>
+                      <p class="text-zinc-500 text-sm">Why static component stickers cause engineering debt, and how W3C DTCG token compilers terminated a $180k/yr agency retainer.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Nov 2024 · 6 min read</span>
+                    </div>
+                    <div class="flex flex-col gap-1 stagger-child">
+                      <a href="explorations/designing-for-8-hour-operator.html" class="font-semibold text-black hover:underline">03. Designing for the 8-Hour Operator: Tables, Density, and Zero-Scroll Layouts ↗</a>
+                      <p class="text-zinc-500 text-sm">Ocular ergonomics and subpixel physics: 100vh canvas locking, 38px cell integer box-model, and tabular scanning velocity.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 6 min read</span>
+                    </div>
+                    <div class="flex flex-col gap-1 stagger-child">
+                      <a href="explorations/design-systems-not-ui-kits.html" class="font-semibold text-black hover:underline">04. A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules ↗</a>
+                      <p class="text-zinc-500 text-sm">Control engineering in UI: binary font weights (400/600), hard-deny invariants, and underwriting authority gating.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Jan 2025 · 5 min read</span>
+                    </div>
+                    <div class="flex flex-col gap-1 stagger-child">
+                      <a href="explorations/fragility-of-agile.html" class="font-semibold text-black hover:underline">05. The Fragility of Agile: Cultural and Linguistic Roots of UX Disintegration ↗</a>
+                      <p class="text-zinc-500 text-sm">Conway’s Law and multi-squad friction: how we unified 5 divergent squads across 1.5M MAU at Allianz Türkiye.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 6 min read</span>
+                    </div>
+                    <div class="flex flex-col gap-1 stagger-child">
+                      <a href="explorations/myth-of-b2c-ification.html" class="font-semibold text-black hover:underline">06. Cognitive Ergonomics in Enterprise Core Systems: Density Over Decoration ↗</a>
+                      <p class="text-zinc-500 text-sm">Cognitive psychology and trust ergonomics: why frictionless flows trigger anxiety in irreversible $24M financial transfers.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Jan 2025 · 5 min read</span>
+                    </div>
+                    <div class="flex flex-col gap-1 stagger-child">
+                      <a href="explorations/design-systems-vs-tokens.html" class="font-semibold text-black hover:underline">07. Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes ↗</a>
+                      <p class="text-zinc-500 text-sm">Legal certainty at component level: PII masking contracts, Turkish dotted-i casing traps, and Swiss medical privacy.</p>
+                      <span class="text-zinc-400 text-xs font-mono">Published Feb 2025 · 5 min read</span>
+                    </div>
                   </div>
                 </div>
 
@@ -737,7 +737,7 @@
     function selectTabDirect(tabKey, evt, skipPush) {
       if (evt) evt.preventDefault();
       var tabItems = document.querySelectorAll('.nav-tab-item');
-      var keys = ['work', 'explorations', 'operating', 'about'];
+      var keys = ['work', 'operating', 'explorations', 'about'];
       var idx = keys.indexOf(tabKey);
       if (idx !== -1 && tabItems[idx]) {
         selectTab(tabKey, tabItems[idx], evt, skipPush);
@@ -747,7 +747,7 @@
     function initFromUrl() {
       var params = new URLSearchParams(window.location.search);
       var section = params.get('section');
-      if (section && section !== 'work' && ['explorations', 'operating', 'about'].indexOf(section) !== -1) {
+      if (section && section !== 'work' && ['operating', 'explorations', 'about'].indexOf(section) !== -1) {
         selectTabDirect(section, null, true);
       } else {
         var activeTab = document.querySelector('.nav-tab-item.text-black');
