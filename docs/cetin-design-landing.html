@@ -252,63 +252,34 @@
       pointer-events: none;
     }
 
-    /* FLOATING WORK SHOWCASE (DESKTOP & SPLIT-SCREEN DYNAMIC HOVER PREVIEW) */
+    /* FLOATING WORK SHOWCASE (DIRECT BODY CHILD, POSITIONED FIXED TO VIEWPORT BESIDE LIST) */
     .work-floating-preview {
       display: none;
       position: fixed;
       pointer-events: none;
-      z-index: 50;
+      z-index: 9999;
       opacity: 0;
       filter: blur(8px);
-      transform: translateY(-50%) scale(0.95) translate3d(0, 8px, 0);
-      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.96) translate3d(0, 8px, 0);
+      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     @media (min-width: 768px) {
       .work-floating-preview {
         display: block;
-        right: max(1.25rem, calc((100vw - 1180px) / 2));
-        top: 50%;
-        width: min(460px, calc(100vw - 360px));
-        height: auto;
-        aspect-ratio: 16 / 10.5;
-      }
-    }
-
-    @media (min-width: 1100px) {
-      .work-floating-preview {
-        right: max(2rem, calc((100vw - 1280px) / 2));
-        width: 500px;
-        height: 330px;
-        aspect-ratio: auto;
-      }
-    }
-
-    @media (min-width: 1440px) {
-      .work-floating-preview {
-        right: max(3rem, calc((100vw - 1480px) / 2));
-        width: 560px;
-        height: 370px;
-      }
-    }
-
-    @media (min-width: 1680px) {
-      .work-floating-preview {
-        right: max(4.5rem, calc((100vw - 1680px) / 2));
-        width: 620px;
-        height: 410px;
       }
     }
 
     .work-floating-preview.visible {
       opacity: 1;
       filter: blur(0px);
-      transform: translateY(-50%) scale(1) translate3d(0, 0, 0);
+      transform: scale(1) translate3d(0, 0, 0);
     }
 
     .work-preview-card {
       width: 100%;
       height: 100%;
+      aspect-ratio: 16 / 10.5;
       background: #fafafa;
       border: 1px solid #e4e4e7;
       border-radius: 14px;
@@ -326,7 +297,7 @@
       object-position: top center;
       opacity: 0;
       transform: scale(1.06);
-      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .work-preview-img.active {
@@ -430,16 +401,6 @@
                       </a>
                     </span>
 
-                  </div>
-
-                  <!-- FLOATING WORK SHOWCASE (DESKTOP DYNAMIC HOVER PREVIEW) -->
-                  <div id="work-floating-preview" class="work-floating-preview" aria-hidden="true">
-                    <div class="work-preview-card">
-                      <img id="work-preview-img-agito" src="assets/agito-hero.png" alt="Agito Preview" class="work-preview-img active" />
-                      <img id="work-preview-img-allianz" src="assets/allianz-hero.png" alt="Allianz Preview" class="work-preview-img" />
-                      <img id="work-preview-img-elogo" src="assets/elogo-strategy.png" alt="eLogo Preview" class="work-preview-img" />
-                      <img id="work-preview-img-three" src="assets/three-hero.png" alt="Three Insurance Preview" class="work-preview-img" />
-                    </div>
                   </div>
                 </div>
 
@@ -672,6 +633,16 @@
     </div>
   </div>
 
+  <!-- FLOATING WORK SHOWCASE (DIRECT BODY CHILD, POSITIONED FIXED BESIDE WORK LIST) -->
+  <div id="work-floating-preview" class="work-floating-preview" aria-hidden="true">
+    <div class="work-preview-card">
+      <img id="work-preview-img-agito" src="assets/agito-hero.png" alt="Agito Preview" class="work-preview-img active" />
+      <img id="work-preview-img-allianz" src="assets/allianz-hero.png" alt="Allianz Preview" class="work-preview-img" />
+      <img id="work-preview-img-elogo" src="assets/elogo-strategy.png" alt="eLogo Preview" class="work-preview-img" />
+      <img id="work-preview-img-three" src="assets/three-hero.png" alt="Three Insurance Preview" class="work-preview-img" />
+    </div>
+  </div>
+
   <script>
     var liquidEl = document.getElementById('liquid-glass-el');
     var box = document.getElementById('project-container-box');
@@ -744,8 +715,8 @@
       three: document.getElementById('work-preview-img-three')
     };
 
-    function showProjectPreview(projectId) {
-      if (!previewEl) return;
+    function showProjectPreview(projectId, itemElem) {
+      if (!previewEl || window.innerWidth < 768) return;
       Object.keys(previewImages).forEach(function(key) {
         if (previewImages[key]) {
           if (key === projectId) {
@@ -755,6 +726,22 @@
           }
         }
       });
+
+      var targetElem = itemElem || box;
+      if (targetElem) {
+        var rect = targetElem.getBoundingClientRect();
+        var availableWidth = window.innerWidth - rect.right - 40;
+        var previewWidth = Math.max(300, Math.min(560, availableWidth));
+        var cardHeight = previewWidth * (10.5 / 16);
+
+        var leftPos = rect.right + 24;
+        var itemCenterY = targetElem.getBoundingClientRect().top + targetElem.getBoundingClientRect().height / 2;
+        var topPos = Math.max(24, Math.min(window.innerHeight - cardHeight - 24, itemCenterY - cardHeight / 2));
+
+        previewEl.style.width = previewWidth + 'px';
+        previewEl.style.left = leftPos + 'px';
+        previewEl.style.top = topPos + 'px';
+      }
       previewEl.classList.add('visible');
     }
 
@@ -767,7 +754,7 @@
       currentHoverItem = item;
       trackLiquidMouseMove(e);
       if (projectId) {
-        showProjectPreview(projectId);
+        showProjectPreview(projectId, item);
       }
     }
 
