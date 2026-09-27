@@ -252,39 +252,59 @@
       pointer-events: none;
     }
 
-    /* FLOATING WORK SHOWCASE (DIRECT BODY CHILD, POSITIONED FIXED TO VIEWPORT BESIDE LIST) */
-    .work-floating-preview {
-      display: none;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0;
-      filter: blur(8px);
-      transform: scale(0.96) translate3d(0, 8px, 0);
-      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    /* GAVIN NELSON TWO-COLUMN WORK STAGE (STATIONARY FIXED SPOT SHOWCASE) */
+    .work-split-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
     }
 
-    @media (min-width: 768px) {
-      .work-floating-preview {
+    @media (min-width: 900px) {
+      .work-split-layout {
+        display: grid;
+        grid-template-columns: 340px minmax(440px, 580px);
+        align-items: start;
+        justify-content: space-between;
+        gap: 3.5rem;
+        width: 100%;
+      }
+    }
+
+    .work-fixed-showcase {
+      display: none;
+      width: 100%;
+      max-width: 580px;
+      aspect-ratio: 16 / 10;
+      position: sticky;
+      top: 0.5rem;
+      opacity: 0;
+      filter: blur(8px);
+      transform: scale(0.98);
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    @media (min-width: 900px) {
+      .work-fixed-showcase {
         display: block;
       }
     }
 
-    .work-floating-preview.visible {
+    .work-fixed-showcase.visible {
       opacity: 1;
       filter: blur(0px);
-      transform: scale(1) translate3d(0, 0, 0);
+      transform: scale(1);
     }
 
-    .work-preview-card {
+    .work-showcase-card {
       width: 100%;
       height: 100%;
-      aspect-ratio: 16 / 10.5;
       background: #fafafa;
       border: 1px solid #e4e4e7;
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04);
       position: relative;
     }
 
@@ -296,8 +316,8 @@
       object-fit: cover;
       object-position: top center;
       opacity: 0;
-      transform: scale(1.06);
-      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(1.04);
+      transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1), transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .work-preview-img.active {
@@ -309,12 +329,12 @@
 <body>
 
   <div id="__next">
-    <div class="md:flex md:flex-row md:justify-center">
-      <div class="md:min-w-[512px] md:w-full md:max-w-2xl md:mx-auto">
-        <div class="flex flex-col justify-start max-w-2xl px-8 py-24">
+    <div class="flex flex-row justify-center w-full">
+      <div class="w-full max-w-2xl lg:max-w-5xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+        <div class="flex flex-col justify-start w-full">
 
           <!-- AVATAR (GAVIN NELSON EXACT: static in layout, no entrance animation) -->
-          <div class="grid w-8 h-8 mb-8 group">
+          <div class="grid w-8 h-8 mb-8 group max-w-2xl">
             <a aria-label="Go to the homepage" href="cetin-design-landing.html" class="block h-8 w-8 rounded-full bg-[#5D2BC7] text-white flex items-center justify-center font-semibold text-xs no-underline hover:no-underline">
               M
             </a>
@@ -323,7 +343,7 @@
           <div class="flex flex-col gap-12 origin-left home-container">
 
             <!-- TITLE & SUBTITLE (GAVIN NELSON EXACT: flex w-fit transform-gpu flex-col gap-1) -->
-            <div class="flex w-fit transform-gpu flex-col gap-1 will-change-transform header-motion">
+            <div class="flex w-fit transform-gpu flex-col gap-1 will-change-transform header-motion max-w-2xl">
               <h1 class="inline font-semibold text-black">Murat Çetin</h1>
               <h2 class="text-zinc-400"><span>Lead Design Systems Architect at </span><a href="https://agito.com.tr" target="_blank" rel="noopener noreferrer" class="text-black font-normal">Agito</a></h2>
             </div>
@@ -331,7 +351,7 @@
             <div class="flex flex-col gap-12">
 
               <!-- NAV TABS -->
-              <nav id="nav-tabs-bar" aria-label="Portfolio sections" class="relative flex w-full transform-gpu items-center gap-6 overflow-x-auto pb-1 will-change-transform nav-motion">
+              <nav id="nav-tabs-bar" aria-label="Portfolio sections" class="relative flex w-full max-w-2xl transform-gpu items-center gap-6 overflow-x-auto pb-1 will-change-transform nav-motion">
                 <div id="tab-sliding-indicator"></div>
                 <a class="nav-tab-item relative shrink-0 pb-1 text-black no-underline hover:no-underline cursor-pointer" onclick="selectTab('work', this, event)">
                   Work
@@ -351,61 +371,76 @@
               <div class="tabs-content-stack">
 
                 <!-- TAB 1: WORK -->
-                <div id="pane-work" class="section-tab-pane active" style="position:relative;">
-                  <div class="relative -mt-2 flex z-10 w-fit shrink-0 cursor-pointer flex-col gap-2 -mx-4" id="project-container-box">
+                <div id="pane-work" class="section-tab-pane active" onmouseleave="hideProjectPreview()">
+                  <div class="work-split-layout">
+                    
+                    <!-- COLUMN 1: PROJECT LIST -->
+                    <div class="relative -mt-2 flex z-10 w-fit shrink-0 cursor-pointer flex-col gap-2 -mx-4" id="project-container-box">
 
-                    <!-- LIQUID GLASS SPOTLIGHT -->
-                    <div class="absolute inset-0 pointer-events-none -z-10" style="perspective:1400px">
-                      <span aria-hidden="true" id="liquid-glass-el" class="absolute overflow-hidden liquid-glass pointer-events-none transform-gpu will-change-transform" style="opacity:0;top:0px;left:0px;width:0px;height:0px;border-radius:16px;">
-                        <div class="absolute inset-0 pointer-events-none rounded-[16px] opacity-90"></div>
+                      <!-- LIQUID GLASS SPOTLIGHT -->
+                      <div class="absolute inset-0 pointer-events-none -z-10" style="perspective:1400px">
+                        <span aria-hidden="true" id="liquid-glass-el" class="absolute overflow-hidden liquid-glass pointer-events-none transform-gpu will-change-transform" style="opacity:0;top:0px;left:0px;width:0px;height:0px;border-radius:16px;">
+                          <div class="absolute inset-0 pointer-events-none rounded-[16px] opacity-90"></div>
+                        </span>
+                      </div>
+
+                      <!-- 01. AGITO -->
+                      <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'agito')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
+                        <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="agito.html">
+                          <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
+                            <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Agito Enterprise InsurTech Modernization</span>
+                            <span class="font-normal text-zinc-400">Dec 2025–Present</span>
+                          </span>
+                        </a>
                       </span>
+
+                      <!-- 02. ALLIANZ -->
+                      <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'allianz')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
+                        <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="allianz.html">
+                          <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
+                            <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Allianz Türkiye Ecosystem</span>
+                            <span class="font-normal text-zinc-400">Aug 2023 – Dec 2025</span>
+                          </span>
+                        </a>
+                      </span>
+
+                      <!-- 03. ELOGO -->
+                      <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'elogo')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
+                        <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="elogo.html">
+                          <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
+                            <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">eLogo B2B Payment Gateway</span>
+                            <span class="font-normal text-zinc-400">Aug 2024</span>
+                          </span>
+                        </a>
+                      </span>
+
+                      <!-- 04. THREE INSURANCE -->
+                      <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'three')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
+                        <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="three.html">
+                          <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
+                            <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Three Insurance Underwriting</span>
+                            <span class="font-normal text-zinc-400">2022–2023</span>
+                          </span>
+                        </a>
+                      </span>
+
                     </div>
 
-                    <!-- 01. AGITO -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'agito')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
-                      <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="agito.html">
-                        <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
-                          <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Agito Enterprise InsurTech Modernization</span>
-                          <span class="font-normal text-zinc-400">Dec 2025–Present</span>
-                        </span>
-                      </a>
-                    </span>
-
-                    <!-- 02. ALLIANZ -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'allianz')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
-                      <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="allianz.html">
-                        <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
-                          <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Allianz Türkiye Ecosystem</span>
-                          <span class="font-normal text-zinc-400">Aug 2023 – Dec 2025</span>
-                        </span>
-                      </a>
-                    </span>
-
-                    <!-- 03. ELOGO -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'elogo')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
-                      <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="elogo.html">
-                        <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
-                          <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">eLogo B2B Payment Gateway</span>
-                          <span class="font-normal text-zinc-400">Aug 2024</span>
-                        </span>
-                      </a>
-                    </span>
-
-                    <!-- 04. THREE INSURANCE -->
-                    <span class="inline w-fit cursor-pointer stagger-child" onmouseenter="handleItemEnter(this, event, 'three')" onmousemove="trackLiquidMouseMove(event)" onmouseleave="handleItemLeave(this)">
-                      <a class="relative inline-flex flex-col gap-1 px-4 py-2 no-underline cursor-pointer text-black" href="three.html">
-                        <span class="inline-flex transform-gpu flex-col gap-1 will-change-transform">
-                          <span class="underline decoration-zinc-100 underline-offset-2 decoration-2 text-black">Three Insurance Underwriting</span>
-                          <span class="font-normal text-zinc-400">2022–2023</span>
-                        </span>
-                      </a>
-                    </span>
+                    <!-- COLUMN 2: STATIONARY FIXED SHOWCASE STAGE -->
+                    <div id="work-fixed-showcase" class="work-fixed-showcase" aria-hidden="true">
+                      <div class="work-showcase-card">
+                        <img id="work-preview-img-agito" src="assets/agito-hero.png" alt="Agito Preview" class="work-preview-img active" />
+                        <img id="work-preview-img-allianz" src="assets/allianz-hero.png" alt="Allianz Preview" class="work-preview-img" />
+                        <img id="work-preview-img-elogo" src="assets/elogo-strategy.png" alt="eLogo Preview" class="work-preview-img" />
+                        <img id="work-preview-img-three" src="assets/three-hero.png" alt="Three Insurance Preview" class="work-preview-img" />
+                      </div>
+                    </div>
 
                   </div>
                 </div>
 
                 <!-- TAB 2: OPERATING MODEL (LAWS OF UX CARD ARCHITECTURE - STACKED) -->
-                <div id="pane-operating" class="section-tab-pane">
+                <div id="pane-operating" class="section-tab-pane max-w-2xl">
                   <div style="display:flex; flex-direction:column; gap:1rem;" class="text-black">
 
                     <!-- CARD 01 -->
@@ -550,7 +585,7 @@
                 </div>
 
                 <!-- TAB 3: EXPLORATIONS & ESSAYS -->
-                <div id="pane-explorations" class="section-tab-pane">
+                <div id="pane-explorations" class="section-tab-pane max-w-2xl">
                   <div class="flex flex-col gap-6">
                     <div class="flex flex-col gap-1 stagger-child">
                       <a href="explorations/sole-designer-at-scale.html" class="font-semibold text-black hover:underline">01. Scaling Design Architecture Across 14 Enterprise Products Without the Bottleneck ↗</a>
@@ -591,7 +626,7 @@
                 </div>
 
                 <!-- TAB 4: ABOUT (GAVIN NELSON 1:1 CLEAN CONNECT SECTION) -->
-                <div id="pane-about" class="section-tab-pane">
+                <div id="pane-about" class="section-tab-pane max-w-2xl">
                   <div class="flex flex-col gap-8 text-black">
                     <div style="display: flex; flex-direction: column; gap: 1.5rem;" class="flex flex-col gap-6 text-zinc-600 text-[15px] leading-relaxed stagger-child">
                       <p>
@@ -707,7 +742,7 @@
       }
     }
 
-    var previewEl = document.getElementById('work-floating-preview');
+    var showcaseEl = document.getElementById('work-fixed-showcase');
     var previewImages = {
       agito: document.getElementById('work-preview-img-agito'),
       allianz: document.getElementById('work-preview-img-allianz'),
@@ -715,8 +750,8 @@
       three: document.getElementById('work-preview-img-three')
     };
 
-    function showProjectPreview(projectId, itemElem) {
-      if (!previewEl || window.innerWidth < 768) return;
+    function showProjectPreview(projectId) {
+      if (!showcaseEl || window.innerWidth < 900) return;
       Object.keys(previewImages).forEach(function(key) {
         if (previewImages[key]) {
           if (key === projectId) {
@@ -726,35 +761,19 @@
           }
         }
       });
-
-      var targetElem = itemElem || box;
-      if (targetElem) {
-        var rect = targetElem.getBoundingClientRect();
-        var availableWidth = window.innerWidth - rect.right - 40;
-        var previewWidth = Math.max(300, Math.min(560, availableWidth));
-        var cardHeight = previewWidth * (10.5 / 16);
-
-        var leftPos = rect.right + 24;
-        var itemCenterY = targetElem.getBoundingClientRect().top + targetElem.getBoundingClientRect().height / 2;
-        var topPos = Math.max(24, Math.min(window.innerHeight - cardHeight - 24, itemCenterY - cardHeight / 2));
-
-        previewEl.style.width = previewWidth + 'px';
-        previewEl.style.left = leftPos + 'px';
-        previewEl.style.top = topPos + 'px';
-      }
-      previewEl.classList.add('visible');
+      showcaseEl.classList.add('visible');
     }
 
     function hideProjectPreview() {
-      if (!previewEl) return;
-      previewEl.classList.remove('visible');
+      if (!showcaseEl) return;
+      showcaseEl.classList.remove('visible');
     }
 
     function handleItemEnter(item, e, projectId) {
       currentHoverItem = item;
       trackLiquidMouseMove(e);
       if (projectId) {
-        showProjectPreview(projectId, item);
+        showProjectPreview(projectId);
       }
     }
 
@@ -767,7 +786,6 @@
           liquidEl.style.opacity = '0';
           liquidEl.style.transform = liquidEl.style.transform.replace(/rotateX\([^)]+\)\s*rotateY\([^)]+\)/, 'rotateX(0deg) rotateY(0deg)');
         }
-        hideProjectPreview();
       }
     }
 
