@@ -324,36 +324,13 @@
       opacity: 1;
       transform: scale(1);
     }
-    /* OPERATING MODEL 2-COLUMN MATRIX GRID */
-    .operating-matrix-grid {
-      display: grid;
-      grid-template-columns: 100%;
-      gap: 0.875rem;
-      width: 100%;
-    }
-
-    @media (min-width: 640px) {
-      .operating-matrix-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-      }
-    }
-
-    .operating-card {
-      border: 1px solid #e4e4e7;
-      border-radius: 8px;
-      padding: 1.125rem;
-      background: #ffffff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 0.875rem;
-      transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .operating-card:hover {
-      border-color: #18181b;
-    }
+    .gap-3{gap:.75rem}
+    .gap-10{gap:2.5rem}
+    .pl-7{padding-left:1.75rem}
+    .tracking-tight{letter-spacing:-0.015em}
+    .items-baseline{align-items:baseline}
+    .select-none{user-select:none}
+    .transition-colors{transition-property:color,text-decoration-color;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
   </style>
 </head>
 <body>
@@ -469,129 +446,105 @@
                   </div>
                 </div>
 
-                <!-- TAB 2: OPERATING MODEL (2-COLUMN EDITORIAL MATRIX) -->
+                <!-- TAB 2: OPERATING MODEL / PRINCIPLES (BORDERLESS EDITORIAL STREAM) -->
                 <div id="pane-operating" class="section-tab-pane max-w-2xl">
-                  <div class="operating-matrix-grid text-black">
+                  <div class="flex flex-col gap-10 text-black">
 
-                    <!-- CARD 01 -->
-                    <div class="operating-card stagger-child">
-                      <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between">
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">01</span>
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px; white-space:nowrap;">Agito &amp; Radity</span>
-                        </div>
-                        <h3 class="font-semibold text-black text-[14.5px] leading-snug">
-                          Infrastructure Before Screens
-                        </h3>
-                        <p class="text-zinc-600 text-xs leading-relaxed">
-                          Token compilers, contract boundaries, and layout invariants must be locked in code before a single vector is drawn.
-                        </p>
+                    <!-- PRINCIPLE 01 -->
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-3">
+                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">01</span>
+                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Infrastructure Before Screens</h3>
                       </div>
-                      <div style="border-top:1px solid #f4f4f6; padding-top:0.625rem;" class="flex items-center justify-between text-xs">
-                        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">14+ platforms · 0 !important</span>
-                        <a href="explorations/why-enterprise-figma-kits-fail.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Exploration 02 ↗</a>
+                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                        Token compilers, contract boundaries, and layout invariants must be locked in code before a single vector is drawn in Figma.
+                      </p>
+                      <div class="flex items-center gap-3 text-xs text-zinc-400 pl-7 pt-1 font-mono">
+                        <span>14+ platforms · 0 !important</span>
+                        <span>·</span>
+                        <a href="explorations/why-enterprise-figma-kits-fail.html" class="text-zinc-500 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors font-sans">Exploration 02 ↗</a>
                       </div>
-                    </div>
+                    </article>
 
-                    <!-- CARD 02 -->
-                    <div class="operating-card stagger-child">
-                      <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between">
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">02</span>
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px; white-space:nowrap;">Agito &amp; Three</span>
-                        </div>
-                        <h3 class="font-semibold text-black text-[14.5px] leading-snug">
-                          Make the Wrong Thing Impossible to Build
-                        </h3>
-                        <p class="text-zinc-600 text-xs leading-relaxed">
-                          A design system is a compile-time control system whose value is measured in failure modes permanently removed from runtime.
-                        </p>
+                    <!-- PRINCIPLE 02 -->
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-3">
+                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">02</span>
+                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Make the Wrong Thing Impossible to Build</h3>
                       </div>
-                      <div style="border-top:1px solid #f4f4f6; padding-top:0.625rem;" class="flex items-center justify-between text-xs">
-                        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">Binary 400/600 · 0 QA regressions</span>
-                        <a href="explorations/design-systems-not-ui-kits.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Exploration 04 ↗</a>
+                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                        A design system is a compile-time control system. Its business value is measured strictly in failure modes permanently removed from runtime.
+                      </p>
+                      <div class="flex items-center gap-3 text-xs text-zinc-400 pl-7 pt-1 font-mono">
+                        <span>Binary 400/600 · 0 QA regressions</span>
+                        <span>·</span>
+                        <a href="explorations/design-systems-not-ui-kits.html" class="text-zinc-500 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors font-sans">Exploration 04 ↗</a>
                       </div>
-                    </div>
+                    </article>
 
-                    <!-- CARD 03 -->
-                    <div class="operating-card stagger-child">
-                      <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between">
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">03</span>
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px; white-space:nowrap;">Three &amp; eLogo</span>
-                        </div>
-                        <h3 class="font-semibold text-black text-[14.5px] leading-snug">
-                          Design for the Cockpit, Not the Storefront
-                        </h3>
-                        <p class="text-zinc-600 text-xs leading-relaxed">
-                          Enterprise ergonomics require strict tabular density, fixed integer geometry, and 100vh canvas containment for 8-hour operators.
-                        </p>
+                    <!-- PRINCIPLE 03 -->
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-3">
+                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">03</span>
+                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Design for the Cockpit, Not the Storefront</h3>
                       </div>
-                      <div style="border-top:1px solid #f4f4f6; padding-top:0.625rem;" class="flex items-center justify-between text-xs">
-                        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">-95.8% latency · -85% manual load</span>
-                        <a href="explorations/designing-for-8-hour-operator.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Exploration 03 ↗</a>
+                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                        Enterprise ergonomics require strict tabular density, fixed integer geometry, and 100vh canvas containment for 8-hour operators.
+                      </p>
+                      <div class="flex items-center gap-3 text-xs text-zinc-400 pl-7 pt-1 font-mono">
+                        <span>-95.8% latency · -85% operator load</span>
+                        <span>·</span>
+                        <a href="explorations/designing-for-8-hour-operator.html" class="text-zinc-500 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors font-sans">Exploration 03 ↗</a>
                       </div>
-                    </div>
+                    </article>
 
-                    <!-- CARD 04 -->
-                    <div class="operating-card stagger-child">
-                      <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between">
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">04</span>
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px; white-space:nowrap;">Allianz &amp; Agito</span>
-                        </div>
-                        <h3 class="font-semibold text-black text-[14.5px] leading-snug">
-                          Platform Enablement Over Ticket Factory
-                        </h3>
-                        <p class="text-zinc-600 text-xs leading-relaxed">
-                          True architectural leverage decouples engineering throughput from design headcount through deterministic floorplan contracts.
-                        </p>
+                    <!-- PRINCIPLE 04 -->
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-3">
+                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">04</span>
+                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Platform Enablement Over Ticket Factory</h3>
                       </div>
-                      <div style="border-top:1px solid #f4f4f6; padding-top:0.625rem;" class="flex items-center justify-between text-xs">
-                        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">1:250 leverage · 5 squads / 1.5M MAU</span>
-                        <a href="explorations/sole-designer-at-scale.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Exploration 01 ↗</a>
+                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                        True architectural leverage decouples engineering throughput from design headcount through deterministic floorplan contracts.
+                      </p>
+                      <div class="flex items-center gap-3 text-xs text-zinc-400 pl-7 pt-1 font-mono">
+                        <span>1:250 leverage · 5 squads / 1.5M MAU</span>
+                        <span>·</span>
+                        <a href="explorations/sole-designer-at-scale.html" class="text-zinc-500 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors font-sans">Exploration 01 ↗</a>
                       </div>
-                    </div>
+                    </article>
 
-                    <!-- CARD 05 -->
-                    <div class="operating-card stagger-child">
-                      <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between">
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">05</span>
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px; white-space:nowrap;">Three &amp; Radity</span>
-                        </div>
-                        <h3 class="font-semibold text-black text-[14.5px] leading-snug">
-                          Bounded Contexts &amp; Safe Escape Hatches
-                        </h3>
-                        <p class="text-zinc-600 text-xs leading-relaxed">
-                          Enterprise platforms require an immutable system kernel paired with isolated token sub-themes for regulated domain contexts.
-                        </p>
+                    <!-- PRINCIPLE 05 -->
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-3">
+                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">05</span>
+                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Bounded Contexts &amp; Safe Escape Hatches</h3>
                       </div>
-                      <div style="border-top:1px solid #f4f4f6; padding-top:0.625rem;" class="flex items-center justify-between text-xs">
-                        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">85% reuse · MASAK/KVKK/FINMA</span>
-                        <a href="explorations/design-systems-vs-tokens.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Exploration 07 ↗</a>
+                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                        Enterprise platforms require an immutable system kernel paired with isolated token sub-themes for regulated domain contexts.
+                      </p>
+                      <div class="flex items-center gap-3 text-xs text-zinc-400 pl-7 pt-1 font-mono">
+                        <span>85% reuse · MASAK/KVKK compliance</span>
+                        <span>·</span>
+                        <a href="explorations/design-systems-vs-tokens.html" class="text-zinc-500 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors font-sans">Exploration 07 ↗</a>
                       </div>
-                    </div>
+                    </article>
 
-                    <!-- CARD 06 -->
-                    <div class="operating-card stagger-child">
-                      <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between">
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; font-weight:600; color:#71717a;">06</span>
-                          <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a; background:#f4f4f5; padding:2px 6px; border-radius:4px; white-space:nowrap;">Allianz &amp; Agito</span>
-                        </div>
-                        <h3 class="font-semibold text-black text-[14.5px] leading-snug">
-                          Decisions Removed Over Components Delivered
-                        </h3>
-                        <p class="text-zinc-600 text-xs leading-relaxed">
-                          Design architecture ROI is realized in prevented technical debt, eliminated sprint negotiations, and terminated external retainers.
-                        </p>
+                    <!-- PRINCIPLE 06 -->
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-3">
+                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">06</span>
+                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Decisions Removed Over Components Delivered</h3>
                       </div>
-                      <div style="border-top:1px solid #f4f4f6; padding-top:0.625rem;" class="flex items-center justify-between text-xs">
-                        <span style="font-family:ui-monospace,monospace; font-size:11px; color:#71717a;">$180k agency saved · $24M premium</span>
-                        <a href="explorations/fragility-of-agile.html" class="text-black text-xs underline decoration-zinc-200 hover:decoration-black font-normal">Exploration 05 ↗</a>
+                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                        Design architecture ROI is realized in prevented technical debt, eliminated sprint negotiations, and terminated external retainers.
+                      </p>
+                      <div class="flex items-center gap-3 text-xs text-zinc-400 pl-7 pt-1 font-mono">
+                        <span>$180k agency saved · $24M premium</span>
+                        <span>·</span>
+                        <a href="explorations/fragility-of-agile.html" class="text-zinc-500 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors font-sans">Exploration 05 ↗</a>
                       </div>
-                    </div>
+                    </article>
 
                   </div>
                 </div>
