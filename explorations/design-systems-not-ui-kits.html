@@ -201,6 +201,62 @@
    - Level 1 &amp; Level 2 views MUST use back button links; breadcrumbs reserved for Level 4+.</code></pre>
     </div>
 
+    <h2>Compile-Time Proof: AST Invariant Enforcement</h2>
+    <p>
+      Human goodwill and documentation do not prevent architectural entropy; static analysis does. To enforce these Hard-Deny invariants deterministically before runtime, the design system deploys custom ESLint Abstract Syntax Tree (AST) rules directly into the continuous integration build pipeline:
+    </p>
+
+    <div class="spec-box">
+      <div class="spec-header">Static Analysis: ESLint AST Rule (agito/enforce-design-invariants)</div>
+      <pre><code>// eslint-plugin-agito/rules/enforce-design-invariants.js
+module.exports = {
+  meta: {
+    type: 'problem',
+    docs: {
+      description: 'Enforce binary typography weights and prohibit raw visual overrides outside DTCG tokens',
+      category: 'Design System Invariants'
+    },
+    schema: []
+  },
+  create(context) {
+    const ALLOWED_WEIGHTS = new Set([400, 600, '400', '600']);
+    const HEX_REGEX = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
+
+    return {
+      JSXAttribute(node) {
+        // Invariant 01: Enforce Binary Font-Weights (Hard-Deny 500/700)
+        if (node.name.name === 'fontWeight' || node.name.name === 'weight') {
+          const val = node.value?.value || node.value?.expression?.value;
+          if (val && !ALLOWED_WEIGHTS.has(val)) {
+            context.report({
+              node,
+              message: `[Hard-Deny Invariant]: Font weight '${val}' is prohibited. Only 400 (Regular) and 600 (Semi-bold) are allowed.`
+            });
+          }
+        }
+
+        // Invariant 02: Prohibit Raw Hex Overrides in JSX Style Props
+        if (node.name.name === 'style' && node.value?.expression?.type === 'ObjectExpression') {
+          node.value.expression.properties.forEach(prop => {
+            const val = prop.value?.value;
+            if (typeof val === 'string' && HEX_REGEX.test(val)) {
+              context.report({
+                node: prop,
+                message: `[Hard-Deny Invariant]: Raw hex color '${val}' is prohibited in runtime code. Bind to semantic DTCG token (core.json).`
+              });
+            }
+          });
+        }
+      }
+    };
+  }
+};</code></pre>
+    </div>
+
+    <p>
+      When a developer introduces an unapproved font weight (e.g., <code>fontWeight={500}</code>) or hardcodes an ad-hoc hex code, the AST linter halts the CI build at compile-time with a fatal error. The failure mode is permanently eliminated before code reaches a pull request.
+    </p>
+
     <h2>Business Invariant Enforcement: Underwriting Authority &amp; Endorsement Gating</h2>
     <p>
       Systemic control must extend beyond visual styling directly into core business rules:

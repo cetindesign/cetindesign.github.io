@@ -229,6 +229,36 @@
       <strong>3. Borderless Sticky Footer (40px):</strong> Pagination controls sit anchored at the bottom of the viewport outside the table card, providing immediate access without occluding active data rows.
     </p>
 
+    <h2>The Zero-Mouse Keyboard Traversal Contract</h2>
+    <p>
+      For back-office operators processing hundreds of insurance claims or reconciliation ledgers per shift, reaching for a mouse introduces an average physical switching latency of 1.8 seconds per field. Over an 8-hour day, mouse dependency degrades data entry throughput and accelerates repetitive strain injury (RSI).
+    </p>
+    <p>
+      The architecture establishes a non-negotiable <strong>Zero-Mouse Keyboard Contract</strong> across all tabular floorplans:
+    </p>
+
+    <div class="spec-box">
+      <div class="spec-header">Operator Ergonomics: Zero-Mouse Keyboard Traversal Contract</div>
+      <pre><code>[ZERO-MOUSE KEYBOARD TRAVERSAL SPECIFICATION]
+1. Grid &amp; Ledger Traversal:
+   - ArrowUp / ArrowDown : Move active row focus without triggering page scroll.
+   - Enter               : Activate inline cell edit mode or drill down to active entity.
+   - Escape              : Discard cell edits and return focus to current table row.
+   - Spacebar            : Toggle row selection checkbox.
+2. Form &amp; Field Traversal:
+   - Tab / Shift+Tab     : Linear cyclic focus traversal across inputs; zero focus traps.
+   - Cmd/Ctrl + Enter    : Immediate transactional form submission or policy bind.
+3. Overlay &amp; Drawer Focus Retention:
+   - Opening Drawer/Modal: Auto-focus first interactive input (autofocus=true).
+   - Dismissing Overlay  : Restore focus strictly to triggering grid row or trigger element.
+4. Tab-Stop Invariant:
+   - Derived read-only values, decorative icons, and static badges MUST have tabindex="-1".</code></pre>
+    </div>
+
+    <p>
+      By enforcing deterministic keyboard focus rings and zero-mouse navigation paths, operators execute complex multi-line risk evaluations, adjustments, and journal entries entirely hands-on-keyboard at maximum velocity.
+    </p>
+
     <h2>Operational Impact in High-Density Environments</h2>
     <p>
       This high-density tabular architecture was proven in two intense operational environments:
