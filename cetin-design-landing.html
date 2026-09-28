@@ -17,6 +17,12 @@
 
   <!-- FAVICON (SVG MONOGRAM) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
+
+  <!-- DM SANS: STRICTLY 400 AND 600 WEIGHTS ONLY -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet">
+
   <style>
     *,:before,:after,::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#3b82f680;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
     *,:before,:after{box-sizing:border-box;border:0 solid #e5e7eb}
@@ -26,17 +32,17 @@
     html,:host{
       -webkit-text-size-adjust:100%;
       tab-size:4;
-      font-feature-settings:normal;
+      font-feature-settings:"cv02","cv03","cv04","cv11";
       font-variation-settings:normal;
       -webkit-tap-highlight-color:transparent;
-      font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-      line-height:1.5;
+      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.57142857;
       scrollbar-gutter:stable;
       overflow-y:scroll;
       overflow-x:hidden;
     }
     
-    body{line-height:inherit;margin:0;background-color:#fff;font-size:15px;color:#000;overflow-x:hidden;}
+    body{line-height:22px;margin:0;background-color:#fff;font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;color:#000;overflow-x:hidden;}
     
     /* GAVIN NELSON 1:1 LINK UNDERLINE PHYSICS */
     a{
@@ -448,89 +454,107 @@
 
                 <!-- TAB 2: OPERATING MODEL / PRINCIPLES (BORDERLESS EDITORIAL STREAM) -->
                 <div id="pane-operating" class="section-tab-pane max-w-2xl">
-                  <div class="flex flex-col gap-6 text-black">
+                  <div class="flex flex-col gap-8 text-black">
 
                     <!-- PRINCIPLE 01 -->
-                    <article class="flex flex-col gap-1.5 -mx-3 p-3 rounded-lg hover:bg-zinc-50/80 transition-colors stagger-child">
-                      <div class="flex items-baseline gap-3">
-                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">01</span>
-                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Infrastructure Before Screens</h3>
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-2">
+                        <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">01</span>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">Infrastructure Before Screens</h3>
                       </div>
-                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         Token compilers, contract boundaries, and layout invariants must be locked in code before a single vector is drawn in Figma.
                       </p>
-                      <div class="pl-7 pt-1">
-                        <a href="explorations/why-enterprise-figma-kits-fail.html" class="inline-flex items-center gap-1.5 text-[12px] font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-800 hover:bg-[#5D2BC7] hover:text-white no-underline hover:no-underline transition-all">Read exploration ↗</a>
+                      <div class="pl-6 pt-1">
+                        <a href="explorations/why-enterprise-figma-kits-fail.html" class="inline-flex items-center gap-1 text-xs leading-5 font-normal text-zinc-400 hover:text-black no-underline hover:no-underline transition-colors group/link">
+                          <span>Read exploration</span>
+                          <span class="transition-transform group-hover/link:translate-x-0.5">↗</span>
+                        </a>
                       </div>
                     </article>
 
                     <!-- PRINCIPLE 02 -->
-                    <article class="flex flex-col gap-1.5 -mx-3 p-3 rounded-lg hover:bg-zinc-50/80 transition-colors stagger-child">
-                      <div class="flex items-baseline gap-3">
-                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">02</span>
-                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Make the Wrong Thing Impossible to Build</h3>
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-2">
+                        <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">02</span>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">Make the Wrong Thing Impossible to Build</h3>
                       </div>
-                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         A design system is a compile-time control system. Its business value is measured strictly in failure modes permanently removed from runtime.
                       </p>
-                      <div class="pl-7 pt-1">
-                        <a href="explorations/design-systems-not-ui-kits.html" class="inline-flex items-center gap-1.5 text-[12px] font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-800 hover:bg-[#5D2BC7] hover:text-white no-underline hover:no-underline transition-all">Read exploration ↗</a>
+                      <div class="pl-6 pt-1">
+                        <a href="explorations/design-systems-not-ui-kits.html" class="inline-flex items-center gap-1 text-xs leading-5 font-normal text-zinc-400 hover:text-black no-underline hover:no-underline transition-colors group/link">
+                          <span>Read exploration</span>
+                          <span class="transition-transform group-hover/link:translate-x-0.5">↗</span>
+                        </a>
                       </div>
                     </article>
 
                     <!-- PRINCIPLE 03 -->
-                    <article class="flex flex-col gap-1.5 -mx-3 p-3 rounded-lg hover:bg-zinc-50/80 transition-colors stagger-child">
-                      <div class="flex items-baseline gap-3">
-                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">03</span>
-                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Design for the Cockpit, Not the Storefront</h3>
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-2">
+                        <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">03</span>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">Design for the Cockpit, Not the Storefront</h3>
                       </div>
-                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         Enterprise ergonomics require strict tabular density, fixed integer geometry, and 100vh canvas containment for 8-hour operators.
                       </p>
-                      <div class="pl-7 pt-1">
-                        <a href="explorations/designing-for-8-hour-operator.html" class="inline-flex items-center gap-1.5 text-[12px] font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-800 hover:bg-[#5D2BC7] hover:text-white no-underline hover:no-underline transition-all">Read exploration ↗</a>
+                      <div class="pl-6 pt-1">
+                        <a href="explorations/designing-for-8-hour-operator.html" class="inline-flex items-center gap-1 text-xs leading-5 font-normal text-zinc-400 hover:text-black no-underline hover:no-underline transition-colors group/link">
+                          <span>Read exploration</span>
+                          <span class="transition-transform group-hover/link:translate-x-0.5">↗</span>
+                        </a>
                       </div>
                     </article>
 
                     <!-- PRINCIPLE 04 -->
-                    <article class="flex flex-col gap-1.5 -mx-3 p-3 rounded-lg hover:bg-zinc-50/80 transition-colors stagger-child">
-                      <div class="flex items-baseline gap-3">
-                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">04</span>
-                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Platform Enablement Over Ticket Factory</h3>
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-2">
+                        <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">04</span>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">Platform Enablement Over Ticket Factory</h3>
                       </div>
-                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         True architectural leverage decouples engineering throughput from design headcount through deterministic floorplan contracts.
                       </p>
-                      <div class="pl-7 pt-1">
-                        <a href="explorations/sole-designer-at-scale.html" class="inline-flex items-center gap-1.5 text-[12px] font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-800 hover:bg-[#5D2BC7] hover:text-white no-underline hover:no-underline transition-all">Read exploration ↗</a>
+                      <div class="pl-6 pt-1">
+                        <a href="explorations/sole-designer-at-scale.html" class="inline-flex items-center gap-1 text-xs leading-5 font-normal text-zinc-400 hover:text-black no-underline hover:no-underline transition-colors group/link">
+                          <span>Read exploration</span>
+                          <span class="transition-transform group-hover/link:translate-x-0.5">↗</span>
+                        </a>
                       </div>
                     </article>
 
                     <!-- PRINCIPLE 05 -->
-                    <article class="flex flex-col gap-1.5 -mx-3 p-3 rounded-lg hover:bg-zinc-50/80 transition-colors stagger-child">
-                      <div class="flex items-baseline gap-3">
-                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">05</span>
-                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Bounded Contexts &amp; Safe Escape Hatches</h3>
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-2">
+                        <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">05</span>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">Bounded Contexts &amp; Safe Escape Hatches</h3>
                       </div>
-                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         Enterprise platforms require an immutable system kernel paired with isolated token sub-themes for regulated domain contexts.
                       </p>
-                      <div class="pl-7 pt-1">
-                        <a href="explorations/design-systems-vs-tokens.html" class="inline-flex items-center gap-1.5 text-[12px] font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-800 hover:bg-[#5D2BC7] hover:text-white no-underline hover:no-underline transition-all">Read exploration ↗</a>
+                      <div class="pl-6 pt-1">
+                        <a href="explorations/design-systems-vs-tokens.html" class="inline-flex items-center gap-1 text-xs leading-5 font-normal text-zinc-400 hover:text-black no-underline hover:no-underline transition-colors group/link">
+                          <span>Read exploration</span>
+                          <span class="transition-transform group-hover/link:translate-x-0.5">↗</span>
+                        </a>
                       </div>
                     </article>
 
                     <!-- PRINCIPLE 06 -->
-                    <article class="flex flex-col gap-1.5 -mx-3 p-3 rounded-lg hover:bg-zinc-50/80 transition-colors stagger-child">
-                      <div class="flex items-baseline gap-3">
-                        <span class="text-xs text-zinc-400 font-mono select-none font-semibold">06</span>
-                        <h3 class="text-[17px] font-semibold text-black tracking-tight">Decisions Removed Over Components Delivered</h3>
+                    <article class="flex flex-col gap-2 stagger-child">
+                      <div class="flex items-baseline gap-2">
+                        <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">06</span>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">Decisions Removed Over Components Delivered</h3>
                       </div>
-                      <p class="text-[14px] leading-relaxed text-zinc-600 pl-7">
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         Design architecture ROI is realized in prevented technical debt, eliminated sprint negotiations, and terminated external retainers.
                       </p>
-                      <div class="pl-7 pt-1">
-                        <a href="explorations/fragility-of-agile.html" class="inline-flex items-center gap-1.5 text-[12px] font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-800 hover:bg-[#5D2BC7] hover:text-white no-underline hover:no-underline transition-all">Read exploration ↗</a>
+                      <div class="pl-6 pt-1">
+                        <a href="explorations/fragility-of-agile.html" class="inline-flex items-center gap-1 text-xs leading-5 font-normal text-zinc-400 hover:text-black no-underline hover:no-underline transition-colors group/link">
+                          <span>Read exploration</span>
+                          <span class="transition-transform group-hover/link:translate-x-0.5">↗</span>
+                        </a>
                       </div>
                     </article>
 
@@ -539,41 +563,41 @@
 
                 <!-- TAB 3: EXPLORATIONS & ESSAYS -->
                 <div id="pane-explorations" class="section-tab-pane max-w-2xl">
-                  <div class="flex flex-col gap-6">
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/sole-designer-at-scale.html" class="font-semibold text-black hover:underline">01. Scaling Design Architecture Across 14 Enterprise Products Without the Bottleneck ↗</a>
-                      <p class="text-zinc-500 text-sm">Brooks’s Law in UX: How canonical floorplans and PO readiness gates decouple engineering throughput from design headcount.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Oct 2024 · 7 min read</span>
+                  <div class="flex flex-col gap-8">
+                    <div class="flex flex-col gap-1.5 stagger-child">
+                      <a href="explorations/sole-designer-at-scale.html" class="text-base leading-6 font-semibold text-black hover:underline tracking-tight">01. Scaling Design Architecture Across 14 Enterprise Products Without the Bottleneck ↗</a>
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600">Brooks’s Law in UX: How canonical floorplans and PO readiness gates decouple engineering throughput from design headcount.</p>
+                      <span class="text-xs leading-5 font-normal text-zinc-400 tabular-nums">Published Oct 2024 · 7 min read</span>
                     </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/why-enterprise-figma-kits-fail.html" class="font-semibold text-black hover:underline">02. Why Enterprise Figma Kits Fail in Production (And the Bridge to Real Code) ↗</a>
-                      <p class="text-zinc-500 text-sm">Why static component stickers cause engineering debt, and how W3C DTCG token compilers terminated a $180k/yr agency retainer.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Nov 2024 · 6 min read</span>
+                    <div class="flex flex-col gap-1.5 stagger-child">
+                      <a href="explorations/why-enterprise-figma-kits-fail.html" class="text-base leading-6 font-semibold text-black hover:underline tracking-tight">02. Why Enterprise Figma Kits Fail in Production (And the Bridge to Real Code) ↗</a>
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600">Why static component stickers cause engineering debt, and how W3C DTCG token compilers terminated a $180k/yr agency retainer.</p>
+                      <span class="text-xs leading-5 font-normal text-zinc-400 tabular-nums">Published Nov 2024 · 6 min read</span>
                     </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/designing-for-8-hour-operator.html" class="font-semibold text-black hover:underline">03. Designing for the 8-Hour Operator: Tables, Density, and Zero-Scroll Layouts ↗</a>
-                      <p class="text-zinc-500 text-sm">Ocular ergonomics and subpixel physics: 100vh canvas locking, 38px cell integer box-model, and tabular scanning velocity.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 6 min read</span>
+                    <div class="flex flex-col gap-1.5 stagger-child">
+                      <a href="explorations/designing-for-8-hour-operator.html" class="text-base leading-6 font-semibold text-black hover:underline tracking-tight">03. Designing for the 8-Hour Operator: Tables, Density, and Zero-Scroll Layouts ↗</a>
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600">Ocular ergonomics and subpixel physics: 100vh canvas locking, 38px cell integer box-model, and tabular scanning velocity.</p>
+                      <span class="text-xs leading-5 font-normal text-zinc-400 tabular-nums">Published Dec 2024 · 6 min read</span>
                     </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/design-systems-not-ui-kits.html" class="font-semibold text-black hover:underline">04. A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules ↗</a>
-                      <p class="text-zinc-500 text-sm">Control engineering in UI: binary font weights (400/600), hard-deny invariants, and underwriting authority gating.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Jan 2025 · 5 min read</span>
+                    <div class="flex flex-col gap-1.5 stagger-child">
+                      <a href="explorations/design-systems-not-ui-kits.html" class="text-base leading-6 font-semibold text-black hover:underline tracking-tight">04. A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules ↗</a>
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600">Control engineering in UI: binary font weights (400/600), hard-deny invariants, and underwriting authority gating.</p>
+                      <span class="text-xs leading-5 font-normal text-zinc-400 tabular-nums">Published Jan 2025 · 5 min read</span>
                     </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/fragility-of-agile.html" class="font-semibold text-black hover:underline">05. The Fragility of Agile: Cultural and Linguistic Roots of UX Disintegration ↗</a>
-                      <p class="text-zinc-500 text-sm">Conway’s Law and multi-squad friction: how we unified 5 divergent squads across 1.5M MAU at Allianz Türkiye.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Dec 2024 · 6 min read</span>
+                    <div class="flex flex-col gap-1.5 stagger-child">
+                      <a href="explorations/fragility-of-agile.html" class="text-base leading-6 font-semibold text-black hover:underline tracking-tight">05. The Fragility of Agile: Cultural and Linguistic Roots of UX Disintegration ↗</a>
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600">Conway’s Law and multi-squad friction: how we unified 5 divergent squads across 1.5M MAU at Allianz Türkiye.</p>
+                      <span class="text-xs leading-5 font-normal text-zinc-400 tabular-nums">Published Dec 2024 · 6 min read</span>
                     </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/myth-of-b2c-ification.html" class="font-semibold text-black hover:underline">06. Cognitive Ergonomics in Enterprise Core Systems: Density Over Decoration ↗</a>
-                      <p class="text-zinc-500 text-sm">Cognitive psychology and trust ergonomics: why frictionless flows trigger anxiety in irreversible $24M financial transfers.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Jan 2025 · 5 min read</span>
+                    <div class="flex flex-col gap-1.5 stagger-child">
+                      <a href="explorations/myth-of-b2c-ification.html" class="text-base leading-6 font-semibold text-black hover:underline tracking-tight">06. Cognitive Ergonomics in Enterprise Core Systems: Density Over Decoration ↗</a>
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600">Cognitive psychology and trust ergonomics: why frictionless flows trigger anxiety in irreversible $24M financial transfers.</p>
+                      <span class="text-xs leading-5 font-normal text-zinc-400 tabular-nums">Published Jan 2025 · 5 min read</span>
                     </div>
-                    <div class="flex flex-col gap-1 stagger-child">
-                      <a href="explorations/design-systems-vs-tokens.html" class="font-semibold text-black hover:underline">07. Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes ↗</a>
-                      <p class="text-zinc-500 text-sm">Legal certainty at component level: PII masking contracts, Turkish dotted-i casing traps, and Swiss medical privacy.</p>
-                      <span class="text-zinc-400 text-xs font-mono">Published Feb 2025 · 5 min read</span>
+                    <div class="flex flex-col gap-1.5 stagger-child">
+                      <a href="explorations/design-systems-vs-tokens.html" class="text-base leading-6 font-semibold text-black hover:underline tracking-tight">07. Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes ↗</a>
+                      <p class="text-sm leading-[22px] font-normal text-zinc-600">Legal certainty at component level: PII masking contracts, Turkish dotted-i casing traps, and Swiss medical privacy.</p>
+                      <span class="text-xs leading-5 font-normal text-zinc-400 tabular-nums">Published Feb 2025 · 5 min read</span>
                     </div>
                   </div>
                 </div>
@@ -581,7 +605,7 @@
                 <!-- TAB 4: ABOUT (GAVIN NELSON 1:1 CLEAN CONNECT SECTION) -->
                 <div id="pane-about" class="section-tab-pane max-w-2xl">
                   <div class="flex flex-col gap-8 text-black">
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem;" class="flex flex-col gap-6 text-zinc-600 text-[15px] leading-relaxed stagger-child">
+                    <div class="flex flex-col gap-6 text-zinc-600 text-sm leading-[22px] font-normal stagger-child">
                       <p>
                         I design systems for software where mistakes are expensive. Rooted in usability research and human factors rather than visual art, I build precision instruments engineered for transactional safety, cognitive ergonomics, and zero-debt scalability.
                       </p>
@@ -597,9 +621,9 @@
                     </div>
 
                     <!-- GAVIN NELSON 1:1 CLEAN CONNECT SECTION (VERTICAL STACK) -->
-                    <div class="flex flex-col gap-2 stagger-child">
-                      <span class="font-semibold text-black">Connect</span>
-                      <div class="flex flex-col gap-2 text-zinc-600 text-[15px]">
+                    <div class="flex flex-col gap-3 stagger-child">
+                      <span class="text-xs leading-5 font-semibold text-zinc-400 uppercase tracking-wider">Connect</span>
+                      <div class="flex flex-col gap-2 text-sm leading-6 text-zinc-600">
                         <a href="mailto:murcetin1@gmail.com" class="w-fit text-zinc-600 hover:text-black no-underline hover:underline">Email</a>
                         <a href="https://www.linkedin.com/in/cetinmurat1/" target="_blank" rel="noopener noreferrer" class="w-fit text-zinc-600 hover:text-black no-underline hover:underline">LinkedIn</a>
                         <a href="https://cetinmurat.medium.com/" target="_blank" rel="noopener noreferrer" class="w-fit text-zinc-600 hover:text-black no-underline hover:underline">Medium</a>
