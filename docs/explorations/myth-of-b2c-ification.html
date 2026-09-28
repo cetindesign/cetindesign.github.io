@@ -6,20 +6,26 @@
   <title>Cognitive Ergonomics in Enterprise Core Systems: Density Over Decoration — Murat Çetin</title>
   <meta name="description" content="Why consumer B2C heuristics fail in high-consequence financial environments, and how cognitive ergonomics reduces transactional anxiety and operator error."/>
   
+  <!-- FAVICON (SVG MONOGRAM) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
   
+  <!-- DM SANS: STRICTLY 400 AND 600 WEIGHTS ONLY -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet">
+
   <style>
     *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
     html,:host{
       -webkit-text-size-adjust:100%;
-      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-      line-height:1.6;
+      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.57142857;
       scrollbar-gutter:stable;
       overflow-y:scroll;
       background-color:#fff;
-      color:#18181b;
+      color:#000;
     }
-    body{ margin:0; font-size:15px; -webkit-font-smoothing:antialiased; }
+    body{ margin:0; font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:14px; line-height:22px; color:#000; -webkit-font-smoothing:antialiased; }
     a{
       text-underline-offset:2px;
       text-decoration-line:underline;
@@ -30,7 +36,7 @@
     }
     a:hover{ text-decoration-color:#a1a1aa; color:#000; }
     .wrap{
-      max-width:44rem;
+      max-width:42rem;
       margin-left:auto;
       margin-right:auto;
       padding-left:1.5rem;
@@ -45,7 +51,8 @@
       padding-bottom:1.5rem;
       border-bottom:1px solid #f4f4f6;
       margin-bottom:3rem;
-      font-size:13.5px;
+      font-size:12px;
+      line-height:20px;
     }
     .nav-back{
       display:inline-flex;
@@ -57,37 +64,38 @@
     }
     .nav-back:hover{ color:#000; }
     .meta-tag{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
       font-size:12px;
+      line-height:20px;
       color:#a1a1aa;
+      font-variant-numeric:tabular-nums;
     }
     h1{
-      font-size:1.75rem;
-      line-height:1.25;
+      font-size:24px;
+      line-height:32px;
       font-weight:600;
-      letter-spacing:-0.03em;
+      letter-spacing:-0.02em;
       color:#000;
       margin-top:0;
       margin-bottom:1rem;
     }
     .deck{
-      font-size:15px;
-      line-height:1.65;
+      font-size:14px;
+      line-height:22px;
       color:#71717a;
       margin-bottom:2.5rem;
     }
     h2{
-      font-size:1.15rem;
-      line-height:1.4;
+      font-size:16px;
+      line-height:24px;
       font-weight:600;
-      letter-spacing:-0.02em;
+      letter-spacing:-0.01em;
       color:#000;
       margin-top:3rem;
       margin-bottom:0.75rem;
     }
     p{
-      font-size:15px;
-      line-height:1.65;
+      font-size:14px;
+      line-height:22px;
       color:#52525b;
       margin-top:0;
       margin-bottom:1.25rem;
@@ -98,26 +106,27 @@
       padding-left:1rem;
       border-left:2px solid #e4e4e7;
       color:#52525b;
-      font-size:14.5px;
-      line-height:1.6;
+      font-size:14px;
+      line-height:22px;
     }
     .spec-box{
       background:#fafafa;
       border:1px solid #e4e4e7;
-      border-radius:6px;
+      border-radius:8px;
       padding:1.25rem 1.5rem;
       margin:1.75rem 0;
-      font-size:13px;
-      line-height:1.55;
+      font-size:12px;
+      line-height:20px;
     }
     .spec-header{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-      font-size:11.5px;
+      font-size:12px;
+      line-height:20px;
       text-transform:uppercase;
-      letter-spacing:0.05em;
+      letter-spacing:0.04em;
       color:#71717a;
       margin-bottom:0.75rem;
       font-weight:600;
+      font-variant-numeric:tabular-nums;
     }
     .spec-table{
       width:100%;
@@ -127,26 +136,31 @@
       border:1px solid #e4e4e7;
       border-radius:6px;
       overflow:hidden;
-      font-size:13px;
+      font-size:12px;
+      line-height:20px;
     }
     .spec-table th{
       background:#f4f4f5;
       color:#18181b;
       font-weight:600;
       text-align:left;
-      padding:10px 14px;
+      padding:8px 12px;
       border-bottom:1px solid #e4e4e7;
-      line-height:1.4;
+      line-height:20px;
     }
     .spec-table td{
-      padding:10px 14px;
+      padding:8px 12px;
       border-bottom:1px solid #f4f4f6;
       color:#52525b;
-      line-height:1.5;
+      line-height:20px;
       vertical-align:top;
     }
     .spec-table tr:last-child td{
       border-bottom:none;
+    }
+    .spec-table td strong{
+      color:#000;
+      font-weight:600;
     }
     .footer-nav{
       display:flex;
@@ -155,7 +169,8 @@
       border-top:1px solid #f4f4f6;
       margin-top:4rem;
       padding-top:2rem;
-      font-size:14px;
+      font-size:12px;
+      line-height:20px;
     }
     .footer-prev, .footer-next{
       color:#71717a;
@@ -167,8 +182,8 @@
 <body>
   <div class="wrap">
     <div class="top-nav">
-      <a href="../index.html" class="nav-back">← Murat Çetin</a>
-      <span class="meta-tag">Essay · Jan 2025 · 5 min read</span>
+      <a href="../index.html?section=explorations" class="nav-back">← Murat Çetin</a>
+      <span class="meta-tag">Essay 06 · Mar 2026 · 4 min read</span>
     </div>
 
     <h1>Cognitive Ergonomics in Enterprise Core Systems: Density Over Decoration</h1>
@@ -189,7 +204,7 @@
 
     <h2>Empirical Research: Trust and Friction in Financial Flows</h2>
     <p>
-      The psychological dynamics of irreversible digital transactions were the central thesis of my Industrial Design Master’s research at Yaşar University (*Usability and Trust in Mobile Banking Wire Transfers*). Through laboratory testing utilizing System Usability Scale (SUS) and Retrospective Think-Aloud (RTA, N=12) protocols, the research revealed a foundational principle:
+      The psychological dynamics of irreversible digital transactions were the central thesis of my Industrial Design Master’s research at Yaşar University (<em>Usability and Trust in Mobile Banking Wire Transfers</em>). Through laboratory testing utilizing System Usability Scale (SUS) and Retrospective Think-Aloud (RTA, N=12) protocols, the research revealed a foundational principle:
     </p>
     <p>
       <strong>Friction Is Not Always an Anti-Pattern:</strong> In irreversible money movements (EFT, Swift, fund allocation), removing all confirmation friction actually increases user anxiety and perceived risk. Users require unambiguous confirmation checkpoints, explicit recipient identity validation, and visual certainty before committing irreversible transactions.
@@ -227,7 +242,7 @@
 
     <h2>Operator Working Memory and Actuarial Cockpits</h2>
     <p>
-      In back-office underwriting environments, an operator balances up to 12 interdependent variables simultaneously: *Probable Maximum Loss (PML), Deductible Retention, Co-insurance Share, Territory Risk Multipliers, and Treaty Cession Rates*.
+      In back-office underwriting environments, an operator balances up to 12 interdependent variables simultaneously: <em>Probable Maximum Loss (PML), Deductible Retention, Co-insurance Share, Territory Risk Multipliers, and Treaty Cession Rates</em>.
     </p>
     <p>
       When software forces an actuary to jump across multiple tabs to cross-reference reinsurance treaty terms against policy coverage, the operator's working memory buffer collapses. By engineering zero-scroll, high-density split ledgers with sticky side inspectors, the platform keeps all critical parameters pinned inside the operator’s visual span—driving transaction cycle times down while keeping error rates near zero.

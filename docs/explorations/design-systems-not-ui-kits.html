@@ -6,20 +6,26 @@
   <title>A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules — Murat Çetin</title>
   <meta name="description" content="A design system is a control system. Why measuring design value in decisions removed from the table eliminates enterprise failure modes."/>
   
+  <!-- FAVICON (SVG MONOGRAM) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
   
+  <!-- DM SANS: STRICTLY 400 AND 600 WEIGHTS ONLY -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet">
+
   <style>
     *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
     html,:host{
       -webkit-text-size-adjust:100%;
-      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-      line-height:1.6;
+      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.57142857;
       scrollbar-gutter:stable;
       overflow-y:scroll;
       background-color:#fff;
-      color:#18181b;
+      color:#000;
     }
-    body{ margin:0; font-size:15px; -webkit-font-smoothing:antialiased; }
+    body{ margin:0; font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:14px; line-height:22px; color:#000; -webkit-font-smoothing:antialiased; }
     a{
       text-underline-offset:2px;
       text-decoration-line:underline;
@@ -30,7 +36,7 @@
     }
     a:hover{ text-decoration-color:#a1a1aa; color:#000; }
     .wrap{
-      max-width:44rem;
+      max-width:42rem;
       margin-left:auto;
       margin-right:auto;
       padding-left:1.5rem;
@@ -45,7 +51,8 @@
       padding-bottom:1.5rem;
       border-bottom:1px solid #f4f4f6;
       margin-bottom:3rem;
-      font-size:13.5px;
+      font-size:12px;
+      line-height:20px;
     }
     .nav-back{
       display:inline-flex;
@@ -57,37 +64,38 @@
     }
     .nav-back:hover{ color:#000; }
     .meta-tag{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
       font-size:12px;
+      line-height:20px;
       color:#a1a1aa;
+      font-variant-numeric:tabular-nums;
     }
     h1{
-      font-size:1.75rem;
-      line-height:1.25;
+      font-size:24px;
+      line-height:32px;
       font-weight:600;
-      letter-spacing:-0.03em;
+      letter-spacing:-0.02em;
       color:#000;
       margin-top:0;
       margin-bottom:1rem;
     }
     .deck{
-      font-size:15px;
-      line-height:1.65;
+      font-size:14px;
+      line-height:22px;
       color:#71717a;
       margin-bottom:2.5rem;
     }
     h2{
-      font-size:1.15rem;
-      line-height:1.4;
+      font-size:16px;
+      line-height:24px;
       font-weight:600;
-      letter-spacing:-0.02em;
+      letter-spacing:-0.01em;
       color:#000;
       margin-top:3rem;
       margin-bottom:0.75rem;
     }
     p{
-      font-size:15px;
-      line-height:1.65;
+      font-size:14px;
+      line-height:22px;
       color:#52525b;
       margin-top:0;
       margin-bottom:1.25rem;
@@ -98,34 +106,36 @@
       padding-left:1rem;
       border-left:2px solid #e4e4e7;
       color:#52525b;
-      font-size:14.5px;
-      line-height:1.6;
+      font-size:14px;
+      line-height:22px;
     }
     .spec-box{
       background:#fafafa;
       border:1px solid #e4e4e7;
-      border-radius:6px;
+      border-radius:8px;
       padding:1.25rem 1.5rem;
       margin:1.75rem 0;
-      font-size:13px;
-      line-height:1.55;
+      font-size:12px;
+      line-height:20px;
     }
     .spec-header{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-      font-size:11.5px;
+      font-size:12px;
+      line-height:20px;
       text-transform:uppercase;
-      letter-spacing:0.05em;
+      letter-spacing:0.04em;
       color:#71717a;
       margin-bottom:0.75rem;
       font-weight:600;
+      font-variant-numeric:tabular-nums;
     }
     pre{
       margin:0;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-      font-size:12.5px;
-      line-height:1.5;
+      font-family:inherit;
+      font-size:12px;
+      line-height:20px;
       color:#18181b;
       overflow-x:auto;
+      font-variant-numeric:tabular-nums;
     }
     .footer-nav{
       display:flex;
@@ -134,7 +144,8 @@
       border-top:1px solid #f4f4f6;
       margin-top:4rem;
       padding-top:2rem;
-      font-size:14px;
+      font-size:12px;
+      line-height:20px;
     }
     .footer-prev, .footer-next{
       color:#71717a;
@@ -146,8 +157,8 @@
 <body>
   <div class="wrap">
     <div class="top-nav">
-      <a href="../index.html" class="nav-back">← Murat Çetin</a>
-      <span class="meta-tag">Essay · Jan 2025 · 5 min read</span>
+      <a href="../index.html?section=explorations" class="nav-back">← Murat Çetin</a>
+      <span class="meta-tag">Essay 04 · Feb 2026 · 4 min read</span>
     </div>
 
     <h1>A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules</h1>
@@ -184,6 +195,8 @@
    - ZERO fill-weight icons (Phosphor line weight only).
 3. Overlay &amp; Navigation Invariants:
    - Double-overlays (modal on drawer, modal on modal) are PROHIBITED.
+   - Entities containing 1-5 fields: 520px centered modal.
+   - Entities containing 6-15 fields: 592px slide-over drawer.
    - Entities exceeding 15 fields MUST promote to Level 3 Canvas Sub-Pages.
    - Level 1 &amp; Level 2 views MUST use back button links; breadcrumbs reserved for Level 4+.</code></pre>
     </div>
@@ -196,7 +209,7 @@
       <strong>1. Underwriting Authority Delegation (Three Insurance):</strong> In multi-line commercial underwriting for Berkshire Hathaway, external brokers and junior underwriters operate within strict schedule rating limits (e.g., maximum 15% discretionary credit). Rather than relying on backend validation errors post-submission, the design system enforces authority boundaries at the UI layer—disabling unauthorized controls and triggering an Underwriting Referral Worklist automatically.
     </p>
     <p>
-      <strong>2. Mid-Term Endorsement Mode Defense:</strong> When an underwriter modifies an in-force commercial policy mid-term, opening all coverage modules introduces severe accidental alteration risk. The system enforces an *Endorsement Mode*: only the explicitly requested module (e.g., adding an insured vehicle) becomes editable; all other policy sections are locked with inline diff badges.
+      <strong>2. Mid-Term Endorsement Mode Defense:</strong> When an underwriter modifies an in-force commercial policy mid-term, opening all coverage modules introduces severe accidental alteration risk. The system enforces an <em>Endorsement Mode</em>: only the explicitly requested module (e.g., adding an insured vehicle) becomes editable; all other policy sections are locked with inline diff badges.
     </p>
 
     <h2>Measuring the Real ROI of Control</h2>

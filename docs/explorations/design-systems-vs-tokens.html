@@ -6,20 +6,26 @@
   <title>Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes — Murat Çetin</title>
   <meta name="description" content="How strict design token contracts and component specifications enforce compliance masking, internationalization traps, and regulatory invariants."/>
   
+  <!-- FAVICON (SVG MONOGRAM) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
   
+  <!-- DM SANS: STRICTLY 400 AND 600 WEIGHTS ONLY -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet">
+
   <style>
     *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e5e7eb}
     html,:host{
       -webkit-text-size-adjust:100%;
-      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-      line-height:1.6;
+      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.57142857;
       scrollbar-gutter:stable;
       overflow-y:scroll;
       background-color:#fff;
-      color:#18181b;
+      color:#000;
     }
-    body{ margin:0; font-size:15px; -webkit-font-smoothing:antialiased; }
+    body{ margin:0; font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-size:14px; line-height:22px; color:#000; -webkit-font-smoothing:antialiased; }
     a{
       text-underline-offset:2px;
       text-decoration-line:underline;
@@ -30,7 +36,7 @@
     }
     a:hover{ text-decoration-color:#a1a1aa; color:#000; }
     .wrap{
-      max-width:44rem;
+      max-width:42rem;
       margin-left:auto;
       margin-right:auto;
       padding-left:1.5rem;
@@ -45,7 +51,8 @@
       padding-bottom:1.5rem;
       border-bottom:1px solid #f4f4f6;
       margin-bottom:3rem;
-      font-size:13.5px;
+      font-size:12px;
+      line-height:20px;
     }
     .nav-back{
       display:inline-flex;
@@ -57,37 +64,38 @@
     }
     .nav-back:hover{ color:#000; }
     .meta-tag{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
       font-size:12px;
+      line-height:20px;
       color:#a1a1aa;
+      font-variant-numeric:tabular-nums;
     }
     h1{
-      font-size:1.75rem;
-      line-height:1.25;
+      font-size:24px;
+      line-height:32px;
       font-weight:600;
-      letter-spacing:-0.03em;
+      letter-spacing:-0.02em;
       color:#000;
       margin-top:0;
       margin-bottom:1rem;
     }
     .deck{
-      font-size:15px;
-      line-height:1.65;
+      font-size:14px;
+      line-height:22px;
       color:#71717a;
       margin-bottom:2.5rem;
     }
     h2{
-      font-size:1.15rem;
-      line-height:1.4;
+      font-size:16px;
+      line-height:24px;
       font-weight:600;
-      letter-spacing:-0.02em;
+      letter-spacing:-0.01em;
       color:#000;
       margin-top:3rem;
       margin-bottom:0.75rem;
     }
     p{
-      font-size:15px;
-      line-height:1.65;
+      font-size:14px;
+      line-height:22px;
       color:#52525b;
       margin-top:0;
       margin-bottom:1.25rem;
@@ -98,34 +106,36 @@
       padding-left:1rem;
       border-left:2px solid #e4e4e7;
       color:#52525b;
-      font-size:14.5px;
-      line-height:1.6;
+      font-size:14px;
+      line-height:22px;
     }
     .spec-box{
       background:#fafafa;
       border:1px solid #e4e4e7;
-      border-radius:6px;
+      border-radius:8px;
       padding:1.25rem 1.5rem;
       margin:1.75rem 0;
-      font-size:13px;
-      line-height:1.55;
+      font-size:12px;
+      line-height:20px;
     }
     .spec-header{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-      font-size:11.5px;
+      font-size:12px;
+      line-height:20px;
       text-transform:uppercase;
-      letter-spacing:0.05em;
+      letter-spacing:0.04em;
       color:#71717a;
       margin-bottom:0.75rem;
       font-weight:600;
+      font-variant-numeric:tabular-nums;
     }
     pre{
       margin:0;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-      font-size:12.5px;
-      line-height:1.5;
+      font-family:inherit;
+      font-size:12px;
+      line-height:20px;
       color:#18181b;
       overflow-x:auto;
+      font-variant-numeric:tabular-nums;
     }
     .footer-nav{
       display:flex;
@@ -134,7 +144,8 @@
       border-top:1px solid #f4f4f6;
       margin-top:4rem;
       padding-top:2rem;
-      font-size:14px;
+      font-size:12px;
+      line-height:20px;
     }
     .footer-prev, .footer-next{
       color:#71717a;
@@ -146,8 +157,8 @@
 <body>
   <div class="wrap">
     <div class="top-nav">
-      <a href="../index.html" class="nav-back">← Murat Çetin</a>
-      <span class="meta-tag">Essay · Feb 2025 · 5 min read</span>
+      <a href="../index.html?section=explorations" class="nav-back">← Murat Çetin</a>
+      <span class="meta-tag">Essay 07 · Apr 2026 · 4 min read</span>
     </div>
 
     <h1>Regulated Architecture: Designing for MASAK, KVKK, and Multi-Locale Runtimes</h1>
@@ -166,7 +177,7 @@
       “Regulatory compliance is an architecture problem. When PII masking, accessibility contrast ratios, and multi-locale casing rules are embedded into foundational component primitives, compliance becomes the default outcome rather than an expensive manual audit.”
     </blockquote>
 
-    <h2>The Derived Field Pattern (`AgitoDerivedField`)</h2>
+    <h2>The Derived Field Pattern (AgitoDerivedField)</h2>
     <p>
       In back-office drawers and modal sheets, unchangeable primary keys and parent record context fields must never be presented as disabled text inputs, greyed-out boxes, or lock icons. Disabled inputs imply transient unreachability and confuse keyboard navigation.
     </p>
@@ -194,12 +205,12 @@
       Internationalization bugs frequently break enterprise search and database indexing due to string transformations. In the Turkish alphabet, lowercase 'i' capitalizes to 'İ' (dotted), while uppercase 'I' lowercases to 'ı' (dotless).
     </p>
     <p>
-      When frontend frameworks run naive JavaScript `.toUpperCase()`, the Turkish string `dicle` transforms to `DİCLE` in Turkish runtimes but `DICLE` in default US English environments. This silent 1-character discrepancy breaks database lookups and search filtering across banking and insurance ledgers. The design system enforces locale-aware string transformations (`toLocaleUpperCase('tr-TR')`) across all search inputs and filter bars by contract.
+      When frontend frameworks run naive JavaScript <code>.toUpperCase()</code>, the Turkish string <code>dicle</code> transforms to <code>DİCLE</code> in Turkish runtimes but <code>DICLE</code> in default US English environments. This silent 1-character discrepancy breaks database lookups and search filtering across banking and insurance ledgers. The design system enforces locale-aware string transformations (<code>toLocaleUpperCase('tr-TR')</code>) across all search inputs and filter bars by contract.
     </p>
 
     <h2>Global Medical Data Privacy: Prepared360 (Switzerland)</h2>
     <p>
-      This regulatory discipline proved essential in international healthcare environments at Radity. For **Prepared360** (serving Zurich University Hospital and Swiss clinical institutions), we architected a 360-degree peer review and accreditation platform under Swiss FADP and European medical privacy mandates.
+      This regulatory discipline proved essential in international healthcare environments at Radity. For <strong>Prepared360</strong> (serving Zurich University Hospital and Swiss clinical institutions), we architected a 360-degree peer review and accreditation platform under Swiss FADP and European medical privacy mandates.
     </p>
     <p>
       The interface required strict cryptographic anonymization: clinical evaluations and peer scores were decoupled from physician identities at the presentation layer, preventing retaliatory bias while maintaining an immutable audit trail for hospital accreditation boards.
@@ -207,7 +218,7 @@
 
     <h2>Accessibility and Bi-Temporal Certainty</h2>
     <p>
-      By enforcing WCAG 2.1 AA/AAA 4.5:1 contrast ratios on all text tokens and structuring financial records with <strong>Bi-Temporal timestamps</strong> (distinguishing *Effective Policy Date* from *System Transaction Record Date*), the design platform ensures legal certainty and operational transparency across all regulated enterprise products.
+      By enforcing WCAG 2.1 AA/AAA 4.5:1 contrast ratios on all text tokens and structuring financial records with <strong>Bi-Temporal timestamps</strong> (distinguishing <em>Effective Policy Date</em> from <em>System Transaction Record Date</em>), the design platform ensures legal certainty and operational transparency across all regulated enterprise products.
     </p>
 
     <div class="footer-nav">
