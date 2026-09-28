@@ -117,6 +117,11 @@
     .gap-8{gap:2rem}
     .gap-x-6{column-gap:1.5rem}
     .gap-y-2{row-gap:.5rem}
+    .gap-x-8{column-gap:2rem}
+    .gap-y-8{row-gap:2rem}
+    .gap-y-10{row-gap:2.5rem}
+    .grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+    .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .rounded-full{border-radius:9999px}
     .bg-zinc-150{background-color:rgb(238 239 242)}
     .bg-zinc-900{background-color:#18181b}
@@ -125,6 +130,8 @@
     .py-2{padding-top:.5rem;padding-bottom:.5rem}
     .py-24{padding-top:6rem;padding-bottom:6rem}
     .pb-1{padding-bottom:.25rem}
+    .pt-0\.5{padding-top:.125rem}
+    .pt-1{padding-top:.25rem}
     .pt-4{padding-top:1rem}
     .pt-2{padding-top:.5rem}
     .font-medium{font-weight:600}
@@ -136,8 +143,10 @@
     .underline{text-decoration-line:underline}
     .no-underline{text-decoration-line:none}
     .decoration-zinc-100{text-decoration-color:#eeeff2}
+    .decoration-zinc-200{text-decoration-color:#e4e4e7}
     .decoration-2{text-decoration-thickness:2px}
     .underline-offset-2{text-underline-offset:2px}
+    .underline-offset-4{text-underline-offset:4px}
     .opacity-90{opacity:.9}
 
     @media (min-width:768px){
@@ -149,6 +158,8 @@
       .md\:max-w-2xl{max-width:42rem}
       .md\:mx-auto{margin-left:auto;margin-right:auto}
       .md\:-mx-28{margin-left:-7rem;margin-right:-7rem}
+      .md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .md\:grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
     }
 
     /* GAVIN NELSON BLUR-TO-FOCUS CASCADE ENGINE (EXACT 0.75s SPRING + 8px BLUR) */
@@ -452,98 +463,116 @@
                   </div>
                 </div>
 
-                <!-- TAB 2: OPERATING MODEL / PRINCIPLES (BORDERLESS EDITORIAL STREAM) -->
+                <!-- TAB 2: OPERATING MODEL / PRINCIPLES (2-COLUMN ARCHITECTURAL MATRIX) -->
                 <div id="pane-operating" class="section-tab-pane max-w-2xl">
-                  <div class="flex flex-col gap-8 text-black">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 text-black">
 
                     <!-- PRINCIPLE 01 -->
                     <article class="flex flex-col gap-1.5 stagger-child">
                       <div class="flex items-baseline gap-2">
                         <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">01</span>
-                        <h3 class="text-base leading-6 font-semibold tracking-tight">
-                          <a href="explorations/why-enterprise-figma-kits-fail.html" class="text-black hover:text-[#5D2BC7] underline decoration-zinc-200 hover:decoration-black underline-offset-4 transition-colors">
-                            Infrastructure Before Screens
-                          </a>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">
+                          Infrastructure Before Screens
                         </h3>
                       </div>
                       <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         Token compilers, contract boundaries, and layout invariants must be locked in code before a single vector is drawn in Figma.
                       </p>
+                      <div class="pl-6 pt-0.5">
+                        <a href="explorations/why-enterprise-figma-kits-fail.html" class="text-xs leading-5 font-normal text-zinc-400 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors">
+                          Read essay →
+                        </a>
+                      </div>
                     </article>
 
                     <!-- PRINCIPLE 02 -->
                     <article class="flex flex-col gap-1.5 stagger-child">
                       <div class="flex items-baseline gap-2">
                         <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">02</span>
-                        <h3 class="text-base leading-6 font-semibold tracking-tight">
-                          <a href="explorations/design-systems-not-ui-kits.html" class="text-black hover:text-[#5D2BC7] underline decoration-zinc-200 hover:decoration-black underline-offset-4 transition-colors">
-                            Make the Wrong Thing Impossible to Build
-                          </a>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">
+                          Make the Wrong Thing Impossible to Build
                         </h3>
                       </div>
                       <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         A design system is a compile-time control system. Its business value is measured strictly in failure modes permanently removed from runtime.
                       </p>
+                      <div class="pl-6 pt-0.5">
+                        <a href="explorations/design-systems-not-ui-kits.html" class="text-xs leading-5 font-normal text-zinc-400 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors">
+                          Read essay →
+                        </a>
+                      </div>
                     </article>
 
                     <!-- PRINCIPLE 03 -->
                     <article class="flex flex-col gap-1.5 stagger-child">
                       <div class="flex items-baseline gap-2">
                         <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">03</span>
-                        <h3 class="text-base leading-6 font-semibold tracking-tight">
-                          <a href="explorations/designing-for-8-hour-operator.html" class="text-black hover:text-[#5D2BC7] underline decoration-zinc-200 hover:decoration-black underline-offset-4 transition-colors">
-                            Design for the Cockpit, Not the Storefront
-                          </a>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">
+                          Design for the Cockpit, Not the Storefront
                         </h3>
                       </div>
                       <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         Enterprise ergonomics require strict tabular density, fixed integer geometry, and 100vh canvas containment for 8-hour operators.
                       </p>
+                      <div class="pl-6 pt-0.5">
+                        <a href="explorations/designing-for-8-hour-operator.html" class="text-xs leading-5 font-normal text-zinc-400 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors">
+                          Read essay →
+                        </a>
+                      </div>
                     </article>
 
                     <!-- PRINCIPLE 04 -->
                     <article class="flex flex-col gap-1.5 stagger-child">
                       <div class="flex items-baseline gap-2">
                         <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">04</span>
-                        <h3 class="text-base leading-6 font-semibold tracking-tight">
-                          <a href="explorations/sole-designer-at-scale.html" class="text-black hover:text-[#5D2BC7] underline decoration-zinc-200 hover:decoration-black underline-offset-4 transition-colors">
-                            Platform Enablement Over Ticket Factory
-                          </a>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">
+                          Platform Enablement Over Ticket Factory
                         </h3>
                       </div>
                       <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         True architectural leverage decouples engineering throughput from design headcount through deterministic floorplan contracts.
                       </p>
+                      <div class="pl-6 pt-0.5">
+                        <a href="explorations/sole-designer-at-scale.html" class="text-xs leading-5 font-normal text-zinc-400 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors">
+                          Read essay →
+                        </a>
+                      </div>
                     </article>
 
                     <!-- PRINCIPLE 05 -->
                     <article class="flex flex-col gap-1.5 stagger-child">
                       <div class="flex items-baseline gap-2">
                         <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">05</span>
-                        <h3 class="text-base leading-6 font-semibold tracking-tight">
-                          <a href="explorations/design-systems-vs-tokens.html" class="text-black hover:text-[#5D2BC7] underline decoration-zinc-200 hover:decoration-black underline-offset-4 transition-colors">
-                            Bounded Contexts &amp; Safe Escape Hatches
-                          </a>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">
+                          Bounded Contexts &amp; Safe Escape Hatches
                         </h3>
                       </div>
                       <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         Enterprise platforms require an immutable system kernel paired with isolated token sub-themes for regulated domain contexts.
                       </p>
+                      <div class="pl-6 pt-0.5">
+                        <a href="explorations/design-systems-vs-tokens.html" class="text-xs leading-5 font-normal text-zinc-400 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors">
+                          Read essay →
+                        </a>
+                      </div>
                     </article>
 
                     <!-- PRINCIPLE 06 -->
                     <article class="flex flex-col gap-1.5 stagger-child">
                       <div class="flex items-baseline gap-2">
                         <span class="w-4 text-xs leading-5 font-semibold text-zinc-400 tabular-nums select-none">06</span>
-                        <h3 class="text-base leading-6 font-semibold tracking-tight">
-                          <a href="explorations/fragility-of-agile.html" class="text-black hover:text-[#5D2BC7] underline decoration-zinc-200 hover:decoration-black underline-offset-4 transition-colors">
-                            Decisions Removed Over Components Delivered
-                          </a>
+                        <h3 class="text-base leading-6 font-semibold text-black tracking-tight">
+                          Decisions Removed Over Components Delivered
                         </h3>
                       </div>
                       <p class="text-sm leading-[22px] font-normal text-zinc-600 pl-6">
                         Design architecture ROI is realized in prevented technical debt, eliminated sprint negotiations, and terminated external retainers.
                       </p>
+                      <div class="pl-6 pt-0.5">
+                        <a href="explorations/fragility-of-agile.html" class="text-xs leading-5 font-normal text-zinc-400 hover:text-black underline decoration-zinc-200 hover:decoration-black underline-offset-2 transition-colors">
+                          Read essay →
+                        </a>
+                      </div>
                     </article>
 
                   </div>
