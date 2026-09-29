@@ -163,26 +163,23 @@
 
     <h1>Why Enterprise Figma Kits Fail in Production (And the Bridge to Real Code)</h1>
     <p class="deck">
-      Why static component libraries create catastrophic engineering debt, and how W3C Design Token compilers transform design decisions into synchronized production contracts.
+      Static component libraries fail in production because vector tools cannot model runtime state. Structuring design tokens as W3C DTCG contracts compiled directly to code creates a synchronized bridge between design intent and frontend architecture.
     </p>
 
     <h2>The Static Library Mirage</h2>
     <p>
-      Almost every enterprise organization attempts to solve design fragmentation by purchasing or commissioning an agency UI kit. External agencies deliver 500 beautifully styled components in Figma, leadership declares the design system complete, and within three quarters the system collapses in production.
+      Figma is a static canvas; enterprise software is a dynamic state machine.
     </p>
     <p>
-      The failure is structural: <strong>Figma is a static canvas; enterprise software is a dynamic state machine.</strong>
-    </p>
-    <p>
-      A Figma component cannot simulate data back-pressure, race conditions, role-based field permissions, localization text expansion, or 10,000-row table virtualization. When engineers inspect a design sticker, they find hardcoded pixel coordinates, arbitrary 13px paddings, and no link to framework tokens. Developers are forced to interpret intent, introducing ad-hoc CSS overrides that compound technical debt across every sprint.
+      A static component sticker cannot model backend latency, role-based field authorization, localization text expansion, or 10,000-row table virtualization. When engineers build from static vectors, they encounter unlinked styling and arbitrary spacings. Developers interpret visual intent manually, introducing ad-hoc CSS overrides that compound technical debt across sprints.
     </p>
     <blockquote>
-      “A design system does not live in Figma. A design system lives in the shared contract between design intent and production runtime. If a decision cannot be compiled into code invariants, it is not a system; it is an illustration.”
+      “A design system lives in the shared contract between design intent and runtime code. If a decision cannot be compiled into code invariants, it remains an illustration.”
     </blockquote>
 
     <h2>The Multi-Tenant W3C Token Contract</h2>
     <p>
-      To build resilient multi-brand architectures—such as governing Material UI v5 across Three Insurance (Berkshire Hathaway, 80+ screens), Ranger Insurance (120+ screens), and Mother (cyber insurance) at Radity in Zurich—design tokens must be structured as strict W3C Design Token Community Group (DTCG) data contracts:
+      Building multi-brand architectures across Three Insurance (Berkshire Hathaway), Ranger Insurance, and Mother at Radity in Zurich required structuring tokens as machine-readable W3C Design Tokens Community Group (DTCG) contracts:
     </p>
 
     <div class="spec-box">
@@ -213,24 +210,24 @@
 
     <h2>Automated Compilation: From Variables to Runtime</h2>
     <p>
-      When design tokens are treated as machine-readable data contracts, the bridge between design and code becomes automated:
+      Treating design tokens as machine-readable data contracts automates the pipeline from design to production:
     </p>
     <p>
-      <strong>1. Variables API to Token Pipeline:</strong> Design decisions made in Figma publish directly to <code>core.json</code> via the Figma Variables REST API. Designers cannot invent rogue color hexes or unapproved pixel gaps.
+      <strong>1. Variables API Pipeline:</strong> Design decisions made in Figma publish directly to <code>core.json</code> through the Figma Variables REST API, preventing manual hex copying.
     </p>
     <p>
-      <strong>2. Multi-Target Compilation:</strong> A Style Dictionary build pipeline transforms <code>core.json</code> into framework-native deliverables: CSS Custom Properties (<code>:root</code>), TypeScript strict union types, and Ant Design v5 <code>ConfigProvider</code> theme structures (<code>agitoTheme</code>).
+      <strong>2. Multi-Target Compilation:</strong> A Style Dictionary build step compiles <code>core.json</code> into CSS Custom Properties (<code>:root</code>), TypeScript strict union types, and Ant Design v5 <code>ConfigProvider</code> theme tokens (<code>agitoTheme</code>).
     </p>
     <p>
-      <strong>3. Multi-Brand Token Encapsulation:</strong> Core tokens remain locked at the platform level, while brand-specific themes (e.g., Berkshire Hathaway vs. Ranger) override only semantic color palettes, achieving an 85% component reuse rate across three international platforms with zero frontend rewrites.
+      <strong>3. Multi-Brand Encapsulation:</strong> Platform geometry and typography tokens remain locked, while tenant themes override only semantic color bindings. This model achieved an 85% component reuse rate across three commercial insurance platforms with zero frontend rewrites.
     </p>
 
-    <h2>The Financial Return of Code-First Tokens</h2>
+    <h2>Financial Return of Code-First Tokens</h2>
     <p>
-      At Agito, replacing an external agency UI kit with an automated DTCG token pipeline eliminated an annual $180,000 agency retainer and purged 1,200 hours of technical debt previously spent untangling conflicting CSS rules.
+      At Agito, replacing external agency UI kits with an automated DTCG token pipeline eliminated a $180,000 annual retainer and purged 1,200 hours of technical debt previously spent resolving conflicting CSS rules.
     </p>
     <p>
-      When the token pipeline carries design decisions into code, the design system ceases to be an expense center and becomes a predictable engineering multiplier.
+      When token compilers carry design specifications directly into code, the design system operates as an engineering force multiplier.
     </p>
 
     <div class="footer-nav">

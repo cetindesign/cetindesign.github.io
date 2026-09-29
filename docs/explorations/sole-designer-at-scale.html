@@ -188,29 +188,23 @@
 
     <h1>Scaling Design Architecture Across 14 Enterprise Products Without the Bottleneck</h1>
     <p class="deck">
-      Why expanding design headcount accelerates UI entropy, and how turning design into a governed self-serve floorplan engine enables 14 engineering squads to build autonomously at enterprise scale.
+      Scaling design headcount across autonomous squads accelerates UI fragmentation. Replacing manual screen drafting with a canonical floorplan taxonomy enables 14 engineering teams to ship consistent enterprise software without design blockers.
     </p>
 
-    <h2>Brooks’s Law in Enterprise Design</h2>
+    <h2>Brooks’s Law Applied to Design Headcount</h2>
     <p>
-      In high-growth enterprise software, product leadership instinctively treats design scaling as a head-count equation: <em>"If we have 14 engineering squads, we need 14 embedded product designers."</em>
+      Scaling design headcount across 14 squads increases communication overhead quadratically while degrading consistency. Fourteen independent designers produce divergent table behaviors, bespoke modal sizes, and conflicting validation rules.
     </p>
     <p>
-      In complex B2B platforms, adding more designers to a fragmented system produces the exact failure mode described by Fred Brooks: communication overhead grows quadratically while architectural consistency collapses. Fourteen independent designers working in isolation inevitably create 14 divergent table behaviors, dozens of bespoke modal flows, and conflicting form validation rules.
-    </p>
-    <p>
-      The organization spends immense capital hiring designers, only to discover that design has become the primary bottleneck slowing down sprint delivery.
+      Adding design headcount to unstandardized product development turns the design team into a blocking queue for every sprint.
     </p>
     <blockquote>
-      “Scaling a design function is not about multiplying the number of people drawing screens; it is about establishing a deterministic platform architecture so that product squads assemble correct software autonomously.”
+      “Design scale comes from removing layout decisions from feature tickets. A deterministic floorplan taxonomy allows engineering squads to assemble compliant software without waiting for custom Figma frames.”
     </blockquote>
 
-    <h2>The Self-Serve Floorplan Taxonomy</h2>
+    <h2>The Canonical Floorplan Taxonomy</h2>
     <p>
-      To govern 14 core enterprise insurance platforms at Agito—serving 35% of the national insurance sector—we replaced the traditional ticket-drawing queue with a <strong>Canonical Floorplan Taxonomy</strong>.
-    </p>
-    <p>
-      Instead of designing every new feature from a blank canvas, all transactional requirements across policy, claims, and underwriting must map strictly to one of four pre-validated structural blueprints:
+      At Agito, governing core insurance platforms across 14 enterprise products required replacing the ticket queue with four validated structural blueprints. Every transaction across policy administration, claims triage, and underwriting maps to a canonical layout:
     </p>
 
     <div class="spec-box">
@@ -226,23 +220,23 @@
         <tbody>
           <tr>
             <td><strong>1. List Report &amp; Worklist</strong></td>
-            <td>Underwriting referral worklists, claims triage registers, policy queues.</td>
-            <td>Strict 100vh canvas; 38px row height; zero page scroll; bottom sticky pagination.</td>
+            <td>Underwriting referral queues, claims registers, policy ledgers.</td>
+            <td>100vh locked canvas, 38px row height, zero window scroll, sticky footer pagination.</td>
           </tr>
           <tr>
             <td><strong>2. Guided Multi-Step Flow</strong></td>
-            <td>FNOL (First Notice of Loss) filing, commercial quote inception wizards.</td>
-            <td>15-module progressive vertical state tree; atomic step validation.</td>
+            <td>First Notice of Loss (FNOL), commercial quote inception wizards.</td>
+            <td>Linear vertical state tree with atomic step validation and draft persistence.</td>
           </tr>
           <tr>
             <td><strong>3. Document Workspace</strong></td>
-            <td>Policy endorsement diff views, reinsurance treaty structuring, contract builders.</td>
-            <td>Dual-pane canvas; left-hand document tree; right-hand sticky inspector.</td>
+            <td>Policy endorsement diff views, reinsurance treaty builders.</td>
+            <td>Dual-pane layout with left document index and right sticky inspector.</td>
           </tr>
           <tr>
             <td><strong>4. Analytics &amp; Inspector</strong></td>
-            <td>Actuarial rating trace trees, loss ratio heatmaps, risk exposure cockpits.</td>
-            <td>High-density tabular grids; keyboard-driven data filtering; split ledgers.</td>
+            <td>Actuarial rating trees, loss ratio matrices, portfolio exposure cockpits.</td>
+            <td>High-density tabular grids, keyboard filtering, synchronized split ledgers.</td>
           </tr>
         </tbody>
       </table>
@@ -250,27 +244,27 @@
 
     <h2>The Product Owner UX Readiness Gate</h2>
     <p>
-      To enforce this architecture upstream, we instituted a formalized <strong>UX Readiness Gate</strong> for Product Owners before any engineering sprint is scheduled:
+      To enforce this architecture upstream, Product Owners clear a structured readiness gate before engineering starts:
     </p>
     <p>
-      <strong>1. Entity &amp; Floorplan Declaration:</strong> Every Product Requirement Document (PRD) must declare its target floorplan and entity state transitions. If a requirement cannot be expressed within the canonical taxonomy, the ambiguity is resolved at the requirements phase rather than during active development.
+      <strong>1. Floorplan Declaration:</strong> PRDs must declare their target canonical floorplan and entity state transitions. Novel interaction requirements that fall outside the four blueprints require an architectural RFC review to update the shared platform library rather than an ad-hoc local hack.
     </p>
     <p>
-      <strong>2. Modal &amp; Drawer Density Invariant:</strong> Entities containing 1 to 5 fields receive a 520px centered modal. Entities with 6 to 15 fields receive a 592px slide-over drawer. Entities with more than 15 fields or nested tables must be promoted to a Level 3 full-canvas sub-page. Double-overlay dialogs are architecturally prohibited.
+      <strong>2. Overlay Hierarchy Bounds:</strong> Views with 1 to 5 fields use a 520px centered modal. Views with 6 to 15 fields use a 592px slide-over drawer. Views exceeding 15 fields promote to Level 3 sub-pages. Nested overlays are barred at code review.
     </p>
     <p>
-      <strong>3. Autonomous Engineering Assembly:</strong> Because developers consume pre-composed floorplans from the shared component library, they assemble production views directly from domain schemas without waiting for custom Figma mock-ups.
+      <strong>3. Autonomous Assembly:</strong> Engineers consume pre-built floorplan containers directly from the component library, mapping backend schemas to validated views without intermediate visual mockups.
     </p>
 
-    <h2>Throughput Velocity and Squad Autonomy</h2>
+    <h2>Throughput and Delivery Outcomes</h2>
     <p>
-      Decoupling feature development from design headcount transformed the organization's delivery velocity:
+      Decoupling feature development from design headcount produced measurable gains:
     </p>
     <p>
-      <strong>1. -82% Screen Development Time:</strong> Eliminating speculative layout exploration reduced average developer implementation time from 14 hours down to 2.5 hours per screen.
+      <strong>1. Screen Delivery Time:</strong> Standard screen assembly dropped from 14 hours to 2.5 hours per view by eliminating speculative wireframing.
     </p>
     <p>
-      <strong>2. Zero Design Bottleneck:</strong> Fourteen transactional engineering squads now ship features in parallel with zero waiting time for visual assets, while the entire portfolio maintains unified architectural cohesion.
+      <strong>2. Squad Autonomy:</strong> Fourteen engineering squads ship production features concurrently without waiting for visual asset handoffs, while the platform maintains strict visual and interaction cohesion.
     </p>
 
     <div class="footer-nav">
