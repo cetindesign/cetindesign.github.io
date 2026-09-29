@@ -163,23 +163,23 @@
 
     <h1>A Design System is Not a UI Kit: Building Systems That Enforce Their Own Rules</h1>
     <p class="deck">
-      A design system is a control system. Its primary job is not to provide aesthetic options, but to eliminate failure modes. Why measuring design value in decisions removed from the table eliminates enterprise risk.
+      A design system is a control system. It exists to make incorrect UI impossible to build. Measuring design value in decisions removed from the table eliminates operational risk before runtime.
     </p>
 
-    <h2>The False Metric of Component Quantity</h2>
+    <h2>The False Metric of Component Volume</h2>
     <p>
-      In many technology organizations, design system success is mistakenly measured in component volume: <em>"We published 80 button variants, 45 modal layouts, and 12 badge styles."</em>
+      Publishing dozens of unconstrained button variants or permissive layout parameters expands the surface area for UI regressions. Every optional margin property and arbitrary override invites developer subjectivity and long-term maintenance debt.
     </p>
     <p>
-      In mission-critical enterprise platforms, delivering more permutations is not an asset; it is an architectural liability. Every unconstrained style property, optional margin parameter, and permissive input component invites developer subjectivity, expands the surface area for UI regressions, and degrades long-term software maintainability.
+      In mission-critical enterprise platforms, delivering permutations is an architectural liability. Visual discipline requires strict constraints.
     </p>
     <blockquote>
-      “Design value is measured in decisions removed from the table, not components delivered. If a proposed system change does not make a specific operational failure mode impossible to build, it is visual decoration, not an architectural control.”
+      “Design value is measured in decisions removed from the table, not components delivered. A design system makes failure modes impossible to build rather than policing pixels after the fact.”
     </blockquote>
 
     <h2>The Hard-Deny Invariant Specification</h2>
     <p>
-      A resilient enterprise design system operates as an enforceable control mechanism. Instead of relying on human goodwill or voluntary design reviews, boundaries are declared as non-negotiable acceptance criteria:
+      A resilient design system operates as an enforceable control mechanism. Boundaries are declared as non-negotiable acceptance criteria:
     </p>
 
     <div class="spec-box">
@@ -203,7 +203,7 @@
 
     <h2>Compile-Time Proof: AST Invariant Enforcement</h2>
     <p>
-      Human goodwill and documentation do not prevent architectural entropy; static analysis does. To enforce these Hard-Deny invariants deterministically before runtime, the design system deploys custom ESLint Abstract Syntax Tree (AST) rules directly into the continuous integration build pipeline:
+      Documentation does not prevent architectural entropy; static analysis does. To enforce these Hard-Deny invariants before runtime, the design platform deploys custom ESLint Abstract Syntax Tree (AST) rules in the continuous integration pipeline:
     </p>
 
     <div class="spec-box">
@@ -254,29 +254,29 @@ module.exports = {
     </div>
 
     <p>
-      When a developer introduces an unapproved font weight (e.g., <code>fontWeight={500}</code>) or hardcodes an ad-hoc hex code, the AST linter halts the CI build at compile-time with a fatal error. The failure mode is permanently eliminated before code reaches a pull request.
+      When a pull request introduces an unapproved font weight (such as <code>fontWeight={500}</code>) or hardcodes a hex code, the AST linter halts the build with a fatal error. The failure mode is eliminated before code reaches review.
     </p>
 
     <h2>Business Invariant Enforcement: Underwriting Authority &amp; Endorsement Gating</h2>
     <p>
-      Systemic control must extend beyond visual styling directly into core business rules:
+      Systemic control extends beyond visual styling directly into core business rules:
     </p>
     <p>
-      <strong>1. Underwriting Authority Delegation (Three Insurance):</strong> In multi-line commercial underwriting for Berkshire Hathaway, external brokers and junior underwriters operate within strict schedule rating limits (e.g., maximum 15% discretionary credit). Rather than relying on backend validation errors post-submission, the design system enforces authority boundaries at the UI layer—disabling unauthorized controls and triggering an Underwriting Referral Worklist automatically.
+      <strong>1. Underwriting Authority Delegation (Three Insurance):</strong> In commercial underwriting for Berkshire Hathaway, external brokers operate within strict schedule rating bounds (maximum 15% discretionary credit). Rather than relying on backend validation errors after submission, the design system enforces authority boundaries at the UI layer, disabling unauthorized inputs and routing cases to an Underwriting Referral Worklist automatically.
     </p>
     <p>
-      <strong>2. Mid-Term Endorsement Mode Defense:</strong> When an underwriter modifies an in-force commercial policy mid-term, opening all coverage modules introduces severe accidental alteration risk. The system enforces an <em>Endorsement Mode</em>: only the explicitly requested module (e.g., adding an insured vehicle) becomes editable; all other policy sections are locked with inline diff badges.
+      <strong>2. Mid-Term Endorsement Mode Defense:</strong> Modifying an in-force commercial policy mid-term introduces accidental alteration risk if all modules remain open. The platform enforces an Endorsement Mode: only the requested module becomes editable, while all other policy sections remain locked with diff badges.
     </p>
 
-    <h2>Measuring the Real ROI of Control</h2>
+    <h2>Operational Return of Control</h2>
     <p>
-      When design operates as an enforceable control system:
+      Treating design as an enforceable control system yields concrete results:
     </p>
     <p>
-      <strong>1. Zero Design QA Overhead:</strong> Because invalid styling, illegal padding, and unapproved font weights fail pre-commit automated checks, designers stop policing pixels in sprint reviews.
+      <strong>1. Zero Visual QA Overhead:</strong> Because styling errors, unauthorized margins, and illegal font weights fail pre-commit automated checks, designers stop policing pixels in sprint reviews.
     </p>
     <p>
-      <strong>2. Millions in Leakage Prevented:</strong> By embedding underwriting authority bounds and compliance masking directly into component contracts, the platform eliminates multimillion-dollar operational and regulatory leakage before code reaches production.
+      <strong>2. Prevention of Operational Leakage:</strong> Embedding authority bounds and compliance masking into component contracts eliminates multimillion-dollar underwriting errors before deployment.
     </p>
 
     <div class="footer-nav">

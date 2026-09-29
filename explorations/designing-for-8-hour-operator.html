@@ -163,23 +163,23 @@
 
     <h1>Designing for the 8-Hour Operator: Tables, Density, and Zero-Scroll Layouts</h1>
     <p class="deck">
-      Why consumer whitespace breaks enterprise operator velocity, and the mathematical box-model architecture behind zero-scroll, high-density back-office cockpits.
+      Consumer whitespace heuristics break enterprise operator velocity. A mathematical 38px integer box-model, 100vh canvas containment, and zero-mouse keyboard contracts protect throughput for 8-hour back-office operators.
     </p>
 
-    <h2>The Ocular Ergonomics of High-Frequency Operations</h2>
+    <h2>Ocular Ergonomics in High-Frequency Work</h2>
     <p>
-      In consumer applications, user sessions last between 45 seconds and 3 minutes. In core enterprise systems—such as insurance claims adjudication, actuarial underwriting rating, and B2B bank reconciliation—operators interact with dense tabular data for 8 consecutive hours daily.
+      Consumer UI heuristics fail in enterprise back-offices. Applying 56px card paddings to tabular data cuts visible rows by 35% on standard displays, forcing continuous vertical scrolling and visual saccade fatigue.
     </p>
     <p>
-      When designers apply consumer whitespace heuristics (56px card paddings, sparse row gaps) to back-office software, they unintentionally trigger severe <strong>visual saccade fatigue</strong>. Expanding vertical padding cuts the number of visible rows on a standard 1080p monitor by 35%. The operator is forced into continuous vertical scrolling and frequent context-switching, directly increasing data processing latency and transactional error rates.
+      In claims adjudication, actuarial rating, and ledger reconciliation, operators interact with dense relational tables for 8 consecutive hours daily. Expanding vertical spacing directly increases data processing latency and transactional error rates.
     </p>
     <blockquote>
-      “In back-office enterprise systems, density is not clutter; density is ergonomics. When an operator can scan 20 relational records within a single focal span without scrolling, cognitive strain drops and decision accuracy rises.”
+      “In enterprise core systems, density is ergonomics. Scanning 20 relational records within a single focal span without scrolling reduces cognitive fatigue and input error.”
     </blockquote>
 
     <h2>The Mathematical 38px Table Box-Model</h2>
     <p>
-      To achieve mathematical consistency across browser rendering engines and prevent subpixel padding distortion, enterprise table cells require strict box-model invariants:
+      To eliminate subpixel padding distortion across browser rendering engines, enterprise table cells follow strict integer box-model invariants:
     </p>
 
     <div class="spec-box">
@@ -209,29 +209,29 @@
 
     <h2>Subpixel Padding Compression &amp; Baseline Shifting</h2>
     <p>
-      When HTML tables use native <code>border-collapse: collapse;</code>, browser layout engines compress cell padding to fractional values (e.g., 7.5px top / 7.5px bottom under a 1px border). Across a 50-row underwriting table, this introduces baseline shifts and visual micro-stutter during rapid scrolling.
+      When HTML tables use native <code>border-collapse: collapse;</code>, browser engines compress cell padding to fractional values (such as 7.5px top / 7.5px bottom under a 1px border). Across a 50-row underwriting table, this introduces baseline shifts and visual micro-stutter during rapid scrolling.
     </p>
     <p>
-      By enforcing <code>border-collapse: separate;</code> combined with an <code>inset 0 -1px 0</code> box-shadow divider, the border occupies exactly 0px of the box-model height. Every row is guaranteed an exact integer height of 38px across all display zoom factors and DPI densities.
+      Enforcing <code>border-collapse: separate;</code> combined with an <code>inset 0 -1px 0</code> box-shadow divider ensures the border occupies exactly 0px of the box-model height. Every row maintains an exact integer height of 38px across display scaling factors and DPI densities.
     </p>
 
     <h2>The 100vh Locked Viewport Anatomy</h2>
     <p>
-      Back-office master grids are engineered for 100vh viewport fitting on standard Full HD (1920x1080) displays:
+      Back-office master grids are engineered for 100vh viewport containment on standard Full HD (1920x1080) displays:
     </p>
     <p>
-      <strong>1. Chrome &amp; Filter Budget (80px):</strong> A 48px persistent application bar paired with a 32px composite filter bar (<code>.filter-addon-group</code>). Filters are clustered strictly to the left; total record counts sit exclusively in the pagination footer.
+      <strong>1. Chrome &amp; Filter Budget (80px):</strong> A 48px persistent application bar paired with a 32px composite filter bar (<code>.filter-addon-group</code>). Filters cluster strictly to the left; total record counts sit exclusively in the pagination footer.
     </p>
     <p>
-      <strong>2. Dedicated Internal Scroll:</strong> Page-level window scrolling is architecturally prohibited. Internal scrolling is restricted strictly to the virtualized table container (<code>overflow-y: auto</code>).
+      <strong>2. Dedicated Internal Scroll:</strong> Window-level scrolling is architecturally prohibited. Scrolling is restricted strictly to the virtualized table container (<code>overflow-y: auto</code>).
     </p>
     <p>
-      <strong>3. Borderless Sticky Footer (40px):</strong> Pagination controls sit anchored at the bottom of the viewport outside the table card, providing immediate access without occluding active data rows.
+      <strong>3. Borderless Sticky Footer (40px):</strong> Pagination controls remain anchored at the bottom of the viewport outside the table card, providing immediate access without occluding active data rows.
     </p>
 
     <h2>The Zero-Mouse Keyboard Traversal Contract</h2>
     <p>
-      For back-office operators processing hundreds of insurance claims or reconciliation ledgers per shift, reaching for a mouse introduces an average physical switching latency of 1.8 seconds per field. Over an 8-hour day, mouse dependency degrades data entry throughput and accelerates repetitive strain injury (RSI).
+      Reaching for a mouse introduces an average physical switching latency of 1.8 seconds per field. Over an 8-hour shift processing hundreds of claims or reconciliation ledgers, mouse dependency degrades data entry velocity and accelerates repetitive strain injury (RSI).
     </p>
     <p>
       The architecture establishes a non-negotiable <strong>Zero-Mouse Keyboard Contract</strong> across all tabular floorplans:
@@ -256,18 +256,18 @@
     </div>
 
     <p>
-      By enforcing deterministic keyboard focus rings and zero-mouse navigation paths, operators execute complex multi-line risk evaluations, adjustments, and journal entries entirely hands-on-keyboard at maximum velocity.
+      Enforcing deterministic keyboard focus rings and zero-mouse navigation allows operators to execute multi-line risk evaluations, endorsements, and check allocations entirely hands-on-keyboard.
     </p>
 
     <h2>Operational Impact in High-Density Environments</h2>
     <p>
-      This high-density tabular architecture was proven in two intense operational environments:
+      This high-density tabular architecture proved its performance in two operational environments:
     </p>
     <p>
-      <strong>1. Three Insurance (Berkshire Hathaway):</strong> Ingesting NCCI Workers' Comp payroll class codes and NHTSA multi-vehicle VIN decoding tables across 80+ underwriting screens, reducing commercial quote-to-bind latency from 48 hours down to 12 minutes (-95.8%).
+      <strong>1. Three Insurance (Berkshire Hathaway):</strong> Ingested NCCI Workers' Comp payroll codes and multi-vehicle VIN tables across 80+ underwriting screens, reducing commercial quote-to-bind latency from 48 hours to 12 minutes (-95.8%).
     </p>
     <p>
-      <strong>2. eLogo (Logo Yazılım B2B E-Tahsilat):</strong> High-density bank reconciliation ledgers for commercial check and wire transfer matching across 20+ enterprise sectors, reducing manual accounting reconciliation effort by 85%.
+      <strong>2. eLogo (B2B E-Tahsilat):</strong> Structured high-density bank reconciliation ledgers for commercial check and wire transfer matching across 20+ enterprise sectors, reducing manual accounting reconciliation effort by 85%.
     </p>
 
     <div class="footer-nav">
