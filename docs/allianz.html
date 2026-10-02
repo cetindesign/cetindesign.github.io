@@ -806,5 +806,54 @@
 
   </div>
 
+
+  <!-- GAVIN NELSON 1:1 PAGE TRANSITION ENGINE -->
+  <script>
+    (function() {
+      function handleTransitionLink(e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+        var href = link.getAttribute('href');
+        var target = link.getAttribute('target');
+        
+        // Skip anchors, mailto, tel, javascript:, external target=_blank or modifier clicks
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('javascript:') || href.startsWith('tel:') || target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+          return;
+        }
+        // Skip external domains
+        if (link.hostname && link.hostname !== window.location.hostname) {
+          return;
+        }
+
+        e.preventDefault();
+        var targetUrl = link.href;
+
+        var container = document.querySelector('.wrap') || document.querySelector('.home-container') || document.querySelector('#__next') || document.body;
+        if (container) {
+          container.style.transition = 'opacity 0.2s cubic-bezier(0.4, 0, 1, 1), filter 0.2s cubic-bezier(0.4, 0, 1, 1), transform 0.2s cubic-bezier(0.4, 0, 1, 1)';
+          container.style.opacity = '0';
+          container.style.filter = 'blur(6px)';
+          container.style.transform = 'translate3d(0, -6px, 0)';
+        }
+
+        setTimeout(function() {
+          window.location.href = targetUrl;
+        }, 180);
+      }
+
+      document.addEventListener('click', handleTransitionLink);
+
+      window.addEventListener('pageshow', function(event) {
+        var container = document.querySelector('.wrap') || document.querySelector('.home-container') || document.querySelector('#__next') || document.body;
+        if (container) {
+          container.style.opacity = '';
+          container.style.filter = '';
+          container.style.transform = '';
+          container.style.transition = '';
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
