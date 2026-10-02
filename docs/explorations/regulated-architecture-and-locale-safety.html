@@ -168,13 +168,13 @@
 
     <h2>The Cost of Regulatory Ambiguity</h2>
     <p>
-      In regulated enterprise domains—spanning banking, insurance (MASAK, KVKK, SPK in Turkey; FADP in Switzerland; GDPR in Europe)—compliance cannot be treated as a retrofitted disclaimer or a manual QA checklist.
+      In regulated enterprise domains (spanning banking and insurance under MASAK, KVKK, and GDPR mandates), compliance cannot be treated as a retrofitted disclaimer or a manual QA checklist.
     </p>
     <p>
-      If a design system does not provide built-in primitives for Personally Identifiable Information (PII) masking, role-based unmasking audit logs, and bi-temporal timestamping, product teams inevitably invent fragmented ad-hoc solutions. A single exposed national ID number (TCKN) or unmasked IBAN on an unauthorized screen can result in millions of dollars in regulatory fines.
+      If a design system does not provide built-in primitives for Personally Identifiable Information (PII) masking, role-based unmasking audit logs, and bi-temporal timestamping, product teams inevitably invent fragmented ad-hoc solutions. A single exposed national ID number (TCKN) or unmasked IBAN on an unauthorized screen risks severe regulatory fines.
     </p>
     <blockquote>
-      “Regulatory compliance is an architecture problem. When PII masking, accessibility contrast ratios, and multi-locale casing rules are embedded into foundational component primitives, compliance becomes the default outcome rather than an expensive manual audit.”
+      “Regulatory compliance is an architecture problem. When masking policies and locale invariants are embedded directly into component primitives, compliance becomes the default runtime state rather than an afterthought.”
     </blockquote>
 
     <h2>The Derived Field Pattern (AgitoDerivedField)</h2>
@@ -205,7 +205,7 @@
       Internationalization bugs frequently break enterprise search and database indexing due to string transformations. In the Turkish alphabet, lowercase 'i' capitalizes to 'İ' (dotted), while uppercase 'I' lowercases to 'ı' (dotless).
     </p>
     <p>
-      When frontend frameworks run naive JavaScript <code>.toUpperCase()</code>, the Turkish string <code>dicle</code> transforms to <code>DİCLE</code> in Turkish runtimes but <code>DICLE</code> in default US English environments. This silent 1-character discrepancy breaks database lookups and search filtering across banking and insurance ledgers. The design system enforces locale-aware string transformations (<code>toLocaleUpperCase('tr-TR')</code>) across all search inputs and filter bars by contract.
+      When frontend frameworks run naive JavaScript <code>.toUpperCase()</code>, the Turkish string <code>dicle</code> transforms to <code>DİCLE</code> in Turkish runtimes but <code>DICLE</code> in default US English environments. This silent single-character discrepancy breaks database lookups and search filtering across banking and insurance ledgers. The design system enforces locale-aware string transformations (<code>toLocaleUpperCase('tr-TR')</code>) across all search inputs and filter bars by contract.
     </p>
 
     <h2>Global Medical Data Privacy: Prepared360 (Switzerland)</h2>
@@ -218,7 +218,7 @@
 
     <h2>Accessibility and Bi-Temporal Certainty</h2>
     <p>
-      By enforcing WCAG 2.1 AA/AAA 4.5:1 contrast ratios on all text tokens and structuring financial records with <strong>Bi-Temporal timestamps</strong> (distinguishing <em>Effective Policy Date</em> from <em>System Transaction Record Date</em>), the design platform ensures legal certainty and operational transparency across all regulated enterprise products.
+      By enforcing WCAG 2.1 AA/AAA 4.5:1 contrast ratios on all text tokens and structuring financial records with <strong>Bi-Temporal timestamps</strong> (distinguishing <em>Effective Policy Date</em> from <em>System Transaction Record Date</em>), the design platform guarantees legal certainty across all regulated enterprise products.
     </p>
 
     <div class="footer-nav">
