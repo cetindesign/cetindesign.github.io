@@ -18,14 +18,19 @@
   <!-- FAVICON (SVG MONOGRAM) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
 
+    <!-- DM SANS: STRICTLY 400 AND 600 WEIGHTS ONLY -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet">
+
   <style>
     *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e4e4e7}
     
     html,:host{
       -webkit-text-size-adjust:100%;
       tab-size:4;
-      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-      line-height:1.6;
+      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.57142857;
       scrollbar-gutter:stable;
       overflow-y:scroll;
       background-color:#ffffff;
@@ -34,8 +39,10 @@
     
     body{
       margin:0;
+      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
       font-size:14px;
       line-height:22px;
+      color:#000;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
@@ -92,7 +99,7 @@
     }
 
     .meta-tag{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:12px;
       color:#71717a;
     }
@@ -138,8 +145,8 @@
     }
 
     .deck{
-      font-size:16px;
-      line-height:24px;
+      font-size:14px;
+      line-height:22px;
       color:#71717a;
       margin-bottom:24px;
     }
@@ -160,7 +167,7 @@
 
     .stat-item{ display:flex; flex-direction:column; gap:4px; }
     .stat-val{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:16px;
       line-height:24px;
       font-weight:600;
@@ -180,7 +187,7 @@
       border-radius:0 4px 4px 0;
     }
     .bl-tag{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       font-weight:600;
@@ -261,8 +268,9 @@
     }
     @media (min-width:860px){
       .specimen-frame, .arch-table-wrap{
-        margin-left:-48px;
-        margin-right:-48px;
+        margin-left:0;
+        margin-right:0;
+        width:100%;
         border-radius:8px;
       }
     }
@@ -273,7 +281,7 @@
       background:#fafafa;
       border-bottom:1px solid #e4e4e7;
       padding:8px 12px;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       flex-wrap:wrap;
@@ -289,7 +297,7 @@
       gap:6px;
     }
     .specimen-pill{
-      font-family:ui-monospace,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       font-weight:600;
@@ -329,7 +337,7 @@
       border-top:1px solid #e4e4e7;
       padding:8px 12px;
       background:#fafafa;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       color:#71717a;
@@ -359,7 +367,7 @@
       gap:8px;
     }
     .keynote-title{
-      font-family:ui-monospace,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       font-weight:600;
@@ -368,7 +376,7 @@
       letter-spacing:0.04em;
     }
     .keynote-sub{
-      font-family:ui-monospace,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       color:#003781;
@@ -384,7 +392,7 @@
     }
     .keynote-ledger-row:last-child{ border-bottom:none; }
     .keynote-ledger-key{
-      font-family:ui-monospace,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       color:#71717a;
       font-weight:600;
@@ -488,19 +496,19 @@
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
         <div>
-          <span style="color:#71717a; font-size:10px; display:block; font-family:ui-monospace,monospace; font-weight:600;">ROLE &amp; GOVERNANCE</span>
+          <span style="color:#71717a; font-size:10px; display:block; font-family:inherit; font-variant-numeric:tabular-nums; font-weight:600;">ROLE &amp; GOVERNANCE</span>
           <strong style="color:#000000; font-weight:600; font-size:12px;">Lead Product Designer &amp; Ecosystem Orchestrator (ting agency embed)</strong>
         </div>
         <div>
-          <span style="color:#71717a; font-size:10px; display:block; font-family:ui-monospace,monospace; font-weight:600;">SQUAD TOPOLOGY</span>
+          <span style="color:#71717a; font-size:10px; display:block; font-family:inherit; font-variant-numeric:tabular-nums; font-weight:600;">SQUAD TOPOLOGY</span>
           <strong style="color:#000000; font-weight:600; font-size:12px;">5 Cross-Functional Squads · 10+ Product Owners · 100+ Initiatives</strong>
         </div>
         <div>
-          <span style="color:#71717a; font-size:10px; display:block; font-family:ui-monospace,monospace; font-weight:600;">PORTFOLIO IMPACT</span>
+          <span style="color:#71717a; font-size:10px; display:block; font-family:inherit; font-variant-numeric:tabular-nums; font-weight:600;">PORTFOLIO IMPACT</span>
           <strong style="color:#000000; font-weight:600; font-size:12px;">$24M+ GWP+ANP Production · 2.5M Unique User Engagements · 4.8★ App Store</strong>
         </div>
         <div>
-          <span style="color:#71717a; font-size:10px; display:block; font-family:ui-monospace,monospace; font-weight:600;">OPERATIONAL LEVERAGE</span>
+          <span style="color:#71717a; font-size:10px; display:block; font-family:inherit; font-variant-numeric:tabular-nums; font-weight:600;">OPERATIONAL LEVERAGE</span>
           <strong style="color:#000000; font-weight:600; font-size:12px;">-20% Inbound Call Center Load · 515K+ Digital Fund Rebalancing</strong>
         </div>
       </div>
