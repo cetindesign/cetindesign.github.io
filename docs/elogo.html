@@ -18,14 +18,19 @@
   <!-- FAVICON (SVG MONOGRAM) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' fill='%23ffffff' text-anchor='middle'>M</text></svg>">
 
+  <!-- DM SANS: STRICTLY 400 AND 600 WEIGHTS ONLY -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet">
+
   <style>
     *,:before,:after,::backdrop{box-sizing:border-box;border:0 solid #e4e4e7}
     
     html,:host{
       -webkit-text-size-adjust:100%;
       tab-size:4;
-      font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-      line-height:1.6;
+      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      line-height:1.57142857;
       scrollbar-gutter:stable;
       overflow-y:scroll;
       background-color:#ffffff;
@@ -34,8 +39,10 @@
     
     body{
       margin:0;
+      font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
       font-size:14px;
       line-height:22px;
+      color:#000;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
@@ -92,7 +99,7 @@
     }
 
     .meta-tag{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:12px;
       color:#71717a;
     }
@@ -138,8 +145,8 @@
     }
 
     .deck{
-      font-size:16px;
-      line-height:24px;
+      font-size:14px;
+      line-height:22px;
       color:#71717a;
       margin-bottom:24px;
     }
@@ -160,7 +167,7 @@
 
     .stat-item{ display:flex; flex-direction:column; gap:4px; }
     .stat-val{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:16px;
       line-height:24px;
       font-weight:600;
@@ -180,7 +187,7 @@
       border-radius:0 4px 4px 0;
     }
     .bl-tag{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       font-weight:600;
@@ -261,8 +268,9 @@
     }
     @media (min-width:860px){
       .specimen-frame, .arch-table-wrap{
-        margin-left:-48px;
-        margin-right:-48px;
+        margin-left:0;
+        margin-right:0;
+        width:100%;
         border-radius:8px;
       }
     }
@@ -273,7 +281,7 @@
       background:#fafafa;
       border-bottom:1px solid #e4e4e7;
       padding:8px 12px;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       flex-wrap:wrap;
@@ -289,7 +297,7 @@
       gap:6px;
     }
     .specimen-pill{
-      font-family:ui-monospace,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       font-weight:600;
@@ -329,7 +337,7 @@
       border-top:1px solid #e4e4e7;
       padding:8px 12px;
       background:#fafafa;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       line-height:16px;
       color:#71717a;
@@ -351,7 +359,7 @@
     .keynote-card-title{
       font-size:12px;
       line-height:16px;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-weight:600;
       text-transform:uppercase;
       letter-spacing:0.04em;
@@ -386,7 +394,7 @@
       font-weight:600;
       text-align:left;
       padding:8px 12px;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:10px;
       text-transform:uppercase;
       letter-spacing:0.04em;
@@ -425,7 +433,7 @@
       padding:16px;
     }
     .ledger-val{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-family:inherit; font-variant-numeric:tabular-nums;
       font-size:24px;
       line-height:32px;
       font-weight:600;
@@ -536,7 +544,7 @@
     <!-- SECTION 01: THE POST-DATED CHECK CRISIS -->
     <h2>01 · The Macro Crisis: Declining Trust in Post-Dated Checks</h2>
     <p>
-      For decades, the lifeblood of Turkish B2B commerce—from automotive aftermarket distributors and construction material suppliers to pharmaceutical wholesalers—operated on post-dated physical checks (vadeli çek). In this financing model, buyers issued checks maturing 30, 60, or 90 days out, functioning as informal working capital loans between private enterprises.
+      For decades, the lifeblood of Turkish B2B commerce across automotive aftermarket distributors, construction material suppliers, and pharmaceutical wholesalers operated on post-dated physical checks (vadeli çek). In this financing model, buyers issued checks maturing 30, 60, or 90 days out, functioning as informal working capital loans between private enterprises.
     </p>
     <p>
       However, tightening monetary policy, inflationary pressures, and rising default rates caused a systemic collapse in check credibility:
@@ -739,7 +747,7 @@
       Enterprise accounting software is notorious for cognitive overload. I overhauled the user interface with strict progressive disclosure:
     </p>
     <ul>
-      <li><strong>Collect via Link in 3 Clicks:</strong> Merchants enter buyer mobile number, amount, and invoice reference—generating an encrypted instant payment link dispatched via SMS and WhatsApp.</li>
+      <li><strong>Collect via Link in 3 Clicks:</strong> Merchants enter buyer mobile number, amount, and invoice reference, generating an encrypted instant payment link dispatched via SMS and WhatsApp.</li>
       <li><strong>Automated Bank Reconciliation:</strong> Replaced manual ledger entry with bi-directional webhooks that auto-match bank payments to outstanding ERP sales orders.</li>
       <li><strong>Dealer Commission Splitting:</strong> Enabled parent manufacturers to distribute installment payouts automatically between central headquarters and local regional dealers.</li>
     </ul>
