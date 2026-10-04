@@ -923,6 +923,8 @@
       initFromUrl();
     });
 
+    initFromUrl();
+
     window.addEventListener('resize', function() {
       var activeTab = document.querySelector('.nav-tab-item.text-black');
       if (activeTab) updateIndicator(activeTab);
@@ -974,6 +976,7 @@
           container.style.transform = '';
           container.style.transition = '';
           if (event.persisted) {
+            initFromUrl();
             container.style.animation = 'none';
             container.offsetHeight; /* trigger reflow */
             container.style.animation = 'gavinBlurIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both';
