@@ -371,7 +371,7 @@
 
           <!-- AVATAR (GAVIN NELSON EXACT: static in layout, no entrance animation) -->
           <div class="grid w-8 h-8 mb-8 group max-w-2xl">
-            <a aria-label="Go to the homepage" href="cetin-design-landing.html" class="block h-8 w-8 rounded-full bg-[#5D2BC7] text-white flex items-center justify-center font-semibold text-xs no-underline hover:no-underline">
+            <a aria-label="Go to the homepage" href="index.html" class="block h-8 w-8 rounded-full bg-[#5D2BC7] text-white flex items-center justify-center font-semibold text-xs no-underline hover:no-underline">
               M
             </a>
           </div>
@@ -890,12 +890,27 @@
 
     function initFromUrl() {
       var params = new URLSearchParams(window.location.search);
-      var section = params.get('section');
-      if (section && section !== 'work' && ['operating', 'explorations', 'about'].indexOf(section) !== -1) {
-        selectTabDirect(section, null, true);
-      } else {
-        var activeTab = document.querySelector('.nav-tab-item.text-black');
-        if (activeTab) updateIndicator(activeTab);
+      var section = params.get('section') || 'work';
+      if (['work', 'operating', 'explorations', 'about'].indexOf(section) !== -1) {
+        var tabItems = document.querySelectorAll('.nav-tab-item');
+        var keys = ['work', 'operating', 'explorations', 'about'];
+        var idx = keys.indexOf(section);
+        if (idx !== -1 && tabItems[idx]) {
+          document.querySelectorAll('.nav-tab-item').forEach(function(el) {
+            el.classList.remove('text-black');
+            el.classList.add('text-zinc-400');
+          });
+          tabItems[idx].classList.remove('text-zinc-400');
+          tabItems[idx].classList.add('text-black');
+          updateIndicator(tabItems[idx]);
+
+          document.querySelectorAll('.section-tab-pane').forEach(function(p) { p.classList.remove('active'); });
+          var targetPane = document.getElementById('pane-' + section);
+          if (targetPane) {
+            targetPane.classList.add('active');
+          }
+          currentTabKey = section;
+        }
       }
     }
 
@@ -904,7 +919,7 @@
     });
 
     window.addEventListener('DOMContentLoaded', function() {
-      setTimeout(initFromUrl, 20);
+      initFromUrl();
     });
 
     window.addEventListener('resize', function() {
@@ -957,6 +972,11 @@
           container.style.filter = '';
           container.style.transform = '';
           container.style.transition = '';
+          if (event.persisted) {
+            container.style.animation = 'none';
+            container.offsetHeight; /* trigger reflow */
+            container.style.animation = 'gavinBlurIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both';
+          }
         }
       });
     })();
