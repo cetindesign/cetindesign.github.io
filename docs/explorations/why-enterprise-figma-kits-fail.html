@@ -197,20 +197,20 @@
       Static component libraries fail in production because vector tools cannot model runtime state. Structuring design tokens as W3C DTCG contracts compiled directly to code creates a synchronized bridge between design intent and frontend architecture.
     </p>
 
-    <h2>The Static Library Mirage</h2>
+    <h2>The Static Canvas vs. Runtime State Machine</h2>
     <p>
-      Figma is a static canvas; enterprise software is a dynamic state machine.
+      Figma is a static canvas; production software is a state machine.
     </p>
     <p>
-      A static component sticker cannot model backend latency, role-based field authorization, localization text expansion, or 10,000-row table virtualization. When engineers build from static vectors, they encounter unlinked styling and arbitrary spacings. Developers interpret visual intent manually, introducing ad-hoc CSS overrides that compound technical debt across sprints.
+      A static vector frame cannot model backend back-pressure, role-based field permissions, localization text expansion, or 10,000-row table virtualization. When engineers build from static vectors, they interpret unstated edge cases independently. That manual interpretation produces bespoke CSS overrides, divergent state logic, and cumulative architectural drift.
     </p>
     <blockquote>
-      “A design system lives in the shared contract between design intent and runtime code. If a decision cannot be compiled into code invariants, it remains an illustration.”
+      “A design system is not a library of static stickers. It is a dual contract: compiled data tokens for visual geometry, and hardened component wrappers for runtime state.”
     </blockquote>
 
     <h2>The Multi-Tenant W3C Token Contract</h2>
     <p>
-      Building multi-brand architectures across Three Insurance (Berkshire Hathaway), Ranger Insurance, and Mother at Radity in Zurich required structuring tokens as machine-readable W3C Design Tokens Community Group (DTCG) contracts:
+      Building multi-brand platforms across Three Insurance (Berkshire Hathaway), Ranger Insurance, and Mother at Radity in Zurich required structuring tokens as machine-readable W3C Design Tokens Community Group (DTCG) specifications:
     </p>
 
     <div class="spec-box">
@@ -239,18 +239,18 @@
 }</code></pre>
     </div>
 
-    <h2>Automated Compilation: From Variables to Runtime</h2>
+    <h2>From Variables API to Component Runtime Contracts</h2>
     <p>
-      Treating design tokens as machine-readable data contracts automates the pipeline from design to production:
+      Closing the gap between design and production requires two synchronized layers:
     </p>
     <p>
-      <strong>1. Variables API Pipeline:</strong> Design decisions made in Figma publish directly to <code>core.json</code> through the Figma Variables REST API, preventing manual hex copying.
+      <strong>1. Token Compilation Pipeline:</strong> Design tokens defined in Figma synchronize directly to <code>core.json</code> via the Figma Variables REST API. A Style Dictionary pipeline compiles them into CSS Custom Properties (<code>:root</code>), TypeScript strict union types, and Ant Design v5 <code>ConfigProvider</code> theme objects (<code>agitoTheme</code>).
     </p>
     <p>
-      <strong>2. Multi-Target Compilation:</strong> A Style Dictionary build step compiles <code>core.json</code> into CSS Custom Properties (<code>:root</code>), TypeScript strict union types, and Ant Design v5 <code>ConfigProvider</code> theme tokens (<code>agitoTheme</code>).
+      <strong>2. Stateful Component Contracts:</strong> Visual tokens alone do not solve dynamic state. The design platform encapsulates table virtualization, asynchronous retry states, and role-based field masking inside strict React component wrappers. Engineers consume pre-tested primitives with built-in state invariants rather than assembling UI from static vectors.
     </p>
     <p>
-      <strong>3. Multi-Brand Encapsulation:</strong> Platform geometry and typography tokens remain locked, while tenant themes override only semantic color bindings. This model achieved an 85% component reuse rate across three commercial insurance platforms with zero frontend rewrites.
+      <strong>3. Multi-Brand Encapsulation:</strong> Platform geometry, spatial rhythm, and typography tokens remain locked, while tenant themes override only semantic color bindings. This model achieved an 85% component reuse rate across three commercial insurance lines with zero frontend rewrites.
     </p>
 
     <h2>Financial Return of Code-First Tokens</h2>

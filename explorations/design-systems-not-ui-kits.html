@@ -285,7 +285,10 @@ module.exports = {
     </div>
 
     <p>
-      When a pull request introduces an unapproved font weight (such as <code>fontWeight={500}</code>) or hardcodes a hex code, the AST linter halts the build with a fatal error. The failure mode is eliminated before code reaches review.
+      Enforcement operates across two coordinated layers: ESLint AST rules for JSX/TSX component properties, and Stylelint checks across CSS and SCSS modules to catch raw color declarations and unauthorized z-index layering.
+    </p>
+    <p>
+      In an engineering organization of 250+ developers, absolute rules require realistic governance. When legacy migrations or external integrations demand a temporary exception, arbitrary inline linter suppressions (such as <code>eslint-disable</code>) are barred. Exceptions require a declared <code>data-design-exception="DEBT-TICKET-ID"</code> attribute with a mandatory architectural expiration date tracked in the quarterly debt backlog.
     </p>
 
     <h2>Business Invariant Enforcement: Underwriting Authority &amp; Endorsement Gating</h2>
