@@ -170,6 +170,18 @@
     .wrap {
       animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
+    .top-nav {
+      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.00s both;
+    }
+    h1, .deck {
+      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    }
+    .spec-box, blockquote {
+      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+    }
+    .footer-nav {
+      animation: gavinBlurMount 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+    }
 
   </style>
 </head>
@@ -249,6 +261,19 @@
   <!-- GAVIN NELSON 1:1 PAGE TRANSITION ENGINE -->
   <script>
     (function() {
+      var from = new URLSearchParams(window.location.search).get('from') || 'explorations';
+      var backLinks = document.querySelectorAll('.nav-back, a[href*="index.html"]');
+      backLinks.forEach(function(l) {
+        l.setAttribute('href', '../index.html?section=' + from);
+      });
+      var nextPrev = document.querySelectorAll('.footer-prev, .footer-next');
+      nextPrev.forEach(function(l) {
+        var href = l.getAttribute('href');
+        if (href && !href.includes('?from=')) {
+          l.setAttribute('href', href + '?from=' + from);
+        }
+      });
+
       function handleTransitionLink(e) {
         var link = e.target.closest('a');
         if (!link) return;
